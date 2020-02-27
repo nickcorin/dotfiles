@@ -146,6 +146,7 @@ endif
 
 sync_config:
 	@echo "Creating configuration symlinks."
+	@[ -f $(HOME)/.config/alacritty/alacritty.yml ] || ln -s $(PWD)/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml
 	@[ -f $(HOME)/.bashrc ] || ln -s $(PWD)/bashrc $(HOME)/.bashrc
 	@[ -f $(HOME)/.tmux.conf ] || ln -s $(PWD)/tmux.conf $(HOME)/.tmux.conf
 	@[ -f $(HOME)/.vimrc ] || ln -s $(PWD)/vimrc $(HOME)/.vimrc
@@ -155,6 +156,7 @@ sync_config:
 
 clean:
 	@echo "Cleaning current configuration."
+	@rm -f $(HOME)/.config/alacritty/alacritty.yml
 	@rm -f $(HOME)/.bashrc
 	@rm -f $(HOME)/.tmux.conf
 	@rm -f $(HOME)/.vimrc
