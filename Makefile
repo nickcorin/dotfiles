@@ -145,13 +145,18 @@ endif
 	curl https://sh.rustup.rs -sSf | sh
 
 sync_config:
-	@echo "Creating configuration symlinks."
-	@[ -f $(HOME)/.config/alacritty/alacritty.yml ] || ln -s $(PWD)/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml
+	@echo "Creating config directory tree.."
+	ifeq ("$(XDG_CONFIG_HOME)","")
+		@echo "XDG_CONFIG_HOME not set, using default.."
+		export XDG_CONFIG_HOME="$(HOME)/.config"
+	endif
+	@[ -d $(XDG_CONFIG_HOME) ] || mkdir -p $(XDG_CONFIG_HOME)
+
+	@echo "Creating configuration symlinks.."
+	@cp -rauv $(PWD)/.config $(XDG_CONFIG_HOME)
 	@[ -f $(HOME)/.bashrc ] || ln -s $(PWD)/bashrc $(HOME)/.bashrc
 	@[ -f $(HOME)/.tmux.conf ] || ln -s $(PWD)/tmux.conf $(HOME)/.tmux.conf
 	@[ -f $(HOME)/.vimrc ] || ln -s $(PWD)/vimrc $(HOME)/.vimrc
-	@[ -d $(HOME)/.config/nvim ] || mkdir -p $(HOME)/.config/nvim
-	@[ -f $(HOME)/.config/nvim/init.vim ] || ln -s $(PWD)/vimrc $(HOME)/.config/nvim/init.vim
 	@[ -f $(HOME)/.zshrc ] || ln -s $(PWD)/zshrc $(HOME)/.zshrc
 
 clean:
