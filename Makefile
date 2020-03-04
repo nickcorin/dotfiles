@@ -21,56 +21,8 @@ else
 	@echo "OS $(OS) not supported."
 endif
 
-
-install_arch:
-	# TODO: Install minikube.
-	# TODO: Install protobuf.
-	# TODO: Install etcd.
-	# TODO: Install stern.
-	sudo pacman -Syu \
-		apt-transport-https \
-		autoconf \
-		automake \
-		awscli \
-		bat \
-		ca-certificates \
-		curl \
-		docker.io \
-		etcd \
-		ffmpeg \
-		fzf \
-		g++ \
-		git \
-		golang-go \
-		htop \
-		jq \
-		kubectl \
-		kubernetes \
-		libtool \
-		make \
-		mysql-server \
-		neovim \
-		nodejs \
-		python \
-		software-properties-common \
-		tmux \
-		tree \
-		vim \
-		virtualbox \
-		virtualbox-ext-pack \
-		youtube-dl \
-		zsh \
-		zsh-autosuggestions \
-		zsh-syntax-highlighting
-
-	@echo "Insalling vim-plug.."
-	@curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	
-	@echo "Intalling Rust.."
-	curl https://sh.rustup.rs -sSf | sh
-
-
+# Only works with Debian based distos.
+# TODO: Add support for other distros - move arch makefile here.
 install_linux:
 	# TODO: Install minikube.
 	# TODO: Install protobuf.
@@ -147,7 +99,6 @@ endif
 sync_config:
 	@echo "Creating configuration symlinks."
 	@[ -f $(HOME)/.config/alacritty/alacritty.yml ] || ln -s $(PWD)/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml
-	@[ -f $(HOME)/.bashrc ] || ln -s $(PWD)/bashrc $(HOME)/.bashrc
 	@[ -f $(HOME)/.tmux.conf ] || ln -s $(PWD)/tmux.conf $(HOME)/.tmux.conf
 	@[ -f $(HOME)/.vimrc ] || ln -s $(PWD)/vimrc $(HOME)/.vimrc
 	@[ -d $(HOME)/.config/nvim ] || mkdir -p $(HOME)/.config/nvim
@@ -157,7 +108,6 @@ sync_config:
 clean:
 	@echo "Cleaning current configuration."
 	@rm -f $(HOME)/.config/alacritty/alacritty.yml
-	@rm -f $(HOME)/.bashrc
 	@rm -f $(HOME)/.tmux.conf
 	@rm -f $(HOME)/.vimrc
 	@rm -rf $(HOME)/.config/nvim
