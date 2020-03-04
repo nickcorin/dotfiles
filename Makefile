@@ -97,20 +97,37 @@ endif
 	curl https://sh.rustup.rs -sSf | sh
 
 sync_config:
-	@echo "Creating configuration symlinks."
-	@[ -f $(HOME)/.config/alacritty/alacritty.yml ] || ln -s $(PWD)/alacritty.yml $(HOME)/.config/alacritty/alacritty.yml
-	@[ -f $(HOME)/.tmux.conf ] || ln -s $(PWD)/tmux.conf $(HOME)/.tmux.conf
-	@[ -f $(HOME)/.vimrc ] || ln -s $(PWD)/vimrc $(HOME)/.vimrc
-	@[ -d $(HOME)/.config/nvim ] || mkdir -p $(HOME)/.config/nvim
-	@[ -f $(HOME)/.config/nvim/init.vim ] || ln -s $(PWD)/vimrc $(HOME)/.config/nvim/init.vim
-	@[ -f $(HOME)/.zshrc ] || ln -s $(PWD)/zshrc $(HOME)/.zshrc
+	echo "Creating config directory tree.."
+	if [ "$(XDG_CONFIG_HOME)" == "" ]; then \
+		echo "XDG_CONFIG_HOME not set, using default.."; \
+		export XDG_CONFIG_HOME="$(HOME)/.config"; \
+	fi	
+	
+	for f in $(PWD)/.config/*; \
+	do \
+		echo $(XDG_CONFIG_HOME)/$(basename $$f); \
+		if [[ -d $$f && ! -d $(XDG_CONFIG_HOME)/$(basename $$f) ]]; \
+		then \
+			echo "doesn't exist!"; \
+			mkdir -p $(XDG_CONFIG_HOME)/$(basename $$f); \
+		else \
+			echo "directory exists!"; \
+		fi \
+	done 
+
+	echo "Creating configuration symlinks.."
+
+	[ -f $(HOME)/.tmux.conf ] || ln -s $(PWD)/tmux.conf $(HOME)/.tmux.conf
+	[ -f $(HOME)/.vimrc ] || ln -s $(PWD)/vimrc $(HOME)/.vimrc
+	[ -f $(HOME)/.zshrc ] || ln -s $(PWD)/zshrc $(HOME)/.zshrc
 
 clean:
-	@echo "Cleaning current configuration."
-	@rm -f $(HOME)/.config/alacritty/alacritty.yml
-	@rm -f $(HOME)/.tmux.conf
-	@rm -f $(HOME)/.vimrc
-	@rm -rf $(HOME)/.config/nvim
-	@rm -f $(HOME)/.zshrc
+	echo "Cleaning current configuration."
+	rm -f $(HOME)/.config/alacritty/alacritty.yml
+	rm -f $(HOME)/.tmux.conf
+	rm -f $(HOME)/.vimrc
+	rm -rf $(HOME)/.config/nvim
+	rm -f $(HOME)/.zshrc
 
 .PHONY: all sync_config clean install install_darwin install_linux
+.SILENT: clean
