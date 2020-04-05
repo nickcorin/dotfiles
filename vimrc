@@ -39,7 +39,7 @@ if !has('gui_running')
 end
 
 syntax enable					" Enable syntax highlighting.
-colorscheme base16-gruvbox-dark-medium		" Set the colorscheme.
+colorscheme base16-gruvbox-dark-hard		" Set the colorscheme.
 "set t_Co=256					" Use 256-bit colors.
 set background=dark				" Enable dark mode.
 let g:molokai_original = 1
