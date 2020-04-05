@@ -128,6 +128,10 @@ let g:go_def_mapping_enabled = 0
 augroup go_bindings
 	autocmd! go_bindings
 
+	autocmd BufNewFile,BufRead *.go setlocal expandtab
+	autocmd BufNewFile,BufRead *.go setlocal shiftwidth=4
+	autocmd BufNewFile,BufRead *.go setlocal tabstop=4
+
 	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <C-d> :GoDoc<CR>
 	autocmd BufNewFile,BufRead *.go nmap <buffer> <C-d> <esc>:GoDoc<CR>
 
@@ -137,10 +141,12 @@ augroup go_bindings
 	autocmd BufNewFile,BufRead *.go inoremap <buffer> <leader>f :GoFmt<CR>
 	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>v :GoVet<CR>
 
-	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>] :GoDef<CR>
-	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>[ :GoDefPop<CR>
-
 	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>t :GoAlternate<CR>
+	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>r :GoReferrers<CR>
+	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>d :GoDecls<CR>
+	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>D :GoDeclsDir<CR>
+	
+
 
 augroup end
 
@@ -151,6 +157,10 @@ let g:rustfmt_autosave = 1
 
 augroup rust_bindings
 	autocmd! rust_bindings
+
+	autocmd BufNewFile,BufRead *.rs setlocal expandtab
+	autocmd BufNewFile,BufRead *.rs setlocal shiftwidth=4
+	autocmd BufNewFile,BufRead *.rs setlocal tabstop=4
 
 	autocmd BufNewFile,BufRead *.rs nnoremap <buffer> <leader>f :RustFmt<CR>
 augroup end

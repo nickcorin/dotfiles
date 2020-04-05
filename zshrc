@@ -54,11 +54,12 @@ export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --multi --inline-i
 alias b="git branch"
 alias co="git checkout"
 alias com="git checkout master" 
-alias pm="git pull origin master"
+alias pm="git pull origin master && git submodule update"
 #alias po="git pull origin $(git rev-parse --abbrev-ref HEAD)"
 alias ll="ls -lG"
 alias please="sudo"
 alias code="open -a /Applications/Visual\ Studio\ Code.app"
+alias mvim="open -a /Applications/Macvim.app"
 
 #=====================================================
 #===================== Misc ==========================
