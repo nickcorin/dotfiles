@@ -75,3 +75,8 @@ complete -o nospace -C /usr/local/bin/vault vault
 export LC_ALL=en_US.UTF-8
 
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private
+
+# Start X at login
+if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec startx
+fi
