@@ -97,7 +97,8 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: "Source Code Pro"
+    family: "Noto Sans Mono"
+
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -136,7 +137,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 12.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -170,42 +171,86 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
+schemes:
+        base16-default: &base16-default
+                primary:
+                        background: '0x181818'
+                        foreground: '0xd8d8d8'
+                cursor:
+                        text: '0x181818'
+                        cursor: '0xd8d8d8'
+                normal:
+                        black:   '0x181818'
+                        red:     '0xab4642'
+                        green:   '0xa1b56c'
+                        yellow:  '0xf7ca88'
+                        blue:    '0x7cafc2'
+                        magenta: '0xba8baf'
+                        cyan:    '0x86c1b9'
+                        white:   '0xd8d8d8'
+                bright:
+                        black:   '0x585858'
+                        red:     '0xdc9656'
+                        green:   '0x282828'
+                        yellow:  '0x383838'
+                        blue:    '0xb8b8b8'
+                        magenta: '0xe8e8e8'
+                        cyan:    '0xa16946'
+                        white:   '0xf8f8f8'
 
-# Base16 Gruvbox dark, hard - alacritty color config
-# Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
-colors:
-  # Default colors
-  primary:
-    background: '0x1d2021'
-    foreground: '0xd5c4a1'
+        base16-default-256: &base16-default-256
+                primary:
+                        background: '#181818'
+                        foreground: '#d8d8d8'
+                cursor:
+                        text: '#d8d8d8'
+                        cursor: '#d8d8d8'
+                normal:
+                        black:   '#181818'
+                        red:     '#ab4642'
+                        green:   '#a1b56c'
+                        yellow:  '#f7ca88'
+                        blue:    '#7cafc2'
+                        magenta: '#ba8baf'
+                        cyan:    '#86c1b9'
+                        white:   '#d8d8d8'
+                bright:
+                        black:   '#585858'
+                        red:     '#ab4642'
+                        green:   '#a1b56c'
+                        yellow:  '#f7ca88'
+                        blue:    '#7cafc2'
+                        magenta: '#ba8baf'
+                        cyan:    '#86c1b9'
+                        white:   '#f8f8f8'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x1d2021'
-    cursor: '0xd5c4a1'
+        base16-gruvbox-dark-hard: &base16-gruvbox-dark-hard
+                primary:
+                        background: '0x1d2021'
+                        foreground: '0xd5c4a1'
+                cursor:
+                        text: '0x1d2021'
+                        cursor: '0xd5c4a1'
+                normal:
+                        black:   '0x1d2021'
+                        red:     '0xfb4934'
+                        green:   '0xb8bb26'
+                        yellow:  '0xfabd2f'
+                        blue:    '0x83a598'
+                        magenta: '0xd3869b'
+                        cyan:    '0x8ec07c'
+                        white:   '0xd5c4a1'
+                bright:
+                        black:   '0x665c54'
+                        red:     '0xfe8019'
+                        green:   '0x3c3836'
+                        yellow:  '0x504945'
+                        blue:    '0xbdae93'
+                        magenta: '0xebdbb2'
+                        cyan:    '0xd65d0e'
+                        white:   '0xfbf1c7'
 
-  # Normal colors
-  normal:
-    black:   '0x1d2021'
-    red:     '0xfb4934'
-    green:   '0xb8bb26'
-    yellow:  '0xfabd2f'
-    blue:    '0x83a598'
-    magenta: '0xd3869b'
-    cyan:    '0x8ec07c'
-    white:   '0xd5c4a1'
-
-  # Bright colors
-  bright:
-    black:   '0x665c54'
-    red:     '0xfe8019'
-    green:   '0x3c3836'
-    yellow:  '0x504945'
-    blue:    '0xbdae93'
-    magenta: '0xebdbb2'
-    cyan:    '0xd65d0e'
-    white:   '0xfbf1c7'
-
+colors: *base16-default
 draw_bold_text_with_bright_colors: false
 
   # Dim colors
