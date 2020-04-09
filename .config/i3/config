@@ -31,9 +31,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 exec --no-startup-id feh --bg-fill ~/Pictures/914670.jpg
-
-exec_always --no-startup-id xmodmap /home/nick/.Xmodmap
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id xmodmap /home/nick/.Xmodmap
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 
 # Mod-Space to open Rofi
@@ -111,16 +110,19 @@ bindsym $mod+a focus parent
 set $ws1 "1:default"
 set $ws2 "2:code"
 set $ws3 "3:web"
+set $ws4 "4:chat"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
 
 # shift workspace left / right
 bindsym $mod+Control+Left workspace prev
@@ -129,12 +131,16 @@ bindsym $mod+Control+Right workspace next
 # workspace application assignments
 assign [class="(?i)Alacritty" instance="(?i)neofetch"] $ws1
 assign [class="(?i)Alacritty" instance="(?i)dev"] $ws2
-assign [class="(?i)firefox"] $ws3
+assign [class="(?i)firefox" instance="(?i)Navigator"] $ws3
+assign [class="(?i)whatsapp" instance="(?i)Navigator"] $ws4
+assign [class="(?i)Alacritty" instance="(?i)irssi"] $ws4
 
 # autostart applications
-exec alacritty --class neofetch -e neofetch 
-exec alacritty --working-directory /home/nick/go --class dev -t dev -e tmux
-exec firefox
+exec alacritty --hold --class neofetch -e neofetch 
+exec alacritty --working-directory /home/nick/go --class dev -e tmux
+exec firefox --new-instance -P default --new-window https://www.google.com
+exec firefox --new-instance -P whatsapp --class whatsapp --new-window https://web.whatsapp.com
+exec alacritty --class irssi -e irssi
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
