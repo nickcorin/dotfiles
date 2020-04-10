@@ -141,6 +141,7 @@ exec sh ~/.config/i3/restore-chat-workspace.sh
 exec sh ~/.config/i3/restore-web-workspace.sh
 exec sh ~/.config/i3/restore-dev-workspace.sh
 exec sh ~/.config/i3/restore-default-workspace.sh
+exec i3-msg workspace 1:default
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
