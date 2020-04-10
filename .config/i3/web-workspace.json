@@ -1,0 +1,18 @@
+{
+  "layout": "splith",
+  "percent": 1.0,
+  "type": "con",
+  "nodes": [
+    {
+      "name": "firefox",
+      "percent": 0.5,
+      "type": "con",
+      "swallows": [
+        {
+          "class": "(?i)firefox",
+          "instance": "Navigator"
+        }
+      ]
+    }
+  ]
+}
