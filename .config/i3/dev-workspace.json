@@ -1,0 +1,29 @@
+{
+  "layout": "splith",
+  "percent": 1.0,
+  "type": "con",
+  "nodes": [
+    {
+      "name": "nvim",
+      "percent": 0.65,
+      "type": "con",
+      "swallows": [
+        {
+          "class": "(?i)Alacritty",
+          "instance": "dev-nvim"
+        }
+      ]
+    },
+    {
+      "name": "term",
+      "percent": 0.35,
+      "type": "con",
+      "swallows": [
+        {
+          "class": "(?i)Alacritty",
+          "instance": "(?i)dev-term"
+        }
+      ]
+    }
+  ]
+}

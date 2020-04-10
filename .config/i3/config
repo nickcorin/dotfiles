@@ -108,7 +108,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:default"
-set $ws2 "2:code"
+set $ws2 "2:dev"
 set $ws3 "3:web"
 set $ws4 "4:chat"
 
@@ -130,17 +130,23 @@ bindsym $mod+Control+Right workspace next
 
 # workspace application assignments
 assign [class="(?i)Alacritty" instance="(?i)neofetch"] $ws1
-assign [class="(?i)Alacritty" instance="(?i)dev"] $ws2
+assign [class="(?i)Alacritty" instance="(?i)dev-nvim"] $ws2
+assign [class="(?i)Alacritty" instance="(?i)dev-term"] $ws2
 assign [class="(?i)firefox" instance="(?i)Navigator"] $ws3
 assign [class="(?i)whatsapp" instance="(?i)Navigator"] $ws4
 assign [class="(?i)Alacritty" instance="(?i)irssi"] $ws4
 
+# apply workspace layouts
+exec "i3-msg 'workspace 4:chat; append_layout ~/.config/i3/chat-workspace.json'"
+exec "i3-msg 'workspace 2:dev; append_layout ~/.config/i3/dev-workspace.json'"
+
 # autostart applications
-exec alacritty --hold --class neofetch -e neofetch 
-exec alacritty --working-directory /home/nick/go --class dev -e tmux
-exec firefox --new-instance -P default --new-window https://www.google.com
-exec firefox --new-instance -P whatsapp --class whatsapp --new-window https://web.whatsapp.com
-exec alacritty --class irssi -e irssi
+exec --no-startup-id alacritty --hold --class neofetch -e neofetch 
+exec --no-startup-id alacritty --class dev-nvim -e tmux --working-directory /home/nick/go
+exec --no-startup-id alacritty --class dev-term -e tmux --working-directory ~
+exec --no-startup-id alacritty --class irssi -e irssi
+exec --no-startup-id firefox --new-instance -P default --new-window https://www.google.com
+exec --no-startup-id firefox --new-instance -P whatsapp --class whatsapp --new-window https://web.whatsapp.com
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

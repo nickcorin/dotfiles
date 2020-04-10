@@ -1,0 +1,29 @@
+{
+  "layout": "splith",
+  "percent": 1.0,
+  "type": "con",
+  "nodes": [
+    {
+      "name": "whatsapp",
+      "percent": 0.5,
+      "type": "con",
+      "swallows": [
+        {
+          "class": "(?i)whatsapp",
+          "instance": "Navigator"
+        }
+      ]
+    },
+    {
+      "name": "irssi",
+      "percent": 0.5,
+      "type": "con",
+      "swallows": [
+        {
+          "class": "(?i)Alacritty",
+          "instance": "(?i)irssi"
+        }
+      ]
+    }
+  ]
+}

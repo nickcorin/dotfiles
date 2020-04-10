@@ -117,6 +117,15 @@ augroup html_bindings
 	autocmd BufNewFile,BufRead *html setlocal tabstop=2
 augroup end
 
+augroup json_bindings
+	autocmd! html_bindings
+
+	autocmd BufNewFile,BufRead *json setlocal expandtab
+	autocmd BufNewFile,BufRead *json setlocal shiftwidth=2 
+	autocmd BufNewFile,BufRead *json setlocal tabstop=2
+augroup end
+
+
 "=====================================================
 "===================== Go ============================
 
