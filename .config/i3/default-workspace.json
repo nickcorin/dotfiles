@@ -1,0 +1,18 @@
+{
+  "layout": "splith",
+  "percent": 1.0,
+  "type": "con",
+  "nodes": [
+    {
+      "name": "neofetch",
+      "percent": 1.0,
+      "type": "con",
+      "swallows": [
+        {
+          "class": "(?i)Alacritty",
+          "instance": "(?i)neofetch"
+        }
+      ]
+    }
+  ]
+}
