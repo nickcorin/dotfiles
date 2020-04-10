@@ -10,7 +10,7 @@
       "swallows": [
         {
           "class": "(?i)Alacritty",
-          "instance": "dev-nvim"
+          "instance": "nvim"
         }
       ]
     },
@@ -21,7 +21,7 @@
       "swallows": [
         {
           "class": "(?i)Alacritty",
-          "instance": "(?i)dev-term"
+          "instance": "(?i)term"
         }
       ]
     }
