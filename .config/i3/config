@@ -178,5 +178,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # removing window borders
-for_window [class=".*"] border pixel 0
-gaps inner 10
+for_window [class=".*"] border pixel 0 
+
+for_window [class="(?i)dolphin" instance="(?i)dolphin"] floating enable
+gaps inner 25
