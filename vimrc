@@ -40,6 +40,7 @@ end
 
 syntax enable					" Enable syntax highlighting.
 colorscheme base16-default-dark			" Set the colorscheme.
+hi Normal ctermbg=NONE guibg=NONE		" Allow for transparant backgrounds.
 set background=dark				" Enable dark mode.
 let g:molokai_original = 1
 let g:rehash256 = 1
