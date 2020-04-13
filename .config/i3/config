@@ -31,8 +31,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 exec --no-startup-id feh --bg-fill ~/Pictures/914670.jpg
-exec --no-startup-id xmodmap /home/nick/.Xmodmap
-exec --no-startup-id sh ~/.config/i3/launch-picom.sh 
+exec_always --no-startup-id xmodmap /home/nick/.Xmodmap
+exec_always --no-startup-id sh ~/.config/i3/launch-picom.sh 
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 
 # Mod-Space to open Rofi
@@ -111,8 +111,9 @@ set $ws1 "1:default"
 set $ws2 "2:dev"
 set $ws3 "3:web"
 set $ws4 "4:chat"
-set $ws5 "5:steam"
-set $ws6 "6:discord"
+set $ws5 "5:discord"
+set $ws6 "6:steam"
+set $ws7 "7:game"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -121,6 +122,7 @@ bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -129,6 +131,7 @@ bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
 
 # shift workspace left / right
 bindsym $mod+Control+Left workspace prev
@@ -141,8 +144,10 @@ assign [class="(?i)Alacritty" instance="(?i)term"] $ws2
 assign [class="(?i)firefox" instance="(?i)Navigator"] $ws3
 assign [class="(?i)whatsapp" instance="(?i)Navigator"] $ws4
 assign [class="(?i)Alacritty" instance="(?i)irssi"] $ws4
-assign [class="(?i)Steam" instance="(?i)Steam"] $ws5
-assign [class="(?i)discord" instance="(?i)discord"] $ws6
+assign [class="(?i)discord" instance="(?i)discord"] $ws5
+assign [class="(?i)Steam" instance="(?i)Steam"] $ws6
+assign [class="(?i)dota2" instance="(?i)dota2"] $ws7
+assign [class="(?i)csgo" instance="(?i)csgo"] $ws7
 
 # Restore workspaces
 exec sh ~/.config/i3/restore-chat-workspace.sh
@@ -190,3 +195,8 @@ for_window [class=".*"] border pixel 0
 
 for_window [class="(?i)dolphin" instance="(?i)dolphin"] floating enable
 gaps inner 25
+
+# remove gaps for the game workspace (bugs out for some fullscreen games where
+# screen edges are important).
+workspace $ws7 gaps inner 0
+workspace $ws7 gaps outer 0
