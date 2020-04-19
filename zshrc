@@ -65,7 +65,8 @@ alias mvim="open -a /Applications/Macvim.app"
 #===================== Misc ==========================
 
 export XDG_CONFIG_HOME=~/.config
-export EDITOR=vim
+export EDITOR=nvim
+export KITTY_ENABLE_WAYLAND=1
 
 # Terminal autocomplete.
 autoload -U +X bashcompinit && bashcompinit
@@ -77,6 +78,6 @@ export LC_ALL=en_US.UTF-8
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private
 
 # Start X at login
-if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
-fi
+#if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+#  exec startx
+#fi

@@ -32,7 +32,7 @@ exec --no-startup-id nm-applet
 
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapersden.com_peyto-lake-4k_5760x3840.jpg
 exec_always --no-startup-id xmodmap /home/nick/.Xmodmap
-exec_always --no-startup-id sh ~/.config/i3/launch-picom.sh 
+exec_always --no-startup-id xcompmgr 
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 
 # Mod-Space to open Rofi
@@ -42,7 +42,7 @@ bindsym $mod+space exec rofi -show combi
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -138,12 +138,12 @@ bindsym $mod+Control+Left workspace prev
 bindsym $mod+Control+Right workspace next
 
 # workspace application assignments
-assign [class="(?i)Alacritty" instance="(?i)neofetch"] $ws1
-assign [class="(?i)Alacritty" instance="(?i)nvim"] $ws2
-assign [class="(?i)Alacritty" instance="(?i)term"] $ws2
+assign [class="(?i)kitty" instance="(?i)neofetch"] $ws1
+assign [class="(?i)kitty" instance="(?i)nvim"] $ws2
+assign [class="(?i)kitty" instance="(?i)term"] $ws2
 assign [class="(?i)firefox" instance="(?i)Navigator"] $ws3
 assign [class="(?i)whatsapp" instance="(?i)Navigator"] $ws4
-assign [class="(?i)Alacritty" instance="(?i)irssi"] $ws4
+assign [class="(?i)kitty" instance="(?i)irssi"] $ws4
 assign [class="(?i)discord" instance="(?i)discord"] $ws5
 assign [class="(?i)Steam" instance="(?i)Steam"] $ws6
 assign [class="(?i)dota2" instance="(?i)dota2"] $ws7

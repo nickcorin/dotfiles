@@ -9,7 +9,7 @@
       "type": "con",
       "swallows": [
         {
-          "class": "(?i)Alacritty",
+          "class": "(?i)kitty",
           "instance": "(?i)neofetch"
         }
       ]
