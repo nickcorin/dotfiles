@@ -1,10 +1,9 @@
-"=====================================================
-"===================== Vim Plug ======================
+" Plugins
+" -----------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-rooter'
-Plug 'arcticicestudio/nord-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'chriskempson/base16-vim'
@@ -33,8 +32,8 @@ Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
-"=====================================================
-"===================== SETTINGS ======================
+" General settings
+" -----------------------------------------------------------------------------
 
 if !has('gui_running')
 	set t_Co=256
@@ -45,13 +44,11 @@ colorscheme nord				" Set the colorscheme.
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 set background=dark				" Enable dark mode.
-let g:molokai_original = 1
 let g:rehash256 = 1
 
 set nocompatible				" Remove some limitations. Mostly a no-op.
 filetype off					" Disable native filetype checking.
 filetype plugin indent on			" Enable plugin and indentation filetype checking.
-
 set noshowmode					" Don't show the mode, since we're using lightline for that.
 set colorcolumn=80				" Adding a visual indicator at 80 characters.
 set ttyfast					" Faster, smoother scrolling.
@@ -77,9 +74,8 @@ set ignorecase					" Case insensitive searching.
 set smartcase					" ...unless it starts with a capital.
 set hidden
 
-"=====================================================
-"===================== Mappings  =====================
-
+" Key mappings
+" -----------------------------------------------------------------------------
 " This must be set first for  other mappings with <leader> to be set
 " correctly.
 let mapleader = ','
@@ -109,10 +105,8 @@ map <C-l> <C-W>l
 vnoremap <S-j> :m'>+1<CR>gv=gv
 vnoremap <S-k> :m '<-2<CR>gv=gv
 
-
-"=====================================================
-"===================== Misc Filetypes ================
-
+" Misc Filetypes
+" -----------------------------------------------------------------------------
 augroup html_bindings
 	autocmd! html_bindings
 
@@ -129,10 +123,8 @@ augroup json_bindings
 	autocmd BufNewFile,BufRead *json setlocal tabstop=2
 augroup end
 
-
-"=====================================================
-"===================== Go ============================
-
+" Go
+" -----------------------------------------------------------------------------
 let g:go_fmt_command='goimports'
 let g:go_autodetect_gopath = 1
 let g:go_def_mapping_enabled = 0
@@ -157,14 +149,10 @@ augroup go_bindings
 	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>r :GoReferrers<CR>
 	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>d :GoDecls<CR>
 	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>D :GoDeclsDir<CR>
-	
-
-
 augroup end
 
-"=====================================================
-"===================== Rust = ========================
-
+" Rust
+" -----------------------------------------------------------------------------
 let g:rustfmt_autosave = 1
 
 augroup rust_bindings
@@ -177,9 +165,23 @@ augroup rust_bindings
 	autocmd BufNewFile,BufRead *.rs nnoremap <buffer> <leader>f :RustFmt<CR>
 augroup end
 
-"=====================================================
-"===================== Fzf ===========================
-"
+" Fzf
+" -----------------------------------------------------------------------------
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
 let g:fzf_command_prefix = 'Fzf'
 
 " Ctrl-T to open, Ctrl-Shift-T to open in fullscreen.
@@ -194,21 +196,16 @@ let g:fzf_buffers_jump = 1
 
 let g:fzf_layout = { 'down': '~40%' }
 
-"=====================================================
-"===================== Lightline =====================
-
+" Lightline
+" -----------------------------------------------------------------------------
 let g:lightline = {
 		\ 'colorscheme': 'nord',
 \ }
 
-
-
-"=====================================================
-"===================== NerdTree ====================== 
-
+" NerdTree
+" -----------------------------------------------------------------------------
 map <leader>. :NERDTreeToggle<CR>
 
-"=====================================================
-"===================== Ack / Ag ======================
-
+" Ack / Ag
+" -----------------------------------------------------------------------------
 let g:ackprg = 'ag --vimgrep --smart-case'
