@@ -4,6 +4,8 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-rooter'
+Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'ConradIrwin/vim-bracketed-paste'
@@ -39,7 +41,7 @@ if !has('gui_running')
 end
 
 syntax enable					" Enable syntax highlighting.
-colorscheme base16-default-dark			" Set the colorscheme.
+colorscheme nord				" Set the colorscheme.
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 set background=dark				" Enable dark mode.
@@ -194,6 +196,10 @@ let g:fzf_layout = { 'down': '~40%' }
 
 "=====================================================
 "===================== Lightline =====================
+
+let g:lightline = {
+		\ 'colorscheme': 'nord',
+\ }
 
 
 

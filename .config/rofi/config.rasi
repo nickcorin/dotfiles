@@ -1,5 +1,5 @@
 configuration {
-	modi: "window,run,ssh,combi";
+	modi: "window,run,drun,ssh,combi";
 /*	width: 50;*/
 /*	lines: 15;*/
 /*	columns: 1;*/
@@ -34,7 +34,7 @@ configuration {
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
-/*	combi-modi: "window,run";*/
+	combi-modi: "window,drun";
 	matching: "fuzzy";
 /*	tokenize: true;*/
 /*	m: "-5";*/
@@ -53,7 +53,7 @@ configuration {
 /*	window-format: "{w}    {c}   {t}";*/
 	click-to-exit: true;
 	show-match: true;
-	theme: "gruvbox-dark-hard";
+	theme: "nord";
 /*	color-normal: ;*/
 /*	color-urgent: ;*/
 /*	color-active: ;*/
