@@ -32,7 +32,7 @@ exec --no-startup-id nm-applet
 
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapersden.com_peyto-lake-4k_5760x3840.jpg
 exec_always --no-startup-id xmodmap /home/nick/.Xmodmap
-exec_always --no-startup-id xcompmgr 
+exec_always --no-startup-id xcompmgr 0fF -I 0.05 -O 0.05 
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 
 # Mod-Space to open Rofi
