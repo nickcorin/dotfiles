@@ -1,7 +1,7 @@
 #!/bin/bash
 
-while [ $(echo $(pidof alacritty) | awk '{split($0,a); print length(a);}') -lt 4 ]; do
-	echo "Waiting for Alacritty before launching picom.."
+while [ $(echo $(pidof kitty) | awk '{split($0,a); print length(a);}') -lt 4 ]; do
+	echo "Waiting for kitty before launching picom.."
 	sleep 0.1
 done
 
