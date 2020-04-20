@@ -55,7 +55,6 @@ alias b="git branch"
 alias co="git checkout"
 alias com="git checkout master" 
 alias pm="git pull origin master && git submodule update"
-#alias po="git pull origin $(git rev-parse --abbrev-ref HEAD)"
 alias ll="ls -lG"
 alias please="sudo"
 alias code="open -a /Applications/Visual\ Studio\ Code.app"
@@ -67,6 +66,7 @@ alias mvim="open -a /Applications/Macvim.app"
 export XDG_CONFIG_HOME=~/.config
 export EDITOR=nvim
 export KITTY_ENABLE_WAYLAND=1
+export TERM=xterm
 
 # Terminal autocomplete.
 autoload -U +X bashcompinit && bashcompinit
@@ -76,8 +76,3 @@ complete -o nospace -C /usr/local/bin/vault vault
 export LC_ALL=en_US.UTF-8
 
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private
-
-# Start X at login
-#if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-#  exec startx
-#fi
