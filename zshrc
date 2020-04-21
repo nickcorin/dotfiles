@@ -60,7 +60,7 @@ alias please="sudo"
 alias code="open -a /Applications/Visual\ Studio\ Code.app"
 alias mvim="open -a /Applications/Macvim.app"
 alias vim="nvim"
-alias tmux="tmux -f ~/.config/tmux/.tmux.conf"
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 
 #=====================================================
 #===================== Misc ==========================
