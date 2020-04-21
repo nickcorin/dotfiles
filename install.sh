@@ -1,0 +1,83 @@
+#!/bin/bash
+
+# Set defaults for environment variables.
+DEFAULT_DOTFILES_DIR="$HOME/dotfiles"
+DEFAULT_XDG_CONFIG_HOME="$HOME/.config"
+
+# Use defaults if the environment variable is not set.
+DOTFILES_DIR=${DOTFILES_DIR-$DEFAULT_DOTFILES_DIR}
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME-$DEFAULT_XDG_CONFIG_HOME}
+
+# install tries to detect the OS and calls the OS specific install script.
+function install {
+	# Use case insensitive matching.
+	shopt -s nocasematch
+	case "$(uname -s)" in 
+		darwin) 	install_darwin ;; 
+		linux)		install_linux ;; 
+		*)		printf "Non-supported OS.\nExiting.."; exit 1	
+	esac
+}
+
+# ensure_dir checks whether the directory tree exist, otherwise creates it.
+function ensure_dir {
+	[ -d $1 ] || mkdir -p $1
+}
+
+# symlink creates a symlink between $1 and $2.
+function symlink {
+	ensure_dir $(dirname $2)
+	[ -e $2 ] && mv $2 "$2.old"
+	ln -s $1 $2
+}
+
+function install_darwin {
+	printf "Darwin detected.\n"
+	
+	# Install Homebrew, if required.
+	command -v brew >/dev/null 2>&1 || {
+		printf "Homebrew not installed, installing..\n";
+			/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+	}
+
+	# Install git, if required.
+	command -v git >/dev/null 2>&1 || {
+		printf "git not installed, installing..\n";
+		brew install git
+	}
+	
+	# Clone the dotfiles repository. 
+	ensure_dir $XDG_CONFIG_HOME	
+	[ -d $DOTFILES_DIR ] || {
+		ensure_dir $DOTFILES_DIR;
+		git clone git@github.com:nickcorin/dotfiles.git $DOTFILES_DIR
+	}
+	
+	# Install vim-plug.
+	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+	# Install Rust.
+	curl https://sh.rustup.rs -sSf | sh
+	
+	# Install brew packages.
+	brew bundle --file="$DOTFILES_DIR/Brewfile"
+	
+	symlink "$DOTFILES_DIR/zshrc" "$HOME/.zshrc"
+	symlink "$DOTFILES_DIR/.config/nvim/*" "$XDG_CONFIG_HOME/nvim/"
+	symlink "$DOTFILES_DIR/.config/tmux/*" "$XDG_CONFIG_HOME/tmux/"
+	symlink "$DOTFILES_DIR/.config/kitty/*" "$XDG_CONFIG_HOME/kitty/"
+	symlink "$DOTFILES_DIR/.config/alacritty/*" "$XDG_CONFIG_HOME/alacritty/"
+	
+	exit 0
+}
+
+function install_linux {
+	printf "Linux detected.\n"
+	printf "Attempting to detect distro.."
+	exit 0
+}
+
+
+# Call the install function.
+install
