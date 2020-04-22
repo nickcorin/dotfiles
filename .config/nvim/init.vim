@@ -139,8 +139,8 @@ augroup go_bindings
 	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <C-d> :GoDoc<CR>
 	autocmd BufNewFile,BufRead *.go nmap <buffer> <C-d> <esc>:GoDoc<CR>
 
-	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <C-o> :GoDef<CR>
-	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <C-i> :GoDefPop<CR>
+	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <C-]> :GoDef<CR>
+	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <C-[> :GoDefPop<CR>
 
 	autocmd BufNewFile,BufRead *.go inoremap <buffer> <leader>f :GoFmt<CR>
 	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>v :GoVet<CR>
@@ -184,11 +184,11 @@ let g:fzf_colors =
 
 let g:fzf_command_prefix = 'Fzf'
 
-" Ctrl-T to open, Ctrl-Shift-T to open in fullscreen.
-nnoremap <silent> <C-t> :FzfFiles<CR>
+" Ctrl-O to open, Ctrl-Shift-O to open in fullscreen.
+nnoremap <silent> <C-o> :FzfFiles<CR>
 
-" Ctrl-P to search history.
-nnoremap <silent> <C-p> :FzfHistory<CR>
+" Ctrl-H to search history.
+nnoremap <silent> <C-h> :FzfHistory<CR>
 "nnoremap <silent> <C-S-O> :FzfFiles!<CR>
 
 " Jump to existing window, if available.
@@ -199,8 +199,21 @@ let g:fzf_layout = { 'down': '~40%' }
 " Lightline
 " -----------------------------------------------------------------------------
 let g:lightline = {
-		\ 'colorscheme': 'nord',
-\ }
+	\ 'colorscheme': 'nord',
+	\ 'component_function': {
+	\	'filename': 'RelativePath'
+	\ }
+	\ }
+
+" Returns the absolute path of the current file to display in the status bar.
+function! AbsolutePath()
+  return expand('%:p:h')
+endfunction
+
+" Returns the relative path of the current file to display in the status bar.
+function! RelativePath()
+	return expand("%")
+endfunction
 
 " NerdTree
 " -----------------------------------------------------------------------------
