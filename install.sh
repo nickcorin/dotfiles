@@ -1,12 +1,38 @@
 #!/bin/bash
 
-# Set defaults for environment variables.
-DEFAULT_DOTFILES_DIR="$HOME/dotfiles"
-DEFAULT_XDG_CONFIG_HOME="$HOME/.config"
+# Default options.
+OVERWRITE=0
 
-# Use defaults if the environment variable is not set.
-DOTFILES_DIR=${DOTFILES_DIR-$DEFAULT_DOTFILES_DIR}
-XDG_CONFIG_HOME=${XDG_CONFIG_HOME-$DEFAULT_XDG_CONFIG_HOME}
+# Defaults environment variables.
+DOTFILES_DIR=${DOTFILES_DIR-"$HOME/dotfiles"}
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME-"$HOME/.config"}
+
+# parse_flags sets the appropriate variables according to the flags provided.
+function parse_flags {
+	opts=$(getopt -o o --long overwrite: -- "$@")
+	[ $? -eq 0 ] || {
+		printf "Incorrect flag provided."
+		exit 1
+	}
+
+	eval set -- "$opts"
+	while true; do
+		case "$1" in
+		-o)
+			OVERWRITE=1
+			;;
+		--overwrite)
+			OVERWRITE=1
+			;;
+		--)
+			shift
+			break
+			;;
+		esac
+		shift
+	done
+}
+
 
 # install tries to detect the OS and calls the OS specific install script.
 function install {
@@ -21,14 +47,25 @@ function install {
 
 # ensure_dir checks whether the directory tree exist, otherwise creates it.
 function ensure_dir {
-	[ -d $1 ] || mkdir -p $1
+	[ -d $1 ] || {
+		printf "Creating directory %s\n" $1
+		mkdir -p $1
+	}
 }
 
-# symlink creates a symlink between $1 and $2.
+# symlink creates a symlink between $1 and $2. By default, if the file exists
+# then it not be overwritten. If the overwrite flag is set, then existing files
+# will be renamed with the ".old" extension and a new file will be symlinked.
 function symlink {
 	ensure_dir $(dirname $2)
-	[ -e $2 ] && mv $2 "$2.old"
-	ln -s $1 $2
+	if [ -e $2 ] && [ OVERWRITE -eq 1 ] ; then
+		printf "%s exists, overwriting." $2
+		mv $2 "$2.old"
+	fi
+	[ -e $2 ] || {
+		printf "Creating symlink %s -> %s" $2 $1
+		ln -s $1 $2
+	}
 }
 
 function install_darwin {
@@ -75,9 +112,39 @@ function install_darwin {
 function install_linux {
 	printf "Linux detected.\n"
 	printf "Attempting to detect distro.."
+
+	local INSTALL_CMD=""
+	local RELEASE=$(uname -r)
+	if [ "$RELEASE" == *"arch"* ]; then
+		printf "Arch Linux detected.."
+		INSTALL_CMD="sudo pacman -Sy --noconfirm"
+	else
+		printf "Unsupported disribution..\n Exiting."
+		exit 0
+	fi
+
+	# Read in packages from file and install them.	
+	readarray -t packages
+	for package in packages; do
+		eval $INSTALL_CMD package
+	done
+	
+	symlink "$DOTFILES_DIR/.config/alacritty/*" "$XDG_CONFIG_HOME/alacritty/"
+	symlink "$DOTFILES_DIR/.config/i3/*" "$XDG_CONFIG_HOME/i3/"
+	symlink "$DOTFILES_DIR/.config/kitty/*" "$XDG_CONFIG_HOME/kitty/"
+	symlink "$DOTFILES_DIR/.config/picom/*" "$XDG_CONFIG_HOME/picom/"
+	symlink "$DOTFILES_DIR/.config/polybar/*" "$XDG_CONFIG_HOME/polybar/"
+	symlink "$DOTFILES_DIR/.config/nvim/*" "$XDG_CONFIG_HOME/nvim/"
+	symlink "$DOTFILES_DIR/.config/rofi/*" "$XDG_CONFIG_HOME/rofi/"
+	symlink "$DOTFILES_DIR/.config/tmux/*" "$XDG_CONFIG_HOME/tmux/"
+	symlink "$DOTFILES_DIR/Xmodmap" "$HOME/.Xmodmap"
+	symlink "$DOTFILES_DIR/zshrc" "$HOME/.zshrc"
+
 	exit 0
 }
 
+# Grab flags.
+parse_flags $0 "$@"
 
 # Call the install function.
 install
