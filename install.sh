@@ -110,16 +110,16 @@ function install_darwin {
 }
 
 function install_linux {
-	printf "Linux detected.\n"
-	printf "Attempting to detect distro.."
+	printf "Linux detected..\n"
+	printf "Detecting distro..\n"
 
 	local INSTALL_CMD=""
 	local RELEASE=$(uname -r)
-	if [ "$RELEASE" == *"arch"* ]; then
-		printf "Arch Linux detected.."
+	if [[ "$RELEASE" == *"arch"* ]]; then
+		printf "Arch Linux detected..\n"
 		INSTALL_CMD="sudo pacman -Sy --noconfirm"
 	else
-		printf "Unsupported disribution..\n Exiting."
+		printf "Unsupported disribution '%s'..\nExiting." $RELEASE
 		exit 0
 	fi
 
