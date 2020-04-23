@@ -58,7 +58,7 @@ function ensure_dir {
 # will be renamed with the ".old" extension and a new file will be symlinked.
 function symlink {
 	ensure_dir $(dirname $2)
-	if [ -e $2 ] && [ OVERWRITE -eq 1 ] ; then
+	if [ -e $2 ] && [ OVERWRITE == 1 ] ; then
 		printf "%s exists, overwriting." $2
 		mv $2 "$2.old"
 	fi
@@ -124,9 +124,9 @@ function install_linux {
 	fi
 
 	# Read in packages from file and install them.	
-	readarray -t packages
-	for package in packages; do
-		eval $INSTALL_CMD package
+	readarray -t packages < packages.txt
+	for package in ${packages[@]}; do
+		eval $INSTALL_CMD $package
 	done
 	
 	symlink "$DOTFILES_DIR/.config/alacritty/*" "$XDG_CONFIG_HOME/alacritty/"
