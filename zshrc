@@ -70,6 +70,10 @@ export EDITOR=nvim
 export KITTY_ENABLE_WAYLAND=1
 export TERM=xterm
 
+# This is needed for platform independent configuration files. Currently,
+# only Kitty uses it, but it could be used more in the future.
+export PLATFORM=$(uname -s | tr '[:upper:]' '[:lower:]')
+
 # Terminal autocomplete.
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
