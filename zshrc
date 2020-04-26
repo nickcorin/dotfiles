@@ -68,7 +68,7 @@ alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 export XDG_CONFIG_HOME=~/.config
 export EDITOR=nvim
 export KITTY_ENABLE_WAYLAND=1
-export TERM=xterm
+#export TERM=xterm
 
 # Terminal autocomplete.
 autoload -U +X bashcompinit && bashcompinit
