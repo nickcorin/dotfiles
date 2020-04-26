@@ -46,26 +46,29 @@ hi NonText ctermbg=none
 set background=dark				" Enable dark mode.
 let g:rehash256 = 1
 
+set tabstop=4
+set shiftwidth=4
+
 set nocompatible				" Remove some limitations. Mostly a no-op.
 filetype off					" Disable native filetype checking.
-filetype plugin indent on			" Enable plugin and indentation filetype checking.
+filetype plugin indent on		" Enable plugin and indentation filetype checking.
 set noshowmode					" Don't show the mode, since we're using lightline for that.
 set colorcolumn=80				" Adding a visual indicator at 80 characters.
-set ttyfast					" Faster, smoother scrolling.
+set ttyfast					    " Faster, smoother scrolling.
 set laststatus=2				" Always show status bar.
 set encoding=utf-8
 set autoread					" Re-read changed files automatically. 
 set autowrite					" Save files automatically.
 set autoindent
-set backspace=indent,eol,start			" Empower backspace.
+set backspace=indent,eol,start	" Empower backspace.
 set incsearch					" Match searches while typing.
 set hlsearch					" Highlight search matches.
-set mouse=a					" Enable mouse mode.
+set mouse=a					    " Enable mouse mode.
 set novisualbell				" Disable the visual bell.
 set noerrorbells				" Disable bells.
-set number					" Enable line numbers.
+set number					    " Enable line numbers.
 set relativenumber				" Enable line numbers - relative.
-set showcmd					" Show commands being typed.
+set showcmd					    " Show commands being typed.
 set noswapfile					" Don't create swap files.
 set nobackup					" Don't create backup files.
 set splitright					" Vertical splits to the right.
@@ -131,24 +134,14 @@ let g:go_def_mapping_enabled = 0
 
 augroup go_bindings
 	autocmd! go_bindings
-
-	autocmd BufNewFile,BufRead *.go setlocal expandtab
-	autocmd BufNewFile,BufRead *.go setlocal shiftwidth=4
-	autocmd BufNewFile,BufRead *.go setlocal tabstop=4
-
-	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <C-d> :GoDoc<CR>
-	autocmd BufNewFile,BufRead *.go nmap <buffer> <C-d> <esc>:GoDoc<CR>
-
-	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <C-]> :GoDef<CR>
-	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <C-[> :GoDefPop<CR>
-
-	autocmd BufNewFile,BufRead *.go inoremap <buffer> <leader>f :GoFmt<CR>
-	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>v :GoVet<CR>
-
-	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>t :GoAlternate<CR>
-	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>r :GoReferrers<CR>
-	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>d :GoDecls<CR>
-	autocmd BufNewFile,BufRead *.go nnoremap <buffer> <leader>D :GoDeclsDir<CR>
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <C-d> :GoDoc<CR>
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <C-]> :GoDef<CR>
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <C-i> :GoDefPop<CR>
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <leader>v :GoVet<CR>
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <leader>t :GoAlternate<CR>
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <leader>r :GoReferrers<CR>
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <leader>d :GoDecls<CR>
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <leader>D :GoDeclsDir<CR>
 augroup end
 
 " Rust
@@ -157,11 +150,6 @@ let g:rustfmt_autosave = 1
 
 augroup rust_bindings
 	autocmd! rust_bindings
-
-	autocmd BufNewFile,BufRead *.rs setlocal expandtab
-	autocmd BufNewFile,BufRead *.rs setlocal shiftwidth=4
-	autocmd BufNewFile,BufRead *.rs setlocal tabstop=4
-
 	autocmd BufNewFile,BufRead *.rs nnoremap <buffer> <leader>f :RustFmt<CR>
 augroup end
 
@@ -185,15 +173,13 @@ let g:fzf_colors =
 let g:fzf_command_prefix = 'Fzf'
 
 " Ctrl-O to open, Ctrl-Shift-O to open in fullscreen.
-nnoremap <silent> <C-o> :FzfFiles<CR>
+noremap <silent> <C-o> :FzfFiles<CR>
 
 " Ctrl-H to search history.
-nnoremap <silent> <C-h> :FzfHistory<CR>
-"nnoremap <silent> <C-S-O> :FzfFiles!<CR>
+noremap <silent> <C-h> :FzfHistory<CR>
 
 " Jump to existing window, if available.
 let g:fzf_buffers_jump = 1
-
 let g:fzf_layout = { 'down': '~40%' }
 
 " Lightline
