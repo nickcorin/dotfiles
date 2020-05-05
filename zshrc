@@ -68,6 +68,7 @@ alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 export XDG_CONFIG_HOME=~/.config
 export EDITOR=nvim
 export KITTY_ENABLE_WAYLAND=1
+export KITTY_CONFIG_DIRECTORY="${XDG_CONFIG_HOME}/kitty/"
 #export TERM=xterm
 
 # This is needed for platform independent configuration files. Currently,
