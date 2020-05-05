@@ -5,46 +5,30 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'AndrewRadev/splitjoin.vim'
 Plug 'chriskempson/base16-vim'
-Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'dense-analysis/ale'
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json', {'for' : 'json'}
-Plug 'fatih/molokai'					
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}					
-Plug 'godlygeek/tabular'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim'			
 Plug 'morhetz/gruvbox'
-Plug 'Raimondi/delimitMate'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'rust-lang/rust.vim'
-Plug 'scrooloose/nerdtree'
+Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'	
-Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
 " General settings
 " -----------------------------------------------------------------------------
-
 if !has('gui_running')
 	set t_Co=256
 end
-
-syntax enable					" Enable syntax highlighting.
-colorscheme nord				" Set the colorscheme.
-hi Normal ctermbg=none
-hi NonText ctermbg=none
-set background=dark				" Enable dark mode.
-let g:rehash256 = 1
 
 set tabstop=4
 set shiftwidth=4
@@ -76,6 +60,16 @@ set splitbelow					" Horizontal splits to the bottom.
 set ignorecase					" Case insensitive searching.
 set smartcase					" ...unless it starts with a capital.
 set hidden
+
+" Color Scheme
+" -----------------------------------------------------------------------------
+let g:gruvbox_contrast_dark='dark'
+colorscheme gruvbox
+syntax enable
+
+" Support transparent terminals.
+hi Normal ctermbg=none
+hi NonText ctermbg=none
 
 " Key mappings
 " -----------------------------------------------------------------------------
@@ -185,7 +179,7 @@ let g:fzf_layout = { 'down': '~40%' }
 " Lightline
 " -----------------------------------------------------------------------------
 let g:lightline = {
-	\ 'colorscheme': 'nord',
+	\ 'colorscheme': 'gruvbox',
 	\ 'component_function': {
 	\	'filename': 'RelativePath'
 	\ }
@@ -200,11 +194,3 @@ endfunction
 function! RelativePath()
 	return expand("%")
 endfunction
-
-" NerdTree
-" -----------------------------------------------------------------------------
-map <leader>. :NERDTreeToggle<CR>
-
-" Ack / Ag
-" -----------------------------------------------------------------------------
-let g:ackprg = 'ag --vimgrep --smart-case'
