@@ -5,7 +5,7 @@
   "nodes": [
     {
       "name": "nvim",
-      "percent": 0.65,
+      "percent": 0.5,
       "type": "con",
       "swallows": [
         {
@@ -15,13 +15,31 @@
       ]
     },
     {
-      "name": "term",
-      "percent": 0.35,
+      "layout": "splitv",
+      "percent": 0.5,
       "type": "con",
-      "swallows": [
+      "nodes": [
         {
-          "class": "(?i)kitty",
-          "instance": "(?i)term"
+          "name": "term",
+          "percent": 0.5,
+          "type": "con",
+          "swallows": [
+            {
+              "class": "(?i)kitty",
+              "instance": "(?i)term"
+            }
+          ]
+        },
+        {
+          "name": "term",
+          "percent": 0.5,
+          "type": "con",
+          "swallows": [
+            {
+              "class": "(?i)kitty",
+              "instance": "(?i)term"
+            }
+          ]
         }
       ]
     }
