@@ -3,22 +3,17 @@
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'airblade/vim-gitgutter'
 Plug 'airblade/vim-rooter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'chriskempson/base16-vim'
-Plug 'dense-analysis/ale'
 Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
 Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}					
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'morhetz/gruvbox'
-Plug 'roxma/vim-tmux-clipboard'
 Plug 'rust-lang/rust.vim'
-Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'	
 
@@ -63,8 +58,8 @@ set hidden
 
 " Color Scheme
 " -----------------------------------------------------------------------------
-let g:gruvbox_contrast_dark='dark'
-colorscheme gruvbox
+" let g:gruvbox_contrast_dark='dark'
+colorscheme nord
 syntax enable
 
 " Support transparent terminals.
@@ -122,20 +117,31 @@ augroup end
 
 " Go
 " -----------------------------------------------------------------------------
+let g:go_fmt_fail_silently = 1
 let g:go_fmt_command='goimports'
-let g:go_autodetect_gopath = 1
+
 let g:go_def_mapping_enabled = 0
+let g:go_autodetect_gopath = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_enabled = ['vet', 'golint']
+
+let g:go_info_mode = 'gopls'
+let g:go_rename_command = 'gopls'
+let g:go_complete_unimported = 1
+let g:go_implements_mode = 'gopls'
+let g:go_diagnostics_enabled = 1
+let g:go_doc_popup_window = 1
 
 augroup go_bindings
 	autocmd! go_bindings
-	autocmd BufNewFile,BufRead *.go noremap <buffer> <C-d> :GoDoc<CR>
 	autocmd BufNewFile,BufRead *.go noremap <buffer> <C-]> :GoDef<CR>
-	autocmd BufNewFile,BufRead *.go noremap <buffer> <C-i> :GoDefPop<CR>
-	autocmd BufNewFile,BufRead *.go noremap <buffer> <leader>v :GoVet<CR>
-	autocmd BufNewFile,BufRead *.go noremap <buffer> <leader>t :GoAlternate<CR>
-	autocmd BufNewFile,BufRead *.go noremap <buffer> <leader>r :GoReferrers<CR>
-	autocmd BufNewFile,BufRead *.go noremap <buffer> <leader>d :GoDecls<CR>
-	autocmd BufNewFile,BufRead *.go noremap <buffer> <leader>D :GoDeclsDir<CR>
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <C-i> :GoDefPop<CR> 
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <C-t> :GoTest<CR> 
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <Leader>f :GoMetalinter<CR> 
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <Leader>t :GoAlternate<CR>
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <Leader>r :GoReferrers<CR> 
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <Leader>d :GoDecls<CR>
+	autocmd BufNewFile,BufRead *.go noremap <buffer> <Leader>D :GoDeclsDir<CR> 
 augroup end
 
 " Rust
@@ -144,7 +150,7 @@ let g:rustfmt_autosave = 1
 
 augroup rust_bindings
 	autocmd! rust_bindings
-	autocmd BufNewFile,BufRead *.rs nnoremap <buffer> <leader>f :RustFmt<CR>
+	autocmd BufNewFile,BufRead *.rs nnoremap <buffer> <Leader>f :RustFmt<CR>
 augroup end
 
 " Fzf
@@ -179,7 +185,7 @@ let g:fzf_layout = { 'down': '~40%' }
 " Lightline
 " -----------------------------------------------------------------------------
 let g:lightline = {
-	\ 'colorscheme': 'gruvbox',
+	\ 'colorscheme': 'nord',
 	\ 'component_function': {
 	\	'filename': 'RelativePath'
 	\ }
