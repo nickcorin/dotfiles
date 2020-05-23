@@ -102,19 +102,26 @@ vnoremap <S-k> :m '<-2<CR>gv=gv
 augroup html_bindings
 	autocmd! html_bindings
 
-	autocmd BufNewFile,BufRead *html setlocal expandtab
-	autocmd BufNewFile,BufRead *html setlocal shiftwidth=2 
-	autocmd BufNewFile,BufRead *html setlocal tabstop=2
+	autocmd BufNewFile,BufRead *.html setlocal expandtab
+	autocmd BufNewFile,BufRead *.html setlocal shiftwidth=2 
+	autocmd BufNewFile,BufRead *.html setlocal tabstop=2
 augroup end
 
 augroup json_bindings
-	autocmd! html_bindings
+	autocmd! json_bindings
 
-	autocmd BufNewFile,BufRead *json setlocal expandtab
-	autocmd BufNewFile,BufRead *json setlocal shiftwidth=2 
-	autocmd BufNewFile,BufRead *json setlocal tabstop=2
+	autocmd BufNewFile,BufRead *.json setlocal expandtab
+	autocmd BufNewFile,BufRead *.json setlocal shiftwidth=2 
+	autocmd BufNewFile,BufRead *.json setlocal tabstop=2
 augroup end
 
+augroup yaml_bindings
+	autocmd! yaml_bindings
+
+	autocmd BufNewFile,BufRead *.yaml,*.yml setlocal expandtab
+	autocmd BufNewFile,BufRead *.yaml,*.yml setlocal shiftwidth=2 
+	autocmd BufNewFile,BufRead *.yaml,*.yml setlocal tabstop=2
+augroup end
 " Go
 " -----------------------------------------------------------------------------
 let g:go_fmt_fail_silently = 1
