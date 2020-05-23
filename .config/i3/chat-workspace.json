@@ -20,7 +20,7 @@
       "type": "con",
       "swallows": [
         {
-          "class": "(?i)kitty",
+          "class": "(?i)Alacritty",
           "instance": "(?i)irssi"
         }
       ]
