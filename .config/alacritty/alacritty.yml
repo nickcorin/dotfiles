@@ -3,16 +3,16 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: xterm-256color
+  TERM: xterm-256color
 
-  #window:
+window:
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
@@ -33,9 +33,9 @@
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  #padding:
-  #  x: 0
-  #  y: 0
+  padding:
+    x: 10
+    y: 10
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -49,7 +49,7 @@
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  # decorations: none
+  decorations: buttonless
 
   # Startup Mode (changes require restart)
   #
@@ -91,22 +91,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "JetBrains Mono Nerd Font"
+    family: "InconsolataGo Nerd Font"
     style: Regular
   # Bold font face
   bold:
-    family: "JetBrains Mono Nerd Font"
+    family: "InconsolataGo Nerd Font"
     style: Bold
   # Italic font face
   italic:
-    family: "JetBrains Mono Nerd Font"
+    family: "InconsolataGo Nerd Font"
     style: Italic
   # Bold italic font face
   bold_italic:
-    family: "JetBrains Mono Nerd Font"
+    family: "InconsolataGo Nerd Font"
     style: Bold Italic
   # Point size
-  size: 10.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -218,8 +218,33 @@ schemes:
                         magenta: '0xebdbb2'
                         cyan:    '0xd65d0e'
                         white:   '0xfbf1c7'
+        nord: &nord
+                primary:
+                        background: '0x2E3440'
+                        foreground: '0xD8DEE9'
+                cursor:
+                        text: '0x2E3440'
+                        cursor: '0xD8DEE9'
+                normal:
+                        black: '0x3B4252'
+                        red: '0xBF616A'
+                        green: '0xA3BE8C'
+                        yellow: '0xEBCB8B'
+                        blue: '0x81A1C1'
+                        magenta: '0xB48EAD'
+                        cyan: '0x88C0D0'
+                        white: '0xE5E9F0'
+                bright:
+                        black: '0x4C566A'
+                        red: '0xBF616A'
+                        green: '0xA3BE8C'
+                        yellow: '0xEBCB8B'
+                        blue: '0x81A1C1'
+                        magenta: '0xB48EAD'
+                        cyan: '0x8FBCBB'
+                        white: '0xECEFF4'
 
-colors: *base16-default
+colors: *nord
 draw_bold_text_with_bright_colors: false
 
   # Dim colors
@@ -275,7 +300,7 @@ draw_bold_text_with_bright_colors: false
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.85
+background_opacity: 1.0
 
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
