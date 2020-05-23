@@ -30,7 +30,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapersden.com_peyto-lake-4k_5760x3840.jpg
+exec_always --no-startup-id feh --bg-fill ~/Pictures/nord-mountain.jpg
 exec_always --no-startup-id xmodmap /home/nick/.Xmodmap
 exec_always --no-startup-id xcompmgr -fF -I 0.05 -O 0.05 
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
