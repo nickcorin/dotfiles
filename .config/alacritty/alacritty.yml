@@ -91,22 +91,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "InconsolataGo Nerd Font"
+    family: "JetBrains Mono Nerd Font"
     style: Regular
   # Bold font face
   bold:
-    family: "InconsolataGo Nerd Font"
+    family: "JetBrains Mono Nerd Font"
     style: Bold
   # Italic font face
   italic:
-    family: "InconsolataGo Nerd Font"
+    family: "JetBrains Mono Nerd Font"
     style: Italic
   # Bold italic font face
   bold_italic:
-    family: "InconsolataGo Nerd Font"
+    family: "JetBrains Mono Nerd Font"
     style: Bold Italic
   # Point size
-  size: 14.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -244,7 +244,7 @@ schemes:
                         cyan: '0x8FBCBB'
                         white: '0xECEFF4'
 
-colors: *nord
+colors: *base16-gruvbox-dark-hard
 draw_bold_text_with_bright_colors: false
 
   # Dim colors
