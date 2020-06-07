@@ -12,6 +12,7 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rust-lang/rust.vim'
 Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
@@ -59,8 +60,8 @@ set hidden
 
 " Color Scheme
 " -----------------------------------------------------------------------------
-" let g:gruvbox_contrast_dark='dark'
-colorscheme nord
+let g:gruvbox_contrast_dark='dark'
+colorscheme gruvbox
 syntax enable
 
 " Support transparent terminals.
@@ -287,7 +288,7 @@ let g:fzf_layout = { 'down': '~40%' }
 " Lightline
 " -----------------------------------------------------------------------------
 let g:lightline = {
-	\ 'colorscheme': 'nord',
+	\ 'colorscheme': 'gruvbox',
 	\ 'component_function': {
 	\	'filename': 'RelativePath'
 	\ }
