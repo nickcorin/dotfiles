@@ -1,83 +1,60 @@
-#=====================================================
-#===================== ZSH ===========================
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export ZSH="$HOME/.oh-my-zsh"
-export ZSH_THEME="robbyrussell"
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/nicholasc/.oh-my-zsh"
 
-export ZSH_SYNTAX_DIR="/share/zsh-syntax-highlighting"
-if [[ $(uname -s) == "Darwin" ]]; then
-	export ZSH_SYNTAX_DIR="$(brew --prefix)$ZSH_SYNTAX_DIR"
-elif [[ $(uname -s) == "Linux" ]]; then
-	if [[ -d "/usr$ZSH_SYNTAX_DIR" ]]; then
-		export ZSH_SYNTAX_DIR="/usr/$ZSH_SYNTAX_DIR"
-	else
-		export ZSH_SYNTAX_DIR="/usr/share/zsh/plugins/zsh-syntax-highlighting"
-	fi
-fi
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
-plugins=(git)
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$ZSH_SYNTAX_DIR/highlighters
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
 source $ZSH/oh-my-zsh.sh
-source $ZSH_SYNTAX_DIR/zsh-syntax-highlighting.zsh
 
-#=====================================================
-#===================== Path ==========================
+# User configuration
 
-export PATH="/usr/local/opt:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-
-#=====================================================
-#===================== Go ============================
-
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin"
+export EDITOR="vim"
 export GO111MODULE=on
+export GOPATH="$HOME/go"
+export KITTY_CONFIG_DIRECTORY="$XDG_CONFIG_HOME/kitty"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export XDG_CONFIG_HOME="$HOME/.config"
 
-#=====================================================
-#===================== Rust ==========================
+# You may need to manually set your language environment
+ export LANG=en_US.UTF-8
+ export LC_ALL=en_US.UTF-8
 
-export PATH="$HOME/.cargo/bin:$PATH"
-
-#=====================================================
-#===================== Fzf ===========================
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --multi --inline-info --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' --preview-window='right:hidden:wrap' --bind='ctrl-o:execute(bat --style=numbers {} || less -f {}),ctrl-p:toggle-preview,ctrl-y:execute-silent(echo {+} | pbcopy)'"
-
-#=====================================================
-#===================== Aliases =======================
-
-# Git
-alias b="git branch"
-alias co="git checkout"
-alias com="git checkout master" 
-alias pm="git pull origin master && git submodule update"
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
 alias ll="ls -lG"
 alias please="sudo"
-alias code="open -a /Applications/Visual\ Studio\ Code.app"
-alias mvim="open -a /Applications/Macvim.app"
 alias vim="nvim"
+alias vi="nvim"
 
-#=====================================================
-#===================== Misc ==========================
-
-export XDG_CONFIG_HOME=~/.config
-export EDITOR=nvim
-export KITTY_ENABLE_WAYLAND=1
-export KITTY_CONFIG_DIRECTORY="${XDG_CONFIG_HOME}/kitty/"
-
-# This is needed for platform independent configuration files. Currently,
-# only Kitty uses it, but it could be used more in the future.
-export PLATFORM=$(uname -s | tr '[:upper:]' '[:lower:]')
-
-# Terminal autocomplete.
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/vault vault
-
-# Set locales to keep VIM happy.
-export LC_ALL=en_US.UTF-8
-
+# Check if there is a private zshrc to souce. Private zshrc files contain
+# environment specific variables and functions that shouldn't be added to
+# Git.
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private
