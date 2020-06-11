@@ -4,10 +4,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
-Plug 'airblade/vim-rooter'
-Plug 'arcticicestudio/nord-vim'
-Plug 'ekalinin/Dockerfile.vim', {'for' : 'Dockerfile'}
-Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}					
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -15,7 +11,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rust-lang/rust.vim'
-Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'	
 
