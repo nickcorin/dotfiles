@@ -60,8 +60,8 @@ set hidden
 
 " Color Scheme
 " -----------------------------------------------------------------------------
-" let g:gruvbox_contrast_dark='dark'
-colorscheme dracula
+ let g:gruvbox_contrast_dark='dark'
+colorscheme gruvbox
 syntax enable
 
 " Support transparent terminals.
@@ -288,7 +288,7 @@ let g:fzf_layout = { 'down': '~40%' }
 " Lightline
 " -----------------------------------------------------------------------------
 let g:lightline = {
-	\ 'colorscheme': 'dracula',
+	\ 'colorscheme': 'gruvbox',
 	\ 'component_function': {
 	\	'filename': 'RelativePath'
 	\ }
