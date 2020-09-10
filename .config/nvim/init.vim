@@ -4,12 +4,17 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'dracula/vim', {'as':'dracula'}
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}					
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'Raimondi/delimitMate'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'	
@@ -55,8 +60,8 @@ set hidden
 
 " Color Scheme
 " -----------------------------------------------------------------------------
-let g:gruvbox_contrast_dark='dark'
-colorscheme gruvbox
+" let g:gruvbox_contrast_dark='dark'
+colorscheme dracula
 syntax enable
 
 " Support transparent terminals.
@@ -283,7 +288,7 @@ let g:fzf_layout = { 'down': '~40%' }
 " Lightline
 " -----------------------------------------------------------------------------
 let g:lightline = {
-	\ 'colorscheme': 'gruvbox',
+	\ 'colorscheme': 'dracula',
 	\ 'component_function': {
 	\	'filename': 'RelativePath'
 	\ }
