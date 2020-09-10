@@ -49,7 +49,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: buttonless
+  # decorations: buttonless
 
   # Startup Mode (changes require restart)
   #
@@ -91,22 +91,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "JetBrains Mono Nerd Font"
-    style: Regular
+    family: "Noto Mono"
+    style: Bold
   # Bold font face
   bold:
-    family: "JetBrains Mono Nerd Font"
+    family: "Noto Mono"
     style: Bold
   # Italic font face
   italic:
-    family: "JetBrains Mono Nerd Font"
+    family: "Noto Mono"
     style: Italic
   # Bold italic font face
   bold_italic:
-    family: "JetBrains Mono Nerd Font"
+    family: "Noto Mono"
     style: Bold Italic
   # Point size
-  size: 12.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
