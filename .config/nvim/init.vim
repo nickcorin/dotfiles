@@ -7,10 +7,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'dracula/vim', {'as':'dracula'}
 Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'morhetz/gruvbox'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
