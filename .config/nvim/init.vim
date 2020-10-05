@@ -63,7 +63,7 @@ set updatetime=300
 " Color Scheme
 " -----------------------------------------------------------------------------
 let g:gruvbox_contrast_dark='dark'
-colorscheme nord
+colorscheme gruvbox
 syntax enable
 
 " Support transparent terminals.
@@ -190,7 +190,6 @@ nnoremap <silent> gr :YcmCompleter GoToReferences<CR>
 nnoremap <silent> gy :YcmCompleter GoTo<CR>
 nnoremap <silent> gf :YcmCompleter FixIt<CR>
 nnoremap <silent> <leader>f :YcmCompleter Format<CR>
-
 
 " Rust
 " -----------------------------------------------------------------------------
