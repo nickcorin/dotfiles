@@ -55,6 +55,10 @@ set splitbelow					" Horizontal splits to the bottom.
 set ignorecase					" Case insensitive searching.
 set smartcase					" ...unless it starts with a capital.
 set hidden
+set cmdheight=1					" Give more space for displaying messages.
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
 " Color Scheme
 " -----------------------------------------------------------------------------
