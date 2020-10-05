@@ -35,7 +35,7 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR="vim"
 export GO111MODULE=on
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/dev/go"
 export KITTY_CONFIG_DIRECTORY="$XDG_CONFIG_HOME/kitty"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
