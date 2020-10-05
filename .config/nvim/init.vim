@@ -5,6 +5,8 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'dracula/vim', {'as':'dracula'}
+Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}					
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -60,8 +62,8 @@ set hidden
 
 " Color Scheme
 " -----------------------------------------------------------------------------
- let g:gruvbox_contrast_dark='dark'
-colorscheme gruvbox
+let g:gruvbox_contrast_dark='dark'
+colorscheme nord
 syntax enable
 
 " Support transparent terminals.
@@ -188,7 +190,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+set cmdheight=1
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
@@ -288,7 +290,7 @@ let g:fzf_layout = { 'down': '~40%' }
 " Lightline
 " -----------------------------------------------------------------------------
 let g:lightline = {
-	\ 'colorscheme': 'gruvbox',
+	\ 'colorscheme': 'nord',
 	\ 'component_function': {
 	\	'filename': 'RelativePath'
 	\ }
