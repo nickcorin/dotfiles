@@ -5,11 +5,12 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'dracula/vim', {'as':'dracula'}
+Plug 'arcticicestudio/nord-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
-Plug 'OmniSharp/omnisharp-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
@@ -54,11 +55,15 @@ set splitbelow					" Horizontal splits to the bottom.
 set ignorecase					" Case insensitive searching.
 set smartcase					" ...unless it starts with a capital.
 set hidden
+set cmdheight=1					" Give more space for displaying messages.
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
 " Color Scheme
 " -----------------------------------------------------------------------------
- let g:gruvbox_contrast_dark='dark'
-colorscheme gruvbox
+let g:gruvbox_contrast_dark='dark'
+colorscheme nord
 syntax enable
 
 " Support transparent terminals.
@@ -228,7 +233,7 @@ let g:fzf_layout = { 'down': '~40%' }
 " Lightline
 " -----------------------------------------------------------------------------
 let g:lightline = {
-	\ 'colorscheme': 'gruvbox',
+	\ 'colorscheme': 'nord',
 	\ 'component_function': {
 	\	'filename': 'RelativePath'
 	\ }
