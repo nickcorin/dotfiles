@@ -180,10 +180,11 @@ augroup end
 " -----------------------------------------------------------------------------
 
 nnoremap <silent> gd :YcmCompleter GoTo<CR>
-nnoremap <silent> gi :YcmCompleter GoToImplements<CR>
+nnoremap <silent> gi :YcmCompleter GoToImplementation<CR>
 nnoremap <silent> gr :YcmCompleter GoToReferences<CR>
 nnoremap <silent> gy :YcmCompleter GoTo<CR>
 nnoremap <silent> gf :YcmCompleter FixIt<CR>
+nnoremap <silent> <leader>f :YcmCompleter Format<CR>
 
 
 " Rust
