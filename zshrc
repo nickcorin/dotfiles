@@ -49,6 +49,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+alias code="open -a ~/Applications/Visual\ Studio\ Code.app"
 alias ll="ls -lG"
 alias please="sudo"
 
