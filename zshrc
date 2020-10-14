@@ -51,8 +51,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # For a full list of active aliases, run `alias`.
 alias ll="ls -lG"
 alias please="sudo"
-alias vim="nvim"
-alias vi="nvim"
 
 # Check if there is a private zshrc to souce. Private zshrc files contain
 # environment specific variables and functions that shouldn't be added to
