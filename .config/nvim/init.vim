@@ -3,7 +3,6 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}					
 Plug 'itchyny/lightline.vim'
