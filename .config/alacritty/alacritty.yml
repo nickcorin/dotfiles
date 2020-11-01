@@ -91,22 +91,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "Noto Mono"
-    style: Bold
+    family: "Fira Code"
+    style: Regular
   # Bold font face
   bold:
-    family: "Noto Mono"
+    family: "Fira Code"
     style: Bold
   # Italic font face
   italic:
-    family: "Noto Mono"
+    family: "Fira Code"
     style: Italic
   # Bold italic font face
   bold_italic:
-    family: "Noto Mono"
+    family: "Fira Code"
     style: Bold Italic
   # Point size
-  size: 10.0
+  size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
