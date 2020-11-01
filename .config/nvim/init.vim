@@ -1,35 +1,32 @@
-" Plugins
+" Plugins (VimPlug)
 " -----------------------------------------------------------------------------
-
 call plug#begin('~/.vim/plugged')
-
-Plug 'arcticicestudio/nord-vim'
-Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}					
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Raimondi/delimitMate'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'	
-
+" Color Schemes
+	Plug 'arcticicestudio/nord-vim'
+	Plug 'morhetz/gruvbox'
+" Filesystem
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
+" Syntax / Intellisense
+	Plug 'ap/vim-css-color'
+	Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}					
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'Raimondi/delimitMate'
+	Plug 'tpope/vim-commentary'
+" Tools.
+	Plug 'itchyny/lightline.vim'
+	Plug 'tpope/vim-fugitive'	
 call plug#end()
 
 " General settings
 " -----------------------------------------------------------------------------
-if !has('gui_running')
-	set t_Co=256
-end
-
+set t_Co=256
 set tabstop=4
 set shiftwidth=4
-
 set nocompatible				" Remove some limitations. Mostly a no-op.
 filetype off					" Disable native filetype checking.
-filetype plugin indent on		" Enable plugin and indentation filetype checking.
+filetype plugin indent on		" Enable plugin and indentation filetype checking.  
 set noshowmode					" Don't show the mode, since we're using lightline for that.
-set colorcolumn=80				" Adding a visual indicator at 80 characters.
 set ttyfast					    " Faster, smoother scrolling.
 set laststatus=2				" Always show status bar.
 set encoding=utf-8
@@ -42,18 +39,18 @@ set hlsearch					" Highlight search matches.
 set mouse=a					    " Enable mouse mode.
 set novisualbell				" Disable the visual bell.
 set noerrorbells				" Disable bells.
-set number					    " Enable line numbers.
-set relativenumber				" Enable line numbers - relative.
+set number relativenumber		" Enable line numbers - relative.
 set showcmd					    " Show commands being typed.
 set noswapfile					" Don't create swap files.
 set nobackup					" Don't create backup files.
-set splitright					" Vertical splits to the right.
+set splitright					" Vertical splits to the right.                
 set splitbelow					" Horizontal splits to the bottom.
 set ignorecase					" Case insensitive searching.
 set smartcase					" ...unless it starts with a capital.
 set hidden
+set cursorline
 
-" Color Scheme
+" Color Settings
 " -----------------------------------------------------------------------------
 let g:gruvbox_contrast_dark='dark'
 colorscheme gruvbox
@@ -63,7 +60,7 @@ syntax enable
 hi Normal ctermbg=none
 hi NonText ctermbg=none
 
-" Key mappings
+" Key Mappings
 " -----------------------------------------------------------------------------
 " This must be set first for  other mappings with <leader> to be set
 " correctly.
@@ -105,16 +102,10 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " No arrow keys --- force yourself to use the keyboard. 
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
-
-" Left and right can switch buffers
-nnoremap <left> :bp<CR>
-nnoremap <right> :bn<CR>
+nnoremap <Up> :resize +2<CR>
+nnoremap <Down> :resize -2<CR>
+nnoremap <Left> :vertical resize +2<CR>
+nnoremap <Right> :vertical resize -2<CR>
 
 " Move by line
 nnoremap j gj
@@ -148,20 +139,11 @@ augroup end
 
 " Go
 " -----------------------------------------------------------------------------
-let g:go_fmt_fail_silently = 1
-let g:go_fmt_command='goimports'
-
 let g:go_def_mapping_enabled = 0
-let g:go_autodetect_gopath = 1
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_metalinter_enabled = ['vet', 'golint']
-
-let g:go_info_mode = 'gopls'
-let g:go_rename_command = 'gopls'
-let g:go_complete_unimported = 1
-let g:go_implements_mode = 'gopls'
-let g:go_diagnostics_enabled = 1
-let g:go_doc_popup_window = 1
+let g:go_autodetect_gopath = 0
+let g:go_complete_unimported = 0
+let g:go_diagnostics_enabled = 0
+let g:go_doc_popup_window = 0
 
 augroup go_bindings
 	autocmd! go_bindings
@@ -209,11 +191,7 @@ let g:fzf_colors =
 
 let g:fzf_command_prefix = 'Fzf'
 
-" Ctrl-O to open, Ctrl-Shift-O to open in fullscreen.
-noremap <silent> <C-p> :FzfGFiles<CR>
-
-" Ctrl-H to search history.
-noremap <silent> <C-h> :FzfHistory<CR>
+noremap <silent> <C-p> :FzfFiles<CR>
 
 " Jump to existing window, if available.
 let g:fzf_buffers_jump = 1
