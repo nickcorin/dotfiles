@@ -1,2 +1,2 @@
 Brewfile.lock.json
-autoload/plugged/*
+.config/nvim/autoload/plugged/*
