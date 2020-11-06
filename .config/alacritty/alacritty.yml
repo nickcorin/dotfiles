@@ -106,7 +106,7 @@ font:
     family: "FiraCode Nerd Font"
     style: Bold Italic
   # Point size
-  size: 13.0
+  size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -303,7 +303,7 @@ draw_bold_text_with_bright_colors: false
 background_opacity: 1.0
 
 selection:
-  #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: true
