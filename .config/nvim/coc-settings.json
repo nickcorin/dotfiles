@@ -20,12 +20,21 @@
     },
     "golang": {
       "command": "gopls",
+      "args": [
+        "-rpc.trace",
+        "serve",
+        "-debug=localhost:6000"
+      ],
       "rootPatterns": [
         "go.mod"
       ],
       "filetypes": [
         "go"
-      ]
+      ],
+      "initializationOptions": {
+        "completeUnimported": true,
+        "usePlaceholders": true
+      }
     },
     "rust": {
       "command": "rust-analyzer",

@@ -1,5 +1,5 @@
-" Ctrl-k to search all project files.
-noremap <silent> <C-k> :FzfFiles<CR>
+" Ctrl-. to search all project files.
+noremap <silent> <C-.> :FzfFiles<CR>
 
 " Ctrl-g to search Git files.
 noremap <silent> <C-g> :FzfGFiles<CR>
@@ -45,7 +45,7 @@ let g:fzf_layout = {
 			\ 'up':'~90%',
 			\ 'window': {
 			\ 'width': 0.8,
-			\ 'height': 0.8,
+			\ 'height': 0.3,
 			\ 'yoffset':0.5,
 			\ 'xoffset': 0.5,
 			\ 'highlight': 'Todo',
