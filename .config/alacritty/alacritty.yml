@@ -81,7 +81,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 10000 
+  history: 0 
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
@@ -91,22 +91,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "FiraCode Nerd Font"
+    family: "FiraMono Nerd Font"
     style: Regular
   # Bold font face
   bold:
-    family: "FiraCode Nerd Font"
+    family: "FiraMono Nerd Font"
     style: Bold
   # Italic font face
   italic:
-    family: "FiraCode Nerd Font"
+    family: "FiraMono Nerd Font"
     style: Italic
   # Bold italic font face
   bold_italic:
-    family: "FiraCode Nerd Font"
+    family: "FiraMono Nerd Font"
     style: Bold Italic
   # Point size
-  size: 11.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -218,6 +218,39 @@ schemes:
                         magenta: '0xebdbb2'
                         cyan:    '0xd65d0e'
                         white:   '0xfbf1c7'
+        base16-gruvbox-dark-hard-256: &base16-gruvbox-dark-hard-256
+          primary:
+            background: '0x1d2021'
+            foreground: '0xd5c4a1'
+          cursor:
+            text: '0x1d2021'
+            cursor: '0xd5c4a1'
+          normal:
+            black:   '0x1d2021'
+            red:     '0xfb4934'
+            green:   '0xb8bb26'
+            yellow:  '0xfabd2f'
+            blue:    '0x83a598'
+            magenta: '0xd3869b'
+            cyan:    '0x8ec07c'
+            white:   '0xd5c4a1'
+          bright:
+            black:   '0x665c54'
+            red:     '0xfb4934'
+            green:   '0xb8bb26'
+            yellow:  '0xfabd2f'
+            blue:    '0x83a598'
+            magenta: '0xd3869b'
+            cyan:    '0x8ec07c'
+            white:   '0xfbf1c7'
+          indexed_colors:
+            - { index: 16, color: '0xfe8019' }
+            - { index: 17, color: '0xd65d0e' }
+            - { index: 18, color: '0x3c3836' }
+            - { index: 19, color: '0x504945' }
+            - { index: 20, color: '0xbdae93' }
+            - { index: 21, color: '0xebdbb2' }
+
         nord: &nord
                 primary:
                         background: '0x2E3440'
@@ -244,7 +277,7 @@ schemes:
                         cyan: '0x8FBCBB'
                         white: '0xECEFF4'
 
-colors: *base16-gruvbox-dark-hard
+colors: *base16-gruvbox-dark-hard-256
 draw_bold_text_with_bright_colors: false
 
   # Dim colors
