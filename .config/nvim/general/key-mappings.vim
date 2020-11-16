@@ -3,8 +3,6 @@
 let mapleader = ','
 
 " Easy quick fixing.
-map <C-n> :cn<CR>
-map <C-m> :cp<CR>
 nnoremap <leader>a :cclose<CR>
 
 " Fast save.
@@ -31,17 +29,29 @@ nnoremap <leader><space> :nohlsearch<CR>
 vnoremap <S-j> :m'>+1<CR>gv=gv
 vnoremap <S-k> :m '<-2<CR>gv=gv
 
+" Shift-/ when visually selected comments out a line.
+nnoremap ? :Commentary<CR>
+vnoremap ? :Commentary<CR>
+
+" After indending a visually selected line, keep the selection.
+vnoremap > >gv
+vnoremap < <gv
+
 " Better split switching, using the default directional keys.
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Jump to start and end of line using the home row keys
+map H ^
+map L $
+
 " No arrow keys - force yourself to use the keyboard. 
-nnoremap <Up>		<Nop>
-nnoremap <Down> 	<Nop>
-nnoremap <Left> 	<Nop>
-nnoremap <Right> 	<Nop>
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
 
 " Move by line
 nnoremap j gj

@@ -9,6 +9,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" Nord color scheme.
 	Plug 'arcticicestudio/nord-vim'
 
+	" Base16 color schemes.
+	Plug 'chriskempson/base16-vim'
+
+	" Syntax highlighting for .fish files.
+	Plug 'dag/vim-fish'
+
 	" Answer leetcode questions in VIM.
 	Plug 'ianding1/leetcode.vim'
 
