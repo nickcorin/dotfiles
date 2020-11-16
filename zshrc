@@ -53,7 +53,12 @@ alias code="open -a ~/Applications/Visual\ Studio\ Code.app"
 alias ll="ls -lG"
 alias please="sudo"
 
+# Configure PROMPT.
+export PROMPT="%F{grey}[$(date +%H:%M)] %F{blue}%m%F{black}:%F{yellow}%1~%F{red} | %f"
+
 # Check if there is a private zshrc to souce. Private zshrc files contain
 # environment specific variables and functions that shouldn't be added to
 # Git.
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
