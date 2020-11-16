@@ -1,4 +1,4 @@
-# Aliases.
+
 abbr -a please "sudo"
 abbr -a code "open -a ~/applications/visual\ studio\ code.app"
 
@@ -42,7 +42,7 @@ function fish_prompt
 		set_color brblack
 		echo -n ':'
 		set_color yellow
-		echo -n (basename $PWD)
+		printf '%s ' (prompt_pwd)
 	end
 	set_color green
 	printf '%s ' (__fish_git_prompt)
