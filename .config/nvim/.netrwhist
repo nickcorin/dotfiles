@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
-let g:netrw_dirhist_7='/Users/nicholasc/dev/core'
-let g:netrw_dirhist_6='/Users/nicholasc/dev/core/src/bitx/db/bank_transactions'
-let g:netrw_dirhist_5='/Users/nicholasc/dev/core'
-let g:netrw_dirhist_4='/Users/nicholasc/dev/personal/rust/sum-range/src'
-let g:netrw_dirhist_3='/Users/nicholasc/dev/personal/rust/sum-range'
-let g:netrw_dirhist_2='/Users/nicholasc/dotfiles/.config/nvim/vim-plug'
-let g:netrw_dirhist_1='/Users/nicholasc/dev/core'

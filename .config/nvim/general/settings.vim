@@ -28,3 +28,9 @@ set ignorecase					" Case insensitive searching.
 set smartcase					" ...unless it starts with a capital.
 set hidden
 set cursorline
+
+" Auto-wrap comments when we hit 80 lines.
+set textwidth=80
+
+" Show visual margin at 80 characters.
+set cc=80
