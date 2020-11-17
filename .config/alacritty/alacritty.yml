@@ -96,7 +96,7 @@ font:
   # Bold font face
   bold:
     family: "FiraMono Nerd Font"
-    style: Bold
+    style: Regular
   # Italic font face
   italic:
     family: "FiraMono Nerd Font"
@@ -104,7 +104,7 @@ font:
   # Bold italic font face
   bold_italic:
     family: "FiraMono Nerd Font"
-    style: Bold Italic
+    style: Italic
   # Point size
   size: 14.0
 
