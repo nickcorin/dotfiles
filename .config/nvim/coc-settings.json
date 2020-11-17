@@ -13,28 +13,29 @@
         "c",
         "cc",
         "cpp",
-        "c++",
-        "objc",
-        "objcpp"
+        "c++"
       ]
     },
     "golang": {
-      "command": "gopls",
       "args": [
-        "-rpc.trace",
         "serve",
-        "-debug=localhost:6000"
+        "-debug",
+        "http://localhost:6061",
+        "-rpc.trace"
       ],
-      "rootPatterns": [
-        "go.mod"
-      ],
+      "command": "gopls",
       "filetypes": [
         "go"
       ],
       "initializationOptions": {
         "completeUnimported": true,
+        "gofumpt": true,
         "usePlaceholders": true
-      }
+      },
+      "progressOnInitialization": true,
+      "rootPatterns": [
+        "go.mod"
+      ]
     },
     "rust": {
       "command": "rust-analyzer",

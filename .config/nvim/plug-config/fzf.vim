@@ -1,11 +1,9 @@
-" Ctrl-. to search all project files.
-noremap <silent> <C-.> :FzfFiles<CR>
-
-" Ctrl-g to search Git files.
-noremap <silent> <C-g> :FzfGFiles<CR>
-
-" Ctrl-f to search for text with RipGrep.
-noremap <silent> <C-f> :FzfRg<CR>
+noremap <silent> <leader>b :FzfBuffers<CR>
+noremap <silent> <leader>c :FzfCommits<CR>
+noremap <silent> <leader>f :FzfRg<CR>
+noremap <silent> <leader>g :FzfGFiles<CR>
+noremap <silent> <leader>h :FzfHistory<CR>
+noremap <silent> <leader>z :FzfFiles<CR>
 
 " Calls to Fzf should be prefixed with 'Fzf' to ensure there are no clashes
 " with other plugins.
