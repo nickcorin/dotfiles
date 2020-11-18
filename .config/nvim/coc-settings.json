@@ -1,7 +1,11 @@
 {
+  "coc.preferences.formatOnType": false,
+  "coc.preferences.formatOnInsertLeave": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "*"
   ],
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.refreshOnInsertMode": true,
   "languageserver": {
     "clangd": {
       "command": "clangd",
@@ -16,7 +20,7 @@
         "c++"
       ]
     },
-    "golang": {
+    "go": {
       "args": [
         "serve",
         "-debug",
@@ -35,7 +39,8 @@
       "progressOnInitialization": true,
       "rootPatterns": [
         "go.mod"
-      ]
+      ],
+      "trace.server": "verbose"
     },
     "rust": {
       "command": "rust-analyzer",
