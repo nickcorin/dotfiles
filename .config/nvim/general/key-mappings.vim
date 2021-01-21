@@ -37,6 +37,10 @@ vnoremap ? :Commentary<CR>
 vnoremap > >gv
 vnoremap < <gv
 
+" Duplicate lines down.
+nnoremap <leader>d yyp
+vnoremap <leader>d yyp
+
 " Better split switching, using the default directional keys.
 map <C-j> <C-W>j
 map <C-k> <C-W>k

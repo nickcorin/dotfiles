@@ -1,55 +1,38 @@
 {
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnInsertLeave": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "*"
-  ],
+  "coc.preferences.formatOnSaveFiletypes": ["*"],
   "diagnostic.checkCurrentLine": true,
   "diagnostic.refreshOnInsertMode": true,
   "languageserver": {
     "clangd": {
       "command": "clangd",
-      "rootPatterns": [
-        "compile_flags.txt",
-        "compile_commands.json"
-      ],
-      "filetypes": [
-        "c",
-        "cc",
-        "cpp",
-        "c++"
-      ]
+      "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+      "filetypes": ["c", "cc", "cpp", "c++"]
     },
     "go": {
-      "args": [
-        "serve",
-        "-debug",
-        "http://localhost:6061",
-        "-rpc.trace"
-      ],
+      "args": ["serve", "-debug", "http://localhost:6061", "-rpc.trace"],
       "command": "gopls",
-      "filetypes": [
-        "go"
-      ],
+      "filetypes": ["go"],
       "initializationOptions": {
+        "buildFlags": [
+          "-tags=grpc",
+          "-tags=logical",
+          "-tags=mock",
+          "-tags=wireinject"
+        ],
         "completeUnimported": true,
         "gofumpt": true,
         "usePlaceholders": true
       },
       "progressOnInitialization": true,
-      "rootPatterns": [
-        "go.mod"
-      ],
+      "rootPatterns": ["go.mod"],
       "trace.server": "verbose"
     },
     "rust": {
       "command": "rust-analyzer",
-      "filetypes": [
-        "rust"
-      ],
-      "rootPatterns": [
-        "Cargo.toml"
-      ]
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
     }
   }
 }
