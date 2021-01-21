@@ -22,6 +22,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 
+	" Typescript synax highlighting.
+	Plug 'petalin/vim-jsx-typescript'
+	Plug 'leafgarland/typescript-vim'
+
 	" Gruvbox color scheme.
 	Plug 'morhetz/gruvbox'
 
@@ -30,6 +34,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 	" Preview hex colors in vim.
 	Plug 'norcalli/nvim-colorizer.lua'
+
+	" React syntax highlighting.
+	Plug 'peitalin/vim-jsx-typescript'
 
 	" Auto close parenthesis, quotes, etc.
 	Plug 'Raimondi/delimitMate'

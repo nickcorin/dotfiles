@@ -4,13 +4,13 @@
 # environment variables. Some entries may override variables
 # set by alacritty itself.
 # env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
-  # TERM: xterm-256color
+# TERM variable
+#
+# This value is used to set the `$TERM` environment variable for
+# each instance of Alacritty. If it is not present, alacritty will
+# check the local terminfo database and use `alacritty` if it is
+# available, otherwise `xterm-256color` is used.
+# TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -67,10 +67,10 @@ window:
 
   # Window class (Linux/BSD only):
   #class:
-    # Application instance name
-    #instance: Alacritty
-    # General application class
-    #general: Alacritty
+  # Application instance name
+  #instance: Alacritty
+  # General application class
+  #general: Alacritty
 
   # GTK theme variant (Linux/BSD only)
   #
@@ -81,7 +81,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 0 
+  history: 0
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
@@ -91,22 +91,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "FiraMono Nerd Font"
+    family: "UbuntuMono NerdFont"
     style: Regular
   # Bold font face
   bold:
-    family: "FiraMono Nerd Font"
+    family: "UbuntuMono NerdFont"
     style: Regular
   # Italic font face
   italic:
-    family: "FiraMono Nerd Font"
+    family: "UbuntuMono NerdFont"
     style: Italic
   # Bold italic font face
   bold_italic:
-    family: "FiraMono Nerd Font"
+    family: "UbuntuMono NerdFont"
     style: Italic
   # Point size
-  size: 14.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -141,144 +141,145 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 schemes:
-        base16-default: &base16-default
-                primary:
-                        background: '0x181818'
-                        foreground: '0xd8d8d8'
-                cursor:
-                        text: '0x181818'
-                        cursor: '0xd8d8d8'
-                normal:
-                        black:   '0x181818'
-                        red:     '0xab4642'
-                        green:   '0xa1b56c'
-                        yellow:  '0xf7ca88'
-                        blue:    '0x7cafc2'
-                        magenta: '0xba8baf'
-                        cyan:    '0x86c1b9'
-                        white:   '0xd8d8d8'
-                bright:
-                        black:   '0x585858'
-                        red:     '0xdc9656'
-                        green:   '0x282828'
-                        yellow:  '0x383838'
-                        blue:    '0xb8b8b8'
-                        magenta: '0xe8e8e8'
-                        cyan:    '0xa16946'
-                        white:   '0xf8f8f8'
+  base16-default: &base16-default
+    primary:
+      background: "0x181818"
+      foreground: "0xd8d8d8"
+    cursor:
+      text: "0x181818"
+      cursor: "0xd8d8d8"
+    normal:
+      black: "0x181818"
+      red: "0xab4642"
+      green: "0xa1b56c"
+      yellow: "0xf7ca88"
+      blue: "0x7cafc2"
+      magenta: "0xba8baf"
+      cyan: "0x86c1b9"
+      white: "0xd8d8d8"
+    bright:
+      black: "0x585858"
+      red: "0xdc9656"
+      green: "0x282828"
+      yellow: "0x383838"
+      blue: "0xb8b8b8"
+      magenta: "0xe8e8e8"
+      cyan: "0xa16946"
+      white: "0xf8f8f8"
 
-        base16-default-256: &base16-default-256
-                primary:
-                        background: '#181818'
-                        foreground: '#d8d8d8'
-                cursor:
-                        text: '#d8d8d8'
-                        cursor: '#d8d8d8'
-                normal:
-                        black:   '#181818'
-                        red:     '#ab4642'
-                        green:   '#a1b56c'
-                        yellow:  '#f7ca88'
-                        blue:    '#7cafc2'
-                        magenta: '#ba8baf'
-                        cyan:    '#86c1b9'
-                        white:   '#d8d8d8'
-                bright:
-                        black:   '#585858'
-                        red:     '#ab4642'
-                        green:   '#a1b56c'
-                        yellow:  '#f7ca88'
-                        blue:    '#7cafc2'
-                        magenta: '#ba8baf'
-                        cyan:    '#86c1b9'
-                        white:   '#f8f8f8'
+  base16-default-256: &base16-default-256
+    primary:
+      background: "#181818"
+      foreground: "#d8d8d8"
+    cursor:
+      text: "#d8d8d8"
+      cursor: "#d8d8d8"
+    normal:
+      black: "#181818"
+      red: "#ab4642"
+      green: "#a1b56c"
+      yellow: "#f7ca88"
+      blue: "#7cafc2"
+      magenta: "#ba8baf"
+      cyan: "#86c1b9"
+      white: "#d8d8d8"
+    bright:
+      black: "#585858"
+      red: "#ab4642"
+      green: "#a1b56c"
+      yellow: "#f7ca88"
+      blue: "#7cafc2"
+      magenta: "#ba8baf"
+      cyan: "#86c1b9"
+      white: "#f8f8f8"
 
-        base16-gruvbox-dark-hard: &base16-gruvbox-dark-hard
-                primary:
-                        background: '0x1d2021'
-                        foreground: '0xd5c4a1'
-                cursor:
-                        text: '0x1d2021'
-                        cursor: '0xd5c4a1'
-                normal:
-                        black:   '0x1d2021'
-                        red:     '0xfb4934'
-                        green:   '0xb8bb26'
-                        yellow:  '0xfabd2f'
-                        blue:    '0x83a598'
-                        magenta: '0xd3869b'
-                        cyan:    '0x8ec07c'
-                        white:   '0xd5c4a1'
-                bright:
-                        black:   '0x665c54'
-                        red:     '0xfe8019'
-                        green:   '0x3c3836'
-                        yellow:  '0x504945'
-                        blue:    '0xbdae93'
-                        magenta: '0xebdbb2'
-                        cyan:    '0xd65d0e'
-                        white:   '0xfbf1c7'
-        base16-gruvbox-dark-hard-256: &base16-gruvbox-dark-hard-256
-          primary:
-            background: '0x1d2021'
-            foreground: '0xd5c4a1'
-          cursor:
-            text: '0x1d2021'
-            cursor: '0xd5c4a1'
-          normal:
-            black:   '0x1d2021'
-            red:     '0xfb4934'
-            green:   '0xb8bb26'
-            yellow:  '0xfabd2f'
-            blue:    '0x83a598'
-            magenta: '0xd3869b'
-            cyan:    '0x8ec07c'
-            white:   '0xd5c4a1'
-          bright:
-            black:   '0x665c54'
-            red:     '0xfb4934'
-            green:   '0xb8bb26'
-            yellow:  '0xfabd2f'
-            blue:    '0x83a598'
-            magenta: '0xd3869b'
-            cyan:    '0x8ec07c'
-            white:   '0xfbf1c7'
-          indexed_colors:
-            - { index: 16, color: '0xfe8019' }
-            - { index: 17, color: '0xd65d0e' }
-            - { index: 18, color: '0x3c3836' }
-            - { index: 19, color: '0x504945' }
-            - { index: 20, color: '0xbdae93' }
-            - { index: 21, color: '0xebdbb2' }
+  base16-gruvbox-dark-hard: &base16-gruvbox-dark-hard
+    primary:
+      background: "0x1d2021"
+      foreground: "0xd5c4a1"
+    cursor:
+      text: "0x1d2021"
+      cursor: "0xd5c4a1"
+    normal:
+      black: "0x1d2021"
+      red: "0xfb4934"
+      green: "0xb8bb26"
+      yellow: "0xfabd2f"
+      blue: "0x83a598"
+      magenta: "0xd3869b"
+      cyan: "0x8ec07c"
+      white: "0xd5c4a1"
+    bright:
+      black: "0x665c54"
+      red: "0xfe8019"
+      green: "0x3c3836"
+      yellow: "0x504945"
+      blue: "0xbdae93"
+      magenta: "0xebdbb2"
+      cyan: "0xd65d0e"
+      white: "0xfbf1c7"
+  base16-gruvbox-dark-hard-256: &base16-gruvbox-dark-hard-256
+    primary:
+      background: "0x1d2021"
+      foreground: "0xd5c4a1"
+    cursor:
+      text: "0x1d2021"
+      cursor: "0xd5c4a1"
+    normal:
+      black: "0x1d2021"
+      red: "0xfb4934"
+      green: "0xb8bb26"
+      yellow: "0xfabd2f"
+      blue: "0x83a598"
+      magenta: "0xd3869b"
+      cyan: "0x8ec07c"
+      white: "0xd5c4a1"
+    bright:
+      black: "0x665c54"
+      red: "0xfb4934"
+      green: "0xb8bb26"
+      yellow: "0xfabd2f"
+      blue: "0x83a598"
+      magenta: "0xd3869b"
+      cyan: "0x8ec07c"
+      white: "0xfbf1c7"
+    indexed_colors:
+      - { index: 16, color: "0xfe8019" }
+      - { index: 17, color: "0xd65d0e" }
+      - { index: 18, color: "0x3c3836" }
+      - { index: 19, color: "0x504945" }
+      - { index: 20, color: "0xbdae93" }
+      - { index: 21, color: "0xebdbb2" }
 
-        nord: &nord
-                primary:
-                        background: '0x2E3440'
-                        foreground: '0xD8DEE9'
-                cursor:
-                        text: '0x2E3440'
-                        cursor: '0xD8DEE9'
-                normal:
-                        black: '0x3B4252'
-                        red: '0xBF616A'
-                        green: '0xA3BE8C'
-                        yellow: '0xEBCB8B'
-                        blue: '0x81A1C1'
-                        magenta: '0xB48EAD'
-                        cyan: '0x88C0D0'
-                        white: '0xE5E9F0'
-                bright:
-                        black: '0x4C566A'
-                        red: '0xBF616A'
-                        green: '0xA3BE8C'
-                        yellow: '0xEBCB8B'
-                        blue: '0x81A1C1'
-                        magenta: '0xB48EAD'
-                        cyan: '0x8FBCBB'
-                        white: '0xECEFF4'
+  nord: &nord
+    primary:
+      background: "0x2E3440"
+      foreground: "0xD8DEE9"
+    cursor:
+      text: "0x2E3440"
+      cursor: "0xD8DEE9"
+    normal:
+      black: "0x3B4252"
+      red: "0xBF616A"
+      green: "0xA3BE8C"
+      yellow: "0xEBCB8B"
+      blue: "0x81A1C1"
+      magenta: "0xB48EAD"
+      cyan: "0x88C0D0"
+      white: "0xE5E9F0"
+    bright:
+      black: "0x4C566A"
+      red: "0xBF616A"
+      green: "0xA3BE8C"
+      yellow: "0xEBCB8B"
+      blue: "0x81A1C1"
+      magenta: "0xB48EAD"
+      cyan: "0x8FBCBB"
+      white: "0xECEFF4"
 
 colors: *base16-gruvbox-dark-hard-256
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors:
+  false
 
   # Dim colors
   #
@@ -340,22 +341,21 @@ selection:
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: true
-
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true
 
 #cursor:
-  # Cursor style
-  #
-  # Values for `style`:
-  #   - ▇ Block
-  #   - _ Underline
-  #   - | Beam
-  #style: Block
+# Cursor style
+#
+# Values for `style`:
+#   - ▇ Block
+#   - _ Underline
+#   - | Beam
+#style: Block
 
-  # If this is `true`, the cursor will be rendered as a hollow box when the
-  # window is not focused.
-  #unfocused_hollow: true
+# If this is `true`, the cursor will be rendered as a hollow box when the
+# window is not focused.
+#unfocused_hollow: true
 
 # Live config reload (changes require restart)
 #live_config_reload: true
@@ -394,62 +394,62 @@ selection:
 #alt_send_esc: true
 
 #debug:
-  # Display the time it takes to redraw each frame.
-  #render_timer: false
+# Display the time it takes to redraw each frame.
+#render_timer: false
 
-  # Keep the log file after quitting Alacritty.
-  #persistent_logging: false
+# Keep the log file after quitting Alacritty.
+#persistent_logging: false
 
-  # Log level
-  #
-  # Values for `log_level`:
-  #   - None
-  #   - Error
-  #   - Warn
-  #   - Info
-  #   - Debug
-  #   - Trace
-  #log_level: Warn
+# Log level
+#
+# Values for `log_level`:
+#   - None
+#   - Error
+#   - Warn
+#   - Info
+#   - Debug
+#   - Trace
+#log_level: Warn
 
-  # Print all received window events.
-  #print_events: false
+# Print all received window events.
+#print_events: false
 
-  # Record all characters and escape sequences as test data.
-  #ref_test: false
+# Record all characters and escape sequences as test data.
+#ref_test: false
 
 #mouse:
-  # Click settings
-  #
-  # The `double_click` and `triple_click` settings control the time
-  # alacritty should wait for accepting multiple clicks as one double
-  # or triple click.
-  #double_click: { threshold: 300 }
-  #triple_click: { threshold: 300 }
+# Click settings
+#
+# The `double_click` and `triple_click` settings control the time
+# alacritty should wait for accepting multiple clicks as one double
+# or triple click.
+#double_click: { threshold: 300 }
+#triple_click: { threshold: 300 }
 
-  # If this is `true`, the cursor is temporarily hidden when typing.
-  #hide_when_typing: false
+# If this is `true`, the cursor is temporarily hidden when typing.
+#hide_when_typing: false
 
-  #url:
-    # URL launcher
-    #
-    # This program is executed when clicking on a text which is recognized as a URL.
-    # The URL is always added to the command as the last parameter.
-    #
-    # When set to `None`, URL launching will be disabled completely.
-    #
-    # Default:
-    #   - (macOS) open
-    #   - (Linux/BSD) xdg-open
-    #   - (Windows) explorer
-    #launcher:
-    #  program: xdg-open
-    #  args: []
+#url:
+# URL launcher
+#
+# This program is executed when clicking on a text which is recognized as a URL.
+# The URL is always added to the command as the last parameter.
+#
+# When set to `None`, URL launching will be disabled completely.
+#
+# Default:
+#   - (macOS) open
+#   - (Linux/BSD) xdg-open
+#   - (Windows) explorer
+#launcher:
+#  program: xdg-open
+#  args: []
 
-    # URL modifiers
-    #
-    # These are the modifiers that need to be held down for opening URLs when clicking
-    # on them. The available modifiers are documented in the key binding section.
-    #modifiers: None
+# URL modifiers
+#
+# These are the modifiers that need to be held down for opening URLs when clicking
+# on them. The available modifiers are documented in the key binding section.
+#modifiers: None
 
 # Mouse bindings
 #
@@ -577,42 +577,42 @@ selection:
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
 # key_bindings:
-  # (Windows, Linux, and BSD only)
-  #- { key: V,        mods: Alt, action: Paste                            }
-  #- { key: C,        mods: Alt, action: Copy                             }
-  #- { key: V,        mods: Control|Shift,    action: Paste               }
-  #- { key: C,        mods: Control|Shift,    action: Copy                }
-  #- { key: Insert,   mods: Shift,         action: PasteSelection   }
-  #- { key: Key0,     mods: Control,       action: ResetFontSize    }
-  #- { key: Equals,   mods: Control,       action: IncreaseFontSize }
-  #- { key: Add,      mods: Control,       action: IncreaseFontSize }
-  #- { key: Subtract, mods: Control,       action: DecreaseFontSize }
-  #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
+# (Windows, Linux, and BSD only)
+#- { key: V,        mods: Alt, action: Paste                            }
+#- { key: C,        mods: Alt, action: Copy                             }
+#- { key: V,        mods: Control|Shift,    action: Paste               }
+#- { key: C,        mods: Control|Shift,    action: Copy                }
+#- { key: Insert,   mods: Shift,         action: PasteSelection   }
+#- { key: Key0,     mods: Control,       action: ResetFontSize    }
+#- { key: Equals,   mods: Control,       action: IncreaseFontSize }
+#- { key: Add,      mods: Control,       action: IncreaseFontSize }
+#- { key: Subtract, mods: Control,       action: DecreaseFontSize }
+#- { key: Minus,    mods: Control,       action: DecreaseFontSize }
 
-  # (Windows only)
-  #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
+# (Windows only)
+#- { key: Return,   mods: Alt,           action: ToggleFullscreen }
 
-  # (macOS only)
-  #- { key: Key0,     mods: Command, action: ResetFontSize                }
-  #- { key: Equals,   mods: Command, action: IncreaseFontSize             }
-  #- { key: Add,    mods: Command, action: IncreaseFontSize }
-  #- { key: Minus,    mods: Command, action: DecreaseFontSize             }
-  #- { key: K,        mods: Command, action: ClearHistory                 }
-  #- { key: K,        mods: Command, chars: "\x0c"                        }
-  #- { key: V,        mods: Command, action: Paste                        }
-  #- { key: C,        mods: Command, action: Copy                         }
-  #- { key: H,        mods: Command, action: Hide                         }
-  #- { key: M,      mods: Command,         action: Minimize         }
-  #- { key: Q,        mods: Command, action: Quit                         }
-  #- { key: W,        mods: Command, action: Quit                         }
-  #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
+# (macOS only)
+#- { key: Key0,     mods: Command, action: ResetFontSize                }
+#- { key: Equals,   mods: Command, action: IncreaseFontSize             }
+#- { key: Add,    mods: Command, action: IncreaseFontSize }
+#- { key: Minus,    mods: Command, action: DecreaseFontSize             }
+#- { key: K,        mods: Command, action: ClearHistory                 }
+#- { key: K,        mods: Command, chars: "\x0c"                        }
+#- { key: V,        mods: Command, action: Paste                        }
+#- { key: C,        mods: Command, action: Copy                         }
+#- { key: H,        mods: Command, action: Hide                         }
+#- { key: M,      mods: Command,         action: Minimize         }
+#- { key: Q,        mods: Command, action: Quit                         }
+#- { key: W,        mods: Command, action: Quit                         }
+#- { key: F,      mods: Command|Control, action: ToggleFullscreen }
 
-  #- { key: Paste,                    action: Paste                            }
-  #- { key: Copy,                     action: Copy                             }
-  #- { key: L,         mods: Control, action: ClearLogNotice                   }
-  #- { key: L,         mods: Control, chars: "\x0c"                            }
-  #- { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
-  #- { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
-  #- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
-  #- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
+#- { key: Paste,                    action: Paste                            }
+#- { key: Copy,                     action: Copy                             }
+#- { key: L,         mods: Control, action: ClearLogNotice                   }
+#- { key: L,         mods: Control, chars: "\x0c"                            }
+#- { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
+#- { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
+#- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
+#- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
 
