@@ -9,4 +9,8 @@ hi NonText ctermbg=none
 set termguicolors
 let base16colorspace=256
 
-colorscheme base16-gruvbox-dark-hard
+" Transparency fix for dracula.
+let g:dracula_colorterm = 0
+
+" Set the colorscheme.
+colorscheme dracula
