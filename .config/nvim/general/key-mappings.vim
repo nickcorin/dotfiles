@@ -11,6 +11,9 @@ nnoremap <leader>w :w!<CR>
 " Fast quit.
 nnoremap <leader>q :q!<CR>
 
+" Fast :x
+nnoremap <leader>x :x!<CR>
+
 " Open new file adjacent to current file
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 

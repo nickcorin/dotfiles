@@ -15,6 +15,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" Syntax highlighting for .fish files.
 	Plug 'dag/vim-fish'
 
+	" Dracula color scheme.
+	Plug 'dracula/vim', { 'name': 'dracula' }
+
 	" Answer leetcode questions in VIM.
 	Plug 'ianding1/leetcode.vim'
 

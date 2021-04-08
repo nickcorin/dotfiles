@@ -50,8 +50,19 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 alias code="open -a ~/Applications/Visual\ Studio\ Code.app"
-alias ll="ls -lG"
-alias please="sudo"
+
+# Use exa if its available, but keep usage consistent either way.
+if command -v exa > /dev/null; then
+	alias l="exa"
+	alias ls="exa"
+	alias ll="exa -l"
+	alias lll="exa -la"
+	alias please="sudo"
+else
+	alias l="ls"
+	alias ll="ls -l"
+	alias lll="ls -la"
+fi
 
 # Configure PROMPT.
 export PROMPT="%F{grey}[$(date +%H:%M)] %F{blue}%m%F{black}:%F{yellow}%1~%F{red} | %f"
