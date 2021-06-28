@@ -33,3 +33,9 @@ endif
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+
+" This is noise as heck: see https://github.com/neoclide/coc.nvim/issues/888
+autocmd BufWritePre *.go :OR

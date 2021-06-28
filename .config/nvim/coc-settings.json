@@ -2,6 +2,7 @@
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnInsertLeave": true,
   "coc.preferences.formatOnSaveFiletypes": ["*"],
+  "coc.preferences.messageLevel": "error",
   "diagnostic.checkCurrentLine": true,
   "diagnostic.refreshOnInsertMode": true,
   "languageserver": {
@@ -11,23 +12,16 @@
       "filetypes": ["c", "cc", "cpp", "c++"]
     },
     "go": {
-      "args": ["serve", "-debug", "http://localhost:6061", "-rpc.trace"],
       "command": "gopls",
       "filetypes": ["go"],
       "initializationOptions": {
-        "buildFlags": [
-          "-tags=grpc",
-          "-tags=logical",
-          "-tags=mock",
-          "-tags=wireinject"
-        ],
+        "buildFlags": [],
         "completeUnimported": true,
         "gofumpt": true,
         "usePlaceholders": true
       },
       "progressOnInitialization": true,
       "rootPatterns": ["go.mod"],
-      "trace.server": "verbose"
     },
     "rust": {
       "command": "rust-analyzer",
