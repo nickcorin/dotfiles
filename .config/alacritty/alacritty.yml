@@ -91,22 +91,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "Noto Sans Mono"
+    family: "NotoSansMono Nerd Font"
     style: Regular
   # Bold font face
   bold:
-    family: "Noto Sans Mono"
+    family: "NotoSansMono Nerd Font"
     style: Bold
   # Italic font face
   italic:
-    family: "Noto Sans Mono"
+    family: "NotoSansMono Nerd Font"
     style: Italic
   # Bold italic font face
   bold_italic:
-    family: "Noto Sans Mono"
+    family: "NotoSansMono Nerd Font"
     style: Italic
   # Point size
-  size: 10.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -331,7 +331,7 @@ schemes:
       cyan: "0x8FBCBB"
       white: "0xECEFF4"
 
-colors: *dracula
+colors: *base16-gruvbox-dark-hard
 draw_bold_text_with_bright_colors:
   false
 
@@ -388,7 +388,7 @@ draw_bold_text_with_bright_colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.95
+background_opacity: 1
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"

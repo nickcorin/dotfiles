@@ -73,3 +73,4 @@ export PROMPT="%F{grey}[$(date +%H:%M)] %F{blue}%m%F{black}:%F{yellow}%1~%F{red}
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/llvm/bin:$PATH"
