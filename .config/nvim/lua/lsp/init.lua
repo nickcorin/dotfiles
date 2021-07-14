@@ -1,4 +1,4 @@
-local lsp = require "lspconfig"
+local lsp = require"lspconfig"
 
 -- This function will be run once an LSP is attached to an active buffer.
 local on_attach = function(client, bufnr)
@@ -21,6 +21,13 @@ local on_attach = function(client, bufnr)
 		local prefix, cmd = unpack(key)
 		vim.api.nvim_buf_set_keymap(bufnr, "n", prefix, cmd, default_opts)
 	end
+
+	local go = require"lsp/go"
+
+	if client.resolved_capabilities.document_formatting then
+    	vim.api.nvim_exec("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()", false)
+		vim.api.nvim_exec("autocmd BufWritePre *.go lua OrgImports(1000)", false)
+ 	end
 end
 
 local servers = {
