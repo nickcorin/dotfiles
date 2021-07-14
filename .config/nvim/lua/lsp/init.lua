@@ -25,7 +25,7 @@ local on_attach = function(client, bufnr)
 	local go = require"lsp/go"
 
 	if client.resolved_capabilities.document_formatting then
-    	vim.api.nvim_exec("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()", false)
+		vim.api.nvim_exec("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()", false)
 		vim.api.nvim_exec("autocmd BufWritePre *.go lua OrgImports(1000)", false)
  	end
 end
