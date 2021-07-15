@@ -1,6 +1,3 @@
--- Load colors.
-require"colors"
-
 -- Load settings.
 require"settings"
 
@@ -11,6 +8,9 @@ require"key-mappings"
 require"plugins"
 require"plugins/compe"
 require"plugins/telescope"
+
+-- Load colors.
+require"colors"
 
 -- Load language servers.
 require"lsp"

@@ -10,8 +10,8 @@ return require("packer").startup(function()
 
 	-- Colorschemes {
 	use "arcticicestudio/nord-vim"
+	use "chriskempson/base16-vim"
 	use "dracula/vim"
-	use "morhetz/gruvbox"
 	-- }
 	
 	-- Autocomplete {
