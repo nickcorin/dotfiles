@@ -331,7 +331,7 @@ schemes:
       cyan: "0x8FBCBB"
       white: "0xECEFF4"
 
-colors: *base16-gruvbox-dark-hard
+colors: *base16-gruvbox-dark-hard-256
 draw_bold_text_with_bright_colors:
   false
 
