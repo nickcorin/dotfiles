@@ -1,3 +1,21 @@
+local globals = {
+	-- Disable showing the information banner on the top of netrw.
+	netrw_banner = 0,
+
+	-- Sets the behavior of pressing <CR> on a selected file in netrw.
+	netrw_browse_split = 0,
+
+	-- Sets the default list style in netrw.
+	netrw_liststyle = 3,
+
+	-- Sets the initial size of new netrw windows.
+	netrw_winsize = 20,
+}
+
+for k, v in pairs(globals) do
+	vim.g[k] = v
+end
+
 -- NOTE: vim-sensible is installed, so some obvious settings might be missing
 -- here if they have been included there.
 --
@@ -56,3 +74,4 @@ local settings = {
 for k, v in pairs(settings) do
 	vim.opt[k] = v
 end
+

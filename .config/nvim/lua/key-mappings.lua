@@ -11,8 +11,10 @@ local keys = {
 		{"<leader>a", ":cclose<CR>"},
 		-- Duplicate lines down. Similar to Ctrl-D in other code editors.
 		{"<leader>d", "yyp"},
+		-- Opens netwr to the left of the window.
+		{"<leader>e", ":Lex<CR>"},
 		-- Opens a new file for editing adjacent to the current open file.
-		{"<leader>e", ":e <C-R>=expand(\"%:p:h\") . \"/\" <CR>"},
+		{"<leader>n", ":e <C-R>=expand(\"%:p:h\") . \"/\" <CR>"},
 		-- Fast quit.
 		{"<leader>q", ":q!<CR>"},
 		-- Fast save.
