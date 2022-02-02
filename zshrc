@@ -57,20 +57,33 @@ if command -v exa > /dev/null; then
 	alias ls="exa"
 	alias ll="exa -l"
 	alias lll="exa -la"
-	alias please="sudo"
 else
 	alias l="ls"
 	alias ll="ls -l"
 	alias lll="ls -la"
 fi
 
+# It's just funny.
+alias please="sudo"
+
 # Configure PROMPT.
 export PROMPT="%F{grey}[$(date +%H:%M)] %F{blue}%m%F{black}:%F{yellow}%1~%F{red} | %f"
+
+# Set default git credentials.
+if command -v git > /dev/null; then
+	git config --global user.name "Nick Corin"
+	git config --global user.email "nickcorin@gmail.com"
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# Shell autocompletion for Terraform.
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # Check if there is a private zshrc to souce. Private zshrc files contain
 # environment specific variables and functions that shouldn't be added to
 # Git.
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/usr/local/opt/llvm/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
