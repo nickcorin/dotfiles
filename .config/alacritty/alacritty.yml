@@ -34,8 +34,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 10
-    y: 10
+   x: 2 
+   y: 2 
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -60,7 +60,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  #startup_mode: Windowed
+  startup_mode: SimpleFullscreen
 
   # Window title
   #title: Alacritty
@@ -91,22 +91,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "FiraCode Nerd Font"
+    family: "Noto Sans Mono"
     style: Regular
   # Bold font face
   bold:
-    family: "FiraCode Nerd Font"
-    style: Bold
+    family: "Noto Sans Mono"
+    style: Regular
   # Italic font face
   italic:
-    family: "FiraCode Nerd Font"
-    style: Italic
+    family: "Noto Sans Mono"
+    style: Regular
   # Bold italic font face
   bold_italic:
-    family: "FiraCode Nerd Font"
-    style: Italic
+    family: "Noto Sans Mono"
+    style: Regular
   # Point size
-  size: 10.0
+  size: 16.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -194,30 +194,39 @@ schemes:
       white: "#f8f8f8"
 
   base16-gruvbox-dark-hard: &base16-gruvbox-dark-hard
+    colors:
+    # Default colors
     primary:
-      background: "0x1d2021"
-      foreground: "0xd5c4a1"
+      background: '0x1d2021'
+      foreground: '0xd5c4a1'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
     cursor:
-      text: "0x1d2021"
-      cursor: "0xd5c4a1"
+      text: '0x1d2021'
+      cursor: '0xd5c4a1'
+
+    # Normal colors
     normal:
-      black: "0x1d2021"
-      red: "0xfb4934"
-      green: "0xb8bb26"
-      yellow: "0xfabd2f"
-      blue: "0x83a598"
-      magenta: "0xd3869b"
-      cyan: "0x8ec07c"
-      white: "0xd5c4a1"
+      black:   '0x1d2021'
+      red:     '0xfb4934'
+      green:   '0xb8bb26'
+      yellow:  '0xfabd2f'
+      blue:    '0x83a598'
+      magenta: '0xd3869b'
+      cyan:    '0x8ec07c'
+      white:   '0xd5c4a1'
+
+    # Bright colors
     bright:
-      black: "0x665c54"
-      red: "0xfe8019"
-      green: "0x3c3836"
-      yellow: "0x504945"
-      blue: "0xbdae93"
-      magenta: "0xebdbb2"
-      cyan: "0xd65d0e"
-      white: "0xfbf1c7"
+      black:   '0x665c54'
+      red:     '0xfe8019'
+      green:   '0x3c3836'
+      yellow:  '0x504945'
+      blue:    '0xbdae93'
+      magenta: '0xebdbb2'
+      cyan:    '0xd65d0e'
+      white:   '0xfbf1c7'
+
 
   base16-gruvbox-dark-hard-256: &base16-gruvbox-dark-hard-256
     primary:
@@ -355,7 +364,7 @@ schemes:
       cyan: '#6d96a5'
       white: '#aeb3bb'
 
-colors: *nord
+colors: *base16-gruvbox-dark-hard-256
 draw_bold_text_with_bright_colors:
   false
 
@@ -654,10 +663,10 @@ selection:
 # binding with the same triggers is defined. To unset a default binding, it can
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
-# key_bindings:
+key_bindings:
 # (Windows, Linux, and BSD only)
-#- { key: V,        mods: Alt, action: Paste                            }
-#- { key: C,        mods: Alt, action: Copy                             }
+- { key: V,        mods: Alt, action: Paste                            }
+- { key: C,        mods: Alt, action: Copy                             }
 #- { key: V,        mods: Control|Shift,    action: Paste               }
 #- { key: C,        mods: Control|Shift,    action: Copy                }
 #- { key: Insert,   mods: Shift,         action: PasteSelection   }
