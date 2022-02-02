@@ -28,7 +28,7 @@ local settings = {
 	-- and you can paste with P from it.
 	clipboard = "unnamedplus",
 	-- Show a visual ruler at 80 characters.
-	colorcolumn = "80",
+	colorcolumn = "120",
 	-- Comma separated list for Insert mode completions.
 	-- It's a requirement for nvim-compe to set this to "menuone,noselect".
 	completeopt = "menuone,noselect",
@@ -63,8 +63,8 @@ local settings = {
 	swapfile = false,
 	-- The number of spaces that a <Tab> in the file counts for.
 	tabstop = 4,
-	-- Auto-wrap comments at 80 characters.
-	textwidth = 80,
+	-- Auto-wrap comments at 120 characters.
+	textwidth = 120,
 	-- Persist actions to enable undo even after restart.
 	undofile = true,
 	-- Disable the visual terminal bells.

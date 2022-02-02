@@ -8,6 +8,7 @@ require"key-mappings"
 require"plugins"
 require"plugins/compe"
 require"plugins/telescope"
+require"plugins/treesitter"
 
 -- Load colors.
 require"colors"
