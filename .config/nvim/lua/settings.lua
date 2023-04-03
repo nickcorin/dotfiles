@@ -32,6 +32,8 @@ local settings = {
 	-- Comma separated list for Insert mode completions.
 	-- It's a requirement for nvim-compe to set this to "menuone,noselect".
 	completeopt = "menuone,noselect",
+	-- Enable highlighting of the line your cursor is on.
+	cursorline = true,
 	-- Disable the audible terminal bells.
 	errorbells = false,
 	-- Disable abandoning buffers if they are not active. VIM defaults to
