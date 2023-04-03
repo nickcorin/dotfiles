@@ -15,6 +15,8 @@ local keys = {
 		{"<leader>e", ":Lex<CR>"},
 		-- Opens a new file for editing adjacent to the current open file.
 		{"<leader>n", ":e <C-R>=expand(\"%:p:h\") . \"/\" <CR>"},
+		-- Restarts the LSP, useful after adding new dependencies to the package.
+		{"<leader>r", ":LspRestart<CR>"},
 		-- Fast quit.
 		{"<leader>q", ":q!<CR>"},
 		-- Fast save.

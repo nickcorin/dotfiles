@@ -16,6 +16,10 @@ else
 	abbr -a lll 'ls -la'
 end
 
+if command -v brew > /dev/null
+	abbr -a brew 'arch -arm64 brew'
+end
+
 # You may need to manually set your language environment
 set -g -x LANG en_US.UTF-8
 set -g -x LC_ALL en_US.UTF-8
@@ -30,6 +34,7 @@ set -g -x XDG_CONFIG_HOME "$HOME/.config"
 set -g -x PATH "$PATH:/opt/homebrew/bin"
 set -g -x PATH "$PATH:$GOPATH/bin"
 set -g -x PATH "$PATH:$HOME/.cargo/bin"
+set -g -x PATH "$PATH:$HOME/Library/Python/3.8/bin"
 
 # Fish git prompt
 set __fish_git_prompt_showuntrackedfiles 'yes'
@@ -56,16 +61,16 @@ function fish_prompt
 	set_color normal
 end
 
-function fish_greeting
-end
-
 # Start tmux when the shell opens.
 if status is-interactive
     # Commands to run in interactive sessions can go here
 	# builtin source ~/.config/fish/conf.d/base16.fish
 	
-	set BASE16_SHELL "$HOME/.config/base16-shell/"
-    source "$BASE16_SHELL/profile_helper.fish"
+	# set BASE16_SHELL "$HOME/.config/base16-shell/"
+	# source "$BASE16_SHELL/profile_helper.fish"
+	if test -e ~/config.private.fish
+		source ~/config.private.fish
+	end
 
 	# Always start tmux on start, but attach to the old session if it's still active.
 	if ! set -q TMUX

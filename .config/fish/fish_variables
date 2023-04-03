@@ -1,15 +1,16 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR __fish_initialized:3100
-SETUVAR _fish_abbr_l:ls
-SETUVAR _fish_abbr_ll:ls\x20\x2dl
-SETUVAR _fish_abbr_lll:ls\x20\x2dla
+SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_brew:arch\x20\x2darm64\x20brew
+SETUVAR _fish_abbr_l:exa
+SETUVAR _fish_abbr_ll:exa\x20\x2dl
+SETUVAR _fish_abbr_lll:exa\x20\x2dla
 SETUVAR _fish_abbr_ls:exa
-SETUVAR base16_theme:3024
-SETUVAR fish_color_autosuggestion:4a4543
+SETUVAR base16_theme:nord
+SETUVAR fish_color_autosuggestion:434C5E
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:green
-SETUVAR fish_color_comment:4a4543
+SETUVAR fish_color_comment:434C5E
 SETUVAR fish_color_cwd:green
 SETUVAR fish_color_cwd_root:red
 SETUVAR fish_color_end:brblack
@@ -21,11 +22,11 @@ SETUVAR fish_color_host_remote:yellow
 SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
 SETUVAR fish_color_normal:normal
 SETUVAR fish_color_operator:blue
-SETUVAR fish_color_param:807d7c
+SETUVAR fish_color_param:D8DEE9
 SETUVAR fish_color_quote:yellow
 SETUVAR fish_color_redirection:cyan
-SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3d4a4543
-SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3d4a4543
+SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3d434C5E
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3d434C5E
 SETUVAR fish_color_status:red
 SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
@@ -34,3 +35,4 @@ SETUVAR fish_pager_color_completion:normal
 SETUVAR fish_pager_color_description:yellow\x1e\x2d\x2ddim
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr

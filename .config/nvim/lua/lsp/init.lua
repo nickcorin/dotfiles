@@ -9,12 +9,13 @@ local on_attach = function(client, bufnr)
 		{"gi", "<cmd>lua vim.lsp.buf.implementation()<CR>"},
 		{"K", "<cmd>lua vim.lsp.buf.hover()<CR>"},
 
-		{"C-n", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>"},
-		{"C-p", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>"},
+		{"dn", "<cmd>lua vim.diagnostic.goto_next()<CR>"},
+		{"dp", "<cmd>lua vim.diagnostic.goto_prev()<CR>"},
+		{"df", "<cmd>lua vim.diagnostic.open_float()<CR>"},
 	}
 
 	for _, key in pairs(keys) do
-		local default_opts = {noremap=true, silent=true}
+		local default_opts = {noremap=false, silent=false}
 
 		-- The unpack function has been replaced by table.unpack in Lua 5.2.
 		-- Make sure to fix this once Neovim upgrades Lua.
@@ -50,7 +51,29 @@ local servers = {
 				usePlaceholders = true,
 			}
 		}
-	}
+	},
+
+	pyright = {},
+
+	rust_analyzer = {
+		assist = {
+			importGranularity = "module",
+			importPrefix = "by_self",
+		},
+		cargo = {
+			loadOutDirsFromCheck = true
+		},
+		procMacro = {
+			enable = true
+		},
+	},
+
+	solc = {
+		cmd = {"solc", "--lsp"},
+		filetypes = {"solidity"},
+	},
+
+	tsserver = {}
 }
 
 for server, config in pairs(servers) do

@@ -66,13 +66,17 @@ fi
 # It's just funny.
 alias please="sudo"
 
-# Configure PROMPT.
-export PROMPT="%F{grey}[$(date +%H:%M)] %F{blue}%m%F{black}:%F{yellow}%1~%F{red} | %f"
-
 # Set default git credentials.
 if command -v git > /dev/null; then
 	git config --global user.name "Nick Corin"
 	git config --global user.email "nickcorin@gmail.com"
+	git config --global core.pager "cat"
+fi
+
+# This is for MacOS ARM architectures.
+if command -v brew > /dev/null; then
+	alias brew="arch -arm64 brew"
+	export PATH="/opt/homebrew/bin:$PATH"
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
