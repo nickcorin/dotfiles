@@ -74,65 +74,65 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["base16-vim"] = {
+  LuaSnip = {
     loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/base16-vim",
-    url = "https://github.com/chriskempson/base16-vim"
+    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["gh.nvim"] = {
+  catppuccin = {
     loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/gh.nvim",
-    url = "https://github.com/ldelossa/gh.nvim"
+    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   gruvbox = {
     loaded = true,
     path = "/Users/nick/.local/share/nvim/site/pack/packer/start/gruvbox",
     url = "https://github.com/morhetz/gruvbox"
   },
-  ["gruvbox-baby"] = {
-    loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/gruvbox-baby",
-    url = "https://github.com/luisiacc/gruvbox-baby"
-  },
   ["gruvbox-material"] = {
     loaded = true,
     path = "/Users/nick/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
-  },
-  ["iceberg.vim"] = {
-    loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/iceberg.vim",
-    url = "https://github.com/cocopon/iceberg.vim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/nick/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  ["litee.nvim"] = {
+  ["lsp-zero.nvim"] = {
     loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/litee.nvim",
-    url = "https://github.com/ldelossa/litee.nvim"
+    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
+    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/nick/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  ["neoscroll.nvim"] = {
+  ["mason-lspconfig.nvim"] = {
     loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
-    url = "https://github.com/karb94/neoscroll.nvim"
+    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
-  ["nord-vim"] = {
+  ["mason.nvim"] = {
     loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/nord-vim",
+    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
+  nord = {
+    loaded = true,
+    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/nord",
     url = "https://github.com/arcticicestudio/nord-vim"
   },
-  ["nvim-compe"] = {
+  ["nvim-cmp"] = {
     loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/nvim-compe",
-    url = "https://github.com/hrsh7th/nvim-compe"
+    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -143,11 +143,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nick/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
-  },
-  ["nvim-tundra"] = {
-    loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/nvim-tundra",
-    url = "https://github.com/sam4llis/nvim-tundra"
   },
   ["nvim-web-devicons"] = {
     loaded = false,
@@ -165,30 +160,25 @@ _G.packer_plugins = {
     path = "/Users/nick/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["popup.nvim"] = {
+  ["rose-pine"] = {
     loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/popup.nvim",
-    url = "https://github.com/nvim-lua/popup.nvim"
+    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/rose-pine",
+    url = "https://github.com/rose-pine/neovim"
   },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/nick/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["true-zen.nvim"] = {
+  undotree = {
     loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/true-zen.nvim",
-    url = "https://github.com/Pocco81/true-zen.nvim"
+    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
   },
-  vim = {
+  ["vim-fugitive"] = {
     loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/vim",
-    url = "https://github.com/dracula/vim"
-  },
-  ["vim-fish"] = {
-    loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/vim-fish",
-    url = "https://github.com/dag/vim-fish"
+    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-gitgutter"] = {
     loaded = true,
@@ -199,21 +189,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nick/.local/share/nvim/site/pack/packer/start/vim-highlightedyank",
     url = "https://github.com/machakann/vim-highlightedyank"
-  },
-  ["vim-matchup"] = {
-    loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/vim-matchup",
-    url = "https://github.com/andymass/vim-matchup"
-  },
-  ["vim-rooter"] = {
-    loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/vim-rooter",
-    url = "https://github.com/airblade/vim-rooter"
-  },
-  ["vim-sensible"] = {
-    loaded = true,
-    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/vim-sensible",
-    url = "https://github.com/tpope/vim-sensible"
   }
 }
 
