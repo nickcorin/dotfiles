@@ -51,6 +51,10 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # For a full list of active aliases, run `alias`.
 alias code="open -a ~/Applications/Visual\ Studio\ Code.app"
 
+if command -v nvim > /dev/null; then
+	alias vim=nvim
+fi 
+
 # Use exa if its available, but keep usage consistent either way.
 if command -v exa > /dev/null; then
 	alias l="exa"
