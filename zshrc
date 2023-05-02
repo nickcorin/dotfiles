@@ -37,6 +37,7 @@ export EDITOR="vim"
 export GO111MODULE=on
 export GOPATH="$HOME/dev/go"
 export KITTY_CONFIG_DIRECTORY="$XDG_CONFIG_HOME/kitty"
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -80,7 +81,6 @@ fi
 # This is for MacOS ARM architectures.
 if command -v brew > /dev/null; then
 	alias brew="arch -arm64 brew"
-	export PATH="/opt/homebrew/bin:$PATH"
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
