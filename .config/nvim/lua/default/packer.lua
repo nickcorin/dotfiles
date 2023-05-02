@@ -13,6 +13,8 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
+    use({ "christoomey/vim-tmux-navigator" })
+
     -- Colorschemes & syntax highlighting.
     use({ "arcticicestudio/nord-vim", as = "nord" })
     use({ "catppuccin/nvim", as = "catppuccin" })

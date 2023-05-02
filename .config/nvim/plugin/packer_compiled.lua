@@ -189,6 +189,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/nick/.local/share/nvim/site/pack/packer/start/vim-highlightedyank",
     url = "https://github.com/machakann/vim-highlightedyank"
+  },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/Users/nick/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
   }
 }
 
