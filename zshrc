@@ -42,6 +42,14 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export XDG_CONFIG_HOME="$HOME/.config"
 
+if command -v bat > /dev/null; then
+    export GH_PAGER=bat
+else
+    export GH_PAGER=cat
+fi
+
+export GH_PAGER="bat"
+
 # You may need to manually set your language environment
  export LANG=en_US.UTF-8
  export LC_ALL=en_US.UTF-8
