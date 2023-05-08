@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
     use({ "catppuccin/nvim", as = "catppuccin" })
     use({ "morhetz/gruvbox", as = "gruvbox" })
     use({ "sainnhe/gruvbox-material", as = "gruvbox-material" })
+    use({ "rebelot/kanagawa.nvim" })
     use({ "rose-pine/neovim", as = "rose-pine" })
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
