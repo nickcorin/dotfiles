@@ -94,22 +94,22 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "FiraCode Nerd Font"
+    family: "Inconsolata Nerd Font"
     style: Regular
   # Bold font face
   bold:
-    family: "FiraCode Nerd Font"
-    style: Regular
+    family: "Inconsolata Nerd Font"
+    style: Bold
   # Italic font face
   italic:
-    family: "FiraCode Nerd Font"
+    family: "Inconsolata Nerd Font"
     style: Italic
   # Bold italic font face
   bold_italic:
-    family: "FiraCode Nerd Font"
-    style: Italic
+    family: "Inconsolata Nerd Font"
+    style: Bold Italic
   # Point size
-  size: 14
+  size: 16
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
