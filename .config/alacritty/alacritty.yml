@@ -94,20 +94,20 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "Inconsolata Nerd Font"
+    family: "SFMono Nerd Font"
     style: Regular
   # Bold font face
   bold:
-    family: "Inconsolata Nerd Font"
-    style: Bold
+    family: "SFMono Nerd Font"
+    style: Regular
   # Italic font face
   italic:
-    family: "Inconsolata Nerd Font"
+    family: "SFMono Nerd Font"
     style: Italic
   # Bold italic font face
   bold_italic:
-    family: "Inconsolata Nerd Font"
-    style: Bold Italic
+    family: "SFMono Nerd Font"
+    style: Italic
   # Point size
   size: 16
 
