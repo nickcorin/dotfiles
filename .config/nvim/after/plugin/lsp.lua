@@ -27,6 +27,10 @@ require('lspconfig').gopls.setup({
     },
 })
 
+require('lspconfig').clangd.setup({
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+})
+
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.on_attach(function(_, bufnr)
