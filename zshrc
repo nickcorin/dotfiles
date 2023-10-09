@@ -1,47 +1,32 @@
+export EDITOR="vim"
+export GOPATH="$HOME/dev/go"
+
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
+ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git tmux)
+
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_AUTOSTART_ONCE="true"
+ZSH_TMUX_AUTOCONNECT="true"
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-export EDITOR="vim"
-export GO111MODULE=on
-export GOPATH="$HOME/dev/go"
-export KITTY_CONFIG_DIRECTORY="$XDG_CONFIG_HOME/kitty"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
-export XDG_CONFIG_HOME="$HOME/.config"
-
 if command -v bat > /dev/null; then
     export GH_PAGER=bat
 else
@@ -85,7 +70,12 @@ alias please="sudo"
 if command -v git > /dev/null; then
 	git config --global user.name "Nick Corin"
 	git config --global user.email "nickcorin@gmail.com"
-	git config --global core.pager "cat"
+
+    if command -v bat > /dev/null; then
+	    git config --global core.pager "bat"
+    else
+        git config --global core.pager "cat"
+    fi
 fi
 
 # This is for MacOS ARM architectures.
@@ -96,12 +86,12 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
-# Shell autocompletion for Terraform.
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
+# Enable plugins manually because they're installed with brew.
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Check if there is a private zshrc to souce. Private zshrc files contain
 # environment specific variables and functions that shouldn't be added to
 # Git.
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
