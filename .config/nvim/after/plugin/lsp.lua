@@ -4,13 +4,10 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.ensure_installed({
-    'bashls',
     'clangd',
-    'dockerls',
-    'eslint',
+    'gci',
+    'gofumpt',
     'gopls',
-    'html',
-    'jsonls',
     'jdtls',
     'jedi_language_server',
     'lua_ls',

@@ -1,7 +1,16 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- Installs packer on new machines which don't have packer installed.
+local ensure_packer = function()
+    local fn = vim.fn
+    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+        vim.cmd [[packadd packer.nvim]]
+        return true
+    end
+    return false
+end
 
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
@@ -19,6 +28,13 @@ return require('packer').startup(function(use)
     use({ "arcticicestudio/nord-vim", as = "nord" })
     use({ "catppuccin/nvim", as = "catppuccin" })
     use({ "morhetz/gruvbox", as = "gruvbox" })
+    use({
+        "neanias/everforest-nvim",
+        -- Optional; default configuration will be used if setup isn't called.
+        config = function()
+            require("everforest").setup()
+        end,
+    })
     use({ "sainnhe/gruvbox-material", as = "gruvbox-material" })
     use({ "rebelot/kanagawa.nvim" })
     use({ "rose-pine/neovim", as = "rose-pine" })
