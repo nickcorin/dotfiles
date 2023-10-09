@@ -1,4 +1,5 @@
-rose-pine: &rose-pine
+colors:
+  name: Rose Pine
   primary:
     background: "0x$base"
     foreground: "0x$text"

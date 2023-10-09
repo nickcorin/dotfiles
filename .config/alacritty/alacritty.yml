@@ -4,12 +4,12 @@
 # environment variables. Some entries may override variables
 # set by alacritty itself.
 env:
-# TERM variable
-#
-# This value is used to set the `$TERM` environment variable for
-# each instance of Alacritty. If it is not present, alacritty will
-# check the local terminfo database and use `alacritty` if it is
-# available, otherwise `xterm-256color` is used.
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
 
 window:
@@ -20,7 +20,6 @@ window:
   #dimensions:
   #  columns: 0
   #  lines: 0
-
   # Window position (changes require restart)
   #
   # Specified in number of pixels.
@@ -28,7 +27,6 @@ window:
   #position:
   #  x: 0
   #  y: 0
-
   # Window Opacity
   opacity: 1
 
@@ -37,8 +35,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-   x: 5
-   y: 5 
+    x: 5
+    y: 5
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -52,8 +50,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: buttonless
-
+  # decorations: buttonless
   # Startup Mode (changes require restart)
   #
   # Values for `startup_mode`:
@@ -63,18 +60,15 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Maximized
-
+  startup_mode: Windowed
   # Window title
   #title: Alacritty
-
   # Window class (Linux/BSD only):
   #class:
   # Application instance name
   #instance: Alacritty
   # General application class
   #general: Alacritty
-
   # GTK theme variant (Linux/BSD only)
   #
   # Override the variant of the GTK theme. Commonly supported values are `dark` and `light`.
@@ -94,36 +88,33 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "SFMono Nerd Font"
+    family: "Non-Seasonal Sans Mono"
     style: Regular
   # Bold font face
   bold:
-    family: "SFMono Nerd Font"
+    family: "Non-Seasonal Sans Mono"
     style: Regular
   # Italic font face
   italic:
-    family: "SFMono Nerd Font"
+    family: "Non-Seasonal Sans Mono"
     style: Italic
   # Bold italic font face
   bold_italic:
-    family: "SFMono Nerd Font"
+    family: "Non-Seasonal Sans Mono"
     style: Italic
   # Point size
-  size: 16
-
+  size: 14
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   #offset:
   #  x: 0
   #  y: 0
-
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
   # increasing `y` moves the glyph upwards.
   #glyph_offset:
   #  x: 0
   #  y: 0
-
   # Thin stroke font rendering (macOS only)
   #
   # Thin strokes are suitable for retina displays, but for non-retina screens
@@ -142,386 +133,29 @@ font:
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
-
-schemes:
-  base16-default: &base16-default
-    primary:
-      background: "0x181818"
-      foreground: "0xd8d8d8"
-    cursor:
-      text: "0x181818"
-      cursor: "0xd8d8d8"
+colors:
+  name: Evergreen (Dark Hard)
+  primary:
+    background: '#272e33'
+    foreground: '#d3c6aa'
     normal:
-      black: "0x181818"
-      red: "0xab4642"
-      green: "0xa1b56c"
-      yellow: "0xf7ca88"
-      blue: "0x7cafc2"
-      magenta: "0xba8baf"
-      cyan: "0x86c1b9"
-      white: "0xd8d8d8"
+      black: '#414b50'
+      red: '#e67e80'
+      green: '#a7c080'
+      yellow: '#dbbc7f'
+      blue: '#7fbbb3'
+      magenta: '#d699b6'
+      cyan: '#83c092'
+      white: '#d3c6aa'
     bright:
-      black: "0x585858"
-      red: "0xdc9656"
-      green: "0x282828"
-      yellow: "0x383838"
-      blue: "0xb8b8b8"
-      magenta: "0xe8e8e8"
-      cyan: "0xa16946"
-      white: "0xf8f8f8"
-
-  base16-default-256: &base16-default-256
-    primary:
-      background: "#181818"
-      foreground: "#d8d8d8"
-    cursor:
-      text: "#d8d8d8"
-      cursor: "#d8d8d8"
-    normal:
-      black: "#181818"
-      red: "#ab4642"
-      green: "#a1b56c"
-      yellow: "#f7ca88"
-      blue: "#7cafc2"
-      magenta: "#ba8baf"
-      cyan: "#86c1b9"
-      white: "#d8d8d8"
-    bright:
-      black: "#585858"
-      red: "#ab4642"
-      green: "#a1b56c"
-      yellow: "#f7ca88"
-      blue: "#7cafc2"
-      magenta: "#ba8baf"
-      cyan: "#86c1b9"
-      white: "#f8f8f8"
-
-  base16-gruvbox-dark-hard: &base16-gruvbox-dark-hard
-    colors:
-    # Default colors
-    primary:
-      background: '0x1d2021'
-      foreground: '0xd5c4a1'
-
-    # Colors the cursor will use if `custom_cursor_colors` is true
-    cursor:
-      text: '0x1d2021'
-      cursor: '0xd5c4a1'
-
-    # Normal colors
-    normal:
-      black:   '0x1d2021'
-      red:     '0xfb4934'
-      green:   '0xb8bb26'
-      yellow:  '0xfabd2f'
-      blue:    '0x83a598'
-      magenta: '0xd3869b'
-      cyan:    '0x8ec07c'
-      white:   '0xd5c4a1'
-
-    # Bright colors
-    bright:
-      black:   '0x665c54'
-      red:     '0xfe8019'
-      green:   '0x3c3836'
-      yellow:  '0x504945'
-      blue:    '0xbdae93'
-      magenta: '0xebdbb2'
-      cyan:    '0xd65d0e'
-      white:   '0xfbf1c7'
-
-
-  base16-gruvbox-dark-hard-256: &base16-gruvbox-dark-hard-256
-    primary:
-      background: "0x1d2021"
-      foreground: "0xd5c4a1"
-    cursor:
-      text: "0x1d2021"
-      cursor: "0xd5c4a1"
-    normal:
-      black: "0x1d2021"
-      red: "0xfb4934"
-      green: "0xb8bb26"
-      yellow: "0xfabd2f"
-      blue: "0x83a598"
-      magenta: "0xd3869b"
-      cyan: "0x8ec07c"
-      white: "0xd5c4a1"
-    bright:
-      black: "0x665c54"
-      red: "0xfb4934"
-      green: "0xb8bb26"
-      yellow: "0xfabd2f"
-      blue: "0x83a598"
-      magenta: "0xd3869b"
-      cyan: "0x8ec07c"
-      white: "0xfbf1c7"
-    indexed_colors:
-      - { index: 16, color: "0xfe8019" }
-      - { index: 17, color: "0xd65d0e" }
-      - { index: 18, color: "0x3c3836" }
-      - { index: 19, color: "0x504945" }
-      - { index: 20, color: "0xbdae93" }
-      - { index: 21, color: "0xebdbb2" }
-
-  dracula: &dracula
-    primary:
-      background: '0x282a36'
-      foreground: '0xf8f8f2'
-    cursor:
-      text: CellBackground
-      cursor: CellForeground
-    vi_mode_cursor:
-      text: CellBackground
-      cursor: CellForeground
-    search:
-      matches:
-        foreground: '0x44475a'
-        background: '0x50fa7b'
-      focused_match:
-        foreground: '0x44475a'
-        background: '0xffb86c'
-      bar:
-        background: '0x282a36'
-        foreground: '0xf8f8f2'
-    line_indicator:
-      foreground: None
-      background: None
-    selection:
-      text: CellForeground
-      background: '0x44475a'
-    normal:
-      black:   '0x000000'
-      red:     '0xff5555'
-      green:   '0x50fa7b'
-      yellow:  '0xf1fa8c'
-      blue:    '0xbd93f9'
-      magenta: '0xff79c6'
-      cyan:    '0x8be9fd'
-      white:   '0xbfbfbf'
-    bright:
-      black:   '0x4d4d4d'
-      red:     '0xff6e67'
-      green:   '0x5af78e'
-      yellow:  '0xf4f99d'
-      blue:    '0xcaa9fa'
-      magenta: '0xff92d0'
-      cyan:    '0x9aedfe'
-      white:   '0xe6e6e6'
-    dim:
-      black:   '0x14151b'
-      red:     '0xff2222'
-      green:   '0x1ef956'
-      yellow:  '0xebf85b'
-      blue:    '0x4d5b86'
-      magenta: '0xff46b0'
-      cyan:    '0x59dffc'
-      white:   '0xe6e6d1'
-
-  gruvbox-material-hard-dark: &gruvbox-material-hard-dark
-    primary:
-      background: '0x1d2021'
-      foreground: '0xd4be98'
-
-    normal:
-      black:   '0x32302f'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xd8a657'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xd4be98'
-
-    bright:
-      black:   '0x32302f'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xd8a657'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xd4be98'
-
-  iceberg-dark: &iceberg-dark
-    # Default colors
-    primary:
-      background: '#161821'
-      foreground: '#d2d4de'
-
-    # Normal colors
-    normal:
-      black:   '#161821'
-      red:     '#e27878'
-      green:   '#b4be82'
-      yellow:  '#e2a478'
-      blue:    '#84a0c6'
-      magenta: '#a093c7'
-      cyan:    '#89b8c2'
-      white:   '#c6c8d1'
-
-    # Bright colors
-    bright:
-      black:   '#6b7089'
-      red:     '#e98989'
-      green:   '#c0ca8e'
-      yellow:  '#e9b189'
-      blue:    '#91acd1'
-      magenta: '#ada0d3'
-      cyan:    '#95c4ce'
-      white:   '#d2d4de'
-
-  kanagawa: &kanagawa
-    primary:
-      background: '0x1f1f28'
-      foreground: '0xdcd7ba'
-
-    normal:
-      black:   '0x090618'
-      red:     '0xc34043'
-      green:   '0x76946a'
-      yellow:  '0xc0a36e'
-      blue:    '0x7e9cd8'
-      magenta: '0x957fb8'
-      cyan:    '0x6a9589'
-      white:   '0xc8c093'
-
-    bright:
-      black:   '0x727169'
-      red:     '0xe82424'
-      green:   '0x98bb6c'
-      yellow:  '0xe6c384'
-      blue:    '0x7fb4ca'
-      magenta: '0x938aa9'
-      cyan:    '0x7aa89f'
-      white:   '0xdcd7ba'
-
-    selection:
-      background: '0x2d4f67'
-      foreground: '0xc8c093'
-
-    indexed_colors:
-      - { index: 16, color: '0xffa066' }
-      - { index: 17, color: '0xff5d62' }
-
-  nord: &nord
-    primary:
-      background: "#2e3440"
-      foreground: "#d8dee9"
-      dim_foreground: "#a5abb6"
-    cursor:
-      text: "#2e3440"
-      cursor: "#d8dee9"
-    vi_mode_cursor:
-      text: "#2e3440"
-      cursor: "#d8dee9"
-    selection:
-      text: CellForeground
-      background: "#4c566a"
-    search:
-      matches:
-        foreground: CellBackground
-        background: "#88c0d0"
-      footer:
-        bar:
-          background: "#434c5e"
-          foreground: "#d8dee9"
-    normal:
-      black: "#3b4252"
-      red: "#bf616a"
-      green: "#a3be8c"
-      yellow: "#ebcb8b"
-      blue: "#81a1c1"
-      magenta: "#b48ead"
-      cyan: "#88c0d0"
-      white: "#e5e9f0"
-    bright:
-      black: "#4c566a"
-      red: "#bf616a"
-      green: "#a3be8c"
-      yellow: "#ebcb8b"
-      blue: "#81a1c1"
-      magenta: "#b48ead"
-      cyan: "#8fbcbb"
-      white: "#eceff4"
-    dim:
-      black: "#373e4d"
-      red: "#94545d"
-      green: "#809575"
-      yellow: "#b29e75"
-      blue: "#68809a"
-      magenta: "#8c738c"
-      cyan: "#6d96a5"
-      white: "#aeb3bb"
-
-  tundra: &tundra
-    primary:
-      background: '#111827'
-      foreground: '#F9FAFB'
-
-    normal:
-      black:   '0x32302f'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xd8a657'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xd4be98'
-
-    bright:
-      black:   '0x32302f'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xd8a657'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xd4be98'
-
-  rose-pine: &rose-pine
-    primary:
-      background: "0x191724"
-      foreground: "0xe0def4"
-    cursor:
-      text: "0xe0def4"
-      cursor: "0x524f67"
-    vi_mode_cursor:
-      text: "0xe0def4"
-      cursor: "0x524f67"
-    line_indicator:
-      foreground: None
-      background: None
-    selection:
-      text: "0xe0def4"
-      background: "0x403d52"
-    normal:
-      black: "0x26233a"
-      red: "0xeb6f92"
-      green: "0x31748f"
-      yellow: "0xf6c177"
-      blue: "0x9ccfd8"
-      magenta: "0xc4a7e7"
-      cyan: "0xebbcba"
-      white: "0xe0def4"
-    bright:
-      black: "0x6e6a86"
-      red: "0xeb6f92"
-      green: "0x31748f"
-      yellow: "0xf6c177"
-      blue: "0x9ccfd8"
-      magenta: "0xc4a7e7"
-      cyan: "0xebbcba"
-      white: "0xe0def4"
-    hints:
-      start:
-        foreground: "#908caa"
-        background: "#1f1d2e"
-      end:
-        foreground: "#6e6a86"
-        background: "#1f1d2e"
-
-colors: *kanagawa
+      black: '#475258'
+      red: '#e67e80'
+      green: '#a7c080'
+      yellow: '#dbbc7f'
+      blue: '#7fbbb3'
+      magenta: '#d699b6'
+      cyan: '#83c092'
+      white: '#d3c6aa'
 draw_bold_text_with_bright_colors: false
 
 selection:
@@ -531,7 +165,6 @@ selection:
   save_to_clipboard: true
 # Allow terminal applications to change Alacritty's window title.
 #dynamic_title: true
-
 #cursor:
 # Cursor style
 #
@@ -540,14 +173,11 @@ selection:
 #   - _ Underline
 #   - | Beam
 #style: Block
-
 # If this is `true`, the cursor will be rendered as a hollow box when the
 # window is not focused.
 #unfocused_hollow: true
-
 # Live config reload (changes require restart)
 #live_config_reload: true
-
 # Shell
 #
 # You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
@@ -561,13 +191,11 @@ selection:
 #   program: /bin/bash
 #   args:
 #     - --login
-
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
 #working_directory: None
-
 # WinPTY backend (Windows only)
 #
 # Alacritty defaults to using the newer ConPTY backend if it is available,
@@ -577,17 +205,13 @@ selection:
 # Setting this option to `true` makes Alacritty use the legacy WinPTY backend,
 # even if the ConPTY backend is available.
 #winpty_backend: false
-
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
-
 #debug:
 # Display the time it takes to redraw each frame.
 #render_timer: false
-
 # Keep the log file after quitting Alacritty.
 #persistent_logging: false
-
 # Log level
 #
 # Values for `log_level`:
@@ -598,13 +222,10 @@ selection:
 #   - Debug
 #   - Trace
 #log_level: Warn
-
 # Print all received window events.
 #print_events: false
-
 # Record all characters and escape sequences as test data.
 #ref_test: false
-
 #mouse:
 # Click settings
 #
@@ -613,10 +234,8 @@ selection:
 # or triple click.
 #double_click: { threshold: 300 }
 #triple_click: { threshold: 300 }
-
 # If this is `true`, the cursor is temporarily hidden when typing.
 #hide_when_typing: false
-
 #url:
 # URL launcher
 #
@@ -632,13 +251,11 @@ selection:
 #launcher:
 #  program: xdg-open
 #  args: []
-
 # URL modifiers
 #
 # These are the modifiers that need to be held down for opening URLs when clicking
 # on them. The available modifiers are documented in the key binding section.
 #modifiers: None
-
 # Mouse bindings
 #
 # Mouse bindings are specified as a list of objects, much like the key
@@ -663,7 +280,6 @@ selection:
 # - `mods` (see key bindings)
 #mouse_bindings:
 #  - { mouse: Middle, action: PasteSelection }
-
 # Key bindings
 #
 # Key bindings are specified as a list of objects. For example, this is the
@@ -765,9 +381,11 @@ selection:
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
 key_bindings:
-# (Windows, Linux, and BSD only)
-- { key: V,        mods: Alt, action: Paste                            }
-- { key: C,        mods: Alt, action: Copy                             }
+  # (Windows, Linux, and BSD only)
+  - { key: V, mods: Alt, action: Paste }
+  - { key: C, mods: Alt, action: Copy }
+theme: evergreen-dark-hard
+
 #- { key: V,        mods: Control|Shift,    action: Paste               }
 #- { key: C,        mods: Control|Shift,    action: Copy                }
 #- { key: Insert,   mods: Shift,         action: PasteSelection   }
@@ -776,10 +394,8 @@ key_bindings:
 #- { key: Add,      mods: Control,       action: IncreaseFontSize }
 #- { key: Subtract, mods: Control,       action: DecreaseFontSize }
 #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
-
 # (Windows only)
 #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
-
 # (macOS only)
 #- { key: Key0,     mods: Command, action: ResetFontSize                }
 #- { key: Equals,   mods: Command, action: IncreaseFontSize             }
@@ -794,7 +410,6 @@ key_bindings:
 #- { key: Q,        mods: Command, action: Quit                         }
 #- { key: W,        mods: Command, action: Quit                         }
 #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
-
 #- { key: Paste,                    action: Paste                            }
 #- { key: Copy,                     action: Copy                             }
 #- { key: L,         mods: Control, action: ClearLogNotice                   }
@@ -803,4 +418,3 @@ key_bindings:
 #- { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
 #- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
 #- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
-
