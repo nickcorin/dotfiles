@@ -5,8 +5,6 @@ end)
 
 lsp.ensure_installed({
     'clangd',
-    'gci',
-    'gofumpt',
     'gopls',
     'jdtls',
     'jedi_language_server',
