@@ -16,7 +16,7 @@ def main():
 
     if not os.path.exists(dotfiles_dir):
         print("dotfiles does not exist, cloning")
-        git_clone("https://github.com/nickcorin/dotfiles.git", dotfiles_dir)
+        git_clone("git@github.com:nickcorin/dotfiles.git", dotfiles_dir)
     else:
         print("dotfiles exists, pulling latest")
         git_pull(dotfiles_dir)
