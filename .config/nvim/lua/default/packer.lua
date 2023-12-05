@@ -66,13 +66,17 @@ return require('packer').startup(function(use)
             { 'L3MON4D3/LuaSnip' },     -- Required
         },
 
-        -- UI
-        use({ "airblade/vim-gitgutter" }),
-        use({ "lukas-reineke/indent-blankline.nvim" }),
-        use({ "machakann/vim-highlightedyank" }),
-        use({
-            "nvim-lualine/lualine.nvim",
-            requires = { "kyazdani42/nvim-web-devicons", opt = true },
-        }),
     }
+
+    -- Code Completion.
+    use({ "github/copilot.vim" })
+
+    -- UI
+    use({ "airblade/vim-gitgutter" })
+    use({ "lukas-reineke/indent-blankline.nvim" })
+    use({ "machakann/vim-highlightedyank" })
+    use({
+        "nvim-lualine/lualine.nvim",
+        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    })
 end)
