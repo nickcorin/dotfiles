@@ -17,12 +17,19 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim', branch = '0.1.x',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    use {
+        "numToStr/Comment.nvim",
+        config = function()
+            require("Comment").setup()
+        end
+    }
 
     use({ "christoomey/vim-tmux-navigator" })
+
 
     -- Colorschemes & syntax highlighting.
     use({ "arcticicestudio/nord-vim", as = "nord" })
