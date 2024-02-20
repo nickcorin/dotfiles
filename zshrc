@@ -90,8 +90,10 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Check if there is a private zshrc to souce. Private zshrc files contain
+# Source all files in the ~/.zshrc.d directory. These files contain
 # environment specific variables and functions that shouldn't be added to
-# Git.
-[ -f ~/.zshrc.private ] && source ~/.zshrc.private
+# Git, or at least in a private submodule.
+for file in ~/.zshrc.d/*; do
+    [ -f "$file" ] && source "$file"
+done
 
