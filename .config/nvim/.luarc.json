@@ -1,0 +1,25 @@
+{
+    "workspace.library": [
+        "/Users/nickcorin/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/opt/homebrew/Cellar/neovim/0.9.5/share/nvim/runtime/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/everforest-nvim/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/mason-lspconfig.nvim/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/neo-tree.nvim/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/plenary.nvim/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/nvim-lspconfig/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/nvim-web-devicons/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/neodev.nvim/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/mason.nvim/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/lazy.nvim/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/lualine.nvim/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/nui.nvim/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/schemastore.nvim/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/copilot.lua/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/lualine-so-fancy.nvim/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/cmp-nvim-lsp/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/indent-blankline.nvim/lua",
+        "/Users/nickcorin/.local/share/nvim/lazy/fidget.nvim/lua",
+        "/Users/nickcorin/dotfiles/.config/nvim/lua",
+        "${3rd}/luv/library"
+    ]
+}

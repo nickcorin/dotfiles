@@ -1,0 +1,145 @@
+[colors]
+draw_bold_text_with_bright_colors = false
+foreground = "#d3c6aa"
+name = "Evergreen (Dark Hard)"
+
+[colors.bright]
+black = "0x6e6a86"
+blue = "0x9ccfd8"
+cyan = "0xebbcba"
+green = "0x31748f"
+magenta = "0xc4a7e7"
+red = "0xeb6f92"
+white = "0xe0def4"
+yellow = "0xf6c177"
+
+[colors.cursor]
+cursor = "0x524f67"
+text = "0xe0def4"
+
+[colors.hints.end]
+background = "#1f1d2e"
+foreground = "#6e6a86"
+
+[colors.hints.start]
+background = "#1f1d2e"
+foreground = "#908caa"
+
+[colors.line_indicator]
+background = "None"
+foreground = "None"
+
+[colors.normal]
+black = "0x26233a"
+blue = "0x9ccfd8"
+cyan = "0xebbcba"
+green = "0x31748f"
+magenta = "0xc4a7e7"
+red = "0xeb6f92"
+white = "0xe0def4"
+yellow = "0xf6c177"
+
+[colors.normal.bright]
+black = "#475258"
+blue = "#7fbbb3"
+cyan = "#83c092"
+green = "#a7c080"
+magenta = "#d699b6"
+red = "#e67e80"
+white = "#d3c6aa"
+yellow = "#dbbc7f"
+
+[colors.primary]
+background = "0x191724"
+foreground = "0xe0def4"
+
+[colors.primary.normal]
+black = "#414b50"
+blue = "#7fbbb3"
+cyan = "#83c092"
+green = "#a7c080"
+magenta = "#d699b6"
+red = "#e67e80"
+white = "#d3c6aa"
+yellow = "#dbbc7f"
+
+[colors.selection]
+background = "0x403d52"
+text = "0xe0def4"
+
+[colors.vi_mode_cursor]
+cursor = "0x524f67"
+text = "0xe0def4"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 14
+
+[font.bold]
+family = "Non-Seasonal Sans Mono"
+style = "Regular"
+
+[font.bold_italic]
+family = "Non-Seasonal Sans Mono"
+style = "Italic"
+
+[font.italic]
+family = "Non-Seasonal Sans Mono"
+style = "Italic"
+
+[font.normal]
+family = "Non-Seasonal Sans Mono"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Alt"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Alt"
+
+[primary]
+background = "#272e33"
+foreground = "#d3c6aa"
+
+[primary.normal]
+black = "#414b50"
+blue = "#7fbbb3"
+cyan = "#83c092"
+green = "#a7c080"
+magenta = "#d699b6"
+red = "#e67e80"
+white = "#d3c6aa"
+yellow = "#dbbc7f"
+
+[primary.normal.bright]
+black = "#475258"
+blue = "#7fbbb3"
+cyan = "#83c092"
+green = "#a7c080"
+magenta = "#d699b6"
+red = "#e67e80"
+white = "#d3c6aa"
+yellow = "#dbbc7f"
+
+[scrolling]
+history = 1000
+multiplier = 1
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[window]
+dynamic_padding = false
+opacity = 1
+startup_mode = "Windowed"
+
+[window.padding]
+x = 5
+y = 5

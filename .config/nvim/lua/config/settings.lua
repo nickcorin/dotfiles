@@ -1,4 +1,8 @@
 local globals = {
+-- Map leader and local leader keys to space.
+    mapleader = " ",
+    maplocalleader = " ",
+
     -- Disable showing the information banner on the top of netrw.
     netrw_banner = 0,
 

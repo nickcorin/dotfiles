@@ -1,7 +1,3 @@
--- Set the leader key to <Space>. This must be set before any other keymaps that
--- use the <leader> key.
-vim.g.mapleader = " "
-
 local keys = {
     -- Insert mode.
     i = {},
@@ -11,14 +7,23 @@ local keys = {
         -- Closes the quickfix window.
         { "<leader>a", ":cclose<CR>" },
 
+        -- Toggles the neotree buffer explorer.
+        { "<leader>b", ":Neotree toggle buffers left<CR>" },
+
         -- Keeps the cursor in the middle of the screen when paging up or down.
         { "<C-d>",     "<C-d>zz" }, { "<C-u>", "<C-u>zz" },
 
         -- Duplicate lines down. Similar to Ctrl-D in other code editors.
         { "<leader>d", "yyp" },
 
-        -- Opens a project in a new tmux session.
-        { "<C-f>",     "<cmd>silent !tmux neww tmux-sessionizer<CR>" },
+        -- Toggles the neotree file explorer.
+        { "<leader>e", ":Neotree toggle left<CR>" },
+
+        -- Finds files using Telescope.
+        { "<leader>f", ":lua require'telescope.builtin'.find_files()<CR>" },
+
+        -- Toggles the neotree git explorer.
+        { "<leader>g", ":Neotree toggle git_status left<CR>" },
 
         -- Place all search results in the center of the screen.
         { "n",         "nzz" }, { "N", "Nzz" }, { "*", "*zz" }, { "#", "#zz" }, { "g*", "g*zz" },
@@ -32,8 +37,8 @@ local keys = {
         -- Restarts the LSP, useful after adding new dependencies to the package.
         { "<leader>r",  ":LspRestart<CR>" },
 
-        -- Start a string replace for the word under your cursor.
-        { "<leader>s",  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]] },
+        -- Toggles the neotree document symbols explorer.
+        { "<leader>s",  ":Neotree toggle document_symbols left<CR>" },
 
         -- Fast quit.
         { "<leader>q",  ":q!<CR>" },
@@ -58,7 +63,8 @@ local keys = {
         { "<leader>d", "yyp" },
 
         -- Preserves your copied content when pasting.
-        { "p",         "\"_dP" },
+        { "p",         "\"_dp" },
+        { "P",         "\"_dP" },
 
         -- Shift complete lines up and down.
         { "<S-j>",     ":m'>+1<CR>gv=gv" }, { "<S-k>", ":m'<-2<CR>gv=gv" },
@@ -69,7 +75,8 @@ local keys = {
     -- Visual mode.
     x = {
         -- Preserves your copied content when pasting.
-        { "p", "\"_dP" },
+        { "p", "\"_dp" },
+        { "P", "\"_dP" },
     },
     -- All modes.
     [""] = {

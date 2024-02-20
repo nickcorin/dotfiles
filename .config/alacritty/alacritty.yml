@@ -4,7 +4,7 @@ window:
   opacity: 1
   padding:
     x: 5
-    'y': 5
+    y: 5
   dynamic_padding: false
   startup_mode: Windowed
 scrolling:
@@ -16,18 +16,18 @@ font:
     style: Regular
   bold:
     family: Non-Seasonal Sans Mono
-    style: Regular
+    style: Bold
   italic:
     family: Non-Seasonal Sans Mono
     style: Italic
   bold_italic:
     family: Non-Seasonal Sans Mono
-    style: Italic
+    style: Bold Italic
   size: 14
 colors:
   name: Evergreen (Dark Hard)
   primary:
-    background: '0x191724'
+    background: '#272e33'
     foreground: '0xe0def4'
     normal:
       black: '#414b50'
@@ -60,14 +60,14 @@ colors:
     text: '0xe0def4'
     background: '0x403d52'
   normal:
-    black: '0x26233a'
-    red: '0xeb6f92'
-    green: '0x31748f'
-    yellow: '0xf6c177'
-    blue: '0x9ccfd8'
-    magenta: '0xc4a7e7'
-    cyan: '0xebbcba'
-    white: '0xe0def4'
+    black: '#414b50'
+    red: '#e67e80'
+    green: '#a7c080'
+    yellow: '#dbbc7f'
+    blue: '#7fbbb3'
+    magenta: '#d699b6'
+    cyan: '#83c092'
+    white: '#d3c6aa'
     bright:
       black: '#475258'
       red: '#e67e80'
