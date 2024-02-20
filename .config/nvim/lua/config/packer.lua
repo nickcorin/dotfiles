@@ -10,7 +10,7 @@ local ensure_packer = function()
     return false
 end
 
-local packer_bootstrap = ensure_packer()
+ensure_packer()
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
@@ -21,6 +21,20 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
+    use { 'nvim-telescope/telescope-frecency.nvim' }
+    use { 'nvim-telescope/telescope-github.nvim' }
+    use { 'nvim-telescope/telescope-fzf-writer.nvim' }
+
+    use {
+        'goolord/alpha-nvim',
+        requires = { 'nvim-tree/nvim-web-devicons' },
+        config = function()
+            require('alpha').setup(require('alpha.themes.startify').config)
+        end
+    }
+
+
     use {
         "numToStr/Comment.nvim",
         config = function()
@@ -34,6 +48,7 @@ return require('packer').startup(function(use)
     -- Colorschemes & syntax highlighting.
     use({ "arcticicestudio/nord-vim", as = "nord" })
     use({ "catppuccin/nvim", as = "catppuccin" })
+    use({ "chriskempson/base16-vim" })
     use({ "morhetz/gruvbox", as = "gruvbox" })
     use({
         "neanias/everforest-nvim",

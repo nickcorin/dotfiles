@@ -1,0 +1,15 @@
+../
+dotfiles/
+| .config/
+| .git/
+| csgo/
+| install.py*
+| install.sh*
+| .DS_Store
+| .gitignore
+| Brewfile
+| LICENSE
+| README.md
+| Xmodmap
+| packages.txt
+| zshrc
