@@ -3,6 +3,9 @@ local globals = {
     mapleader = " ",
     maplocalleader = " ",
 
+    -- Set the colorscheme.
+    colorscheme = "everforest",
+
     -- Disable showing the information banner on the top of netrw.
     netrw_banner = 0,
 

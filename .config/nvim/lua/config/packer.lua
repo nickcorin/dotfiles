@@ -10,95 +10,111 @@ local ensure_packer = function()
     return false
 end
 
-ensure_packer()
+local packer_bootstrap = ensure_packer()
+local packer = require("packer")
 
-return require('packer').startup(function(use)
-    -- Packer can manage itself
+return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-        'nvim-telescope/telescope.nvim', branch = '0.1.x',
-        -- or                            , branch = '0.1.x',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+       "neanias/everforest-nvim",
+        disable = true,
+        config = require("plugins.colorschemes").everforest,
     }
-    use { 'nvim-telescope/telescope-ui-select.nvim' }
-    use { 'nvim-telescope/telescope-frecency.nvim' }
-    use { 'nvim-telescope/telescope-github.nvim' }
-    use { 'nvim-telescope/telescope-fzf-writer.nvim' }
+
+    use {
+        "ellisonleao/gruvbox.nvim",
+        disable = true,
+        config = require("plugins.colorschemes").gruvbox,
+    }
+
+    use {
+        "sainnhe/gruvbox-material",
+        disable = false,
+        config = require("plugins.colorschemes").gruvboxMaterial,
+    }
+
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = {
+            "meuter/lualine-so-fancy.nvim",
+        },
+        config = require("plugins.lualine"),
+    }
 
     use {
         'goolord/alpha-nvim',
-        requires = { 'nvim-tree/nvim-web-devicons' },
-        config = function()
-            require('alpha').setup(require('alpha.themes.startify').config)
-        end
-    }
-
-
-    use {
-        "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup()
-        end
-    }
-
-    use({ "christoomey/vim-tmux-navigator" })
-
-
-    -- Colorschemes & syntax highlighting.
-    use({ "arcticicestudio/nord-vim", as = "nord" })
-    use({ "catppuccin/nvim", as = "catppuccin" })
-    use({ "chriskempson/base16-vim" })
-    use({ "morhetz/gruvbox", as = "gruvbox" })
-    use({
-        "neanias/everforest-nvim",
-        -- Optional; default configuration will be used if setup isn't called.
-        config = function()
-            require("everforest").setup()
-        end,
-    })
-    use({ "sainnhe/gruvbox-material", as = "gruvbox-material" })
-    use({ "rebelot/kanagawa.nvim" })
-    use({ "rose-pine/neovim", as = "rose-pine" })
-
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-
-    use('mbbill/undotree')
-    use("tpope/vim-fugitive")
-
-    -- LSP
-    use {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
         requires = {
-            -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            {
-                -- Optional
-                'williamboman/mason.nvim',
-                run = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
-            -- Autocompletion
-            { 'hrsh7th/nvim-cmp' },     -- Required
-            { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-            { 'L3MON4D3/LuaSnip' },     -- Required
+            "nvim-tree/nvim-web-devicons",
         },
-
+        config = require("plugins.alpha"),
     }
 
-    -- Code Completion.
-    use({ "github/copilot.vim" })
+    use {
+        "christoomey/vim-tmux-navigator"
+    }
 
-    -- UI
-    use({ "airblade/vim-gitgutter" })
-    use({ "lukas-reineke/indent-blankline.nvim" })
-    use({ "machakann/vim-highlightedyank" })
-    use({
-        "nvim-lualine/lualine.nvim",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-    })
+    use {
+        "airblade/vim-gitgutter"
+    }
+
+    use {
+        "lukas-reineke/indent-blankline.nvim",
+        config = require("plugins.indentline"),
+    }
+
+    use {
+        "github/copilot.vim",
+        config = require("plugins.copilot"),
+    }
+
+    use {
+        "ahmedkhalf/project.nvim",
+        config = require("plugins.project"),
+    }
+
+    use {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        },
+        config = require("plugins.neotree"),
+    }
+
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "nvim-telescope/telescope-frecency.nvim",
+            "nvim-telescope/telescope-project.nvim",
+            "nvim-telescope/telescope-ui-select.nvim",
+        },
+        config = require("plugins.telescope"),
+    }
+
+    use {
+        "williamboman/mason-lspconfig",
+        requires = {
+            "neovim/nvim-lspconfig",
+            "williamboman/mason.nvim",
+        },
+        config = require("plugins.lsp"),
+    }
+
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        disable = false,
+        run = ":TSUpdate",
+        config = require("plugins.treesitter")
+    }
+
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if packer_bootstrap then
+        packer.sync()
+    end
 end)

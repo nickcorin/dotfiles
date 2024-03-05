@@ -1,7 +1,5 @@
-return {
-   "lukas-reineke/indent-blankline.nvim",
-   main = "ibl",
-   opts = {
+return function()
+    require("ibl").setup {
         enabled = true,
         indent = {
             char = "▏",
@@ -9,5 +7,5 @@ return {
         scope = {
             enabled = false,
         }
-   }
-}
+    }
+end
