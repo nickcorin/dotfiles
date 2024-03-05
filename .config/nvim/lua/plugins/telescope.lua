@@ -1,32 +1,36 @@
-return {
-    "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    version = false,
-    lazy = false,
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons",
-        "nvim-telescope/telescope-ui-select.nvim",
-        "nvim-telescope/telescope-frecency.nvim",
+return function()
+    local actions = require("telescope.actions")
 
-    },
-    config = function()
-        local telescope = require("telescope")
-        local actions = require("telescope.actions")
-
-        telescope.setup({
-            defaults = {
-                mappings = {
-                    i = {
-                        ["<C-j>"] = actions.move_selection_next,
-                        ["<C-k>"] = actions.move_selection_previous,
-                    },
+    require("telescope").setup({
+        defaults = {
+            mappings = {
+                i = {
+                    ["<C-j>"] = actions.move_selection_next,
+                    ["<C-k>"] = actions.move_selection_previous,
                 },
             },
-        })
+        },
+        extensions = {
+            frecency = {
+                show_scores = true,
+                show_unindexed = true,
+                ignore_patterns = {"*.git/*", "*/tmp/*"},
+            },
+            ["ui-select"] = {
+                require("telescope.themes").get_dropdown({
+                    relative = "top",
+                    winblend = 10,
+                    border = "single",
+                    previewer = false,
+                    layout_config = {
+                        width = 0.5,
+                    },
+                }),
+            },
+        },
+    })
 
-        telescope.load_extension("frecency")
-        telescope.load_extension("ui-select")
+    require("telescope").load_extension("frecency")
+    require("telescope").load_extension("ui-select")
 
-    end,
-}
+end
