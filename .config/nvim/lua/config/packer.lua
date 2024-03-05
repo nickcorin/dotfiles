@@ -59,6 +59,10 @@ return packer.startup(function(use)
     }
 
     use {
+        "folke/zen-mode.nvim",
+    }
+
+    use {
         "lukas-reineke/indent-blankline.nvim",
         config = require("plugins.indentline"),
     }

@@ -59,6 +59,10 @@ local keys = {
         -- Finds files using Telescope frecency.
         { "<leader>h", ":Telescope frecency workspace=CWD<CR>" },
 
+        -- Set the cursor to move by line in the editor rather than by line in the file. This means that multi-line
+        -- rows won't be treated as a single line.
+        { "j",          "gj" }, { "k", "gk" },
+
         -- Triggers the LSP to display the hover information for the symbol under the cursor.
         { "<leaner>K",  "<cmd>lua vim.lsp.buf.hover()<CR>" },
 
@@ -90,9 +94,8 @@ local keys = {
         -- Fast save and quit. Only saves if the file has been changed.
         { "<leader>x",  ":x!<CR>" },
 
-        -- Set the cursor to move by line in the editor rather than by line in the file. This means that multi-line
-        -- rows won't be treated as a single line.
-        { "j",          "gj" }, { "k", "gk" },
+        -- Toggles the zen mode.
+        { "<leader>z",  ":ZenMode<CR>" },
 
         -- Disable the use of the arrow keys. Rather use the home row.
         { "<Up>", "<nop>" }, { "<Down>", "<nop>", }, { "<Left>", "<nop>" }, { "<Right>", "<nop>" },
