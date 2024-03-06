@@ -33,22 +33,22 @@ local keys = {
         { "<leader>f", ":Telescope live_grep<CR>" },
 
         -- Triggers the LSP to jump to the definition of the symbol under the cursor.
-        { "gd",  "<cmd>lua vim.lsp.buf.definition()<CR>" },
+        { "gd",  ":Telescope lsp_definitions<CR>" },
 
         -- Opens the diagnostic float window.
         { "gf",  "<cmd>lua vim.diagnostic.open_float()<CR>" },
 
-        -- Triggers the LSP ti show signature help.
+        -- Triggers the LSP to show signature help.
         { "gh", "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
 
         -- Triggers the LSP to jump to the implementation of the symbol under the cursor.
-        { "gi",  "<cmd>lua vim.lsp.buf.implementation()<CR>" },
+        { "gi",  ":Telescope lsp_implementations<CR>" },
 
         -- Triggers the LSP to show the diagnostics for the current buffer.
-        { "gp",  "<cmd>lua vim.diagnostic.show()<CR>" },
+        { "gp",  ":Telescope diagnostics<CR>" },
 
         -- Triggers the LSP to show the references to the symbol under the cursor.
-        { "gr",  "<cmd>lua vim.lsp.buf.references()<CR>" },
+        { "gr",  ":Telescope lsp_references<CR>" },
 
         -- Triggers the LSP to rename the symbol under the cursor.
         { "gs",  "<cmd>lua vim.lsp.buf.rename()<CR>" },
