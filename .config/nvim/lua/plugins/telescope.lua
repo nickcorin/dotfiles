@@ -3,6 +3,12 @@ return function()
 
     require("telescope").setup({
         defaults = {
+            layout_strategy = "vertical",
+            layout_config = {
+                anchor = "N", -- North.
+                mirror = true,
+                prompt_position = "top",
+            },
             mappings = {
                 i = {
                     ["<C-j>"] = actions.move_selection_next,
