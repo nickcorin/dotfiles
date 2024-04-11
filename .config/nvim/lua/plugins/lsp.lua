@@ -12,6 +12,7 @@ return function()
         gopls = {
             settings = {
                 gopls = {
+                    ["local"] = "github.com/smartcontractkit/chainlink",
                     gofumpt = true,
                 },
             },
@@ -41,7 +42,7 @@ return function()
             settings = (servers[server] or {}).settings,
         }
 
-       lsp[server].setup(config)
+        lsp[server].setup(config)
     end
 
     vim.diagnostic.config({
