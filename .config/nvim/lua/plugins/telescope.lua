@@ -6,7 +6,6 @@ return function()
             layout_strategy = "vertical",
             layout_config = {
                 anchor = "N", -- North.
-                mirror = true,
                 prompt_position = "top",
             },
             mappings = {
@@ -20,7 +19,7 @@ return function()
             frecency = {
                 show_scores = true,
                 show_unindexed = true,
-                ignore_patterns = {"*.git/*", "*/tmp/*"},
+                ignore_patterns = { "*.git/*", "*/tmp/*" },
             },
             ["ui-select"] = {
                 require("telescope.themes").get_dropdown({
@@ -38,5 +37,4 @@ return function()
 
     require("telescope").load_extension("frecency")
     require("telescope").load_extension("ui-select")
-
 end
