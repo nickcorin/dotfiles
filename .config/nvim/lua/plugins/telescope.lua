@@ -19,18 +19,18 @@ return function()
             frecency = {
                 show_scores = true,
                 show_unindexed = true,
-                ignore_patterns = { "*.git/*", "*/tmp/*" },
+                ignore_patterns = {"*.git/*", "*/tmp/*"}
             },
             ["ui-select"] = {
-                require("telescope.themes").get_dropdown({
-                    relative = "top",
-                    winblend = 10,
-                    border = "single",
-                    previewer = false,
-                    layout_config = {
-                        width = 0.5,
-                    },
-                }),
+                -- require("telescope.themes").get_dropdown({
+                --     relative = "top",
+                --     winblend = 10,
+                --     border = "single",
+                --     previewer = false,
+                --     layout_config = {
+                --         width = 0.5,
+                --     },
+                -- }),
             },
         },
     })

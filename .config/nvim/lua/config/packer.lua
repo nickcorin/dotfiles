@@ -17,7 +17,7 @@ return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use {
-       "neanias/everforest-nvim",
+        "neanias/everforest-nvim",
         disable = true,
         config = require("plugins.colorschemes").everforest,
     }
