@@ -35,7 +35,7 @@ configs.gruvbox = function()
         invert_signs = false,
         invert_tabline = false,
         invert_intend_guides = false,
-        inverse = true, -- invert background for search, diffs, statuslines and errors
+        inverse = true,    -- invert background for search, diffs, statuslines and errors
         contrast = "hard", -- can be "hard", "soft" or empty string
         palette_overrides = {},
         overrides = {},
@@ -60,6 +60,16 @@ configs.gruvboxMaterial = function()
     vim.g.gruvbox_material_better_performance = 1
 
     vim.cmd [[ colorscheme gruvbox-material ]]
+end
+
+configs.rosePine = function()
+    require("rose-pine").setup({
+        variant = "main", -- moon, dawn, main
+        disable_background = false,
+        enable_italics = false,
+    })
+
+    vim.cmd [[ colorscheme rose-pine ]]
 end
 
 return configs

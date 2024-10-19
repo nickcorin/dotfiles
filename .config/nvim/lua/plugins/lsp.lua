@@ -5,7 +5,21 @@ return function()
             filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
         },
         jsonls = {},
-        lua_ls = {},
+        lua_ls = {
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim", "vim.g" },
+                    },
+                    workspace = {
+                        library = {
+                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                            [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+                        },
+                    },
+                },
+            },
+        },
         bashls = {
             filetypes = { "sh", "zsh" },
         },
@@ -21,7 +35,7 @@ return function()
         jedi_language_server = {},
         rust_analyzer = {},
         solidity_ls_nomicfoundation = {},
-        tsserver = {},
+        ts_ls = {},
         yamlls = {
             cmd = { "yaml-language-server", "--stdio" },
             filetypes = { "yaml" },

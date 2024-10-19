@@ -30,8 +30,14 @@ return packer.startup(function(use)
 
     use {
         "sainnhe/gruvbox-material",
-        disable = false,
+        disable = true,
         config = require("plugins.colorschemes").gruvboxMaterial,
+    }
+
+    use {
+        "rose-pine/neovim",
+        disable = false,
+        config = require("plugins.colorschemes").rosePine,
     }
 
     use {
