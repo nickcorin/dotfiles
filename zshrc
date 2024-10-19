@@ -51,12 +51,12 @@ if command -v nvim > /dev/null; then
 	alias vim=nvim
 fi 
 
-# Use exa if its available, but keep usage consistent either way.
-if command -v exa > /dev/null; then
-	alias l="exa"
-	alias ls="exa"
-	alias ll="exa -l"
-	alias lll="exa -la"
+# Use eza if its available, but keep usage consistent either way.
+if command -v eza > /dev/null; then
+	alias l="eza"
+	alias ls="eza"
+	alias ll="eza -l"
+	alias lll="eza -la"
 else
 	alias l="ls"
 	alias ll="ls -l"
