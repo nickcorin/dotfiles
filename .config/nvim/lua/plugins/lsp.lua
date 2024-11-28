@@ -26,7 +26,7 @@ return function()
         gopls = {
             settings = {
                 gopls = {
-                    ["local"] = "github.com/smartcontractkit/chainlink",
+                    ["local"] = "github.com/smartcontractkit/chainlink,github.com/nickcorin/betterpadel",
                     gofumpt = true,
                 },
             },

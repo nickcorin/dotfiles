@@ -7,7 +7,7 @@ api.nvim_create_autocmd("BufEnter", { command = [[set formatoptions-=cro]] })
 api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function()
-        vim.lsp.buf.format()
+        vim.lsp.buf.format({ async = false })
     end
 })
 
