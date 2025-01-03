@@ -71,6 +71,7 @@ alias please="sudo"
 if command -v git > /dev/null; then
 	git config --global user.name "Nicholas Corin"
 	git config --global user.email "nickcorin@gmail.com"
+    git config --global core.excludeFile ~/.gitignore
 
     if command -v bat > /dev/null; then
 	    git config --global core.pager "bat"
