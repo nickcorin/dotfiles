@@ -1,10 +1,11 @@
 local globals = {
--- Map leader and local leader keys to space.
+    -- Map leader and local leader keys to space.
     mapleader = " ",
-    maplocalleader = " ",
+    maplocalleader = ",",
 
     -- Set the colorscheme.
-    colorscheme = "everforest",
+    -- Don't set this, it should  be overridden in `packer.lua` by loading the correct theme.
+    -- colorscheme = "everforest",
 
     -- Disable showing the information banner on the top of netrw.
     netrw_banner = 0,
@@ -26,6 +27,9 @@ end
 local settings = {
     -- Disable creating backup files.
     backup = false,
+
+    -- Set background to dark.
+    background = "dark",
 
     -- Always access the system clipboard both ways. Yanking copies onto it
     -- and you can paste with P from it.
@@ -100,7 +104,7 @@ local settings = {
     tabstop = 4,
 
     -- Better colors.
-    termguicolors = true,
+    termguicolors = false,
 
     -- Auto-wrap comments at 120 characters.
     textwidth = 120,

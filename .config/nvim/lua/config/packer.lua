@@ -66,6 +66,12 @@ return packer.startup(function(use)
 
     use {
         "folke/zen-mode.nvim",
+        opts = {
+            window = {
+                width = 0.8,
+                height = 1,
+            },
+        },
     }
 
     use {

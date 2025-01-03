@@ -1,2 +1,3 @@
-return function()
-end
+return {
+    "github/copilot.vim"
+}
