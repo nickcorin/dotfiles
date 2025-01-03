@@ -5,6 +5,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/anaconda3/bin:$PATH"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -45,7 +46,7 @@ export NVM_DIR="$HOME/.nvm"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-alias code="open -a ~/Applications/Visual\ Studio\ Code.app"
+alias code="open -a /Applications/Visual\ Studio\ Code.app"
 
 if command -v nvim > /dev/null; then
 	alias vim=nvim
@@ -68,7 +69,7 @@ alias please="sudo"
 
 # Set default git credentials.
 if command -v git > /dev/null; then
-	git config --global user.name "Nick Corin"
+	git config --global user.name "Nicholas Corin"
 	git config --global user.email "nickcorin@gmail.com"
 
     if command -v bat > /dev/null; then
@@ -96,4 +97,3 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 for file in ~/.zshrc.d/*; do
     [ -f "$file" ] && source "$file"
 done
-
