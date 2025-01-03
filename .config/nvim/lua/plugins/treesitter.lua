@@ -1,6 +1,14 @@
-return function()
-    require("nvim-treesitter.configs").setup {
+return {
+    "nvim-treesitter/nvim-treesitter",
+    build = function()
+        vim.cmd("TSUpdate")
+    end,
+    opts = {
+        -- A list of parser names, or "all" (the listed parsers MUST always be installed).
         ensure_installed = "all",
+        -- Automatically install missing parsers when entering buffer.
+        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally.
+        auto_install = true,
         highlight = {
             enable = true,
             additional_vim_regex_highlighting = false,
@@ -15,35 +23,9 @@ return function()
                     ["ic"] = "@class.inner",
                 },
             },
-            swap = {
-                enable = true,
-                swap_next = {
-                    ["<leader>a"] = "@parameter.inner",
-                },
-                swap_previous = {
-                    ["<leader>A"] = "@parameter.inner",
-                },
-            },
-            move = {
-                enable = true,
-                set_jumps = true,
-                goto_next_start = {
-                    ["]m"] = "@function.outer",
-                    ["]]"] = "@class.outer",
-                },
-                goto_next_end = {
-                    ["]M"] = "@function.outer",
-                    ["]["] = "@class.outer",
-                },
-                goto_previous_start = {
-                    ["[m"] = "@function.outer",
-                    ["[["] = "@class.outer",
-                },
-                goto_previous_end = {
-                    ["[M"] = "@function.outer",
-                    ["[]"] = "@class.outer",
-                },
-            },
         },
-    }
-end
+    },
+    config = function(_, opts)
+        require("nvim-treesitter.configs").setup(opts)
+    end,
+}

@@ -1,9 +1,25 @@
-return function()
-    local servers = {
+return {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = {
+        "williamboman/mason.nvim",
+        "neovim/nvim-lspconfig",
+    },
+    opts = {
+        bashls = {
+            filetypes = { "sh", "zsh" },
+        },
         clangd = {
-            cmd = { "clangd", "--background-index" },
             filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
         },
+        gopls = {
+            settings = {
+                gopls = {
+                    ["local"] = "github.com/smartcontractkit/chainlink,github.com/nickcorin/betterpadel",
+                    gofumpt = true,
+                },
+            },
+        },
+        jdtls = {},
         jsonls = {},
         lua_ls = {
             settings = {
@@ -20,64 +36,23 @@ return function()
                 },
             },
         },
-        bashls = {
-            filetypes = { "sh", "zsh" },
-        },
-        gopls = {
-            settings = {
-                gopls = {
-                    ["local"] = "github.com/smartcontractkit/chainlink,github.com/nickcorin/betterpadel",
-                    gofumpt = true,
-                },
-            },
-        },
-        jdtls = {},
-        jedi_language_server = {},
+        pbls = {},
+        pyright = {},
         rust_analyzer = {},
-        solidity_ls_nomicfoundation = {},
         ts_ls = {},
         yamlls = {
             cmd = { "yaml-language-server", "--stdio" },
             filetypes = { "yaml" },
         },
-    }
+    },
+    config = function(_, opts)
+        require("mason").setup()
+        require("mason-lspconfig").setup({
+            ensure_installed = vim.tbl_keys(opts),
+        })
 
-    require("mason").setup({})
-
-    local mason = require("mason-lspconfig")
-    mason.setup({
-        ensure_installed = vim.tbl_keys(servers),
-    })
-
-    local lsp = require("lspconfig")
-
-    for _, server in ipairs(mason.get_installed_servers()) do
-        local config = {
-            settings = (servers[server] or {}).settings,
-        }
-
-        lsp[server].setup(config)
-    end
-
-    vim.diagnostic.config({
-        title = false,
-        underline = true,
-        virtual_text = true,
-        signs = true,
-        update_in_insert = false,
-        severity_sort = true,
-        float = {
-            source = "always",
-            style = "minimal",
-            border = "rounded",
-            header = "",
-            prefix = "",
-        },
-    })
-
-    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
-end
+        for server_name, config in pairs(opts) do
+            require("lspconfig")[server_name].setup(config)
+        end
+    end,
+}

@@ -5,23 +5,23 @@ local keys = {
     -- Normal mode.
     n = {
         -- Selects the entire buffer.
-        { "<leader>a", "ggVG" },
+        { "<leader>a",  "ggVG" },
 
-        -- Toggles the neotree buffer explorer.
-        { "<leader>b", ":Neotree toggle buffers left<CR>" },
+        -- Uses Telescope to view open buffers.
+        { "<leader>b",  ":Telescope buffers<CR>" },
 
         -- Closes the quickfix window.
-        { "<leader>c", ":cclose<CR>" },
+        { "<leader>c",  ":cclose<CR>" },
 
         -- Shows currently available code actions from the LSP.
-        { "<leader>ca",  "<cmd>lua vim.lsp.buf.code_action()<CR>" },
+        { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>" },
 
         -- Triggers the LSP to jump to the next or previous diagnostic.
-        { "]d",  "<cmd>lua vim.diagnostic.goto_next()<CR>" },
-        { "[d",  "<cmd>lua vim.diagnostic.goto_prev()<CR>" },
+        { "]d",         "<cmd>lua vim.diagnostic.goto_next()<CR>" },
+        { "[d",         "<cmd>lua vim.diagnostic.goto_prev()<CR>" },
 
         -- Keeps the cursor in the middle of the screen when paging up or down.
-        { "<C-d>",     "<C-d>zz" }, { "<C-u>", "<C-u>zz" },
+        { "<C-d>",      "<C-d>zz" }, { "<C-u>", "<C-u>zz" },
 
         -- Duplicate lines down. Similar to Ctrl-D in other code editors.
         { "<leader>d", "yyp" },
@@ -33,25 +33,25 @@ local keys = {
         { "<leader>f", ":Telescope live_grep<CR>" },
 
         -- Triggers the LSP to jump to the definition of the symbol under the cursor.
-        { "gd",  ":Telescope lsp_definitions<CR>" },
+        { "gd",        ":Telescope lsp_definitions<CR>" },
 
         -- Opens the diagnostic float window.
-        { "gf",  "<cmd>lua vim.diagnostic.open_float()<CR>" },
+        { "gf",        "<cmd>lua vim.diagnostic.open_float()<CR>" },
 
         -- Triggers the LSP to show signature help.
-        { "gh", "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
+        { "gh",        "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
 
         -- Triggers the LSP to jump to the implementation of the symbol under the cursor.
-        { "gi",  ":Telescope lsp_implementations<CR>" },
+        { "gi",        ":Telescope lsp_implementations<CR>" },
 
         -- Triggers the LSP to show the diagnostics for the current buffer.
-        { "gp",  ":Telescope diagnostics<CR>" },
+        { "gp",        ":Telescope diagnostics<CR>" },
 
         -- Triggers the LSP to show the references to the symbol under the cursor.
-        { "gr",  ":Telescope lsp_references<CR>" },
+        { "gr",        ":Telescope lsp_references<CR>" },
 
         -- Triggers the LSP to rename the symbol under the cursor.
-        { "gs",  "<cmd>lua vim.lsp.buf.rename()<CR>" },
+        { "gs",        "<cmd>lua vim.lsp.buf.rename()<CR>" },
 
         -- Toggles the neotree git explorer.
         { "<leader>g", ":Neotree toggle git_status left<CR>" },
@@ -59,18 +59,21 @@ local keys = {
         -- Finds files using Telescope frecency.
         { "<leader>h", ":Telescope frecency workspace=CWD<CR>" },
 
+        -- Finds incoming calls using Telescope.
+        { "<leader>i", ":Telescope lsp_incoming_calls<CR>" },
+
         -- Set the cursor to move by line in the editor rather than by line in the file. This means that multi-line
         -- rows won't be treated as a single line.
-        { "j",          "gj" }, { "k", "gk" },
+        { "j",         "gj" }, { "k", "gk" },
 
         -- Triggers the LSP to display the hover information for the symbol under the cursor.
-        { "<leaner>K",  "<cmd>lua vim.lsp.buf.hover()<CR>" },
+        { "<leaner>K", "<cmd>lua vim.lsp.buf.hover()<CR>" },
 
         -- Place all search results in the center of the screen.
         { "n",         "nzz" }, { "N", "Nzz" }, { "*", "*zz" }, { "#", "#zz" }, { "g*", "g*zz" },
 
-        -- Opens a new file for editing adjacent to the current open file.
-        { "<leader>n",  ":e <C-R>=expand(\"%:p:h\") . \"/\" <CR>" },
+        -- Finds outgoing calls using Telescope.
+        { "<leader>o", ":Telescope lsp_outgoing_calls<CR>" },
 
         -- Finds files using Telescope.
         { "<leader>p", ":Telescope find_files<CR>" },
@@ -79,26 +82,26 @@ local keys = {
         { "<leader>P", ":Telescope projects<CR>" },
 
         -- Fast quit.
-        { "<leader>q",  ":q!<CR>" },
+        { "<leader>q", ":q!<CR>" },
 
         -- Restarts the LSP, useful after adding new dependencies to the package.
-        { "<leader>r",  ":LspRestart<CR>" },
+        { "<leader>r", ":LspRestart<CR>" },
 
         -- Toggles the neotree document symbols explorer.
-        { "<leader>s",  ":Neotree toggle document_symbols left<CR>" },
+        { "<leader>s", ":Telescope lsp_workspace_symbols<CR>" },
 
 
         -- Fast save.
-        { "<leader>w",  ":w!<CR>" },
+        { "<leader>w", ":w!<CR>" },
 
         -- Fast save and quit. Only saves if the file has been changed.
-        { "<leader>x",  ":x!<CR>" },
+        { "<leader>x", ":x!<CR>" },
 
         -- Toggles the zen mode.
-        { "<leader>z",  ":ZenMode<CR>" },
+        { "<leader>z", ":ZenMode<CR>" },
 
         -- Disable the use of the arrow keys. Rather use the home row.
-        { "<Up>", "<nop>" }, { "<Down>", "<nop>", }, { "<Left>", "<nop>" }, { "<Right>", "<nop>" },
+        { "<Up>",      "<nop>" }, { "<Down>", "<nop>", }, { "<Left>", "<nop>" }, { "<Right>", "<nop>" },
 
     },
     -- Visual / select mode.

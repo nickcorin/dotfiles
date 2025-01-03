@@ -1,5 +1,7 @@
-return function()
-    require("lualine").setup({
+return {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {
         options = {
             theme = "auto",
             globalstatus = false,
@@ -32,8 +34,8 @@ return function()
                 },
                 { "fancy_searchcount" },
             },
-            lualine_x = {"fancy_filetype"},
-            lualine_y = { "fancy_lsp_servers", "fancy_diff", "progress"},
+            lualine_x = { "fancy_filetype" },
+            lualine_y = { "fancy_lsp_servers", "fancy_diff", "progress" },
             lualine_z = {}
         },
         inactive_sections = {
@@ -45,5 +47,5 @@ return function()
             lualine_z = {},
         },
         extensions = { "neo-tree", "lazy" },
-    })
-end
+    },
+}
