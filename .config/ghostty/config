@@ -1,0 +1,9 @@
+font-family = Monaspace Neon
+font-size = 14
+theme = rose-pine
+cursor-style = block
+adjust-cell-height = 35%
+mouse-hide-while-typing = true
+macos-titlebar-style = hidden
+window-padding-balance = true
+window-save-state = always
