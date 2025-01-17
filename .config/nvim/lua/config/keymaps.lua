@@ -1,161 +1,73 @@
 local keys = {
-    -- Insert mode.
-    i = {},
-
-    -- Normal mode.
-    n = {
-        -- Selects the entire buffer.
-        { "<leader>a",  "ggVG" },
-
-        -- Uses Telescope to view open buffers.
-        { "<leader>b",  ":Telescope buffers<CR>" },
-
-        -- Closes the quickfix window.
-        { "<leader>c",  ":cclose<CR>" },
-
-        -- Shows currently available code actions from the LSP.
-        { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>" },
-
-        -- Triggers the LSP to jump to the next or previous diagnostic.
-        { "]d",         "<cmd>lua vim.diagnostic.goto_next()<CR>" },
-        { "[d",         "<cmd>lua vim.diagnostic.goto_prev()<CR>" },
-
-        -- Keeps the cursor in the middle of the screen when paging up or down.
-        { "<C-d>",      "<C-d>zz" }, { "<C-u>", "<C-u>zz" },
-
-        -- Duplicate lines down. Similar to Ctrl-D in other code editors.
-        { "<leader>d", "yyp" },
-
-        -- Toggles the neotree file explorer.
-        { "<leader>e", ":Neotree toggle left<CR>" },
-
-        -- Uses Telescope to search for text.
-        { "<leader>f", ":Telescope live_grep<CR>" },
-
-        -- Triggers the LSP to jump to the definition of the symbol under the cursor.
-        { "gd",        ":Telescope lsp_definitions<CR>" },
-
-        -- Opens the diagnostic float window.
-        { "gf",        "<cmd>lua vim.diagnostic.open_float()<CR>" },
-
-        -- Triggers the LSP to show signature help.
-        { "gh",        "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
-
-        -- Triggers the LSP to jump to the implementation of the symbol under the cursor.
-        { "gi",        ":Telescope lsp_implementations<CR>" },
-
-        -- Triggers the LSP to show the diagnostics for the current buffer.
-        { "gp",        ":Telescope diagnostics<CR>" },
-
-        -- Triggers the LSP to show the references to the symbol under the cursor.
-        { "gr",        ":Telescope lsp_references<CR>" },
-
-        -- Triggers the LSP to rename the symbol under the cursor.
-        { "gs",        "<cmd>lua vim.lsp.buf.rename()<CR>" },
-
-        -- Toggles the neotree git explorer.
-        { "<leader>g", ":Neotree toggle git_status left<CR>" },
-
-        -- Finds files using Telescope frecency.
-        { "<leader>h", ":Telescope frecency workspace=CWD<CR>" },
-
-        -- Finds incoming calls using Telescope.
-        { "<leader>i", ":Telescope lsp_incoming_calls<CR>" },
-
-        -- Set the cursor to move by line in the editor rather than by line in the file. This means that multi-line
-        -- rows won't be treated as a single line.
-        { "j",         "gj" }, { "k", "gk" },
-
-        -- Triggers the LSP to display the hover information for the symbol under the cursor.
-        { "<leaner>K", "<cmd>lua vim.lsp.buf.hover()<CR>" },
-
-        -- Place all search results in the center of the screen.
-        { "n",         "nzz" }, { "N", "Nzz" }, { "*", "*zz" }, { "#", "#zz" }, { "g*", "g*zz" },
-
-        -- Finds outgoing calls using Telescope.
-        { "<leader>o", ":Telescope lsp_outgoing_calls<CR>" },
-
-        -- Finds files using Telescope.
-        { "<leader>p", ":Telescope find_files<CR>" },
-
-        -- Finds projects using Telescope.
-        { "<leader>P", ":Telescope projects<CR>" },
-
-        -- Fast quit.
-        { "<leader>q", ":q!<CR>" },
-
-        -- Restarts the LSP, useful after adding new dependencies to the package.
-        { "<leader>r", ":LspRestart<CR>" },
-
-        -- Toggles the neotree document symbols explorer.
-        { "<leader>s", ":Telescope lsp_workspace_symbols<CR>" },
-
-
-        -- Fast save.
-        { "<leader>w", ":w!<CR>" },
-
-        -- Fast save and quit. Only saves if the file has been changed.
-        { "<leader>x", ":x!<CR>" },
-
-        -- Toggles the zen mode.
-        { "<leader>z", ":ZenMode<CR>" },
-
-        -- Disable the use of the arrow keys. Rather use the home row.
-        { "<Up>",      "<nop>" }, { "<Down>", "<nop>", }, { "<Left>", "<nop>" }, { "<Right>", "<nop>" },
-
-    },
-    -- Visual / select mode.
-    v = {
-        -- Duplicate lines down. Similar to Ctrl-D in other code editors.
-        { "<leader>d", "yyp" },
-
-        -- Preserves your copied content when pasting.
-        { "p",         "\"_dp" },
-        { "P",         "\"_dP" },
-
-        -- Shift complete lines up and down.
-        { "<S-j>",     ":m'>+1<CR>gv=gv" }, { "<S-k>", ":m'<-2<CR>gv=gv" },
-
-        -- After indenting a line, keep it selected so that you can do it again.
-        { ">", ">gv" }, { "<", "<gv" },
-    },
-    -- Visual mode.
-    x = {
-        -- Preserves your copied content when pasting.
-        { "p", "\"_dp" },
-        { "P", "\"_dP" },
-    },
-    -- All modes.
-    [""] = {
-        -- Use the home row for Home / End.
-        { "H",     "^" }, { "L", "$" },
-
-        -- Easier split-pane switching using the home row.
-        { "<C-j>", "<C-W>j" },
-        { "<C-k>", "<C-W>k" },
-        { "<C-h>", "<C-W>h" },
-        { "<C-l>", "<C-W>l" },
-
-        -- Pressing Q is the worst thing you can do in VIM.
-        { "Q",     "<nop>" }
-    },
+    { "<leader>a",  "ggVG",                                      mode = { "n" },      desc = "Select entire buffer" },
+    { "<leader>b",  ":Telescope buffers<CR>",                    mode = { "n" },      desc = "View open buffers" },
+    { "<leader>c",  ":cclose<CR>",                               mode = { "n" },      desc = "Close quickfix window" },
+    { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>",    mode = { "n" },      desc = "Show code actions" },
+    { "]d",         "<cmd>lua vim.diagnostic.goto_next()<CR>",   mode = { "n" },      desc = "Next diagnostic" },
+    { "[d",         "<cmd>lua vim.diagnostic.goto_prev()<CR>",   mode = { "n" },      desc = "Previous diagnostic" },
+    { "<C-d>",      "<C-d>zz",                                   mode = { "n" },      desc = "Page down and center" },
+    { "<C-u>",      "<C-u>zz",                                   mode = { "n" },      desc = "Page up and center" },
+    { "<leader>d",  "yyp",                                       mode = { "n", "v" }, desc = "Duplicate lines down" },
+    { "<leader>e",  ":Neotree toggle left<CR>",                  mode = { "n" },      desc = "Toggle file explorer" },
+    { "<leader>f",  ":Telescope live_grep<CR>",                  mode = { "n" },      desc = "Search text" },
+    { "gd",         ":Telescope lsp_definitions<CR>",            mode = { "n" },      desc = "Go to definition" },
+    { "gf",         "<cmd>lua vim.diagnostic.open_float()<CR>",  mode = { "n" },      desc = "Open diagnostic float" },
+    { "gh",         "<cmd>lua vim.lsp.buf.signature_help()<CR>", mode = { "n" },      desc = "Show signature help" },
+    { "gi",         ":Telescope lsp_implementations<CR>",        mode = { "n" },      desc = "Go to implementation" },
+    { "gp",         ":Telescope diagnostics<CR>",                mode = { "n" },      desc = "Show diagnostics" },
+    { "gr",         ":Telescope lsp_references<CR>",             mode = { "n" },      desc = "Show references" },
+    { "gs",         "<cmd>lua vim.lsp.buf.rename()<CR>",         mode = { "n" },      desc = "Rename symbol" },
+    { "<leader>g",  ":Telescope git_status<CR>",                 mode = { "n" },      desc = "Show git status." },
+    { "<leader>G",  ":Telescope git_commits<CR>",                mode = { "n" },      desc = "Show git commits." },
+    { "<leader>h",  ":Telescope oldfiles<CR>",                   mode = { "n" },      desc = "Find files with frecency" },
+    { "<leader>i",  ":Telescope lsp_incoming_calls<CR>",         mode = { "n" },      desc = "Find incoming calls" },
+    { "j",          "gj",                                        mode = { "n" },      desc = "Move cursor by line" },
+    { "k",          "gk",                                        mode = { "n" },      desc = "Move cursor by line" },
+    { "<leader>K",  "<cmd>lua vim.lsp.buf.hover()<CR>",          mode = { "n" },      desc = "Display hover information" },
+    { "n",          "nzz",                                       mode = { "n" },      desc = "Center search results" },
+    { "N",          "Nzz",                                       mode = { "n" },      desc = "Center search results" },
+    { "*",          "*zz",                                       mode = { "n" },      desc = "Center search results" },
+    { "#",          "#zz",                                       mode = { "n" },      desc = "Center search results" },
+    { "g*",         "g*zz",                                      mode = { "n" },      desc = "Center search results" },
+    { "<leader>o",  ":Telescope find_files<CR>",                 mode = { "n" },      desc = "Find files" },
+    { "<leader>O",  ":Telescope projects<CR>",                   mode = { "n" },      desc = "Find projects" },
+    { "<leader>p",  "<cmd>Ass<CR>",                              mode = { "n", "v" }, desc = "Prompts the LLM." },
+    { "<leader>q",  ":q!<CR>",                                   mode = { "n" },      desc = "Fast quit" },
+    { "<leader>r",  ":LspRestart<CR>",                           mode = { "n" },      desc = "Restart LSP" },
+    { "<leader>s",  ":Telescope lsp_workspace_symbols<CR>",      mode = { "n" },      desc = "Toggle document symbols explorer" },
+    { "<leader>w",  ":w!<CR>",                                   mode = { "n" },      desc = "Fast save" },
+    { "<leader>x",  ":x!<CR>",                                   mode = { "n" },      desc = "Fast save and quit" },
+    { "<leader>y",  "<cmd>Trouble diagnostics toggle<CR>",       mode = { "n" },      desc = "Toggle diagnostics (Trouble)" },
+    { "<leader>z",  ":ZenMode<CR>",                              mode = { "n" },      desc = "Toggle Zen mode" },
+    { "<Up>",       "<nop>",                                     mode = { "n" },      desc = "Disable arrow keys" },
+    { "<Down>",     "<nop>",                                     mode = { "n" },      desc = "Disable arrow keys" },
+    { "<Left>",     "<nop>",                                     mode = { "n" },      desc = "Disable arrow keys" },
+    { "<Right>",    "<nop>",                                     mode = { "n" },      desc = "Disable arrow keys" },
+    { "p",          "\"_dp",                                     mode = { "v", "x" }, desc = "Preserve copied content when pasting" },
+    { "P",          "\"_dP",                                     mode = { "v", "x" }, desc = "Preserve copied content when pasting" },
+    { "<S-j>",      ":m'>+1<CR>gv=gv",                           mode = { "v" },      desc = "Shift lines down" },
+    { "<S-k>",      ":m'<-2<CR>gv=gv",                           mode = { "v" },      desc = "Shift lines up" },
+    { ">",          ">gv",                                       mode = { "v" },      desc = "Keep line selected after indenting" },
+    { "<",          "<gv",                                       mode = { "v" },      desc = "Keep line selected after indenting" },
+    { "H",          "^",                                         mode = { "" },       desc = "Use home row for Home" },
+    { "L",          "$",                                         mode = { "" },       desc = "Use home row for End" },
+    { "<C-j>",      "<C-W>j",                                    mode = { "" },       desc = "Split-pane switch down" },
+    { "<C-k>",      "<C-W>k",                                    mode = { "" },       desc = "Split-pane switch up" },
+    { "<C-h>",      "<C-W>h",                                    mode = { "" },       desc = "Split-pane switch left" },
+    { "<C-l>",      "<C-W>l",                                    mode = { "" },       desc = "Split-pane switch right" },
+    { "Q",          "<nop>",                                     mode = { "" },       desc = "Disable Q" },
 }
 
 local default_opts = { silent = true, noremap = true }
 
-for mode, mode_map in pairs(keys) do
-    for _, map in pairs(mode_map) do
-        -- If the length of the table is 3, then we've got additional options.
-        -- This removes the last element from the table, in this case isolating
-        -- the options.
-        local opts = #mode_map == 3 and table.remove(map) or default_opts
-
-        -- After the options have been removed, we can unpack the first
-        -- two elements in the table.
-        --
-        -- The unpack function has been replaced by table.unpack in Lua 5.2.
-        -- Make sure to fix this once Neovim upgrades Lua.
-        local prefix, cmd = unpack(map)
-        vim.api.nvim_set_keymap(mode, prefix, cmd, opts)
+for _, map in pairs(keys) do
+    local opts = {
+        silent = map.silent or default_opts.silent,
+        noremap = map.noremap or default_opts.noremap,
+        desc = map
+            .desc
+    }
+    for _, m in pairs(map.mode) do
+        vim.keymap.set(m, map[1], map[2], opts)
     end
 end

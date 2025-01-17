@@ -1,7 +1,7 @@
 return {
     "rose-pine/neovim",
     name = "rose-pine",
-    enabled = true,
+    enabled = false,
     init = function()
         vim.cmd("colorscheme rose-pine")
     end,
