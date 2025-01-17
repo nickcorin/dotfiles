@@ -1,9 +1,12 @@
+bold-is-bright = true
 font-family = Monaspace Neon
-font-size = 14
-theme = rose-pine
+font-size = 16
+
+theme = GruvboxDarkHard 
 cursor-style = block
-adjust-cell-height = 35%
 mouse-hide-while-typing = true
-macos-titlebar-style = hidden
+
+macos-titlebar-style = transparent
+
 window-padding-balance = true
 window-save-state = always
