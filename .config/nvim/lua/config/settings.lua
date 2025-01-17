@@ -104,7 +104,7 @@ local settings = {
     tabstop = 4,
 
     -- Better colors.
-    termguicolors = false,
+    termguicolors = true,
 
     -- Auto-wrap comments at 120 characters.
     textwidth = 120,
