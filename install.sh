@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 # Default options.
 OVERWRITE=0
@@ -35,14 +35,23 @@ function parse_flags {
 
 
 # install tries to detect the OS and calls the OS specific install script.
-function install {
+function main {
 	# Use case insensitive matching.
 	shopt -s nocasematch
 	case "$(uname -s)" in 
-		darwin) 	install_darwin ;; 
-		linux)		install_linux ;; 
-		*)		printf "Non-supported OS.\nExiting.."; exit 1	
+		darwin) 	setup_darwin && install ;; 
+        *)		printf "Unsupported os: `$(uname -s)`\n."; exit 1	
 	esac
+}
+
+function setup_darwin {
+    # Install Homebrew, if required.
+    command -v brew >/dev/null 2>&1 || {
+        printf "Homebrew not installed, installing..\n";
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    }
+
+    INSTALL_CMD = "brew bundle"
 }
 
 # ensure_dir checks whether the directory tree exist, otherwise creates it.
@@ -146,5 +155,5 @@ function install_linux {
 # Grab flags.
 parse_flags $0 "$@"
 
-# Call the install function.
-install
+# Call the main function.
+main

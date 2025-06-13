@@ -1,0 +1,54 @@
+return {}
+-- local function obsidian_vault_path(name)
+-- 	local vault_path = vim.env.OBSIDIAN_VAULT_DIR or vim.NIL
+-- 	if vault_path ~= nil then
+-- 		-- If a name is provided, append it to the vault path.
+-- 		if name then
+-- 			vault_path = vim.fs.joinpath(vault_path, name)
+-- 		end
+-- 		vault_path = vim.fn.expand(vault_path)
+-- 	else
+-- 		vim.notify("OBSIDIAN_VAULT_DIR environment variable is not set", vim.log.levels.WARN)
+-- 	end
+-- 	return vault_path
+-- end
+--
+-- return {
+-- 	"epwalsh/obsidian.nvim",
+-- 	version = "*", -- recommended, use latest release instead of latest commit.
+-- 	lazy = true,
+-- 	ft = "markdown",
+-- 	event = {
+-- 		"BufReadPre " .. obsidian_vault_path() .. "/*.md",
+-- 		"BufNewFile " .. obsidian_vault_path() .. "/*.md",
+-- 	},
+-- 	dependencies = {
+-- 		-- [[ Required ]]
+-- 		"nvim-lua/plenary.nvim",
+-- 		-- [[ Optional ]]
+-- 		"hrsh7th/nvim-cmp",
+-- 		"nvim-telescope/telescope.nvim",
+-- 		"nvim-treesitter/nvim-treesitter",
+-- 	},
+-- 	opts = {
+-- 		completion = {
+-- 			nvim_cmp = true,
+-- 			min_chars = 2,
+-- 		},
+-- 		mappings = {
+-- 			-- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+-- 			["gd"] = {
+-- 				action = function()
+-- 					return require("obsidian").util.gf_passthrough()
+-- 				end,
+-- 				opts = { noremap = false, expr = true, buffer = true },
+-- 			},
+-- 		},
+-- 		workspaces = {
+-- 			{
+-- 				name = "nexus",
+-- 				path = obsidian_vault_path("nexus"),
+-- 			},
+-- 		},
+-- 	},
+-- }

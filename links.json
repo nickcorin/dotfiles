@@ -1,0 +1,171 @@
+[
+    {
+        "name": "alacritty",
+        "platforms": [
+            "darwin",
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/alacritty",
+                "target": "$XDG_CONFIG_HOME/alacritty"
+            }
+        ]
+    },
+    {
+        "name": "fish",
+        "platforms": [
+            "darwin",
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/fish",
+                "target": "$XDG_CONFIG_HOME/fish"
+            }
+        ]
+    },
+    {
+        "name": "ghostty",
+        "platforms": [
+            "darwin",
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/ghostty",
+                "target": "$XDG_CONFIG_HOME/ghostty"
+            }
+        ]
+    },
+    {
+        "name": "i3",
+        "platforms": [
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/i3",
+                "target": "$XDG_CONFIG_HOME/i3"
+            }
+        ]
+    },
+    {
+        "name": "kitty",
+        "platforms": [
+            "darwin",
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/kitty",
+                "target": "$XDG_CONFIG_HOME/kitty"
+            }
+        ]
+    },
+    {
+        "name": "nvim",
+        "platforms": [
+            "darwin",
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/nvim",
+                "target": "$XDG_CONFIG_HOME/nvim"
+            }
+        ]
+    },
+    {
+        "name": "picom",
+        "platforms": [
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/picom",
+                "target": "$XDG_CONFIG_HOME/picom"
+            }
+        ]
+    },
+    {
+        "name": "polybar",
+        "platforms": [
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/polybar",
+                "target": "$XDG_CONFIG_HOME/polybar"
+            }
+        ]
+    },
+    {
+        "name": "rofi",
+        "platforms": [
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/rofi",
+                "target": "$XDG_CONFIG_HOME/rofi"
+            }
+        ]
+    },
+    {
+        "name": "skhd",
+        "platforms": [
+            "darwin",
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/skhd",
+                "target": "$XDG_CONFIG_HOME/skhd"
+            }
+        ]
+    },
+    {
+        "name": "tmux",
+        "platforms": [
+            "darwin",
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/tmux",
+                "target": "$XDG_CONFIG_HOME/tmux"
+            }
+        ]
+    },
+    {
+        "name": "yabai",
+        "platforms": [
+            "darwin",
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/yabai",
+                "target": "$XDG_CONFIG_HOME/yabai"
+            }
+        ]
+    },
+    {
+        "name": "zsh",
+        "platforms": [
+            "darwin",
+            "linux"
+        ],
+        "links": [
+            {
+                "source": "$DOTFILES_DIR/home/config/zsh",
+                "target": "$XDG_CONFIG_HOME/zsh"
+            },
+            {
+                "source": "$DOTFILES_DIR/home/config/zsh/.zshrc",
+                "target": "$HOME/.zshrc"
+            }
+        ]
+    }
+]
