@@ -87,6 +87,9 @@ if is_darwin && is_installed brew; then
 fi
 
 # -- Tmux.
+# Set TPM to install plugins in a `tpm` dirctory rather than the default `~/.tmux/plugins` directory.
+# This is to prevent plugins (which are git repos) from being stored in the dotfiles repository through symlinks.
+export TMUX_PLUGIN_MANAGER_PATH="${XDG_CONFIG_HOME:-$HOME/.config}/tpm/plugins"
 if is_interactive_shell; then
     source "$XDG_CONFIG_HOME/tmux/tmux_autostart.sh"
 fi
