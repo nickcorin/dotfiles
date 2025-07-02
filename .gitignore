@@ -11,6 +11,7 @@ config/zsh/.zcompdump*
 config/claude/todos/
 config/claude/projects/
 config/claude/statsig/
+config/claude/.claude.json
 
 # Ignore tmux plugin manager and plugins
 config/tmux/plugins/
