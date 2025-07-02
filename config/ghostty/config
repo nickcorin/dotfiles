@@ -1,0 +1,14 @@
+adjust-cell-height      = 15%
+background-blur         = true
+background-opacity      = 1.0
+bold-is-bright          = true
+cursor-style            = block
+font-family             = Monaspace Argon
+font-feature            = -calt, -dlig, -liga
+font-size               = 16
+link-url                = true
+macos-titlebar-style    = transparent
+mouse-hide-while-typing = true
+theme                   = catppuccin-mocha
+window-padding-balance  = true
+window-save-state       = always

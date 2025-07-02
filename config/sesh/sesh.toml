@@ -1,0 +1,15 @@
+[default_session]
+windows = ["code"]
+
+[[session]]
+name = "arena"
+path = "$DEV_DIR/arenasports/arena"
+windows = ["opencode", "code"]
+
+[[window]]
+name = "code"
+startup_command = "nvim -c 'lua Snacks.picker.recent({filter={cwd=true}})' {}"
+
+[[window]]
+name = "opencode"
+startup_command = "opencode"
