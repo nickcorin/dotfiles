@@ -13,7 +13,7 @@ config/claude/projects/
 config/claude/statsig/
 
 # Ignore tmux plugin manager and plugins
-config/tmux/tpm/
+config/tmux/plugins/
 
 # Ignore GitHub CLI sensitive files
 config/gh/hosts.yml

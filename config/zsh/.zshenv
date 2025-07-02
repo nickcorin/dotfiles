@@ -16,7 +16,6 @@ export EDITOR="nvim"
 # Application-specific directories.
 export OBSIDIAN_VAULT_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents"
 export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
-export TMUX_PLUGIN_MANAGER_PATH="$XDG_CONFIG_HOME/tpm/plugins"
 
 # Locale settings.
 export LANG=en_US.UTF-8
