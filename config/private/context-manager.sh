@@ -62,25 +62,18 @@ switch_context() {
         return 1
     fi
     
-    # Update git SSH config and signing
+    # Update git signing config only
     if [ "$new_context" = "none" ]; then
-        git config --global --unset core.sshCommand 2>/dev/null || true
         git config --global --unset user.signingkey 2>/dev/null || true
         git config --global commit.gpgsign false
     else
         local ssh_key=$(_get_config | yq -p toml ".contexts.$new_context.ssh_key" -r 2>/dev/null)
-        if [ -n "$ssh_key" ] && [ "$ssh_key" != "null" ] && [ -f "$HOME/.ssh/$ssh_key" ]; then
-            # Set SSH command for authentication
-            git config --global core.sshCommand "ssh -i ~/.ssh/$ssh_key"
-            
+        if [ -n "$ssh_key" ] && [ "$ssh_key" != "null" ] && [ -f "$HOME/.ssh/${ssh_key}.pub" ]; then
             # Configure SSH signing if public key exists
-            if [ -f "$HOME/.ssh/${ssh_key}.pub" ]; then
-                git config --global gpg.format ssh
-                git config --global user.signingkey "$HOME/.ssh/${ssh_key}.pub"
-                git config --global commit.gpgsign true
-            fi
+            git config --global gpg.format ssh
+            git config --global user.signingkey "$HOME/.ssh/${ssh_key}.pub"
+            git config --global commit.gpgsign true
         else
-            git config --global --unset core.sshCommand 2>/dev/null || true
             git config --global --unset user.signingkey 2>/dev/null || true
             git config --global commit.gpgsign false
         fi
@@ -146,14 +139,12 @@ show_context_status() {
     echo "Current context: $context"
     
     if [ "$context" != "none" ]; then
-        local ssh_cmd=$(git config --global core.sshCommand 2>/dev/null || echo "not set")
         local signing_key=$(git config --global user.signingkey 2>/dev/null || echo "not set")
         local signing_enabled=$(git config --global commit.gpgsign 2>/dev/null || echo "false")
         
-        echo "  SSH command: $ssh_cmd"
         echo "  Signing key: $signing_key"
         echo "  Signing enabled: $signing_enabled"
     else
-        echo "  No SSH or signing configuration active"
+        echo "  No signing configuration active"
     fi
 }
