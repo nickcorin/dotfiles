@@ -133,6 +133,17 @@ clear_context_cache() {
     echo "Context caches cleared"
 }
 
+# Refresh context configuration from 1Password
+refresh_context_config() {
+    rm -f "$CONTEXTS_CACHE"
+    if _get_config >/dev/null 2>&1; then
+        echo "Context configuration refreshed from 1Password"
+    else
+        echo "Failed to refresh context configuration"
+        return 1
+    fi
+}
+
 # Show current context and git configuration
 show_context_status() {
     local context=$(get_current_context)
