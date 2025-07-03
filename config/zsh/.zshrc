@@ -1,16 +1,16 @@
 # Load utility functions.
-. "$DOTFILES_DIR/config/shell/scripts/utils.sh"
+. "$DOTFILES_PATH/config/shell/scripts/utils.sh"
 
 # Initialize zsh completion system.
 autoload -Uz compinit
 compinit -C
 
 # Init tools.
-. "$DOTFILES_DIR/config/git/init.sh"
-. "$DOTFILES_DIR/config/homebrew/init.sh"
-. "$DOTFILES_DIR/config/fzf/init.sh"
-. "$DOTFILES_DIR/config/zoxide/init.sh"
-. "$DOTFILES_DIR/config/private/context-manager.sh"
+. "$DOTFILES_PATH/config/git/init.sh"
+. "$DOTFILES_PATH/config/homebrew/init.sh"
+. "$DOTFILES_PATH/config/fzf/init.sh"
+. "$DOTFILES_PATH/config/zoxide/init.sh"
+. "$DOTFILES_PATH/config/private/context-manager.sh"
 init_context
 
 # Configure zsh.
@@ -30,9 +30,9 @@ alias mommy="git"
 alias please="sudo"
 alias v="nvim"
 alias vim="nvim"
-alias vd="nvim $DOTFILES_DIR"
+alias vd="nvim $DOTFILES_PATH"
 alias vo="vim $OBSIDIAN_VAULT_DIR"
-alias refresh-context='. $DOTFILES_DIR/config/private/refresh-context.sh'
+alias refresh-context='. $DOTFILES_PATH/config/private/refresh-context.sh'
 alias context-status='show_context_status'
 alias refresh-contexts='refresh_context_config'
 
@@ -44,7 +44,7 @@ fi
 # Interactive shell configuration
 if is_interactive_shell; then
     # Autostart tmux.
-    . "$DOTFILES_DIR/config/tmux/tmux_autostart.sh"
+    . "$DOTFILES_PATH/config/tmux/tmux_autostart.sh"
     # Enable starship.
-    . "$DOTFILES_DIR/config/starship/init.sh"
+    . "$DOTFILES_PATH/config/starship/init.sh"
 fi

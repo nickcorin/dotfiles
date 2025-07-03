@@ -6,7 +6,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # User directories.
 export DEV_DIR="$HOME/code"
-export DOTFILES_DIR="$XDG_CONFIG_HOME/dotfiles"
+export DOTFILES_PATH="$DEV_DIR/dotfiles"
 export GOPATH="$DEV_DIR/go"
 export GOBIN="$GOPATH/bin"
 

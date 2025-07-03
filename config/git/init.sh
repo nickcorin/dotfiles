@@ -3,10 +3,10 @@
 # Git configuration initialization script
 
 # Source cache utilities
-. "$DOTFILES_DIR/config/shell/scripts/cache-utils.sh"
+. "$DOTFILES_PATH/config/shell/scripts/cache-utils.sh"
 
 # Check if this script needs to run
-if ! needs_init "git" "$DOTFILES_DIR/config/git/init.sh"; then
+if ! needs_init "git" "$DOTFILES_PATH/config/git/init.sh"; then
     return 0 2>/dev/null || exit 0
 fi
 
@@ -18,7 +18,7 @@ fi
 
 # Git configuration
 git config --global core.editor "$EDITOR"
-git config --global core.excludesFile "$DOTFILES_DIR/config/git/ignore"
+git config --global core.excludesFile "$DOTFILES_PATH/config/git/ignore"
 git config --global init.defaultBranch "master"
 git config --global pull.rebase "true"
 git config --global push.autoSetupRemote "true"
@@ -35,6 +35,6 @@ else
 fi
 
 # Mark this script as successfully initialized
-mark_initialized "git" "$DOTFILES_DIR/config/git/init.sh"
+mark_initialized "git" "$DOTFILES_PATH/config/git/init.sh"
 
 echo "Git configuration initialized successfully"
