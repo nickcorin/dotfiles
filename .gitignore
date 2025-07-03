@@ -13,6 +13,9 @@ config/claude/projects/
 config/claude/statsig/
 config/claude/.claude.json
 
+# Ignore context template (contains example company names)
+config/private/contexts-template.toml
+
 # Ignore tmux plugin manager and plugins
 config/tmux/plugins/
 

@@ -17,6 +17,9 @@ export EDITOR="nvim"
 export OBSIDIAN_VAULT_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents"
 export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
 
+# Context management.
+export DOTFILES_CONTEXTS="op://starship/config/contexts.toml"
+
 # Locale settings.
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8

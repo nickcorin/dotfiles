@@ -1,3 +1,0 @@
-default:
-    extension: .fish
-    output: functions
