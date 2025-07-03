@@ -42,6 +42,10 @@ get_current_context() {
 
 # List available contexts
 list_contexts() {
+    if ! command -v yq >/dev/null 2>&1; then
+        echo "Error: yq is required for context management. Install with: brew install yq" >&2
+        return 1
+    fi
     _get_config | yq -p toml '.contexts | keys | .[]' 2>/dev/null
 }
 
@@ -51,6 +55,12 @@ switch_context() {
     local current_context=$(get_current_context)
     
     [ "$current_context" = "$new_context" ] && return 0
+    
+    # Check for required dependencies
+    if [ "$new_context" != "none" ] && ! command -v yq >/dev/null 2>&1; then
+        echo "Error: yq is required for context management. Install with: brew install yq" >&2
+        return 1
+    fi
     
     # Update git SSH config and signing
     if [ "$new_context" = "none" ]; then
