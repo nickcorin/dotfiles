@@ -150,10 +150,10 @@ show_context_status() {
         local signing_key=$(git config --global user.signingkey 2>/dev/null || echo "not set")
         local signing_enabled=$(git config --global commit.gpgsign 2>/dev/null || echo "false")
         
-        echo "SSH command: $ssh_cmd"
-        echo "Signing key: $signing_key"
-        echo "Signing enabled: $signing_enabled"
+        echo "  SSH command: $ssh_cmd"
+        echo "  Signing key: $signing_key"
+        echo "  Signing enabled: $signing_enabled"
     else
-        echo "No SSH or signing configuration active"
+        echo "  No SSH or signing configuration active"
     fi
 }
