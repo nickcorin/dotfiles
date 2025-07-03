@@ -33,6 +33,7 @@ alias vim="nvim"
 alias vd="nvim $DOTFILES_DIR"
 alias vo="vim $OBSIDIAN_VAULT_DIR"
 alias refresh-context='. $DOTFILES_DIR/config/private/refresh-context.sh'
+alias context-status='show_context_status'
 
 if is_installed eza; then
     alias ls="eza"
