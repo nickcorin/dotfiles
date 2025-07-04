@@ -48,3 +48,6 @@ if is_interactive_shell; then
     # Enable starship.
     . "$DOTFILES_PATH/config/starship/init.sh"
 fi
+
+# bun completions
+[ -s "/Users/nick/.bun/_bun" ] && source "/Users/nick/.bun/_bun"

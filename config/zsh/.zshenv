@@ -14,8 +14,10 @@ export GOBIN="$GOPATH/bin"
 export EDITOR="nvim"
 
 # Application-specific directories.
-export OBSIDIAN_VAULT_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents"
+
+export BUN_INSTALL="$HOME/.bun"
 export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
+export OBSIDIAN_VAULT_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents"
 
 # Context management.
 export DOTFILES_CONTEXTS="op://starship/config/contexts.toml"
@@ -31,6 +33,7 @@ typeset -U path
 path=(
     /opt/homebrew/bin
     "$GOBIN"
+    "$BUN_INSTALL/bin:$PATH"
     /usr/local/opt/llvm/bin
     $path
 )
