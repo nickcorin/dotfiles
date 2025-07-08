@@ -25,13 +25,28 @@ else
     if command -v iwgetid >/dev/null 2>&1; then
         SSID=$(iwgetid -r 2>/dev/null)
         if [[ -n "$SSID" ]]; then
-            echo "$SSID"
+            echo " 󰖩 $SSID"
         else
-            echo "wifi (disconnected)"
+            # Check connectivity for proper offline detection
+            if ping -c 1 -W 3 www.google.com >/dev/null 2>&1; then
+                echo " 󰖩 wired"
+            else
+                echo "#[fg=#{@thm_red}] 󰖪 offline"
+            fi
         fi
     elif [[ -d /sys/class/net/wlan0 ]]; then
-        echo "wifi"
+        # WiFi interface exists but no iwgetid command
+        if ping -c 1 -W 3 www.google.com >/dev/null 2>&1; then
+            echo " 󰖩 wifi"
+        else
+            echo "#[fg=#{@thm_red}] 󰖪 offline"
+        fi
     else
-        echo "wired"
+        # No WiFi interface, check if we have connectivity
+        if ping -c 1 -W 3 www.google.com >/dev/null 2>&1; then
+            echo " 󰖩 wired"
+        else
+            echo "#[fg=#{@thm_red}] 󰖪 offline"
+        fi
     fi
 fi
