@@ -3,7 +3,7 @@
 # ✨ dotfiles ✨
 
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply nickcorin
+BINDIR=/usr/local/bin sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply nickcorin
 ```
 
 ### Package Installation Issues?
