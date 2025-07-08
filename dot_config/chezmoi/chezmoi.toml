@@ -1,5 +1,4 @@
-[sourceDir]
-    path = "~/code/dotfiles"
+sourceDir = "~/code/dotfiles"
 
 [edit]
     command = "nvim"
