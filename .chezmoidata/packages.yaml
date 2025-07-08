@@ -1,6 +1,10 @@
 # Package declarations for declarative installation
 # Based on your existing Brewfile
 
+taps:
+  - dotenvx/brew
+  - sst/tap
+
 brews:
   - awscli
   - basedpyright
