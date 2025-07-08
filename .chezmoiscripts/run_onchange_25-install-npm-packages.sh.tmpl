@@ -2,5 +2,5 @@
 #!/bin/bash
 
 # Call generic installer with npm packages
-exec "{{ .chezmoi.sourceDir }}/.chezmoiscripts/install-packages.sh" "npm" "{{ len .npm_packages }}" {{ range .npm_packages }}{{ . | quote }} {{ end }}
+exec "{{ .chezmoi.sourceDir }}/resources/shell/scripts/install-packages.sh" "npm" "{{ len .npm_packages }}" {{ range .npm_packages }}{{ . | quote }} {{ end }}
 {{ end -}}
