@@ -15,28 +15,36 @@ elif [[ -f "/usr/local/bin/brew" ]]; then
 fi
 
 # Count packages to install
-BREW_COUNT={{ len .packages.brews }}
-CASK_COUNT={{ len .packages.casks }}
+BREW_COUNT={{ len .brews }}
+CASK_COUNT={{ len .casks }}
 TOTAL_COUNT=$((BREW_COUNT + CASK_COUNT))
 
 echo "📦 Found $TOTAL_COUNT packages to install ($BREW_COUNT CLI tools, $CASK_COUNT applications)"
-echo ""
-read -p "Install all packages? [y/N] " -n 1 -r
-echo ""
 
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    echo "Skipping package installation"
+# Check if we're in an interactive terminal
+if [ -t 0 ]; then
+    echo ""
+    read -p "Install all packages? [y/N] " -n 1 -r
+    echo ""
+    
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        echo "Skipping package installation"
+        exit 0
+    fi
+else
+    echo "📦 Running in non-interactive mode, skipping package installation"
+    echo "   Run 'chezmoi apply -i' to install packages interactively"
     exit 0
 fi
 
 # Install taps
-{{ range .packages.taps -}}
+{{ range .taps -}}
 brew tap {{ . | quote }}
 {{ end }}
 
 # Install brews
 echo "📦 Installing CLI tools..."
-{{ range .packages.brews -}}
+{{ range .brews -}}
 if ! command -v {{ . }} &>/dev/null && ! brew list {{ . }} &>/dev/null 2>&1; then
     echo "  → Installing {{ . }}"
     brew install {{ . | quote }}
@@ -45,7 +53,7 @@ fi
 
 # Install casks
 echo "📦 Installing applications..."
-{{ range .packages.casks -}}
+{{ range .casks -}}
 if ! brew list --cask {{ . }} &>/dev/null 2>&1; then
     echo "  → Installing {{ . }}"
     brew install --cask {{ . | quote }}
