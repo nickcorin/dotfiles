@@ -1,0 +1,42 @@
+[user]
+    name = Nicholas Corin
+    email = nickcorin@gmail.com
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSuy9RJ1mQB63vuo4rpAxfeB+27l7b25XfzKzmjgnNt
+
+[core]
+    editor = nvim
+    pager = bat
+    excludesFile = ~/.config/git/ignore
+
+[init]
+    defaultBranch = master
+
+[pull]
+    rebase = true
+    ff = only
+
+[push]
+    autoSetupRemote = true
+
+[branch]
+    autosetuprebase = always
+
+# SSH signing configuration
+[gpg]
+    format = ssh
+
+[commit]
+    gpgsign = true
+
+[gpg "ssh"]
+    allowedSignersFile = ~/.ssh/allowed_signers
+
+# URL rewrites for SSH access
+[url "ssh://git@github.com/consensys"]
+    insteadOf = https://github.com/consensys
+
+[url "ssh://git@github.com/consensys-vertical-apps"]
+    insteadOf = https://github.com/consensys-vertical-apps
+
+[url "git@bitbucket.org:consensysteam"]
+    insteadOf = https://bitbucket.org/consensysteam
