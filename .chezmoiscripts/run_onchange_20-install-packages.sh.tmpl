@@ -6,25 +6,8 @@ BREW_COUNT={{ len .brews }}
 CASK_COUNT={{ len .casks }}
 TOTAL_COUNT=$((BREW_COUNT + CASK_COUNT))
 
-echo "📦 Found $TOTAL_COUNT packages to install ($BREW_COUNT CLI tools, $CASK_COUNT applications)"
-
-# Check if we're in an interactive terminal
-if [ -t 0 ]; then
-    echo ""
-    read -p "Install all packages? [y/N] " -n 1 -r
-    echo ""
-    
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        echo "Skipping package installation"
-        exit 0
-    fi
-else
-    echo "📦 Running in non-interactive mode, installing packages..."
-fi
-
-echo "📦 Installing packages..."
-
-brew bundle --file=/dev/stdin <<EOF
+# Generate Brewfile content
+BREWFILE_CONTENT="$(cat <<EOF
 {{ range .taps -}}
 tap {{ . | quote }}
 {{ end -}}
@@ -35,6 +18,8 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 EOF
+)"
 
-echo "✅ Package installation complete!"
+# Call generic installer
+exec "{{ .chezmoi.sourceDir }}/.chezmoiscripts/install-packages.sh" "homebrew" "$TOTAL_COUNT" "$BREWFILE_CONTENT"
 {{ end -}}

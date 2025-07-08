@@ -5,6 +5,21 @@ taps:
   - dotenvx/brew
   - sst/tap
 
+# npm global packages
+npm_packages:
+  - "@anthropic-ai/claude-code"
+  - "@google/gemini-cli"
+  - "@vue/cli"
+  - eslint
+  - prettier
+  - typescript
+
+# Direct install tools (not available through package managers)
+direct_installs:
+  - name: bun
+    url: https://bun.sh/install
+    command: curl -fsSL https://bun.sh/install | bash
+
 brews:
   - awscli
   - basedpyright
