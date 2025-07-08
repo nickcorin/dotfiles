@@ -1,9 +1,6 @@
 # Package declarations for declarative installation
 # Based on your existing Brewfile
 
-taps:
-  - homebrew/cask-fonts
-
 brews:
   - awscli
   - basedpyright
