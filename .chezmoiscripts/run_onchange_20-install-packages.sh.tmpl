@@ -1,63 +1,15 @@
+{{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
-# This script runs when .chezmoidata/packages.yaml changes
-set -eufo pipefail
 
-# Only run on macOS
-if [[ "$OSTYPE" != "darwin"* ]]; then
-    exit 0
-fi
-
-# Ensure Homebrew is in PATH
-if [[ -f "/opt/homebrew/bin/brew" ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -f "/usr/local/bin/brew" ]]; then
-    eval "$(/usr/local/bin/brew shellenv)"
-fi
-
-# Count packages to install
-BREW_COUNT={{ len .brews }}
-CASK_COUNT={{ len .casks }}
-TOTAL_COUNT=$((BREW_COUNT + CASK_COUNT))
-
-echo "📦 Found $TOTAL_COUNT packages to install ($BREW_COUNT CLI tools, $CASK_COUNT applications)"
-
-# Check if we're in an interactive terminal
-if [ -t 0 ]; then
-    echo ""
-    read -p "Install all packages? [y/N] " -n 1 -r
-    echo ""
-    
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        echo "Skipping package installation"
-        exit 0
-    fi
-else
-    echo "📦 Running in non-interactive mode, skipping package installation"
-    echo "   Run 'chezmoi apply -i' to install packages interactively"
-    exit 0
-fi
-
-# Install taps
+brew bundle --file=/dev/stdin <<EOF
 {{ range .taps -}}
-brew tap {{ . | quote }}
-{{ end }}
-
-# Install brews
-echo "📦 Installing CLI tools..."
+tap {{ . | quote }}
+{{ end -}}
 {{ range .brews -}}
-if ! command -v {{ . }} &>/dev/null && ! brew list {{ . }} &>/dev/null 2>&1; then
-    echo "  → Installing {{ . }}"
-    brew install {{ . | quote }}
-fi
-{{ end }}
-
-# Install casks
-echo "📦 Installing applications..."
+brew {{ . | quote }}
+{{ end -}}
 {{ range .casks -}}
-if ! brew list --cask {{ . }} &>/dev/null 2>&1; then
-    echo "  → Installing {{ . }}"
-    brew install --cask {{ . | quote }}
-fi
-{{ end }}
-
-echo "✅ Package installation complete!"
+cask {{ . | quote }}
+{{ end -}}
+EOF
+{{ end -}}
