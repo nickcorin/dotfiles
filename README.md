@@ -1,20 +1,21 @@
 <div align="center">
 
-# ✨ dotfiles ✨
+# Dotfiles
+
+## Install.
 
 ```bash
 BINDIR=/usr/local/bin sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply nickcorin
 ```
 
-### Package Installation Issues?
+## Manually applying changes.
 
 ```bash
 # Retry package installation
 chezmoi apply
 
-# Force reinstall all packages  
+# Force reinstall all packages
 chezmoi apply --force
 ```
 
 </div>
-
