@@ -85,10 +85,10 @@ fi
 # Check if we're in an interactive terminal
 if [ -t 0 ]; then
     echo ""
-    read -p "Install $INSTALLER_NAME? [y/N] " -n 1 -r
+    read -p "Install $INSTALLER_NAME? [Y/n] " -n 1 -r
     echo ""
     
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    if [[ $REPLY =~ ^[Nn]$ ]]; then
         echo "Skipping $INSTALLER_NAME installation"
         exit 0
     fi
