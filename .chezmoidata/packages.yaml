@@ -2,38 +2,65 @@
 # Based on your existing Brewfile
 
 taps:
-  - homebrew/bundle
   - homebrew/cask-fonts
 
 brews:
   - awscli
+  - basedpyright
   - bat
+  - buf
+  - chezmoi
   - curl
   - docker
+  - dotenvx/brew/dotenvx
+  - eza
+  - fd
   - ffmpeg
   - fzf
   - gh
   - git
   - go
   - gotop
+  - htop
+  - imagemagick
   - jq
+  - lazygit
+  - lua-language-server
+  - mutt
   - neovim
   - nvm
+  - sst/tap/opencode
   - protobuf
   - python
   - ripgrep
+  - rust-analyzer
+  - sesh
+  - starship
   - tig
   - tmux
   - tpm
   - tree
   - vim
+  - wget
+  - yq
   - yt-dlp
   - zig
+  - zoxide
   - zsh-autosuggestions
   - zsh-syntax-highlighting
 
 casks:
   - 1password-cli
   - alacritty
+  - corelocationcli
+  - font-fira-code-nerd-font
+  - font-noto-nerd-font
+  - font-roboto-mono-nerd-font
+  - font-sf-mono-nerd-font
+  - font-sf-mono-nerd-font-ligaturized
+  - font-ubuntu-mono-nerd-font
   - ghostty
+  - keybase
+  - keycastr
+  - mactex
   - obsidian
