@@ -28,7 +28,7 @@ git config --global user.email "nickcorin@gmail.com"
 # SSH signing configuration for 1Password
 git config --global gpg.format "ssh"
 git config --global commit.gpgsign "true"
-git config --global user.signingkey "key::nickcorin_id_ed25519"
+git config --global gpg.ssh.defaultKeyCommand "ssh-add -L"
 
 # Configure pager based on bat availability
 if command -v bat >/dev/null 2>&1; then
