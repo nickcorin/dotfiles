@@ -4,13 +4,13 @@
 
 </div>
 
-## Install.
+### Install.
 
 ```bash
 BINDIR=~/.local/bin sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply nickcorin
 ```
 
-## Manually applying changes.
+### Manually applying changes.
 
 ```bash
 # Retry package installation.
