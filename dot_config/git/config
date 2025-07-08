@@ -28,15 +28,3 @@
 [commit]
     gpgsign = true
 
-[gpg "ssh"]
-    allowedSignersFile = ~/.ssh/allowed_signers
-
-# URL rewrites for SSH access
-[url "ssh://git@github.com/consensys"]
-    insteadOf = https://github.com/consensys
-
-[url "ssh://git@github.com/consensys-vertical-apps"]
-    insteadOf = https://github.com/consensys-vertical-apps
-
-[url "git@bitbucket.org:consensysteam"]
-    insteadOf = https://bitbucket.org/consensysteam
