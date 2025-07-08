@@ -1,20 +1,19 @@
 # Load utility functions.
-. "$DOTFILES_PATH/config/shell/scripts/utils.sh"
+. "$DOTFILES_PATH/resources/shell/scripts/utils.sh"
 
 # Load chezmoi edit functions.
-. "$DOTFILES_PATH/config/shell/scripts/chezmoi-edit.sh"
+. "$DOTFILES_PATH/resources/shell/scripts/chezmoi-edit.sh"
 
 # Initialize zsh completion system.
 autoload -Uz compinit
 compinit -C
 
 # Init tools.
-. "$DOTFILES_PATH/config/git/init.sh"
-. "$DOTFILES_PATH/config/homebrew/init.sh"
-. "$DOTFILES_PATH/config/fzf/init.sh"
-. "$DOTFILES_PATH/config/zoxide/init.sh"
-. "$DOTFILES_PATH/config/private/context-manager.sh"
-init_context
+. "$DOTFILES_PATH/dot_config/git/init.sh"
+. "$DOTFILES_PATH/resources/homebrew/init.sh"
+. "$DOTFILES_PATH/dot_config/fzf/init.sh"
+. "$DOTFILES_PATH/resources/zoxide/init.sh"
+
 
 # Configure zsh.
 setopt autocd
@@ -35,9 +34,7 @@ alias v="nvim"
 alias vim="nvim"
 alias vd="nvim $DOTFILES_PATH"
 alias vo="vim $OBSIDIAN_VAULT_DIR"
-alias refresh-context='. $DOTFILES_PATH/config/private/refresh-context.sh'
-alias context-status='show_context_status'
-alias refresh-contexts='refresh_context_config'
+
 
 if is_installed eza; then
     alias ls="eza"
@@ -47,9 +44,9 @@ fi
 # Interactive shell configuration
 if is_interactive_shell; then
     # Autostart tmux.
-    . "$DOTFILES_PATH/config/tmux/tmux_autostart.sh"
+    . "$DOTFILES_PATH/dot_config/tmux/tmux_autostart.sh"
     # Enable starship.
-    . "$DOTFILES_PATH/config/starship/init.sh"
+    . "$DOTFILES_PATH/dot_config/starship/init.sh"
 fi
 
 # bun completions
