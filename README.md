@@ -7,7 +7,7 @@
 ## Install.
 
 ```bash
-BINDIR=/usr/local/bin sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply nickcorin
+BINDIR=~/.local/bin sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply nickcorin
 ```
 
 ## Manually applying changes.
