@@ -39,12 +39,53 @@ case "$INSTALLER_TYPE" in
         ;;
 esac
 
-echo "$INSTALLER_EMOJI Found $PACKAGE_COUNT $INSTALLER_NAME to install"
+# Check what actually needs to be installed
+NEEDS_INSTALL=()
+case "$INSTALLER_TYPE" in
+    "homebrew")
+        # For Homebrew, use brew bundle check to see what's needed
+        echo "$INSTALLER_EMOJI Checking which packages need installation..."
+        if echo "${PACKAGES[0]}" | brew bundle check --file=/dev/stdin > /dev/null 2>&1; then
+            echo "$INSTALLER_EMOJI All Homebrew packages are already installed!"
+            exit 0
+        fi
+        # Let brew bundle handle the actual checking and installation
+        ;;
+    "npm")
+        # Check which npm packages are not installed
+        if command -v npm &> /dev/null; then
+            for package in "${PACKAGES[@]}"; do
+                if ! npm list -g "$package" &> /dev/null; then
+                    NEEDS_INSTALL+=("$package")
+                fi
+            done
+        else
+            NEEDS_INSTALL=("${PACKAGES[@]}")
+        fi
+        PACKAGE_COUNT=${#NEEDS_INSTALL[@]}
+        ;;
+    "direct")
+        # For direct installs, we can't easily check, so assume all are needed
+        NEEDS_INSTALL=("${PACKAGES[@]}")
+        PACKAGE_COUNT=${#NEEDS_INSTALL[@]}
+        ;;
+esac
+
+if [ "$PACKAGE_COUNT" -eq 0 ] && [ "$INSTALLER_TYPE" != "homebrew" ]; then
+    echo "$INSTALLER_EMOJI All $INSTALLER_NAME are already installed!"
+    exit 0
+fi
+
+if [ "$INSTALLER_TYPE" = "homebrew" ]; then
+    echo "$INSTALLER_EMOJI Some Homebrew packages need installation"
+else
+    echo "$INSTALLER_EMOJI Found $PACKAGE_COUNT $INSTALLER_NAME to install"
+fi
 
 # Check if we're in an interactive terminal
 if [ -t 0 ]; then
     echo ""
-    read -p "Install all $INSTALLER_NAME? [y/N] " -n 1 -r
+    read -p "Install $INSTALLER_NAME? [y/N] " -n 1 -r
     echo ""
     
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
@@ -70,15 +111,15 @@ case "$INSTALLER_TYPE" in
             exit 1
         fi
         
-        # Install each package globally
-        for package in "${PACKAGES[@]}"; do
+        # Install only packages that need installation
+        for package in "${NEEDS_INSTALL[@]}"; do
             echo "Installing $package..."
             npm install -g "$package"
         done
         ;;
     "direct")
         # Execute each command directly
-        for command in "${PACKAGES[@]}"; do
+        for command in "${NEEDS_INSTALL[@]}"; do
             echo "Executing: $command"
             eval "$command"
         done
