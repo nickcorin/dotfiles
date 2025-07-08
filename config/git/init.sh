@@ -25,6 +25,11 @@ git config --global push.autoSetupRemote "true"
 git config --global user.name "Nicholas Corin"
 git config --global user.email "nickcorin@gmail.com"
 
+# SSH signing configuration for 1Password
+git config --global gpg.format "ssh"
+git config --global commit.gpgsign "true"
+git config --global user.signingkey "key::nickcorin_id_ed25519"
+
 # Configure pager based on bat availability
 if command -v bat >/dev/null 2>&1; then
     git config --global core.pager "bat"
