@@ -25,7 +25,6 @@ LICENSE
 .chezmoiscripts/
 
 # Directories that shouldn't be linked to home
-bin/
 config/csgo/
 config/shell/scripts/
 config/private/
