@@ -32,6 +32,7 @@ export LC_ALL=en_US.UTF-8
 typeset -U path
 path=(
     /opt/homebrew/bin
+    "$HOME/.local/bin/env"
     "$GOBIN"
     "$BUN_INSTALL/bin:$PATH"
     /usr/local/opt/llvm/bin

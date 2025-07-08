@@ -51,3 +51,5 @@ fi
 
 # bun completions
 [ -s "/Users/nick/.bun/_bun" ] && source "/Users/nick/.bun/_bun"
+
+. "$HOME/.local/bin/env"
