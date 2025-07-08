@@ -1,0 +1,8 @@
+[sourceDir]
+    path = "~/code/dotfiles"
+
+[edit]
+    command = "nvim"
+
+[diff]
+    pager = "bat"
