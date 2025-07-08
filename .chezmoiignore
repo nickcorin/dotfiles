@@ -1,0 +1,34 @@
+# Documentation
+README.md
+LICENSE
+*.md
+
+# Git
+.git
+.gitignore
+.gitmodules
+
+# Development
+*.swp
+*.swo
+*~
+.DS_Store
+
+# IDE
+.vscode
+.idea
+
+# Chezmoi files (don't copy these to home)
+.chezmoi.toml.tmpl
+.chezmoidata/
+.chezmoiignore
+.chezmoiscripts/
+
+# Directories that shouldn't be linked to home
+config/csgo/
+config/shell/scripts/
+config/private/
+
+# Any other resources
+resources/
+scripts/

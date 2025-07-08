@@ -1,0 +1,55 @@
+#!/bin/bash
+# This script runs when .chezmoidata/packages.yaml changes
+set -eufo pipefail
+
+# Only run on macOS
+if [[ "$OSTYPE" != "darwin"* ]]; then
+    exit 0
+fi
+
+# Ensure Homebrew is in PATH
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -f "/usr/local/bin/brew" ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# Count packages to install
+BREW_COUNT={{ len .packages.brews }}
+CASK_COUNT={{ len .packages.casks }}
+TOTAL_COUNT=$((BREW_COUNT + CASK_COUNT))
+
+echo "📦 Found $TOTAL_COUNT packages to install ($BREW_COUNT CLI tools, $CASK_COUNT applications)"
+echo ""
+read -p "Install all packages? [y/N] " -n 1 -r
+echo ""
+
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo "Skipping package installation"
+    exit 0
+fi
+
+# Install taps
+{{ range .packages.taps -}}
+brew tap {{ . | quote }}
+{{ end }}
+
+# Install brews
+echo "📦 Installing CLI tools..."
+{{ range .packages.brews -}}
+if ! command -v {{ . }} &>/dev/null && ! brew list {{ . }} &>/dev/null 2>&1; then
+    echo "  → Installing {{ . }}"
+    brew install {{ . | quote }}
+fi
+{{ end }}
+
+# Install casks
+echo "📦 Installing applications..."
+{{ range .packages.casks -}}
+if ! brew list --cask {{ . }} &>/dev/null 2>&1; then
+    echo "  → Installing {{ . }}"
+    brew install --cask {{ . | quote }}
+fi
+{{ end }}
+
+echo "✅ Package installation complete!"

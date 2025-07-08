@@ -1,6 +1,9 @@
 # Load utility functions.
 . "$DOTFILES_PATH/config/shell/scripts/utils.sh"
 
+# Load chezmoi edit functions.
+. "$DOTFILES_PATH/config/shell/scripts/chezmoi-edit.sh"
+
 # Initialize zsh completion system.
 autoload -Uz compinit
 compinit -C

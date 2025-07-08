@@ -1,0 +1,28 @@
+{{- $name := promptStringOnce . "name" "Full name" "Nicholas Corin" -}}
+{{- $email := promptStringOnce . "email" "Email address" "nickcorin@gmail.com" -}}
+
+# Core settings
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
+[data]
+    name = {{ $name | quote }}
+    email = {{ $email | quote }}
+
+# Use bat for diffs
+[diff]
+    pager = "bat"
+
+# Editor settings
+[edit]
+    command = "nvim"
+    watch = true        # Auto-apply changes when files are saved
+    minDuration = "1s"  # Wait 1 second after last change before applying
+
+[merge]
+    command = "nvim"
+    args = ["-d", "{{ "{{ .Destination }}" }}", "{{ "{{ .Source }}" }}", "{{ "{{ .Target }}" }}"]
+
+# 1Password integration for secrets
+[onepassword]
+    command = "op"
+    cache = true

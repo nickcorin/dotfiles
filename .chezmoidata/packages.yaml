@@ -1,0 +1,39 @@
+# Package declarations for declarative installation
+# Based on your existing Brewfile
+
+taps:
+  - homebrew/bundle
+  - homebrew/cask-fonts
+
+brews:
+  - awscli
+  - bat
+  - curl
+  - docker
+  - ffmpeg
+  - fzf
+  - gh
+  - git
+  - go
+  - gotop
+  - jq
+  - neovim
+  - nvm
+  - protobuf
+  - python
+  - ripgrep
+  - tig
+  - tmux
+  - tpm
+  - tree
+  - vim
+  - yt-dlp
+  - zig
+  - zsh-autosuggestions
+  - zsh-syntax-highlighting
+
+casks:
+  - 1password-cli
+  - alacritty
+  - ghostty
+  - obsidian
