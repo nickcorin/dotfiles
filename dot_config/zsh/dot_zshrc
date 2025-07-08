@@ -9,9 +9,8 @@ autoload -Uz compinit
 compinit -C
 
 # Init tools.
-. "$DOTFILES_PATH/dot_config/git/init.sh"
 . "$DOTFILES_PATH/resources/homebrew/init.sh"
-. "$DOTFILES_PATH/dot_config/fzf/init.sh"
+. "$DOTFILES_PATH/resources/fzf/init.sh"
 . "$DOTFILES_PATH/resources/zoxide/init.sh"
 
 
