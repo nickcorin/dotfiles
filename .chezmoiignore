@@ -32,3 +32,20 @@ config/private/
 # Any other resources
 resources/
 scripts/
+migrate-to-chezmoi.sh
+
+# Ignore tmux plugins (managed by tpm)
+**/tmux/plugins/
+
+# Ignore Claude data files
+**/.claude.json*
+**/claude/projects/
+**/claude/statsig/
+**/claude/todos/
+
+# Ignore zsh generated files
+**/.zcompdump*
+**/.zsh_history
+
+# Ignore git host configs
+**/gh/hosts.yml
