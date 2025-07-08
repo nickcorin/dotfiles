@@ -1,0 +1,14 @@
+# Generated Brewfile for manual installation
+# Run: brew bundle install --file=~/.local/share/chezmoi/.chezmoidata/Brewfile
+
+{{ range .taps -}}
+tap {{ . | quote }}
+{{ end }}
+
+{{ range .brews -}}
+brew {{ . | quote }}
+{{ end }}
+
+{{ range .casks -}}
+cask {{ . | quote }}
+{{ end }}

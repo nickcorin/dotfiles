@@ -1,0 +1,152 @@
+#!/bin/bash
+# This script ensures all packages are installed on every chezmoi apply
+set -eufo pipefail
+
+# Only run on macOS
+if [[ "$OSTYPE" != "darwin"* ]]; then
+    exit 0
+fi
+
+# Ensure Homebrew is in PATH
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -f "/usr/local/bin/brew" ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# Create a state file to track installation status
+STATE_DIR="$HOME/.local/state/chezmoi"
+mkdir -p "$STATE_DIR"
+STATE_FILE="$STATE_DIR/brew-packages.state"
+PACKAGES_HASH="{{ include ".chezmoidata/packages.yaml" | sha256sum }}"
+
+# Check if we've already successfully installed this exact set of packages
+if [[ -f "$STATE_FILE" ]]; then
+    LAST_HASH=$(cat "$STATE_FILE" 2>/dev/null || echo "")
+    if [[ "$LAST_HASH" == "$PACKAGES_HASH" ]]; then
+        echo "✅ All packages already installed (hash: ${PACKAGES_HASH:0:8}...)"
+        exit 0
+    fi
+fi
+
+# Count packages to install
+BREW_COUNT={{ len .brews }}
+CASK_COUNT={{ len .casks }}
+TOTAL_COUNT=$((BREW_COUNT + CASK_COUNT))
+
+echo "📦 Checking $TOTAL_COUNT packages ($BREW_COUNT CLI tools, $CASK_COUNT applications)"
+
+# Track if any installations are needed
+NEEDS_INSTALL=false
+
+# Check for missing packages
+MISSING_BREWS=()
+{{ range .brews -}}
+if ! command -v {{ . }} &>/dev/null && ! brew list {{ . }} &>/dev/null 2>&1; then
+    MISSING_BREWS+=("{{ . }}")
+    NEEDS_INSTALL=true
+fi
+{{ end }}
+
+MISSING_CASKS=()
+{{ range .casks -}}
+if ! brew list --cask {{ . }} &>/dev/null 2>&1; then
+    MISSING_CASKS+=("{{ . }}")
+    NEEDS_INSTALL=true
+fi
+{{ end }}
+
+if [[ "$NEEDS_INSTALL" == "false" ]]; then
+    echo "✅ All packages already installed"
+    echo "$PACKAGES_HASH" > "$STATE_FILE"
+    exit 0
+fi
+
+# Show what's missing
+echo ""
+echo "📋 Missing packages:"
+if [[ ${#MISSING_BREWS[@]} -gt 0 ]]; then
+    echo "   CLI tools: ${MISSING_BREWS[*]}"
+fi
+if [[ ${#MISSING_CASKS[@]} -gt 0 ]]; then
+    echo "   Applications: ${MISSING_CASKS[*]}"
+fi
+
+# Check if we're in an interactive terminal
+if [ -t 0 ]; then
+    echo ""
+    read -p "Install missing packages? [y/N] " -n 1 -r
+    echo ""
+    
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        echo "Skipping package installation"
+        exit 0
+    fi
+else
+    echo ""
+    echo "📦 Running in non-interactive mode, skipping package installation"
+    echo "   Run 'chezmoi apply -i' to install packages interactively"
+    echo "   Or run 'brew bundle install --file=~/.local/share/chezmoi/.chezmoidata/Brewfile' manually"
+    exit 0
+fi
+
+# Install taps first
+{{ range .taps -}}
+if ! brew tap | grep -q "^{{ . }}$"; then
+    echo "  → Adding tap {{ . }}"
+    brew tap {{ . | quote }}
+fi
+{{ end }}
+
+# Install missing brews with retry
+echo ""
+echo "📦 Installing CLI tools..."
+for pkg in "${MISSING_BREWS[@]}"; do
+    echo "  → Installing $pkg"
+    if ! brew install "$pkg"; then
+        echo "  ⚠️  Failed to install $pkg, will retry once..."
+        sleep 2
+        brew install "$pkg" || echo "  ❌ Failed to install $pkg"
+    fi
+done
+
+# Install missing casks with retry
+if [[ ${#MISSING_CASKS[@]} -gt 0 ]]; then
+    echo ""
+    echo "📦 Installing applications..."
+    for pkg in "${MISSING_CASKS[@]}"; do
+        echo "  → Installing $pkg"
+        if ! brew install --cask "$pkg"; then
+            echo "  ⚠️  Failed to install $pkg, will retry once..."
+            sleep 2
+            brew install --cask "$pkg" || echo "  ❌ Failed to install $pkg"
+        fi
+    done
+fi
+
+# Verify all packages are now installed
+FAILED=false
+{{ range .brews -}}
+if ! command -v {{ . }} &>/dev/null && ! brew list {{ . }} &>/dev/null 2>&1; then
+    echo "❌ Failed to install: {{ . }}"
+    FAILED=true
+fi
+{{ end }}
+
+{{ range .casks -}}
+if ! brew list --cask {{ . }} &>/dev/null 2>&1; then
+    echo "❌ Failed to install: {{ . }}"
+    FAILED=true
+fi
+{{ end }}
+
+if [[ "$FAILED" == "true" ]]; then
+    echo ""
+    echo "⚠️  Some packages failed to install. Run 'chezmoi apply' again to retry."
+    exit 1
+else
+    echo ""
+    echo "✅ All packages installed successfully!"
+    # Save the hash to indicate successful installation
+    echo "$PACKAGES_HASH" > "$STATE_FILE"
+fi
