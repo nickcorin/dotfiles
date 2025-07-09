@@ -7,7 +7,7 @@
 ### Install.
 
 ```bash
-BINDIR=~/.local/bin sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply nickcorin
+BINDIR=~/.local/bin sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply https://github.com/nickcorin/dotfiles.git
 ```
 
 ### Manually applying changes.
