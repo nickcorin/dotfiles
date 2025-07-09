@@ -49,6 +49,6 @@ if is_interactive_shell; then
 fi
 
 # bun completions
-[ -s "/Users/nick/.bun/_bun" ] && source "/Users/nick/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 
