@@ -34,7 +34,7 @@ path=(
     /opt/homebrew/bin
     "$HOME/.local/bin"
     "$GOBIN"
-    "$BUN_INSTALL/bin:$PATH"
+    "$BUN_INSTALL/bin"
     /usr/local/opt/llvm/bin
     $path
 )
