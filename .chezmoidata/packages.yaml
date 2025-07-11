@@ -71,6 +71,7 @@ brews:
 casks:
   - 1password-cli
   - alacritty
+  - block-goose
   - corelocationcli
   - font-fira-code-nerd-font
   - font-noto-nerd-font
