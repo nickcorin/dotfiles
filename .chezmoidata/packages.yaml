@@ -23,6 +23,7 @@ brews:
   - awscli
   - basedpyright
   - bat
+  - block-goose-cli
   - buf
   - chezmoi
   - curl
