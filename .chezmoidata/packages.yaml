@@ -29,6 +29,7 @@ brews:
   - docker
   - dotenvx/brew/dotenvx
   - eza
+  - fastfetch
   - fd
   - ffmpeg
   - fzf
