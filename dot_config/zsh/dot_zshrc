@@ -12,6 +12,7 @@ compinit -C
 . "$DOTFILES_PATH/resources/homebrew/init.sh"
 . "$DOTFILES_PATH/resources/fzf/init.sh"
 . "$DOTFILES_PATH/resources/zoxide/init.sh"
+eval "$(direnv hook zsh)"
 
 
 # Configure zsh.

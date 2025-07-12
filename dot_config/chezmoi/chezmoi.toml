@@ -1,18 +1,18 @@
-sourceDir = ~/code/dotfiles
+sourceDir = "~/code/dotfiles"
 
 [diff]
-    pager = bat
+    pager = "bat"
 
 [edit]
-    command = nvim
+    command = "nvim"
     watch = true
     minDuration = "1s"
 
 [merge]
-    command = nvim
-    args = [-d, {{ .Destination }}, {{ .Source }}, {{ .Target }}]
+    command = "nvim"
+    args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
 
 [onepassword]
-    command = op
+    command = "op"
     cache = true
 
