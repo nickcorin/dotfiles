@@ -5,7 +5,8 @@ set -e
 # Process AGENTS.md from numbered instruction files
 # This script compiles all numbered .md files into a single AGENTS.md
 
-OPENCODE_DIR="$HOME/.config/opencode"
+DOTFILES_DIR="$(chezmoi source-path)"
+OPENCODE_DIR="$DOTFILES_DIR/dot_config/opencode"
 OUTPUT_FILE="$OPENCODE_DIR/AGENTS.md"
 
 echo "📝 Compiling AGENTS.md from numbered instruction files..."

@@ -49,3 +49,9 @@ migrate-to-chezmoi.sh
 
 # Ignore git host configs
 **/gh/hosts.yml
+
+# Ignore generated AGENTS.md (compiled from numbered files)
+**/opencode/AGENTS.md
+
+# Ignore CLAUDE.md symlink (points to generated AGENTS.md)
+**/claude/CLAUDE.md
