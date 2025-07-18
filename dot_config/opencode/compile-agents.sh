@@ -1,18 +1,16 @@
 #!/bin/bash
 
+# Compile AGENTS.md from numbered instruction files
+# Run this script manually when you update the numbered files
+
 set -e
 
-# Process AGENTS.md from numbered instruction files
-# This script compiles all numbered .md files into a single AGENTS.md
-
-DOTFILES_DIR="$(chezmoi source-path)"
-OPENCODE_DIR="$DOTFILES_DIR/dot_config/opencode"
-OUTPUT_FILE="$OPENCODE_DIR/AGENTS.md"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+OUTPUT_FILE="$SCRIPT_DIR/AGENTS.md"
 
 echo "📝 Compiling AGENTS.md from numbered instruction files..."
 
-# Change to opencode directory
-cd "$OPENCODE_DIR"
+cd "$SCRIPT_DIR"
 
 # Create temporary file
 temp_file=$(mktemp)
@@ -37,3 +35,4 @@ done
 mv "$temp_file" "$OUTPUT_FILE"
 
 echo "✅ Generated $OUTPUT_FILE from numbered instruction files"
+echo "📌 Remember to commit the updated AGENTS.md file!"
