@@ -4,6 +4,7 @@
 taps:
   - dotenvx/brew
   - sst/tap
+  - homebrew-zathura/zathura
 
 # npm global packages
 npm_packages:
@@ -37,6 +38,9 @@ brews:
   - gh
   - git
   - go
+  - go-task
+  - gofumpt
+  - goimports
   - gotop
   - htop
   - imagemagick
@@ -67,6 +71,9 @@ brews:
   - zoxide
   - zsh-autosuggestions
   - zsh-syntax-highlighting
+  - homebrew-zathura/zathura/zathura
+  - homebrew-zathura/zathura/zathura-pdf-mupdf
+  - homebrew-zathura/zathura/zathura-djvu
 
 casks:
   - 1password-cli
@@ -74,6 +81,7 @@ casks:
   - block-goose
   - corelocationcli
   - font-fira-code-nerd-font
+  - font-monaspace
   - font-noto-nerd-font
   - font-roboto-mono-nerd-font
   - font-sf-mono-nerd-font-ligaturized
