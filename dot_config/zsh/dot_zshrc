@@ -32,8 +32,8 @@ alias mommy="git"
 alias please="sudo"
 alias v="nvim"
 alias vim="nvim"
-alias vd="nvim $DOTFILES_PATH"
-alias vo="vim $OBSIDIAN_VAULT_DIR"
+alias vd="vim \"$DOTFILES_PATH\""
+alias vo="vim \"$OBSIDIAN_VAULT_DIR\""
 
 
 if is_installed eza; then
