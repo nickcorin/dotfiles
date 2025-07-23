@@ -57,7 +57,7 @@ local settings = {
 	-- Single status line for the whole instance.
 	laststatus = 3,
 
-	list = false, -- Disable showing whitespace characters like tabs and trailing spaces.
+	-- list = false, -- Disable showing whitespace characters like tabs and trailing spaces.
 
 	-- Enable mouse mode. Only allows scrolling within the VIM buffer, and extends scrolling after EOF.
 	mouse = "a",
