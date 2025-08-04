@@ -1,23 +1,52 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "autoshare": false,
   "autoupdate": true,
-  "model": "claude-opus-4-20250514",
-  "theme": "system",
-  "experimental": {
-    "hook": {
-      "file_edited": {
-        ".go": [
-          {
-            "command": [
-              "gofumpt",
-              "-extra",
-              "-l",
-              "-w"
-            ]
-          }
-        ]
+  "formatter": {
+    "gofumpt": {
+      "command": [
+        "gofumpt",
+        "-extra",
+        "-l",
+        "-w"
+      ],
+      "extensions": [
+        ".go"
+      ]
+    },
+    "goimports": {
+      "command": [
+        "goimports",
+        "-w"
+      ],
+      "extensions": [
+        ".go"
+      ]
+    }
+  },
+  "model": "anthropic/claude-sonnet-4-20250514",
+  "small_model": "anthropic/claude-sonnet-4-20250514",
+  "mode": {
+    "build": {
+      "model": "anthropic/claude-sonnet-4-20250514"
+    },
+    "plan": {
+      "model": "anthropic/claude-opus-4-20250514"
+    }
+  },
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "qwen3-coder": {
+          "name": "Qwen3 Coder"
+        }
       }
     }
-  }
+  },
+  "share": "manual",
+  "theme": "system"
 }
