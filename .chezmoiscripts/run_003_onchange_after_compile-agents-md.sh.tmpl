@@ -1,16 +1,17 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -eufo pipefail
 
-# OpenCode AGENTS.md Compilation Script
-# Only runs when numbered instruction files change
-{{- $files := glob (joinPath .chezmoi.sourceDir "dot_config/opencode/[0-9][0-9][0-9][0-9]-*.md") }}
+OPENCODE_DIR="$XDG_CONFIG_HOME/opencode"
+OUTPUT_FILE="$OPENCODE_DIR/AGENTS.md"
+
+# OpenCode AGENTS.md Compilation Script.
+# Only runs when numbered instruction files change.
+{{- $files := glob "$OPENCODE_DIR/[0-9][0-9][0-9][0-9]-*.md" }}
 {{- range $files }}
 {{- $content := include . }}
 # {{ base . }}: {{ $content | sha256sum }}
 {{- end }}
 
-OPENCODE_DIR="$HOME/.config/opencode"
-OUTPUT_FILE="$OPENCODE_DIR/AGENTS.md"
 
 echo "🤖 [OpenCode] Compiling agent instructions into AGENTS.md..."
 echo "   Directory: $OPENCODE_DIR"

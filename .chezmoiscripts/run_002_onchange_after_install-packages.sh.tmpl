@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+set -eufo pipefail
+
+# package.yaml hash: {{ include ".chezmoidata/packages.yaml" | sha256sum }}
+
+declare -A installers
+{{ range $installer, $config := $.installers }}
+function {{ $installer }}_available() {
+    {{ index $config "available" }}
+}
+
+function {{ $installer }}_install() {
+    {{ index $config "cmd" }}
+}
+
+function {{ $installer }}_skip() {
+    {{ index $config "skip_check"}}
+}
+
+declare -A {{ $installer }}_config=(
+    ["available"]="{{ $installer }}_available"
+    ["install"]="{{ $installer}}_install"
+    ["skip"]="{{ $installer}}_skip"
+)
+
+installers[{{ $installer | quote }}]="{{ $installer }}_config"
+{{ end }}
+
+function dispatch() {
+    local installer_config="${installers[$1]}"
+    if [[ -z "$installer_config" ]]; then
+        printf "%s is not a configured installer, skipping.\n" "$1"
+        printf "Please configure it in packages.yaml, and try again.\n"
+        return 1
+    fi
+
+    local available_func
+    eval "available_func=\${${installer_config}["available"]}"
+    if ! "$available_func"; then
+        printf "%s is not a installed, skipping.\n" "$1"
+        printf "Please install it, and try again.\n"
+        return 1
+    fi
+
+    local command
+    eval "command=\${${installer_config}[$2]}"
+    if [[ -z "$command" ]]; then
+        printf "%s is not a configured installer command, skipping.\n" "$2"
+        printf "Please configure it in packages.yaml, and try again.\n"
+        return 1
+    fi
+
+    "$command" $3
+}
+
+{{ range $.stages }}
+{{ range $stage, $platforms := . }}
+{{ range $platform, $packages := $platforms }}
+{{ if or (eq $platform "all") (eq $platform $.chezmoi.os) }}
+# Stage: {{ $stage }}.
+# Platform: {{ $platform }}.
+{{ range $packages }}
+if ! dispatch {{ .installer }} skip {{ .name }}; then
+    printf "Installing %s.\n" {{ .name }}
+    {{ if hasKey . "pre" }}{{ .pre }}{{ end }}
+    dispatch {{ .installer }} install {{ if hasKey . "arg" }}{{ .arg }}{{ else }}{{ .name }}{{ end }}
+    {{ if hasKey . "post" }}{{ .post }}{{ end }}
+fi
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}

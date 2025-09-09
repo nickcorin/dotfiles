@@ -1,6 +1,0 @@
-{{ if and (eq .chezmoi.os "darwin") .npm_packages -}}
-#!/bin/bash
-
-# Call generic installer with npm packages
-exec "{{ .chezmoi.sourceDir }}/resources/shell/scripts/install-packages.sh" "npm" "{{ len .npm_packages }}" {{ range .npm_packages }}{{ . | quote }} {{ end }}
-{{ end -}}

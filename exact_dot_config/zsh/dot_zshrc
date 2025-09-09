@@ -1,17 +1,17 @@
 # Load utility functions.
-. "$DOTFILES_PATH/resources/shell/scripts/utils.sh"
+. "$HOME/.resources/shell/scripts/utils.sh"
 
 # Load chezmoi edit functions.
-. "$DOTFILES_PATH/resources/shell/scripts/chezmoi-edit.sh"
+. "$HOME/.resources/shell/scripts/chezmoi-edit.sh"
 
 # Initialize zsh completion system.
 autoload -Uz compinit
 compinit -C
 
 # Init tools.
-. "$DOTFILES_PATH/resources/homebrew/init.sh"
-. "$DOTFILES_PATH/resources/fzf/init.sh"
-. "$DOTFILES_PATH/resources/zoxide/init.sh"
+. "$HOME/.resources/homebrew/init.sh"
+. "$HOME/.resources/fzf/init.sh"
+. "$HOME/.resources/zoxide/init.sh"
 eval "$(direnv hook zsh)"
 
 
@@ -32,7 +32,6 @@ alias mommy="git"
 alias please="sudo"
 alias v="nvim"
 alias vim="nvim"
-alias vd="vim \"$DOTFILES_PATH\""
 alias vo="vim \"$OBSIDIAN_VAULT_DIR\""
 
 
@@ -44,12 +43,14 @@ fi
 # Interactive shell configuration
 if is_interactive_shell; then
     # Autostart tmux.
-    . "$DOTFILES_PATH/dot_config/tmux/tmux_autostart.sh"
+    . "$XDG_CONFIG_HOME/tmux/tmux_autostart.sh"
     # Enable starship.
-    . "$DOTFILES_PATH/dot_config/starship/init.sh"
+    . "$XDG_CONFIG_HOME/starship/init.sh"
 fi
 
-# bun completions
+
+# Load and configure bun.
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-
+# Load and init fnm.
+eval "$(fnm env --use-on-cd --shell zsh)"

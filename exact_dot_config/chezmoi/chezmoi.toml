@@ -1,4 +1,4 @@
-sourceDir = "~/code/dotfiles"
+sourceDir = "~/code/nickcorin/dotfiles"
 
 [diff]
     pager = "bat"

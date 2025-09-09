@@ -1,96 +1,253 @@
-# Package declarations for declarative installation
-# Based on your existing Brewfile
+installers:
+  curl:
+    cmd: curl -fsSL $1 | bash -E -
+    available: command -v curl &>/dev/null
+    skip_check: command -v $1 &>/dev/null
 
-taps:
-  - dotenvx/brew
-  - sst/tap
-  - homebrew-zathura/zathura
+  homebrew:
+    cmd: brew install $1
+    available: command -v brew &>/dev/null
+    skip_check: brew list --formula $1 &>/dev/null
 
-# npm global packages
-npm_packages:
-  - "@anthropic-ai/claude-code"
-  - "@google/gemini-cli"
-  - eslint
-  - prettier
-  - typescript
+  homebrew_cask:
+    cmd: brew install --cask $1
+    available: command -v brew &>/dev/null
+    skip_check: brew list --cask $1 &>/dev/null
 
-# Direct install tools (not available through package managers)
-direct_installs:
-  - name: bun
-    url: https://bun.sh/install
-    command: curl -fsSL https://bun.sh/install | bash
+  npm:
+    cmd: npm install -g $1
+    available: command -v npm &>/dev/null
+    skip_check: npm list -g $1 &>/dev/null
 
-brews:
-  - awscli
-  - basedpyright
-  - bat
-  - block-goose-cli
-  - buf
-  - chezmoi
-  - curl
-  - docker
-  - dotenvx/brew/dotenvx
-  - eza
-  - fastfetch
-  - fd
-  - ffmpeg
-  - fzf
-  - gh
-  - git
-  - go
-  - go-task
-  - gofumpt
-  - goimports
-  - gotop
-  - htop
-  - imagemagick
-  - jq
-  - lazygit
-  - lua-language-server
-  - mutt
-  - neovim
-  - nvm
-  - ollama
-  - sst/tap/opencode
-  - protobuf
-  - python
-  - ripgrep
-  - rust-analyzer
-  - sesh
-  - starship
-  - tig
-  - tmux
-  - tpm
-  - tree
-  - typst
-  - uv
-  - vim
-  - wget
-  - yq
-  - yt-dlp
-  - zig
-  - zoxide
-  - zsh-autosuggestions
-  - zsh-syntax-highlighting
-  - homebrew-zathura/zathura/zathura
-  - homebrew-zathura/zathura/zathura-pdf-mupdf
-  - homebrew-zathura/zathura/zathura-djvu
+stages:
+  - setup:
+      darwin:
+        - name: brew
+          installer: curl
+          arg: https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 
-casks:
-  - 1password-cli
-  - alacritty
-  - block-goose
-  - corelocationcli
-  - font-fira-code-nerd-font
-  - font-monaspace
-  - font-noto-nerd-font
-  - font-roboto-mono-nerd-font
-  - font-sf-mono-nerd-font-ligaturized
-  - font-ubuntu-mono-nerd-font
-  - ghostty
-  - keybase
-  - keycastr
-  - keepingyouawake
-  - mactex
-  - obsidian
-  - raycast
+        - name: fnm
+          installer: homebrew
+          post: fnm install --lts && eval "$(fnm env)" && exec $SHELL
+
+  - install:
+      all:
+        - name: "@google/gemini-cli"
+          installer: npm
+
+        - name: "@anthropic-ai/claude-code"
+          installer: npm
+
+        - name: bun
+          installer: curl
+          arg: https://bun.sh/install
+
+        - name: eslint
+          installer: npm
+
+        - name: prettier
+          installer: npm
+
+        - name: typescript
+          installer: npm
+
+      darwin:
+        - name: dotenvx
+          installer: homebrew
+          pre: "brew tap dotenvx/brew"
+
+        - name: awscli
+          installer: homebrew
+
+        - name: bat
+          installer: homebrew
+
+        - name: block-goose-cli
+          installer: homebrew
+
+        - name: buf
+          installer: homebrew
+
+        - name: chezmoi
+          installer: homebrew
+
+        - name: curl
+          installer: homebrew
+
+        - name: eza
+          installer: homebrew
+
+        - name: fastfetch
+          installer: homebrew
+
+        - name: fd
+          installer: homebrew
+
+        - name: ffmpeg
+          installer: homebrew
+
+        - name: fzf
+          installer: homebrew
+
+        - name: gh
+          installer: homebrew
+
+        - name: git
+          installer: homebrew
+
+        - name: go
+          installer: homebrew
+
+        - name: go-task
+          installer: homebrew
+
+        - name: gofumpt
+          installer: homebrew
+
+        - name: goimports
+          installer: homebrew
+
+        - name: gotop
+          installer: homebrew
+
+        - name: htop
+          installer: homebrew
+
+        - name: imagemagick
+          installer: homebrew
+
+        - name: jq
+          installer: homebrew
+
+        - name: lazygit
+          installer: homebrew
+
+        - name: lua-language-server
+          installer: homebrew
+
+        - name: mutt
+          installer: homebrew
+
+        - name: neovim
+          installer: homebrew
+
+        - name: ollama
+          installer: homebrew
+
+        - name: opencode
+          installer: homebrew
+          arg: sst/tap/opencode
+
+        - name: protobuf
+          installer: homebrew
+
+        - name: python
+          installer: homebrew
+
+        - name: ripgrep
+          installer: homebrew
+
+        - name: rust-analyzer
+          installer: homebrew
+
+        - name: sesh
+          installer: homebrew
+
+        - name: starship
+          installer: homebrew
+
+        - name: tig
+          installer: homebrew
+
+        - name: tmux
+          installer: homebrew
+
+        - name: tpm
+          installer: homebrew
+
+        - name: tree
+          installer: homebrew
+
+        - name: typst
+          installer: homebrew
+
+        - name: uv
+          installer: homebrew
+
+        - name: vim
+          installer: homebrew
+
+        - name: wget
+          installer: homebrew
+
+        - name: yq
+          installer: homebrew
+
+        - name: yt-dlp
+          installer: homebrew
+
+        - name: zig
+          installer: homebrew
+
+        - name: zoxide
+          installer: homebrew
+
+        - name: zsh-autosuggestions
+          installer: homebrew
+
+        - name: zsh-syntax-highlighting
+          installer: homebrew
+
+        - name: 1password-cli
+          installer: homebrew_cask
+
+        - name: alacritty
+          installer: homebrew_cask
+
+        - name: block-goose
+          installer: homebrew_cask
+
+        - name: corelocationcli
+          installer: homebrew_cask
+
+        - name: docker
+          installer: homebrew_cask
+
+        - name: font-fira-code-nerd-font
+          installer: homebrew_cask
+
+        - name: font-monaspace
+          installer: homebrew_cask
+
+        - name: font-noto-nerd-font
+          installer: homebrew_cask
+
+        - name: font-roboto-mono-nerd-font
+          installer: homebrew_cask
+
+        - name: font-sf-mono-nerd-font-ligaturized
+          installer: homebrew_cask
+
+        - name: font-ubuntu-mono-nerd-font
+          installer: homebrew_cask
+
+        - name: ghostty
+          installer: homebrew_cask
+
+        - name: keybase
+          installer: homebrew_cask
+
+        - name: keycastr
+          installer: homebrew_cask
+
+        - name: keepingyouawake
+          installer: homebrew_cask
+
+        - name: mactex
+          installer: homebrew_cask
+
+        - name: obsidian
+          installer: homebrew_cask
+
+        - name: raycast
+          installer: homebrew_cask

@@ -18,40 +18,29 @@ LICENSE
 .vscode
 .idea
 
-# Chezmoi files (don't copy these to home)
-.chezmoi.toml.tmpl
-.chezmoidata/
-.chezmoiignore
-.chezmoiscripts/
+# Exceptions to the 'exact_' rule for $XDG_CONFIG_HOME.
+github-copilot
+nvm
 
-# Directories that shouldn't be linked to home
+# Directories that shouldn't be linked to home.
 config/csgo/
-config/shell/scripts/
 config/private/
 
-# Any other resources
-resources/
-scripts/
-migrate-to-chezmoi.sh
-
-# Ignore tmux plugins (managed by tpm)
+# Ignore tmux plugins (managed by tpm).
 **/tmux/plugins/
 
-# Ignore Claude data files
+# Ignore Claude data files.
 **/.claude.json*
 **/claude/projects/
 **/claude/statsig/
 **/claude/todos/
 
-# Ignore zsh generated files
+# Ignore zsh generated files.
 **/.zcompdump*
 **/.zsh_history
 
-# Ignore git host configs
+# Ignore git host configs.
 **/gh/hosts.yml
 
-# Ignore generated AGENTS.md (compiled from numbered files)
+# Ignore generated AGENTS.md (compiled from numbered files).
 **/opencode/AGENTS.md
-
-# Ignore CLAUDE.md symlink (points to generated AGENTS.md)
-**/claude/CLAUDE.md

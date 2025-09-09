@@ -9,6 +9,6 @@ font-size               = 16
 link-url                = true
 macos-titlebar-style    = transparent
 mouse-hide-while-typing = true
-theme                   = GruvboxDarkHard
+theme                   = catppuccin-mocha
 window-padding-balance  = true
 window-save-state       = always

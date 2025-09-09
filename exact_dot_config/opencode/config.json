@@ -23,14 +23,48 @@
       ]
     }
   },
-  "model": "anthropic/claude-sonnet-4-20250514",
-  "small_model": "anthropic/claude-sonnet-4-20250514",
+  "mcp": {
+    "docker": {
+      "type": "local",
+      "command": [
+        "docker",
+        "mcp",
+        "gateway",
+        "run"
+      ],
+      "enabled": true
+    },
+    "github": {
+      "type": "local",
+      "command": [
+        "docker",
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server"
+      ],
+      "enabled": true,
+      "environment": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "{env:GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "playwright": {
+      "type": "local",
+      "command": [
+        "npx",
+        "@playwright/mcp@latest"
+      ],
+      "enabled": true
+    }
+  },
   "mode": {
     "build": {
-      "model": "anthropic/claude-sonnet-4-20250514"
+      "model": "opencode/grok-code"
     },
     "plan": {
-      "model": "anthropic/claude-opus-4-20250514"
+      "model": "opencode/grok-code"
     }
   },
   "provider": {
