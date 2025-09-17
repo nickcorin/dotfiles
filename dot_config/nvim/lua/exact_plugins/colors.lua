@@ -3,6 +3,10 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		lazy = false,
+		config = function(_, opts)
+			require("catppuccin").setup(opts)
+			vim.cmd("colorscheme catppuccin")
+		end,
 		opts = {
 			flavour = "mocha",
 		},
@@ -16,17 +20,6 @@ return {
 		},
 	},
 	{
-
-		"kvrohit/rasmus.nvim",
-		name = "rasmus",
-		lazy = false,
-		config = function()
-			vim.g.rasmus_transparent = false
-			vim.g.rasmus_variant = "dark" -- or "monochrome".
-		end,
-	},
-	{
-
 		"sainnhe/gruvbox-material",
 		name = "gruvbox-material",
 		lazy = false,
@@ -57,12 +50,6 @@ return {
 		},
 	},
 	{
-		"EdenEast/nightfox.nvim",
-		name = "nightfox",
-		opts = {},
-	},
-	{
-
 		"shaunsingh/nord.nvim",
 		name = "nord",
 	},

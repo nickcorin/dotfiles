@@ -53,6 +53,7 @@ function dispatch() {
     "$command" $3
 }
 
+printf "[chezmoi]  Checking packages state."
 {{ range $.stages }}
 {{ range $stage, $platforms := . }}
 {{ range $platform, $packages := $platforms }}

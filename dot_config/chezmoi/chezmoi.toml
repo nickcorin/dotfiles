@@ -1,12 +1,15 @@
+color = "true"
+mode = "file"
 sourceDir = "~/code/nickcorin/dotfiles"
 
 [diff]
     pager = "bat"
 
 [edit]
+    apply = true
     command = "nvim"
-    watch = true
     minDuration = "1s"
+    watch = true
 
 [merge]
     command = "nvim"

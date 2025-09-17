@@ -1,6 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 	lazy = false,
 	opts = {
 		auto_install = true,
@@ -11,4 +12,5 @@ return {
 		},
 		ignore_install = { "ipkg" },
 	},
+	version = false,
 }

@@ -1,4 +1,4 @@
------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------
 -- PLUGIN MANAGER
 --
 -- name : lazy-nvim
@@ -26,28 +26,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -----------------------------------------------------------------------------------------------------------------------
--- [[ Lazy Config. ]]
+-- [[ Load the plugin manager. ]]
 -----------------------------------------------------------------------------------------------------------------------
--- NOTE: Lazy.nvim will automatically load the following files *after* it's own:
---   - `lua/config/autocmds.lua`
---   - `lua/config/keymaps.lua`
---   - `lua/config/options.lua`
-
-require("lazy").setup({
-	change_detection = {
-		enabled = true,
-		notify = true,
-	},
-	checker = {
-		enabled = true,
-		notify = true,
-	},
-	colorscheme = "tokyonight",
-	install = {
-		missing = true,
-	},
-	spec = {
-		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
-		{ import = "plugins" },
-	},
-})
+require("config.options")
+require("config.lazy")
+require("config.autocmds")
+require("config.keymaps")

@@ -52,14 +52,13 @@ stages:
           installer: npm
 
       darwin:
-        - name: dotenvx
-          installer: homebrew
-          pre: "brew tap dotenvx/brew"
-
         - name: awscli
           installer: homebrew
 
         - name: bat
+          installer: homebrew
+
+        - name: black
           installer: homebrew
 
         - name: block-goose-cli
@@ -73,6 +72,10 @@ stages:
 
         - name: curl
           installer: homebrew
+
+        - name: dotenvx
+          installer: homebrew
+          pre: "brew tap dotenvx/brew"
 
         - name: eza
           installer: homebrew
@@ -126,6 +129,9 @@ stages:
           installer: homebrew
 
         - name: mutt
+          installer: homebrew
+
+        - name: mypy
           installer: homebrew
 
         - name: neovim
