@@ -5,7 +5,7 @@ return {
 			{
 				"<leader>go",
 				function()
-					require("mini.diff").toggle_overlay(0)
+					MiniDiff.toggle_overlay(0)
 				end,
 				desc = "Toggle mini.diff overlay",
 			},
@@ -27,11 +27,12 @@ return {
 			{
 				"<leader>e",
 				function()
-					MiniFiles.open()
+					MiniFiles.open(vim.api.nvim_buf_get_name(0))
 				end,
 				desc = "Find Files",
 			},
 		},
+		lazy = false,
 		opts = {
 			options = {
 				permanent_delete = false,
@@ -46,20 +47,27 @@ return {
 			"nvim-mini/mini.icons",
 		},
 		keys = {
-			{
-				"<leader>ff",
-				function()
-					MiniPick.builtin.files()
-				end,
-				desc = "Find Files",
-			},
-			{
-				"<leader>fg",
-				function()
-					MiniPick.builtin.files({ tool = "git" })
-				end,
-				desc = "Find Files",
-			},
+			-- {
+			-- 	"<leader>fb",
+			-- 	function()
+			-- 		MiniPick.builtin.buffers()
+			-- 	end,
+			-- 	desc = "Find Buffers",
+			-- },
+			-- {
+			-- 	"<leader>ff",
+			-- 	function()
+			-- 		MiniPick.builtin.files()
+			-- 	end,
+			-- 	desc = "Find Files",
+			-- },
+			-- {
+			-- 	"<leader>fg",
+			-- 	function()
+			-- 		MiniPick.builtin.files({ tool = "git" })
+			-- 	end,
+			-- 	desc = "Find Files",
+			-- },
 		},
 		lazy = false,
 		opts = {

@@ -17,26 +17,26 @@ return {
 			end,
 			desc = "Find Config File",
 		},
-		-- {
-		-- 	"<leader>ff",
-		-- 	function()
-		-- 		Snacks.picker.files()
-		-- 	end,
-		-- 	desc = "Find Files",
-		-- },
-		-- {
-		-- 	"<leader>fg",
-		-- 	function()
-		-- 		Snacks.picker.git_files()
-		-- 	end,
-		-- 	desc = "Find Git Files",
-		-- },
+		{
+			"<leader>ff",
+			function()
+				Snacks.picker.files()
+			end,
+			desc = "Find Files",
+		},
+		{
+			"<leader>fg",
+			function()
+				Snacks.picker.git_files()
+			end,
+			desc = "Find Git Files",
+		},
 		{
 			"<leader>fp",
 			function()
-				Snacks.picker.projects()
+				Snacks.picker.zoxide()
 			end,
-			desc = "Projects",
+			desc = "Projects (zoxide)",
 		},
 		{
 			"<leader>fr",
@@ -229,9 +229,6 @@ return {
 		},
 	},
 	opts = {
-		explorer = {
-			replace_netrw = true,
-		},
 		indent = {
 			enabled = true,
 			animate = {
@@ -252,16 +249,22 @@ return {
 			},
 		},
 		picker = {
-			sources = {
-				explorer = {
-					auto_close = false,
-					finder = "explorer",
-					focus = "list",
-					follow_file = true,
-					git_status = true,
-					hidden = true,
-					supports_live = true,
-					watch = true,
+			layout = {
+				layout = {
+					box = "vertical",
+					backdrop = false,
+					row = -1,
+					width = 0,
+					height = 0.4,
+					border = "top",
+					title = " {title} {live} {flags}",
+					title_pos = "left",
+					{ win = "input", height = 1, border = "bottom" },
+					{
+						box = "horizontal",
+						{ win = "list", border = "none" },
+						{ win = "preview", title = "{preview}", width = 0.6, border = "left" },
+					},
 				},
 			},
 		},
