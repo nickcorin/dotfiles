@@ -27,7 +27,12 @@ return {
 			{
 				"<leader>e",
 				function()
-					MiniFiles.open(vim.api.nvim_buf_get_name(0))
+					if MiniFiles.get_explorer_state() == nil then
+						MiniFiles.open(vim.api.nvim_buf_get_name(0))
+						MiniFiles.reveal_cwd()
+					else
+						MiniFiles.close()
+					end
 				end,
 				desc = "Find Files",
 			},
@@ -37,6 +42,9 @@ return {
 			options = {
 				permanent_delete = false,
 				use_as_default_explorer = true,
+			},
+			windows = {
+				preview = false,
 			},
 		},
 		version = false,
