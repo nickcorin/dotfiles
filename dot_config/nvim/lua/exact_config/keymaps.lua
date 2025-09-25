@@ -12,22 +12,40 @@ local keys = {
 		desc = "Close quickfix window",
 	},
 	{
+		key = "<leader>cr",
+		action = "<cmd>lua vim.lsp.buf.rename()<CR>",
+		modes = { "n" },
+		desc = "Rename symbol under cursor",
+	},
+	{
 		key = "<C-d>",
 		action = "<C-d>zz",
 		modes = { "n" },
 		desc = "Page down and center",
 	},
 	{
-		key = "<C-u>",
-		action = "<C-u>zz",
-		modes = { "n" },
-		desc = "Page up and center",
-	},
-	{
 		key = "<leader>d",
 		action = "yyp",
 		modes = { "n", "v" },
 		desc = "Duplicate lines down",
+	},
+	{
+		key = "g*",
+		action = "g*zz",
+		modes = { "n" },
+		desc = "Search partial word under cursor forward and center",
+	},
+	{
+		key = "gf",
+		action = "<cmd>lua vim.diagnostic.open_float()<CR>",
+		modes = { "n" },
+		desc = "Open line diagnostic in floating window",
+	},
+	{
+		key = "H",
+		action = "^",
+		modes = { "" },
+		desc = "Use home row for Home",
 	},
 	{
 		key = "j",
@@ -37,11 +55,29 @@ local keys = {
 		expr = true,
 	},
 	{
+		key = "J",
+		action = ":m'>+1<CR>gv=gv",
+		modes = { "v" },
+		desc = "Shift lines down",
+	},
+	{
 		key = "k",
 		action = "v:count == 0 ? 'gk' : 'k'",
 		modes = { "n", "x" },
 		desc = "Move cursor by line",
 		expr = true,
+	},
+	{
+		key = "K",
+		action = ":m'<-2<CR>gv=gv",
+		modes = { "v" },
+		desc = "Shift lines up",
+	},
+	{
+		key = "L",
+		action = "$",
+		modes = { "" },
+		desc = "Use home row for End",
 	},
 	{
 		key = "n",
@@ -56,28 +92,34 @@ local keys = {
 		desc = "Previous search result and center screen",
 	},
 	{
-		key = "*",
-		action = "*zz",
-		modes = { "n" },
-		desc = "Search word under cursor forward and center",
+		key = "p",
+		action = '"_dp',
+		modes = { "v", "x" },
+		desc = "Preserve copied content when pasting",
 	},
 	{
-		key = "#",
-		action = "#zz",
-		modes = { "n" },
-		desc = "Search word under cursor backward and center",
-	},
-	{
-		key = "g*",
-		action = "g*zz",
-		modes = { "n" },
-		desc = "Search partial word under cursor forward and center",
+		key = "P",
+		action = '"_dP',
+		modes = { "v", "x" },
+		desc = "Preserve copied content when pasting",
 	},
 	{
 		key = "<leader>q",
 		action = ":quit<CR>",
 		modes = { "n" },
 		desc = "Quit",
+	},
+	{
+		key = "Q",
+		action = "<nop>",
+		modes = { "" },
+		desc = "Disable Q",
+	},
+	{
+		key = "<C-u>",
+		action = "<C-u>zz",
+		modes = { "n" },
+		desc = "Page up and center",
 	},
 	{
 		key = "<leader>w",
@@ -92,10 +134,38 @@ local keys = {
 		desc = "Save if necessary, and quit",
 	},
 	{
-		key = "<Up>",
-		action = "<nop>",
+		key = "#",
+		action = "#zz",
 		modes = { "n" },
-		desc = "Disable arrow keys",
+		desc = "Search word under cursor backward and center",
+	},
+	{
+		key = "*",
+		action = "*zz",
+		modes = { "n" },
+		desc = "Search word under cursor forward and center",
+	},
+	{
+		key = "<",
+		action = "<gv",
+		modes = { "v" },
+		desc = "Keep line selected after indenting",
+	},
+	{
+		key = ">",
+		action = ">gv",
+		modes = { "v" },
+		desc = "Keep line selected after indenting",
+	},
+	{
+		key = "<esc>",
+		action = function()
+			vim.cmd("noh")
+			return "<esc>"
+		end,
+		modes = { "i", "n", "s" },
+		desc = "Escape and Clear hlsearch",
+		expr = true,
 	},
 	{
 		key = "<Down>",
@@ -116,68 +186,10 @@ local keys = {
 		desc = "Disable arrow keys",
 	},
 	{
-		key = "p",
-		action = '"_dp',
-		modes = { "v", "x" },
-		desc = "Preserve copied content when pasting",
-	},
-	{
-		key = "P",
-		action = '"_dP',
-		modes = { "v", "x" },
-		desc = "Preserve copied content when pasting",
-	},
-	{
-		key = "J",
-		action = ":m'>+1<CR>gv=gv",
-		modes = { "v" },
-		desc = "Shift lines down",
-	},
-	{
-		key = "K",
-		action = ":m'<-2<CR>gv=gv",
-		modes = { "v" },
-		desc = "Shift lines up",
-	},
-	{
-		key = ">",
-		action = ">gv",
-		modes = { "v" },
-		desc = "Keep line selected after indenting",
-	},
-	{
-		key = "<",
-		action = "<gv",
-		modes = { "v" },
-		desc = "Keep line selected after indenting",
-	},
-	{
-		key = "H",
-		action = "^",
-		modes = { "" },
-		desc = "Use home row for Home",
-	},
-	{
-		key = "L",
-		action = "$",
-		modes = { "" },
-		desc = "Use home row for End",
-	},
-	{
-		key = "Q",
+		key = "<Up>",
 		action = "<nop>",
-		modes = { "" },
-		desc = "Disable Q",
-	},
-	{
-		key = "<esc>",
-		action = function()
-			vim.cmd("noh")
-			return "<esc>"
-		end,
-		modes = { "i", "n", "s" },
-		desc = "Escape and Clear hlsearch",
-		expr = true,
+		modes = { "n" },
+		desc = "Disable arrow keys",
 	},
 }
 

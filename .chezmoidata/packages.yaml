@@ -153,6 +153,9 @@ stages:
         - name: ripgrep
           installer: homebrew
 
+        - name: ruff
+          installer: homebrew
+
         - name: rust-analyzer
           installer: homebrew
 

@@ -3,12 +3,12 @@ return {
 	event = "BufWritePre",
 	cmd = { "ConformInfo" },
 	opts = {
-        format_on_save = {
-            lsp_format = "fallback",
-        },
+		format_on_save = {
+			lsp_format = "fallback",
+		},
 		formatters = {
 			gofumpt = {
-            command = "gofumpt",
+				command = "gofumpt",
 				args = { "--extra" },
 			},
 		},
@@ -20,11 +20,12 @@ return {
 			json = { "jq" },
 			lua = { "stylua" },
 			markdown = { "prettier" },
-			python = { "ruff", "black" },
+			python = { "ruff_fix", "ruff_format" },
 			typescript = { "prettier" },
 			yaml = { "prettier" },
 			["_"] = { "trim_whitespace" },
 		},
+		log_level = vim.log.levels.TRACE,
 		notify_on_error = true,
 		notify_no_formatters = true,
 	},

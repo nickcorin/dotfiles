@@ -10,16 +10,16 @@ return {
 		"neovim/nvim-lspconfig",
 		event = "BufReadPost",
 		dependencies = {
-			-- "saghen/blink.cmp",
+			"saghen/blink.cmp",
 			"williamboman/mason-lspconfig.nvim",
 		},
 		config = function()
 			------------------------------------------------------------------------------------------------------------
 			-- Enable global defaults.
 			------------------------------------------------------------------------------------------------------------
-			-- vim.lsp.config("*", {
-			-- 	capabilities = require("blink.cmp").get_lsp_capabilities(),
-			-- })
+			vim.lsp.config("*", {
+				capabilities = require("blink.cmp").get_lsp_capabilities(),
+			})
 
 			------------------------------------------------------------------------------------------------------------
 			-- Load LSP servers.
@@ -50,9 +50,13 @@ return {
 			------------------------------------------------------------------------------------------------------------
 			-- Configure LSP diagnostics.
 			------------------------------------------------------------------------------------------------------------
+			vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 			vim.diagnostic.config({
 				document_highlight = true,
+				float = {
+					border = "single",
+				},
 				severity_sort = true,
 				signs = {
 					text = {

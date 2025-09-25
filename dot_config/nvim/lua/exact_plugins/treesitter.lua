@@ -2,10 +2,12 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+	config = function(_, opts)
+		require("nvim-treesitter.configs").setup(opts)
+	end,
 	lazy = false,
 	opts = {
 		auto_install = true,
-		ensure_installed = "all",
 		highlight = {
 			enable = true,
 			additional_vim_regex_highlighting = false,

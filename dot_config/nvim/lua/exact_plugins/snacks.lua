@@ -2,7 +2,22 @@ return {
 	"folke/snacks.nvim",
 	lazy = false,
 	keys = {
+		-- Code.
+		{
+			"<leader>cR",
+			function()
+				Snacks.rename.rename_file()
+			end,
+			desc = "Find Files (Alias)",
+		},
 		-- Find.
+		{
+			"<leader><leader>",
+			function()
+				Snacks.picker.files()
+			end,
+			desc = "Find Files (Alias)",
+		},
 		{
 			"<leader>fb",
 			function()
@@ -104,6 +119,13 @@ return {
 		},
 		-- LSP
 		{
+			"<leader>ca",
+			function()
+				vim.lsp.buf.code_action()
+			end,
+			desc = "Code Actions",
+		},
+		{
 			"gd",
 			function()
 				Snacks.picker.lsp_definitions()
@@ -147,7 +169,6 @@ return {
 			end,
 			desc = "Buffer Lines",
 		},
-
 		{
 			"<leader>sB",
 			function()
