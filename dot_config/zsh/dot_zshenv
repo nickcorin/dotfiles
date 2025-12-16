@@ -29,6 +29,7 @@ export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/
 typeset -U path
 path=(
     /opt/homebrew/bin
+    "$HOME/.cargo/bin"
     "$HOME/.lmstudio/bin"
     "$HOME/.local/bin"
     "$GOBIN"

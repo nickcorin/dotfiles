@@ -260,3 +260,6 @@ stages:
 
         - name: raycast
           installer: homebrew_cask
+
+        - name: ticktick
+          installer: homebrew_cask

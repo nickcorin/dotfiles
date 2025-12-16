@@ -1,9 +1,6 @@
 # Load utility functions.
 . "$HOME/.resources/shell/scripts/utils.sh"
 
-# Load chezmoi edit functions.
-. "$HOME/.resources/shell/scripts/chezmoi-edit.sh"
-
 # Initialize zsh completion system.
 autoload -Uz compinit
 compinit -C
@@ -12,8 +9,6 @@ compinit -C
 . "$HOME/.resources/homebrew/init.sh"
 . "$HOME/.resources/fzf/init.sh"
 . "$HOME/.resources/zoxide/init.sh"
-eval "$(direnv hook zsh)"
-
 
 # Configure zsh.
 setopt autocd
@@ -42,8 +37,12 @@ fi
 
 # Interactive shell configuration
 if is_interactive_shell; then
+    # Load chezmoi edit functions.
+    . "$HOME/.resources/shell/scripts/chezmoi-edit.sh"
+
     # Autostart tmux.
-    . "$XDG_CONFIG_HOME/tmux/tmux_autostart.sh"
+    # . "$XDG_CONFIG_HOME/tmux/tmux_autostart.sh"
+
     # Enable starship.
     . "$XDG_CONFIG_HOME/starship/init.sh"
 fi

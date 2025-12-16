@@ -4,11 +4,12 @@ background-opacity      = 1.0
 bold-is-bright          = true
 cursor-style            = block
 font-family             = Monaspace Neon
-font-feature            = -calt, -dlig, -liga
-font-size               = 16
+font-feature            = -calt, -dlig,iga
+font-size               = 14
 link-url                = true
 macos-titlebar-style    = transparent
 mouse-hide-while-typing = true
-theme                   = catppuccin-mocha
+theme                   = Gruvbox Material Dark Hard
 window-padding-balance  = true
 window-save-state       = always
+

@@ -1,33 +1,33 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-palette = 'catppuccin_mocha'
+palette = "gruvbox_material_dark_hard"
 format = "$hostname$directory($git_branch)$git_status $character"
 
 [character]
-success_symbol = "[[󰄛](green) >](peach)"
-error_symbol = "[[󰄛](red) >](peach)"
-vimcmd_symbol = "[󰄛 <](subtext1)" # For use with zsh-vi-mode
+success_symbol = "[[󰄛](green) >](orange)"
+error_symbol = "[[󰄛](red) >](orange)"
+vimcmd_symbol = "[󰄛 <](gray)" # For use with zsh-vi-mode
 
 [directory]
 format = "[\\[$path\\]]($style)"
 read_only = " 󰌾"
-style = "bold sapphire"
+style = "bold blue"
 
 [git_branch]
 format = " [\\($symbol$branch(:$remote_branch)\\)]($style) "
-style = "bold mauve"
+style = "bold purple"
 symbol = " "
 
 [git_status]
 format = "[$all_status]($style)"
-style = "bold maroon"
+style = "bold red"
 
 [hostname]
 format = " [$ssh_symbol$hostname]($style) "
 ssh_only = false
 ssh_symbol = " "
-style = "bold teal"
+style = "bold aqua"
 
 [memory_usage]
 symbol = "󰍛 "
@@ -63,3 +63,84 @@ surface0 = "#313244"
 base = "#1e1e2e"
 mantle = "#181825"
 crust = "#11111b"
+
+# ─────────────────────────────────────────────────────────────
+# gruvbox material – material, dark hard.
+# ─────────────────────────────────────────────────────────────
+[palettes.gruvbox_material_dark_hard]
+bg0     = '#1d2021'
+bg1     = '#282828'
+bg2     = '#383432'
+bg3     = '#504945'
+bg4     = '#665c54'
+bg5     = '#7c6f64'
+bg6     = '#928374'
+fg0     = '#fdf4c1'
+fg1     = '#f2e5bc'
+fg2     = '#d5c4a1'
+fg3     = '#bdae93'
+fg4     = '#a89984'
+fg5     = '#928374'
+fg6     = '#7c6f64'
+red     = '#ea6962'
+green   = '#a9b665'
+yellow  = '#d8a657'
+orange  = '#e78a4e'
+blue    = '#7daea3'
+purple  = '#d3869b'
+aqua    = '#89b482'
+gray    = '#a89984'
+
+# ─────────────────────────────────────────────────────────────
+# 2. gruvbox material - mix, dark hard.
+# ─────────────────────────────────────────────────────────────
+[palettes.gruvbox_mix_dark_hard]
+bg0     = '#1d2021'
+bg1     = '#282828'
+bg2     = '#383432'
+bg3     = '#504945'
+bg4     = '#665c54'
+bg5     = '#7c6f64'
+bg6     = '#928374'
+fg0     = '#fbf1c7'
+fg1     = '#ebdbb2'
+fg2     = '#d5c4a1'
+fg3     = '#bdae93'
+fg4     = '#a89984'
+fg5     = '#928374'
+fg6     = '#7c6f64'
+red     = '#fb4934'
+green   = '#b8bb26'
+yellow  = '#fabd2f'
+orange  = '#fe8019'
+blue    = '#83a598'
+purple  = '#d3869b'
+aqua    = '#8ec07c'
+gray    = '#a89984'
+
+# ─────────────────────────────────────────────────────────────
+# 3. gruvbox material – origina, dark hard.
+# ─────────────────────────────────────────────────────────────
+[palettes.gruvbox_original_dark_hard]
+bg0     = '#1d2021'
+bg1     = '#282828'
+bg2     = '#3c3836'
+bg3     = '#504945'
+bg4     = '#665c54'
+bg5     = '#7c6f64'
+bg6     = '#928374'
+fg0     = '#fbf1c7'
+fg1     = '#ebdbb2'
+fg2     = '#d5c4a1'
+fg3     = '#bdae93'
+fg4     = '#a89984'
+fg5     = '#928374'
+fg6     = '#7c6f64'
+red     = '#cc241d'
+green   = '#98971a'
+yellow  = '#d79921'
+orange  = '#d65d0e'
+blue    = '#458588'
+purple  = '#b16286'
+aqua    = '#689d6a'
+gray    = '#a89984'
