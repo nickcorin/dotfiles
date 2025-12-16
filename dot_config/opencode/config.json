@@ -1,86 +1,76 @@
 {
-  "$schema": "https://opencode.ai/config.json",
-  "autoupdate": true,
-  "formatter": {
-    "gofumpt": {
-      "command": [
-        "gofumpt",
-        "-extra",
-        "-l",
-        "-w"
-      ],
-      "extensions": [
-        ".go"
-      ]
-    },
-    "goimports": {
-      "command": [
-        "goimports",
-        "-w"
-      ],
-      "extensions": [
-        ".go"
-      ]
-    }
-  },
-  "mcp": {
-    "docker": {
-      "type": "local",
-      "command": [
-        "docker",
-        "mcp",
-        "gateway",
-        "run"
-      ],
-      "enabled": true
-    },
-    "github": {
-      "type": "local",
-      "command": [
-        "docker",
-        "run",
-        "-i",
-        "--rm",
-        "-e",
-        "GITHUB_PERSONAL_ACCESS_TOKEN",
-        "ghcr.io/github/github-mcp-server"
-      ],
-      "enabled": true,
-      "environment": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "{env:GITHUB_PERSONAL_ACCESS_TOKEN}"
-      }
-    },
-    "playwright": {
-      "type": "local",
-      "command": [
-        "npx",
-        "@playwright/mcp@latest"
-      ],
-      "enabled": true
-    }
-  },
-  "mode": {
-    "build": {
-      "model": "opencode/grok-code"
-    },
-    "plan": {
-      "model": "opencode/grok-code"
-    }
-  },
-  "provider": {
-    "ollama": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Ollama (local)",
-      "options": {
-        "baseURL": "http://localhost:11434/v1"
-      },
-      "models": {
-        "qwen3-coder": {
-          "name": "Qwen3 Coder"
+    "$schema": "https://opencode.ai/config.json",
+    "autoupdate": true,
+    "formatter": {
+        "gofumpt": {
+            "command": [
+                "gofumpt",
+                "-extra",
+                "-l",
+                "-w"
+            ],
+            "extensions": [
+                ".go"
+            ]
+        },
+        "goimports": {
+            "command": [
+                "goimports",
+                "-w"
+            ],
+            "extensions": [
+                ".go"
+            ]
         }
-      }
-    }
-  },
-  "share": "manual",
-  "theme": "system"
+    },
+    "mcp": {
+        "docker": {
+            "type": "local",
+            "command": [
+                "docker",
+                "mcp",
+                "gateway",
+                "run"
+            ],
+            "enabled": true
+        },
+        "docs-langchain": {
+            "enabled": true,
+            "type": "remote",
+            "url": "https://docs.langchain.com/mcp"
+        },
+        "playwright": {
+            "type": "local",
+            "command": [
+                "pnpm",
+                "dlx",
+                "@playwright/mcp@latest"
+            ],
+            "enabled": true
+        }
+    },
+    "mode": {
+        "build": {
+            "model": "opencode/grok-code"
+        },
+        "plan": {
+            "model": "opencode/grok-code"
+        }
+    },
+    "provider": {
+        "ollama": {
+            "npm": "@ai-sdk/openai-compatible",
+            "name": "Ollama (local)",
+            "options": {
+                "baseURL": "http://localhost:11434/v1"
+            },
+            "models": {
+                "qwen3-coder": {
+                    "name": "Qwen3 Coder"
+                }
+            }
+        }
+    },
+    "share": "manual",
+    "theme": "gruvbox-material-dark-hard"
 }

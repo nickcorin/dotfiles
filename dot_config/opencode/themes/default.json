@@ -1,0 +1,155 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "theme": {
+    "primary": {
+      "dark": "none"
+    },
+    "secondary": {
+      "dark": "none"
+    },
+    "accent": {
+      "dark": "none"
+    },
+    "error": {
+      "dark": "none"
+    },
+    "warning": {
+      "dark": "none"
+    },
+    "success": {
+      "dark": "none"
+    },
+    "info": {
+      "dark": "none"
+    },
+    "text": {
+      "dark": "none"
+    },
+    "textMuted": {
+      "dark": "none"
+    },
+    "background": {
+      "dark": "none"
+    },
+    "backgroundPanel": {
+      "dark": "none"
+    },
+    "backgroundElement": {
+      "dark": "none"
+    },
+    "border": {
+      "dark": "none"
+    },
+    "borderActive": {
+      "dark": "none"
+    },
+    "borderSubtle": {
+      "dark": "none"
+    },
+    "diffAdded": {
+      "dark": "none"
+    },
+    "diffRemoved": {
+      "dark": "none"
+    },
+    "diffContext": {
+      "dark": "none"
+    },
+    "diffHunkHeader": {
+      "dark": "none"
+    },
+    "diffHighlightAdded": {
+      "dark": "none"
+    },
+    "diffHighlightRemoved": {
+      "dark": "none"
+    },
+    "diffAddedBg": {
+      "dark": "none"
+    },
+    "diffRemovedBg": {
+      "dark": "none"
+    },
+    "diffContextBg": {
+      "dark": "none"
+    },
+    "diffLineNumber": {
+      "dark": "none"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "none"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "none"
+    },
+    "markdownText": {
+      "dark": "none"
+    },
+    "markdownHeading": {
+      "dark": "none"
+    },
+    "markdownLink": {
+      "dark": "none"
+    },
+    "markdownLinkText": {
+      "dark": "none"
+    },
+    "markdownCode": {
+      "dark": "none"
+    },
+    "markdownBlockQuote": {
+      "dark": "none"
+    },
+    "markdownEmph": {
+      "dark": "none"
+    },
+    "markdownStrong": {
+      "dark": "none"
+    },
+    "markdownHorizontalRule": {
+      "dark": "none"
+    },
+    "markdownListItem": {
+      "dark": "none"
+    },
+    "markdownListEnumeration": {
+      "dark": "none"
+    },
+    "markdownImage": {
+      "dark": "none"
+    },
+    "markdownImageText": {
+      "dark": "none"
+    },
+    "markdownCodeBlock": {
+      "dark": "none"
+    },
+    "syntaxComment": {
+      "dark": "none"
+    },
+    "syntaxKeyword": {
+      "dark": "none"
+    },
+    "syntaxFunction": {
+      "dark": "none"
+    },
+    "syntaxVariable": {
+      "dark": "none"
+    },
+    "syntaxString": {
+      "dark": "none"
+    },
+    "syntaxNumber": {
+      "dark": "none"
+    },
+    "syntaxType": {
+      "dark": "none"
+    },
+    "syntaxOperator": {
+      "dark": "none"
+    },
+    "syntaxPunctuation": {
+      "dark": "none"
+    }
+  }
+}
