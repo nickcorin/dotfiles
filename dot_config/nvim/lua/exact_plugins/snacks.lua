@@ -1,22 +1,23 @@
 return {
 	"folke/snacks.nvim",
+	priority = 1000,
 	lazy = false,
 	keys = {
-		-- Code.
+		-- Explorer.
 		{
-			"<leader>cR",
+			"<leader>e",
 			function()
-				Snacks.rename.rename_file()
+				Snacks.explorer()
 			end,
-			desc = "Find Files (Alias)",
+			desc = "File Explorer.",
 		},
 		-- Find.
 		{
 			"<leader><leader>",
 			function()
-				Snacks.picker.files()
+				Snacks.picker.buffers()
 			end,
-			desc = "Find Files (Alias)",
+			desc = "Buffers (Alias)",
 		},
 		{
 			"<leader>fb",
@@ -69,11 +70,39 @@ return {
 			desc = "Git Branches",
 		},
 		{
+			"<leader>gd",
+			function()
+				Snacks.picker.git_diff()
+			end,
+			desc = "Git: Diff (Hunks)",
+		},
+		{
+			"<leader>gf",
+			function()
+				Snacks.picker.git_log_file()
+			end,
+			desc = "Git: Log File",
+		},
+		{
 			"<leader>gg",
 			function()
 				Snacks.lazygit()
 			end,
 			desc = "Lazygit",
+		},
+		{
+			"<leader>gi",
+			function()
+				Snacks.picker.gh_issue()
+			end,
+			desc = "Git: Browse Issues (open)",
+		},
+		{
+			"<leader>gI",
+			function()
+				Snacks.picker.gh_issue({ state = "all" })
+			end,
+			desc = "Git: Browse Issues (all)",
 		},
 		{
 			"<leader>gl",
@@ -83,39 +112,25 @@ return {
 			desc = "Git Log",
 		},
 		{
-			"<leader>gL",
+			"<leader>gp",
 			function()
-				Snacks.picker.git_log_line()
+				Snacks.picker.gh_pr()
 			end,
-			desc = "Git Log Line",
+			desc = "Git: Browse Pull Requests (open)",
+		},
+		{
+			"<leader>gP",
+			function()
+				Snacks.picker.gh_pr({ state = "all" })
+			end,
+			desc = "Git: Browse Pull Requests (all)",
 		},
 		{
 			"<leader>gs",
 			function()
 				Snacks.picker.git_status()
 			end,
-			desc = "Git Status",
-		},
-		{
-			"<leader>gS",
-			function()
-				Snacks.picker.git_stash()
-			end,
-			desc = "Git Stash",
-		},
-		{
-			"<leader>gd",
-			function()
-				Snacks.picker.git_diff()
-			end,
-			desc = "Git Diff (Hunks)",
-		},
-		{
-			"<leader>gf",
-			function()
-				Snacks.picker.git_log_file()
-			end,
-			desc = "Git Log File",
+			desc = "Git: Status",
 		},
 		-- LSP
 		{
@@ -250,13 +265,47 @@ return {
 		},
 	},
 	opts = {
-		indent = {
+		explorer = {
+			diagnostics = true,
+			diagnostics_open = true,
 			enabled = true,
+			finder = "explorer",
+			follow_file = true,
+			git_status = true,
+			git_status_open = true,
+			git_untracked = true,
+			hidden = true,
+			ignored = true,
+			replace_netrw = true,
+			trash = true,
+			tree = true,
+			watch = true,
+		},
+		files = {
+			show_empty = true,
+			follow = false,
+			hidden = true,
+			ignored = true,
+			supports_live = true,
+		},
+		gh = {
+			enabled = true,
+		},
+		indent = {
 			animate = {
 				enabled = false,
 			},
+			chunk = {
+				enabled = false,
+			},
+			indent = {
+				enabled = true,
+				char = "┆",
+			},
 			scope = {
 				enabled = true,
+				char = "┆",
+				-- char = "│",
 				underline = true,
 			},
 		},
@@ -271,20 +320,17 @@ return {
 		},
 		picker = {
 			layout = {
-				layout = {
-					box = "vertical",
-					backdrop = false,
-					row = -1,
-					width = 0,
-					height = 0.4,
-					border = "top",
-					title = " {title} {live} {flags}",
-					title_pos = "left",
-					{ win = "input", height = 1, border = "bottom" },
-					{
-						box = "horizontal",
-						{ win = "list", border = "none" },
-						{ win = "preview", title = "{preview}", width = 0.6, border = "left" },
+				preset = "ivy",
+				layout = { position = "bottom" },
+			},
+			sources = {
+				explorer = {
+					hidden = true,
+					ignored = true,
+					layout = {
+						layout = { position = "left" },
+						preset = "sidebar",
+						preview = false,
 					},
 				},
 			},

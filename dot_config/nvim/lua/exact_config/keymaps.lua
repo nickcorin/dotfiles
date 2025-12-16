@@ -48,6 +48,12 @@ local keys = {
 		desc = "Use home row for Home",
 	},
 	{
+		key = "<C-i>",
+		action = "<C-i>zz",
+		modes = { "n" },
+		desc = "Center jump results.",
+	},
+	{
 		key = "j",
 		action = "v:count == 0 ? 'gj' : 'j'",
 		modes = { "n", "x" },
@@ -90,6 +96,12 @@ local keys = {
 		action = "Nzz",
 		modes = { "n" },
 		desc = "Previous search result and center screen",
+	},
+	{
+		key = "<C-o>",
+		action = "<C-o>zz",
+		modes = { "n" },
+		desc = "Center jump results.",
 	},
 	{
 		key = "p",
