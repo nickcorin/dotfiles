@@ -305,7 +305,6 @@ return {
 			scope = {
 				enabled = true,
 				char = "┆",
-				-- char = "│",
 				underline = true,
 			},
 		},
@@ -328,7 +327,7 @@ return {
 					hidden = true,
 					ignored = true,
 					layout = {
-						layout = { position = "left" },
+						layout = { position = "right" },
 						preset = "sidebar",
 						preview = false,
 					},
