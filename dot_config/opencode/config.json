@@ -1,5 +1,33 @@
 {
     "$schema": "https://opencode.ai/config.json",
+    "agent": {
+        "build": {
+            "permission": {
+                "bash": "allow",
+                "edit": "allow",
+                "external_directory": "ask",
+                "doom_loop": "ask",
+                "webfetch": "allow"
+            }
+        },
+        "learn": {
+            "description": "Expert researcher in Computer Science",
+            "mode": "primary",
+            "permission": {
+                "bash": "allow",
+                "edit": "deny",
+                "doom_loop": "ask",
+                "external_directory": "ask",
+                "glob": "deny",
+                "grep": "deny",
+                "list": "deny",
+                "read": "deny",
+                "webfetch": "allow",
+                "write": "deny"
+            },
+            "prompt": "{file:./agent/learn.md}"
+        }
+    },
     "autoupdate": true,
     "formatter": {
         "gofumpt": {
@@ -21,23 +49,29 @@
             "extensions": [
                 ".go"
             ]
+        },
+        "rustfmt": {
+            "command": [
+                "rustfmt"
+            ],
+            "extensions": [
+                ".rs"
+            ]
         }
     },
     "mcp": {
-        "docker": {
-            "type": "local",
-            "command": [
-                "docker",
-                "mcp",
-                "gateway",
-                "run"
-            ],
-            "enabled": true
-        },
         "docs-langchain": {
             "enabled": true,
             "type": "remote",
             "url": "https://docs.langchain.com/mcp"
+        },
+        "just-mcp": {
+            "type": "local",
+            "command": [
+                "just-mcp",
+                "--stdio"
+            ],
+            "enabled": true
         },
         "playwright": {
             "type": "local",
@@ -47,14 +81,26 @@
                 "@playwright/mcp@latest"
             ],
             "enabled": true
+        },
+        "pencil": {
+            "command": [
+                "/Applications/Pencil.app/Contents/Resources/app.asar.unpacked/out/mcp-server-darwin-arm64",
+                "--ws-port",
+                "63995"
+            ],
+            "enabled": true,
+            "type": "local"
         }
     },
     "mode": {
         "build": {
-            "model": "opencode/grok-code"
+            "model": "openai/gpt-5.2-codex"
+        },
+        "learn": {
+            "model": "openai/gpt-5.2"
         },
         "plan": {
-            "model": "opencode/grok-code"
+            "model": "openai/gpt-5.2"
         }
     },
     "provider": {
@@ -72,5 +118,10 @@
         }
     },
     "share": "manual",
-    "theme": "gruvbox-material-dark-hard"
+    "theme": "rosepine",
+    "tui": {
+        "scroll_acceleration": {
+            "enabled": true
+        }
+    }
 }
