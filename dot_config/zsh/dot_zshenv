@@ -1,11 +1,7 @@
-# Environment variables for zsh.
-# This file is loaded by all zsh instances (login, non-login, scripts).
-
 # System directories.
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # Application directories.
-export BUN_INSTALL="$HOME/.bun"
 export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
 export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 export OBSIDIAN_VAULT_DIR="$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents"
@@ -23,19 +19,19 @@ export LC_ALL=en_US.UTF-8
 export PROFILE="$XDG_CONFIG_HOME/zsh/.zshrc"
 export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
+
 # Configure the PATH.
-# We prepend directories to PATH if they exist and are not already in the PATH
+#
+# We prepend directories to PATH if they exist and are not already in the PATH.
 # `typeset -U` ensures that the array contains only unique values.
 typeset -U path
 path=(
-    /opt/homebrew/bin
     "$HOME/.cargo/bin"
     "$HOME/.lmstudio/bin"
     "$HOME/.local/bin"
+    "$HOME/.bun/bin"
     "$GOBIN"
-    "$BUN_INSTALL/bin"
     /usr/local/opt/llvm/bin
     $path
 )
 export PATH
-
