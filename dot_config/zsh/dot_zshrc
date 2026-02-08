@@ -1,16 +1,11 @@
-# Load utility functions.
+# Utility functions.
 . "$HOME/.resources/shell/scripts/utils.sh"
 
-# Initialize zsh completion system.
+# ZSH completion system enablement.
 autoload -Uz compinit
 compinit -C
 
-# Init tools.
-. "$HOME/.resources/homebrew/init.sh"
-. "$HOME/.resources/fzf/init.sh"
-. "$HOME/.resources/zoxide/init.sh"
-
-# Configure zsh.
+# ZSH options.
 setopt autocd
 setopt auto_pushd
 setopt extended_history
@@ -18,38 +13,64 @@ setopt histappend
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 setopt long_list_jobs
-# setopt no_beep
 setopt pushd_ignore_dups
 setopt share_history
 
-# Aliases.
+# Shell aliases.
 alias mommy="git"
 alias please="sudo"
 alias v="nvim"
 alias vim="nvim"
 alias vo="vim \"$OBSIDIAN_VAULT_DIR\""
 
-
-if is_installed eza; then
+if is_available eza; then
     alias ls="eza"
     alias ll="eza -a -l --git-repos  --no-permissions --no-user -o"
 fi
 
-# Interactive shell configuration
-if is_interactive_shell; then
-    # Load chezmoi edit functions.
-    . "$HOME/.resources/shell/scripts/chezmoi-edit.sh"
+# Non-interactive shell config.
+#
+# Only include config that's needed in both interactive AND non-interactive shells here.
+# If config is only needed in interactive shells, place it in the interactive-shell config block below.
+if is_available brew; then
+    # Workaround for Apple Silicon — might not be necessary anymore.
+    if [ "$(uname -m)" = "arm64" ]; then
+        alias brew="arch -arm64 brew"
+    fi
 
+    brew_prefix=$(brew --prefix 2>/dev/null)
+
+    # Set up brew environment, and add to PATH.
+    eval "$($brew_prefix/bin/brew shellenv)"
+
+    # Source zsh plugins if available.
+    if [ -f "$brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+        . "$brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    fi
+
+    if [ -f "$brew_prefix/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+        . "$brew_prefix/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    fi
+fi
+
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+if is_available fnm; then
+    eval "$(fnm env --use-on-cd --shell zsh)"
+fi
+
+if is_available zoxide; then
+    eval "$(zoxide init zsh)"
+fi
+
+# Interactive shell config.
+#
+# Only include config that's needed in interactive shells AND NOT in non-interactive shells here.
+# If config is needed for non-interactive shells too, place it outside of this block above.
+if is_interactive_shell; then
     # Autostart tmux.
     # . "$XDG_CONFIG_HOME/tmux/tmux_autostart.sh"
 
     # Enable starship.
-    . "$XDG_CONFIG_HOME/starship/init.sh"
+    # . "$XDG_CONFIG_HOME/starship/init.sh"
 fi
-
-
-# Load and configure bun.
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-# Load and init fnm.
-eval "$(fnm env --use-on-cd --shell zsh)"

@@ -41,6 +41,3 @@ config/private/
 
 # Ignore git host configs.
 **/gh/hosts.yml
-
-# Ignore generated AGENTS.md (compiled from numbered files).
-**/opencode/AGENTS.md

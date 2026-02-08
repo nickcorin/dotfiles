@@ -3,13 +3,13 @@ background-blur         = true
 background-opacity      = 1.0
 bold-is-bright          = true
 cursor-style            = block
-font-family             = Monaspace Neon
+font-family             = Berlekey Mono
 font-feature            = -calt, -dlig,iga
 font-size               = 14
 link-url                = true
 macos-titlebar-style    = transparent
 mouse-hide-while-typing = true
-theme                   = Gruvbox Material Dark Hard
+theme                   = Rose Pine
 window-padding-balance  = true
 window-save-state       = always
 

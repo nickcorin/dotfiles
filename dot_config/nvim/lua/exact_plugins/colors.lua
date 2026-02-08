@@ -13,12 +13,62 @@ return {
 		},
 	},
 	{
+		"scottmckendry/cyberdream.nvim",
+		enabled = false,
+		name = "cyberdream",
+		lazy = false,
+		priority = 1000,
+		config = function(_, opts)
+			require("cyberdream").setup(opts)
+			vim.cmd("colorscheme cyberdream")
+		end,
+		opts = {
+			borderless_pickers = false,
+			cache = false,
+			hide_fillchars = false,
+			italic_comments = false,
+			saturation = 1,
+			terminal_colors = true,
+			transparent = false,
+			variant = "auto",
+			extensions = {
+				alpha = true,
+				blinkcmp = true,
+				gitsigns = true,
+				lazy = true,
+				noice = true,
+				treesitter = true,
+				trouble = true,
+			},
+		},
+	},
+
+	{
 		"ellisonleao/gruvbox.nvim",
 		enabled = false,
 		name = "gruvbox",
+		priority = 1000,
 		lazy = false,
 		opts = {
+			bold = true,
 			contrast = "hard",
+			dim_inactive = false,
+			inverse = true,
+			invert_selection = false,
+			invert_signs = false,
+			invert_tabline = false,
+			italic = {
+				strings = true,
+				emphasis = true,
+				comments = true,
+				operators = false,
+				folds = true,
+			},
+			strikethrough = true,
+			terminal_colors = true,
+			transparent_mode = false,
+			undercurl = true,
+			underline = true,
 		},
 		config = function(_, opts)
 			require("gruvbox").setup(opts)
@@ -27,8 +77,9 @@ return {
 	},
 	{
 		"sainnhe/gruvbox-material",
-		enabled = true,
+		enabled = false,
 		name = "gruvbox-material",
+		priority = 1000,
 		lazy = false,
 		config = function()
 			vim.g.gruvbox_material_background = "hard"
@@ -56,11 +107,20 @@ return {
 		},
 	},
 	{
-		"gbprod/nord.nvim",
+		"shaunsingh/nord.nvim",
 		enabled = false,
 		name = "nord",
 		config = function(_, opts)
-			require("nord").setup(opts)
+			vim.g.nord_bold = true
+			vim.g.nord_borders = true
+			vim.g.nord_contrast = true
+			vim.g.nord_cursorline_transparent = false
+			vim.g.nord_disable_background = false
+			vim.g.nord_enable_sidebar_background = true
+			vim.g.nord_italic = false
+			vim.g.nord_uniform_diff_backgrounds = false
+
+			require("nord").set()
 			vim.cmd.colorscheme("nord")
 		end,
 		opts = {
@@ -69,8 +129,29 @@ return {
 		},
 	},
 	{
-		"rose-pine/neovim",
+		"datsfilipe/vesper.nvim",
 		enabled = false,
+		name = "vesper",
+		priority = 1000,
+		lazy = false,
+		config = function(_, opts)
+			require("vesper").setup(opts)
+			vim.cmd("colorscheme vesper")
+		end,
+		opts = {
+			transparent = true,
+			italics = {
+				comments = false,
+				keywords = false,
+				functions = false,
+				strings = false,
+				variables = false,
+			},
+		},
+	},
+	{
+		"rose-pine/neovim",
+		enabled = true,
 		name = "rose-pine",
 		config = function(_, opts)
 			require("rose-pine").setup(opts)
@@ -85,7 +166,7 @@ return {
 			styles = {
 				bold = true,
 				italic = false,
-				transparency = true,
+				transparency = false,
 			},
 		},
 	},
