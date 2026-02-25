@@ -3,13 +3,36 @@
     email = nickcorin@gmail.com
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSuy9RJ1mQB63vuo4rpAxfeB+27l7b25XfzKzmjgnNt
 
+[branch]
+    autosetuprebase = always
+
+[commit]
+    gpgsign = true
+
 [core]
     editor = nvim
-    pager = bat
+    pager = delta
     excludesFile = ~/.config/git/ignore
+
+[delta]
+    line-numbers = true
+    hyperlinks = true
+    navigate = true
+    side-by-side = true
+    syntax-theme = ansi
+    true-color = auto
+
+[gpg]
+    format = ssh
 
 [init]
     defaultBranch = master
+
+[interactive]
+    diffFilter = delta --color-only
+
+[merge]
+    conflictStyle = zdiff3
 
 [pull]
     rebase = true
@@ -17,16 +40,6 @@
 
 [push]
     autoSetupRemote = true
-
-[branch]
-    autosetuprebase = always
-
-# SSH signing configuration
-[gpg]
-    format = ssh
-
-[commit]
-    gpgsign = true
 
 [url "git@github.com:"]
     insteadOf = https://github.com/
