@@ -9,7 +9,7 @@ return {
 			vim.cmd("colorscheme catppuccin")
 		end,
 		opts = {
-			flavour = "mocha",
+			flavour = "frappe",
 		},
 	},
 	{
@@ -51,7 +51,7 @@ return {
 		lazy = false,
 		opts = {
 			bold = true,
-			contrast = "hard",
+			contrast = "",
 			dim_inactive = false,
 			inverse = true,
 			invert_selection = false,
@@ -71,6 +71,7 @@ return {
 			underline = true,
 		},
 		config = function(_, opts)
+			vim.o.background = "dark"
 			require("gruvbox").setup(opts)
 			vim.cmd("colorscheme gruvbox")
 		end,
@@ -130,7 +131,7 @@ return {
 	},
 	{
 		"datsfilipe/vesper.nvim",
-		enabled = false,
+		enabled = true,
 		name = "vesper",
 		priority = 1000,
 		lazy = false,
@@ -139,7 +140,7 @@ return {
 			vim.cmd("colorscheme vesper")
 		end,
 		opts = {
-			transparent = true,
+			transparent = false,
 			italics = {
 				comments = false,
 				keywords = false,
@@ -151,7 +152,7 @@ return {
 	},
 	{
 		"rose-pine/neovim",
-		enabled = true,
+		enabled = false,
 		name = "rose-pine",
 		config = function(_, opts)
 			require("rose-pine").setup(opts)

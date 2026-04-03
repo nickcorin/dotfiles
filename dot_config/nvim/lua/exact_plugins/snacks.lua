@@ -318,10 +318,10 @@ return {
 			},
 		},
 		picker = {
-			layout = {
-				preset = "ivy",
-				layout = { position = "bottom" },
-			},
+			-- layout = {
+			-- 	preset = "ivy",
+			-- 	layout = { position = "bottom" },
+			-- },
 			sources = {
 				explorer = {
 					hidden = true,
