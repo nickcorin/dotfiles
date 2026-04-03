@@ -54,10 +54,8 @@ if is_available brew; then
 fi
 
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-
-if is_available fnm; then
-    eval "$(fnm env --use-on-cd --shell zsh)"
-fi
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 if is_available zoxide; then
     eval "$(zoxide init zsh)"

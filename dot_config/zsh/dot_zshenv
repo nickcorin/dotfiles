@@ -30,6 +30,7 @@ path=(
     "$HOME/.lmstudio/bin"
     "$HOME/.local/bin"
     "$HOME/.bun/bin"
+    "/Applications/Obsidian.app/Contents/MacOS"
     "$GOBIN"
     /usr/local/opt/llvm/bin
     $path
