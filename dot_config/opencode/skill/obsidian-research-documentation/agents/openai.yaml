@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Research Documentation"
+  short_description: "Synthesize vault sources into clear, cited notes."
+  default_prompt: "Use $obsidian-research-documentation to research these vault notes and draft a structured report."

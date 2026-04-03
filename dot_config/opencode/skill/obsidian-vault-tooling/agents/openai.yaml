@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Vault Tooling"
+  short_description: "Generic, safe Obsidian vault access through MCP tools."
+  default_prompt: "Use $obsidian-vault-tooling to inspect this vault and apply safe MCP-based note updates."

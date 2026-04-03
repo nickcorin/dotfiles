@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Meeting Intelligence"
+  short_description: "Prep agendas and capture outcomes using vault context."
+  default_prompt: "Use $obsidian-meeting-intelligence to prepare a meeting note with agenda, context links, and action items."

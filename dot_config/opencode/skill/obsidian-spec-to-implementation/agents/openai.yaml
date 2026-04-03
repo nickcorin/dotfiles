@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Spec to Implementation"
+  short_description: "Convert spec notes into linked plans and tasks."
+  default_prompt: "Use $obsidian-spec-to-implementation to turn this spec note into an implementation plan and task breakdown."

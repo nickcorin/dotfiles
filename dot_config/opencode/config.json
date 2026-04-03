@@ -73,6 +73,18 @@
             ],
             "enabled": true
         },
+        "obsidian": {
+            "type": "local",
+            "command": [
+                "node",
+                "/Users/nick/code/nickcorin/obsidian-mcp/packages/obsidian-mcp-server/dist/index.js",
+                "--bridge-url",
+                "http://127.0.0.1:27124",
+                "--token",
+                "05ea29ace136242f92aff26bad501a349dd58abd4a3c87f9ff2b0934ce68fd86"
+            ],
+            "enabled": true
+        },
         "playwright": {
             "type": "local",
             "command": [
@@ -94,13 +106,13 @@
     },
     "mode": {
         "build": {
-            "model": "openai/gpt-5.2-codex"
+            "model": "openai/gpt-5.3-codex"
         },
         "learn": {
-            "model": "openai/gpt-5.2"
+            "model": "openai/gpt-5.3-codex"
         },
         "plan": {
-            "model": "openai/gpt-5.2"
+            "model": "openai/gpt-5.3-codex"
         }
     },
     "provider": {
@@ -118,7 +130,7 @@
         }
     },
     "share": "manual",
-    "theme": "rosepine",
+    "theme": "vesper",
     "tui": {
         "scroll_acceleration": {
             "enabled": true

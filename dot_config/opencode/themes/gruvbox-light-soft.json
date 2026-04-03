@@ -1,0 +1,200 @@
+{
+    "$schema": "https://opencode.ai/theme.json",
+    "defs": {
+        "grey0": "#665c54",
+        "grey1": "#7c6f64",
+        "grey2": "#928374",
+        "fg0": "#3c3836",
+        "fg1": "#504945",
+        "red": "#cc241d",
+        "orange": "#d65d0e",
+        "yellow": "#d79921",
+        "green": "#98971a",
+        "aqua": "#689d6a",
+        "blue": "#458588",
+        "purple": "#b16286",
+        "bg_red": "#cc241d",
+        "bg_green": "#98971a",
+        "bg_yellow": "#d79921",
+        "bg_dim": "#f2e5bc",
+        "bg0": "#f2e5bc",
+        "bg1": "#f2e5bc",
+        "bg2": "#ebdbb2",
+        "bg3": "#d5c4a1",
+        "bg4": "#bdae93",
+        "bg5": "#a89984",
+        "bg_statusline1": "#f2e5bc",
+        "bg_statusline2": "#ebdbb2",
+        "bg_statusline3": "#d5c4a1",
+        "bg_visual_red": "#fbe3da",
+        "bg_visual_yellow": "#f7e7b3",
+        "bg_visual_green": "#e9f0bb",
+        "bg_visual_blue": "#dce6c9",
+        "bg_visual_purple": "#f0d8e8",
+        "bg_diff_red": "#f2d5cf",
+        "bg_diff_green": "#e6e9c1",
+        "bg_diff_blue": "#dce6c9",
+        "bg_current_word": "#ebdbb2",
+        "gray": "#7c6f64",
+        "redBright": "#fb4934",
+        "greenBright": "#b8bb26",
+        "yellowBright": "#fabd2f",
+        "blueBright": "#83a598",
+        "purpleBright": "#d3869b",
+        "aquaBright": "#8ec07c",
+        "orangeBright": "#fe8019",
+        "grayBright": "#928374"
+    },
+    "theme": {
+        "primary": {
+            "dark": "blue"
+        },
+        "secondary": {
+            "dark": "purple"
+        },
+        "accent": {
+            "dark": "aqua"
+        },
+        "error": {
+            "dark": "red"
+        },
+        "warning": {
+            "dark": "orange"
+        },
+        "success": {
+            "dark": "green"
+        },
+        "info": {
+            "dark": "yellow"
+        },
+        "text": {
+            "dark": "fg0"
+        },
+        "textMuted": {
+            "dark": "gray"
+        },
+        "background": {
+            "dark": "bg0"
+        },
+        "backgroundPanel": {
+            "dark": "bg1"
+        },
+        "backgroundElement": {
+            "dark": "bg2"
+        },
+        "border": {
+            "dark": "bg3"
+        },
+        "borderActive": {
+            "dark": "fg0"
+        },
+        "borderSubtle": {
+            "dark": "bg2"
+        },
+        "diffAdded": {
+            "dark": "green"
+        },
+        "diffRemoved": {
+            "dark": "red"
+        },
+        "diffContext": {
+            "dark": "gray"
+        },
+        "diffHunkHeader": {
+            "dark": "aqua"
+        },
+        "diffHighlightAdded": {
+            "dark": "greenBright"
+        },
+        "diffHighlightRemoved": {
+            "dark": "redBright"
+        },
+        "diffAddedBg": {
+            "dark": "bg_visual_green"
+        },
+        "diffRemovedBg": {
+            "dark": "bg_visual_red"
+        },
+        "diffContextBg": {
+            "dark": "bg1"
+        },
+        "diffLineNumber": {
+            "dark": "bg3"
+        },
+        "diffAddedLineNumberBg": {
+            "dark": "bg_visual_green"
+        },
+        "diffRemovedLineNumberBg": {
+            "dark": "bg_visual_red"
+        },
+        "markdownText": {
+            "dark": "fg0"
+        },
+        "markdownHeading": {
+            "dark": "blue"
+        },
+        "markdownLink": {
+            "dark": "aqua"
+        },
+        "markdownLinkText": {
+            "dark": "green"
+        },
+        "markdownCode": {
+            "dark": "yellow"
+        },
+        "markdownBlockQuote": {
+            "dark": "gray"
+        },
+        "markdownEmph": {
+            "dark": "purple"
+        },
+        "markdownStrong": {
+            "dark": "orange"
+        },
+        "markdownHorizontalRule": {
+            "dark": "gray"
+        },
+        "markdownListItem": {
+            "dark": "blue"
+        },
+        "markdownListEnumeration": {
+            "dark": "aqua"
+        },
+        "markdownImage": {
+            "dark": "aqua"
+        },
+        "markdownImageText": {
+            "dark": "green"
+        },
+        "markdownCodeBlock": {
+            "dark": "fg0"
+        },
+        "syntaxComment": {
+            "dark": "gray"
+        },
+        "syntaxKeyword": {
+            "dark": "red"
+        },
+        "syntaxFunction": {
+            "dark": "green"
+        },
+        "syntaxVariable": {
+            "dark": "blue"
+        },
+        "syntaxString": {
+            "dark": "yellow"
+        },
+        "syntaxNumber": {
+            "dark": "purple"
+        },
+        "syntaxType": {
+            "dark": "aqua"
+        },
+        "syntaxOperator": {
+            "dark": "orange"
+        },
+        "syntaxPunctuation": {
+            "dark": "fg0"
+        }
+    }
+}

@@ -1,0 +1,170 @@
+{
+    "$schema": "https://opencode.ai/theme.json",
+    "defs": {
+        "bg0": "#101010",
+        "bg1": "#1a1a1a",
+        "bg2": "#242424",
+        "fg0": "#ffffff",
+        "fg1": "#a0a0a0",
+        "gray": "#505050",
+        "red": "#ff8080",
+        "orange": "#ff7300",
+        "yellow": "#ffc799",
+        "green": "#99ffe4",
+        "blue": "#a0a0a0",
+        "purple": "#ff7300",
+        "aqua": "#99ffe4"
+    },
+    "theme": {
+        "primary": {
+            "dark": "blue"
+        },
+        "secondary": {
+            "dark": "purple"
+        },
+        "accent": {
+            "dark": "aqua"
+        },
+        "error": {
+            "dark": "red"
+        },
+        "warning": {
+            "dark": "orange"
+        },
+        "success": {
+            "dark": "green"
+        },
+        "info": {
+            "dark": "yellow"
+        },
+        "text": {
+            "dark": "fg0"
+        },
+        "textMuted": {
+            "dark": "fg1"
+        },
+        "background": {
+            "dark": "bg0"
+        },
+        "backgroundPanel": {
+            "dark": "bg1"
+        },
+        "backgroundElement": {
+            "dark": "bg2"
+        },
+        "border": {
+            "dark": "gray"
+        },
+        "borderActive": {
+            "dark": "fg0"
+        },
+        "borderSubtle": {
+            "dark": "bg2"
+        },
+        "diffAdded": {
+            "dark": "green"
+        },
+        "diffRemoved": {
+            "dark": "red"
+        },
+        "diffContext": {
+            "dark": "fg1"
+        },
+        "diffHunkHeader": {
+            "dark": "aqua"
+        },
+        "diffHighlightAdded": {
+            "dark": "green"
+        },
+        "diffHighlightRemoved": {
+            "dark": "red"
+        },
+        "diffAddedBg": {
+            "dark": "bg1"
+        },
+        "diffRemovedBg": {
+            "dark": "bg1"
+        },
+        "diffContextBg": {
+            "dark": "bg0"
+        },
+        "diffLineNumber": {
+            "dark": "gray"
+        },
+        "diffAddedLineNumberBg": {
+            "dark": "bg1"
+        },
+        "diffRemovedLineNumberBg": {
+            "dark": "bg1"
+        },
+        "markdownText": {
+            "dark": "fg0"
+        },
+        "markdownHeading": {
+            "dark": "yellow"
+        },
+        "markdownLink": {
+            "dark": "aqua"
+        },
+        "markdownLinkText": {
+            "dark": "green"
+        },
+        "markdownCode": {
+            "dark": "orange"
+        },
+        "markdownBlockQuote": {
+            "dark": "fg1"
+        },
+        "markdownEmph": {
+            "dark": "purple"
+        },
+        "markdownStrong": {
+            "dark": "yellow"
+        },
+        "markdownHorizontalRule": {
+            "dark": "gray"
+        },
+        "markdownListItem": {
+            "dark": "yellow"
+        },
+        "markdownListEnumeration": {
+            "dark": "aqua"
+        },
+        "markdownImage": {
+            "dark": "aqua"
+        },
+        "markdownImageText": {
+            "dark": "green"
+        },
+        "markdownCodeBlock": {
+            "dark": "fg0"
+        },
+        "syntaxComment": {
+            "dark": "fg1"
+        },
+        "syntaxKeyword": {
+            "dark": "red"
+        },
+        "syntaxFunction": {
+            "dark": "green"
+        },
+        "syntaxVariable": {
+            "dark": "blue"
+        },
+        "syntaxString": {
+            "dark": "yellow"
+        },
+        "syntaxNumber": {
+            "dark": "orange"
+        },
+        "syntaxType": {
+            "dark": "aqua"
+        },
+        "syntaxOperator": {
+            "dark": "fg1"
+        },
+        "syntaxPunctuation": {
+            "dark": "fg1"
+        }
+    }
+}

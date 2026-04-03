@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Knowledge Capture"
+  short_description: "Turn chats and decisions into structured Obsidian notes."
+  default_prompt: "Use $obsidian-knowledge-capture to convert this conversation into a well-structured Obsidian note."
