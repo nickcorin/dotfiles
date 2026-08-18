@@ -24,8 +24,9 @@ opt.expandtab = true -- Use spaces instead of <Tab>s.
 opt.hlsearch = false -- Disable keeping search results highlighted.
 opt.inccommand = "nosplit" -- Incrementally show the effects of commands.
 opt.incsearch = true -- Find search results as the search query is typed.
-opt.laststatus = 0 -- Show a single status line for all splits.
+opt.laststatus = 3 -- Show one core status line shared by all splits.
 opt.number = true
+opt.pumborder = "single"
 opt.shiftwidth = 4
 opt.signcolumn = "yes" -- Always show the sign column to prevent the UI shifting.
 opt.smartindent = true
@@ -38,6 +39,7 @@ opt.termguicolors = true
 opt.textwidth = 120 -- Auto-wrap comments at 120 characters.
 opt.undofile = true
 opt.undolevels = 10000
+opt.winborder = "single"
 opt.wrap = true
 
 -----------------------------------------------------------------------------------------------------------------------

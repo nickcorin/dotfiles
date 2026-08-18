@@ -24,6 +24,24 @@ local keys = {
 		desc = "Page down and center",
 	},
 	{
+		key = "<C-j>",
+		action = function()
+			return vim.fn.pumvisible() == 1 and "<C-n>" or "<C-j>"
+		end,
+		modes = { "i" },
+		desc = "Select next completion item",
+		expr = true,
+	},
+	{
+		key = "<C-k>",
+		action = function()
+			return vim.fn.pumvisible() == 1 and "<C-p>" or "<C-k>"
+		end,
+		modes = { "i" },
+		desc = "Select previous completion item",
+		expr = true,
+	},
+	{
 		key = "<leader>d",
 		action = "yyp",
 		modes = { "n", "v" },

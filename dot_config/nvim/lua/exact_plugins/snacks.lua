@@ -250,9 +250,7 @@ return {
 		},
 		{
 			"<leader>su",
-			function()
-				Snacks.picker.undo()
-			end,
+			"<cmd>Undotree<cr>",
 			desc = "Undo History",
 		},
 		{
@@ -265,6 +263,9 @@ return {
 		},
 	},
 	opts = {
+		dashboard = {
+			enabled = true,
+		},
 		explorer = {
 			diagnostics = true,
 			diagnostics_open = true,

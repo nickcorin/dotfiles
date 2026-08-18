@@ -1,4 +1,3 @@
-
 -----------------------------------------------------------------------------------------------------------------------
 -- [[ Lazy Config. ]]
 -----------------------------------------------------------------------------------------------------------------------
@@ -6,6 +5,8 @@
 --   - `lua/config/autocmds.lua`
 --   - `lua/config/keymaps.lua`
 --   - `lua/config/options.lua`
+
+local dotfiles_dir = assert(vim.env.DOTFILES_DIR, "DOTFILES_DIR must be set")
 
 require("lazy").setup({
 	change_detection = {
@@ -18,6 +19,10 @@ require("lazy").setup({
 	},
 	install = {
 		missing = true,
+	},
+	lockfile = vim.fs.joinpath(dotfiles_dir, "dot_config", "nvim", "lazy-lock.json"),
+	rocks = {
+		enabled = false,
 	},
 	spec = {
 		{ import = "plugins" },

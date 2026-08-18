@@ -9,7 +9,7 @@ return {
 			vim.cmd("colorscheme catppuccin")
 		end,
 		opts = {
-			flavour = "frappe",
+			flavour = "mocha",
 		},
 	},
 	{
@@ -30,19 +30,38 @@ return {
 			saturation = 1,
 			terminal_colors = true,
 			transparent = false,
-			variant = "auto",
+			variant = "default",
 			extensions = {
-				alpha = true,
-				blinkcmp = true,
 				gitsigns = true,
 				lazy = true,
 				noice = true,
 				treesitter = true,
-				trouble = true,
 			},
 		},
 	},
 
+	{
+		"wincent/base16-nvim",
+		enabled = false,
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("gruvbox-dark-hard")
+			vim.o.background = "dark"
+			vim.cmd("highlight Normal ctermbg=NONE")
+
+			vim.api.nvim_set_hl(0, "WinSeparator", { fg = 1250067 })
+
+			local popup_menu_highlight = vim.api.nvim_get_hl(0, { name = "PMenu" })
+			vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", {
+				fg = popup_menu_highlight.fg,
+				bg = popup_menu_highlight.bg,
+				ctermfg = popup_menu_highlight.ctermfg,
+				ctermbg = popup_menu_highlight.ctermbg,
+				bold = true,
+			})
+		end,
+	},
 	{
 		"ellisonleao/gruvbox.nvim",
 		enabled = false,
@@ -66,7 +85,7 @@ return {
 			},
 			strikethrough = true,
 			terminal_colors = true,
-			transparent_mode = false,
+			transparent_mode = true,
 			undercurl = true,
 			underline = true,
 		},
@@ -74,6 +93,20 @@ return {
 			vim.o.background = "dark"
 			require("gruvbox").setup(opts)
 			vim.cmd("colorscheme gruvbox")
+		end,
+	},
+	{
+		"sainnhe/everforest",
+		enabled = true,
+		name = "everforest",
+		priority = 1000,
+		lazy = false,
+		config = function()
+			vim.o.background = "dark"
+			vim.g.everforest_background = "hard"
+			vim.g.everforest_enable_italic = 0
+			vim.g.everforest_transparent_background = 1
+			vim.cmd("colorscheme everforest")
 		end,
 	},
 	{
@@ -99,6 +132,7 @@ return {
 	},
 	{
 		"rebelot/kanagawa.nvim",
+		enabled = false,
 		name = "kanagawa",
 		opts = {
 			theme = "dragon",
@@ -131,7 +165,7 @@ return {
 	},
 	{
 		"datsfilipe/vesper.nvim",
-		enabled = true,
+		enabled = false,
 		name = "vesper",
 		priority = 1000,
 		lazy = false,
@@ -173,6 +207,7 @@ return {
 	},
 	{
 		"folke/tokyonight.nvim",
+		enabled = false,
 		name = "tokyonight",
 		lazy = false,
 		opts = {

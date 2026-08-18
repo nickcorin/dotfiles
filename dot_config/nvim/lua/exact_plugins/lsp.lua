@@ -1,26 +1,16 @@
 return {
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		build = ":MasonUpdate",
-		opts = {
-			PATH = "prepend",
-		},
+		opts = {},
 	},
 	{
 		"neovim/nvim-lspconfig",
-		event = "BufReadPost",
+		event = { "BufNewFile", "BufReadPost" },
 		dependencies = {
-			"saghen/blink.cmp",
-			"williamboman/mason-lspconfig.nvim",
+			"mason-org/mason-lspconfig.nvim",
 		},
 		config = function()
-			------------------------------------------------------------------------------------------------------------
-			-- Enable global defaults.
-			------------------------------------------------------------------------------------------------------------
-			vim.lsp.config("*", {
-				capabilities = require("blink.cmp").get_lsp_capabilities(),
-			})
-
 			------------------------------------------------------------------------------------------------------------
 			-- Load LSP servers.
 			------------------------------------------------------------------------------------------------------------
@@ -33,30 +23,21 @@ return {
 					servers[#servers + 1] = server_name
 				end
 			end
+			table.sort(servers)
 
 			------------------------------------------------------------------------------------------------------------
-			-- Hand off servers to Mason. Config will be applied automatically by neovim.
+			-- Install and enable LSP servers.
 			------------------------------------------------------------------------------------------------------------
 			require("mason-lspconfig").setup({
-				automatic_enable = false,
+				automatic_enable = servers,
 				ensure_installed = servers,
 			})
 
 			------------------------------------------------------------------------------------------------------------
-			-- Enable LSP servers.
-			------------------------------------------------------------------------------------------------------------
-			vim.lsp.enable(servers)
-
-			------------------------------------------------------------------------------------------------------------
 			-- Configure LSP diagnostics.
 			------------------------------------------------------------------------------------------------------------
-			vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 			vim.diagnostic.config({
-				document_highlight = true,
-				float = {
-					border = "single",
-				},
 				severity_sort = true,
 				signs = {
 					text = {

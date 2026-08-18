@@ -73,6 +73,9 @@ stages:
         - name: curl
           installer: homebrew
 
+        - name: delve
+          installer: homebrew
+
         - name: dotenvx
           installer: homebrew
           pre: "brew tap dotenvx/brew"
@@ -125,9 +128,6 @@ stages:
         - name: lazygit
           installer: homebrew
 
-        - name: lua-language-server
-          installer: homebrew
-
         - name: mutt
           installer: homebrew
 
@@ -156,13 +156,13 @@ stages:
         - name: ruff
           installer: homebrew
 
-        - name: rust-analyzer
-          installer: homebrew
-
         - name: sesh
           installer: homebrew
 
         - name: starship
+          installer: homebrew
+
+        - name: stylua
           installer: homebrew
 
         - name: tig
@@ -175,6 +175,9 @@ stages:
           installer: homebrew
 
         - name: tree
+          installer: homebrew
+
+        - name: tree-sitter-cli
           installer: homebrew
 
         - name: typst

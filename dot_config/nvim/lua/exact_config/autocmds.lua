@@ -1,18 +1,32 @@
 local api = vim.api
+local dotfiles_dir = assert(vim.env.DOTFILES_DIR, "DOTFILES_DIR must be set")
 
--- Display LSP progress in the snacks notifier.
+-- Display LSP progress using Neovim's progress-message protocol.
 vim.api.nvim_create_autocmd("LspProgress", {
 	---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}
 	callback = function(ev)
-		local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
-		vim.notify(vim.lsp.status(), "info", {
-			id = "lsp_progress",
-			title = "LSP Progress",
-			opts = function(notif)
-				notif.icon = ev.data.params.value.kind == "end" and " "
-					or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-			end,
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		local params = ev.data.params
+		local value = params.value
+
+		vim.api.nvim_echo({ { value.message or value.title or "done" } }, false, {
+			id = ("lsp.%d.%s"):format(ev.data.client_id, params.token),
+			kind = "progress",
+			percent = value.percentage,
+			source = client and client.name or "vim.lsp",
+			status = value.kind == "end" and "success" or "running",
+			title = value.title,
 		})
+	end,
+})
+
+-- Use Neovim's native LSP completion for attached clients.
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if client and client:supports_method("textDocument/completion") then
+			vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+		end
 	end,
 })
 
@@ -43,12 +57,16 @@ vim.api.nvim_create_autocmd("VimEnter", {
 api.nvim_create_autocmd("TextYankPost", {
 	pattern = "*",
 	callback = function()
-		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 1000 })
+		vim.hl.on_yank({ higroup = "IncSearch", timeout = 1000 })
 	end,
 })
 
 -- Resize neovim split when terminal is resized.
-vim.api.nvim_command("autocmd VimResized * wincmd =")
+vim.api.nvim_create_autocmd("VimResized", {
+	callback = function()
+		vim.cmd("wincmd =")
+	end,
+})
 
 -- Quit Neovim if only Snacks windows are open.
 vim.api.nvim_create_autocmd("QuitPre", {
@@ -71,13 +89,49 @@ vim.api.nvim_create_autocmd("QuitPre", {
 })
 
 -- Apply changes to chezmoi managed dotfiles automatically.
+local chezmoi_group = api.nvim_create_augroup("chezmoi", { clear = true })
+local chezmoi_ignored_files = {
+	"run_onchange_.*",
+	"run_once_.*",
+	"%.chezmoiignore",
+	"%.chezmoitemplate",
+	"%.chezmoiexternal.*",
+	"%.chezmoiroot",
+	"%.chezmoiversion",
+}
+
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { os.getenv("DOTFILES_PATH") .. "/*" },
+	group = chezmoi_group,
+	pattern = vim.fs.joinpath(dotfiles_dir, "*"),
 	callback = function(ev)
-		local bufnr = ev.buf
-		local edit_watch = function()
-			require("chezmoi.commands.__edit").watch(bufnr)
+		local source_path = api.nvim_buf_get_name(ev.buf)
+		local filename = vim.fs.basename(source_path)
+		for _, pattern in ipairs(chezmoi_ignored_files) do
+			if filename:match(pattern) then
+				return
+			end
 		end
-		vim.schedule(edit_watch)
+
+		api.nvim_clear_autocmds({ event = "BufWritePost", group = chezmoi_group, buffer = ev.buf })
+		api.nvim_create_autocmd("BufWritePost", {
+			group = chezmoi_group,
+			buffer = ev.buf,
+			callback = function()
+				vim.system({ "chezmoi", "apply", "--source-path", source_path }, { text = true }, function(result)
+					vim.schedule(function()
+						if result.code == 0 then
+							vim.notify(("Applied %s"):format(filename), vim.log.levels.INFO)
+							return
+						end
+
+						local error_message = vim.trim(result.stderr or "")
+						if error_message == "" then
+							error_message = ("chezmoi apply failed with exit code %d"):format(result.code)
+						end
+						vim.notify(error_message, vim.log.levels.ERROR)
+					end)
+				end)
+			end,
+		})
 	end,
 })
