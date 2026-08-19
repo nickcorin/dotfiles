@@ -12,17 +12,17 @@ scrolling:
   multiplier: 1
 font:
   normal:
-    family: Non-Seasonal Sans Mono
+    family: Berkeley Mono
     style: Regular
   bold:
-    family: Non-Seasonal Sans Mono
+    family: Berkeley Mono
     style: Bold
   italic:
-    family: Non-Seasonal Sans Mono
-    style: Italic
+    family: Berkeley Mono
+    style: Oblique
   bold_italic:
-    family: Non-Seasonal Sans Mono
-    style: Bold Italic
+    family: Berkeley Mono
+    style: Bold Oblique
   size: 14
 colors:
   name: Evergreen (Dark Hard)

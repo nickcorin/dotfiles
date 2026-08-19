@@ -14,20 +14,20 @@ glyph_offset.y = 0
 glyph_offset.x = 0
 
 [font.normal]
-family = "Monaspace Neon"
+family = "Berkeley Mono"
 style = "Regular"
 
 [font.bold]
-family = "Monaspace Neon"
+family = "Berkeley Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "Monaspace Neon"
-style = "Bold Italic"
+family = "Berkeley Mono"
+style = "Bold Oblique"
 
 [font.italic]
-family = "Monaspace Neon"
-style = "Italic"
+family = "Berkeley Mono"
+style = "Oblique"
 
 [[keyboard.bindings]]
 action = "Paste"
