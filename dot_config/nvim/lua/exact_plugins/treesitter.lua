@@ -37,6 +37,14 @@ return {
 
 				treesitter.install(language):await(function(error, installed)
 					if error or not installed then
+						local reason = error and tostring(error) or "installation did not complete"
+						vim.schedule(function()
+							vim.notify(
+								("Failed to install the Tree-sitter parser for %s:\n%s"):format(language, reason),
+								vim.log.levels.ERROR,
+								{ title = "Tree-sitter" }
+							)
+						end)
 						return
 					end
 

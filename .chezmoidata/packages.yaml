@@ -19,6 +19,13 @@ installers:
     available: command -v npm &>/dev/null
     skip_check: npm list -g $1 &>/dev/null
 
+  rustup:
+    cmd: >-
+      curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs |
+      sh -s -- -y --default-toolchain stable --profile default --no-modify-path
+    available: command -v curl &>/dev/null
+    skip_check: test -x "$HOME/.cargo/bin/rustup" && test -x "$HOME/.cargo/bin/rustfmt"
+
 stages:
   - setup:
       darwin:
@@ -47,6 +54,9 @@ stages:
 
         - name: prettier
           installer: npm
+
+        - name: rustup
+          installer: rustup
 
         - name: typescript
           installer: npm
