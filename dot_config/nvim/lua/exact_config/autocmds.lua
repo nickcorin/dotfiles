@@ -39,9 +39,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 -- When opening Neovim with a path argument:
----- If the target is a directory then cd to that directory.
----- If the target is a file, then cd to the parent directory of that file.
-vim.api.nvim_create_autocmd("VimEnter", {
+-- If the target is a directory, change to that directory.
+-- If the target is a file, change to its parent directory.
+api.nvim_create_autocmd("VimEnter", {
 	pattern = "*",
 	callback = function()
 		local open_target = vim.fn.argv(0) --[[@as string]]
@@ -57,7 +57,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 			return
 		end
 
-		vim.cmd("cd " .. open_target)
+		api.nvim_set_current_dir(open_target)
 	end,
 })
 

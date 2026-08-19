@@ -92,6 +92,9 @@ stages:
         - name: ffmpeg
           installer: homebrew
 
+        - name: figlet
+          installer: homebrew
+
         - name: fzf
           installer: homebrew
 

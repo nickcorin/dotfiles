@@ -1,0 +1,4 @@
+[".config/nvim/assets/figlet/ANSI Shadow.flf"]
+type = "file"
+url = "https://raw.githubusercontent.com/xero/figlet-fonts/417429ef36ab039cbf192a4424c60aa23fc32de8/ANSI%20Shadow.flf"
+checksum.sha256 = "5b3141fa14163c90ff199d169331333875df557fa463b9fb05b85fee6eca6dc1"

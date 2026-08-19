@@ -226,9 +226,9 @@ local keys = {
 local default_opts = { silent = true, noremap = true }
 local default_modes = { "" }
 
-for _, map in pairs(keys) do
+for _, map in ipairs(keys) do
 	local opts = vim.tbl_extend("force", default_opts, { desc = map.desc, expr = map.expr })
-	for _, m in pairs(map.modes or default_modes) do
-		vim.keymap.set(m, map.key, map.action, opts)
+	for _, mode in ipairs(map.modes or default_modes) do
+		vim.keymap.set(mode, map.key, map.action, opts)
 	end
 end

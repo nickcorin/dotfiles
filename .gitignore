@@ -30,6 +30,7 @@ config/gh/hosts.yml
 .Trashes
 
 # Ignore temporary and backup files
+.nvimlog
 *.tmp
 *.temp
 *.bkp
