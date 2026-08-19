@@ -1,14 +1,9 @@
-----------------------------------------------------------------------------------------------------------------------
--- PLUGIN MANAGER
---
--- name : lazy-nvim
--- url  : https://github.com/folke/lazy.nvim
------------------------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------------------------
--- [[ Install `lazy.nvim` plugin manager. ]]
+-- Plugin manager: lazy.nvim
+-- https://github.com/folke/lazy.nvim
+
+-- Install `lazy.nvim` plugin manager.
 --
 -- See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info.
------------------------------------------------------------------------------------------------------------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -25,9 +20,7 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
------------------------------------------------------------------------------------------------------------------------
--- [[ Load the plugin manager. ]]
------------------------------------------------------------------------------------------------------------------------
+-- Load configuration.
 require("config.options")
 require("config.lazy")
 require("config.autocmds")

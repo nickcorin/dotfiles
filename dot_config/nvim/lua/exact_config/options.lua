@@ -1,6 +1,4 @@
------------------------------------------------------------------------------------------------------------------------
--- [[ Set globals. ]] --
------------------------------------------------------------------------------------------------------------------------
+-- Set globals.
 local g = vim.g
 
 g.mapleader = ","
@@ -10,14 +8,13 @@ g.netrw_browse_split = 0 -- Sets the behavior of pressing <CR> on a selected fil
 g.netrw_liststyle = 3 -- Sets the default list style in netrw.
 g.netrw_winsize = 20 -- Sets the initial size of new netrw windows.
 
------------------------------------------------------------------------------------------------------------------------
--- [[ Set options. ]] --
------------------------------------------------------------------------------------------------------------------------
+-- Set options.
 local opt = vim.opt
 
 opt.background = "dark" -- Use the dark variant of colorschemes.
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard.
 opt.colorcolumn = "120"
+opt.completeopt = { "menuone", "noselect", "popup" }
 opt.confirm = true -- Confirm to save changes when exiting a modified buffer.
 opt.cursorline = false
 opt.expandtab = true -- Use spaces instead of <Tab>s.
@@ -26,7 +23,7 @@ opt.inccommand = "nosplit" -- Incrementally show the effects of commands.
 opt.incsearch = true -- Find search results as the search query is typed.
 opt.laststatus = 3 -- Show one core status line shared by all splits.
 opt.number = true
-opt.pumborder = "single"
+opt.pummaxwidth = 40
 opt.shiftwidth = 4
 opt.signcolumn = "yes" -- Always show the sign column to prevent the UI shifting.
 opt.smartindent = true
@@ -42,9 +39,7 @@ opt.undolevels = 10000
 opt.winborder = "single"
 opt.wrap = true
 
------------------------------------------------------------------------------------------------------------------------
--- [[ Configuration commands. ]] --
------------------------------------------------------------------------------------------------------------------------
+-- Configuration commands.
 local cmd = vim.cmd
 
 cmd("filetype plugin indent on")

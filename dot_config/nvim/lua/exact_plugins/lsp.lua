@@ -1,19 +1,18 @@
 return {
 	{
-		"mason-org/mason.nvim",
-		build = ":MasonUpdate",
-		opts = {},
-	},
-	{
 		"neovim/nvim-lspconfig",
 		event = { "BufNewFile", "BufReadPost" },
 		dependencies = {
+			{
+				"mason-org/mason.nvim",
+				build = ":MasonUpdate",
+				cmd = "Mason",
+				opts = {},
+			},
 			"mason-org/mason-lspconfig.nvim",
 		},
 		config = function()
-			------------------------------------------------------------------------------------------------------------
 			-- Load LSP servers.
-			------------------------------------------------------------------------------------------------------------
 			local servers = {}
 			local config_dir = vim.fs.normalize(vim.fn.stdpath("config") .. "/after/lsp")
 
@@ -25,17 +24,13 @@ return {
 			end
 			table.sort(servers)
 
-			------------------------------------------------------------------------------------------------------------
 			-- Install and enable LSP servers.
-			------------------------------------------------------------------------------------------------------------
 			require("mason-lspconfig").setup({
 				automatic_enable = servers,
 				ensure_installed = servers,
 			})
 
-			------------------------------------------------------------------------------------------------------------
 			-- Configure LSP diagnostics.
-			------------------------------------------------------------------------------------------------------------
 			local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 			vim.diagnostic.config({
 				severity_sort = true,

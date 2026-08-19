@@ -1,3 +1,5 @@
+local dashboard = require("config.dashboard")
+
 return {
 	"folke/snacks.nvim",
 	priority = 1000,
@@ -27,62 +29,13 @@ return {
 			desc = "Buffers",
 		},
 		{
-			"<leader>fc",
-			function()
-				Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
-			end,
-			desc = "Find Config File",
-		},
-		{
-			"<leader>ff",
-			function()
-				Snacks.picker.files()
-			end,
-			desc = "Find Files",
-		},
-		{
-			"<leader>fg",
-			function()
-				Snacks.picker.git_files()
-			end,
-			desc = "Find Git Files",
-		},
-		{
 			"<leader>fp",
 			function()
 				Snacks.picker.zoxide()
 			end,
 			desc = "Projects (zoxide)",
 		},
-		{
-			"<leader>fr",
-			function()
-				Snacks.picker.recent()
-			end,
-			desc = "Recent",
-		},
 		-- Git.
-		{
-			"<leader>gb",
-			function()
-				Snacks.picker.git_branches()
-			end,
-			desc = "Git Branches",
-		},
-		{
-			"<leader>gd",
-			function()
-				Snacks.picker.git_diff()
-			end,
-			desc = "Git: Diff (Hunks)",
-		},
-		{
-			"<leader>gf",
-			function()
-				Snacks.picker.git_log_file()
-			end,
-			desc = "Git: Log File",
-		},
 		{
 			"<leader>gg",
 			function()
@@ -103,34 +56,6 @@ return {
 				Snacks.picker.gh_issue({ state = "all" })
 			end,
 			desc = "Git: Browse Issues (all)",
-		},
-		{
-			"<leader>gl",
-			function()
-				Snacks.picker.git_log()
-			end,
-			desc = "Git Log",
-		},
-		{
-			"<leader>gp",
-			function()
-				Snacks.picker.gh_pr()
-			end,
-			desc = "Git: Browse Pull Requests (open)",
-		},
-		{
-			"<leader>gP",
-			function()
-				Snacks.picker.gh_pr({ state = "all" })
-			end,
-			desc = "Git: Browse Pull Requests (all)",
-		},
-		{
-			"<leader>gs",
-			function()
-				Snacks.picker.git_status()
-			end,
-			desc = "Git: Status",
 		},
 		-- LSP
 		{
@@ -214,13 +139,6 @@ return {
 		},
 
 		{
-			"<leader>sg",
-			function()
-				Snacks.picker.grep()
-			end,
-			desc = "Grep",
-		},
-		{
 			"<leader>sh",
 			function()
 				Snacks.picker.help()
@@ -250,47 +168,18 @@ return {
 		},
 		{
 			"<leader>su",
-			"<cmd>Undotree<cr>",
-			desc = "Undo History",
-		},
-		{
-			"<leader>sw",
 			function()
-				Snacks.picker.grep_word()
+				Snacks.picker.undo()
 			end,
-			desc = "Visual selection or word",
-			mode = { "n", "x" },
+			desc = "Undo History",
 		},
 	},
 	opts = {
-		dashboard = {
-			enabled = true,
-		},
+		dashboard = dashboard,
 		explorer = {
-			diagnostics = true,
-			diagnostics_open = true,
 			enabled = true,
-			finder = "explorer",
-			follow_file = true,
-			git_status = true,
-			git_status_open = true,
-			git_untracked = true,
-			hidden = true,
-			ignored = true,
 			replace_netrw = true,
 			trash = true,
-			tree = true,
-			watch = true,
-		},
-		files = {
-			show_empty = true,
-			follow = false,
-			hidden = true,
-			ignored = true,
-			supports_live = true,
-		},
-		gh = {
-			enabled = true,
 		},
 		indent = {
 			animate = {
@@ -314,17 +203,12 @@ return {
 			style = "fancy",
 			timeout = 5000,
 			top_down = true,
-			wo = {
-				wrap = true,
-			},
 		},
 		picker = {
-			-- layout = {
-			-- 	preset = "ivy",
-			-- 	layout = { position = "bottom" },
-			-- },
 			sources = {
 				explorer = {
+					diagnostics_open = true,
+					git_status_open = true,
 					hidden = true,
 					ignored = true,
 					layout = {
@@ -337,6 +221,18 @@ return {
 		},
 		statuscolumn = {
 			enabled = true,
+		},
+		styles = {
+			dashboard = {
+				wo = {
+					wrap = true,
+				},
+			},
+			notification = {
+				wo = {
+					wrap = true,
+				},
+			},
 		},
 	},
 }

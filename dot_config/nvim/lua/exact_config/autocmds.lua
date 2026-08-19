@@ -1,6 +1,14 @@
 local api = vim.api
 local dotfiles_dir = assert(vim.env.DOTFILES_DIR, "DOTFILES_DIR must be set")
 
+-- Enable Neovim's experimental message and command-line UI after startup.
+api.nvim_create_autocmd("VimEnter", {
+	once = true,
+	callback = function()
+		require("vim._core.ui2").enable()
+	end,
+})
+
 -- Display LSP progress using Neovim's progress-message protocol.
 vim.api.nvim_create_autocmd("LspProgress", {
 	---@param ev {data: {client_id: integer, params: lsp.ProgressParams}}

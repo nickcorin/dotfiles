@@ -8,8 +8,7 @@ return {
 		},
 		formatters = {
 			gofumpt = {
-				command = "gofumpt",
-				args = { "--extra" },
+				append_args = { "--extra" },
 			},
 		},
 		formatters_by_ft = {
@@ -18,7 +17,7 @@ return {
 			html = { "prettier" },
 			javascript = { "prettier" },
 			json = { "jq" },
-			jsonc = { "jq" },
+			jsonc = { "prettier" },
 			lua = { "stylua" },
 			markdown = { "prettier" },
 			python = { "ruff_fix", "ruff_format" },
@@ -27,8 +26,5 @@ return {
 			yaml = { "prettier" },
 			["_"] = { "trim_whitespace" },
 		},
-		log_level = vim.log.levels.TRACE,
-		notify_on_error = true,
-		notify_no_formatters = true,
 	},
 }

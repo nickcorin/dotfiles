@@ -1,27 +1,33 @@
+local active_theme = require("config.theme").name
+
 return {
 	{
+		"wincent/base16-nvim",
+		name = "base16-nvim",
+		lazy = active_theme ~= "classic-dark",
+		priority = 1000,
+		config = active_theme == "classic-dark" and function()
+			vim.cmd.colorscheme("classic-dark")
+		end or nil,
+	},
+	{
 		"catppuccin/nvim",
-		enabled = false,
 		name = "catppuccin",
-		lazy = false,
-		config = function(_, opts)
-			require("catppuccin").setup(opts)
-			vim.cmd("colorscheme catppuccin")
-		end,
+		lazy = active_theme ~= "catppuccin",
+		priority = 1000,
 		opts = {
 			flavour = "mocha",
 		},
+		config = active_theme == "catppuccin" and function(_, opts)
+			require("catppuccin").setup(opts)
+			vim.cmd.colorscheme("catppuccin")
+		end or nil,
 	},
 	{
 		"scottmckendry/cyberdream.nvim",
-		enabled = false,
 		name = "cyberdream",
-		lazy = false,
+		lazy = active_theme ~= "cyberdream",
 		priority = 1000,
-		config = function(_, opts)
-			require("cyberdream").setup(opts)
-			vim.cmd("colorscheme cyberdream")
-		end,
 		opts = {
 			borderless_pickers = false,
 			cache = false,
@@ -34,40 +40,33 @@ return {
 			extensions = {
 				gitsigns = true,
 				lazy = true,
-				noice = true,
 				treesitter = true,
 			},
 		},
+		config = active_theme == "cyberdream" and function(_, opts)
+			require("cyberdream").setup(opts)
+			vim.cmd.colorscheme("cyberdream")
+		end or nil,
 	},
-
 	{
-		"wincent/base16-nvim",
-		enabled = false,
-		lazy = false,
+		"sainnhe/everforest",
+		name = "everforest",
+		lazy = active_theme ~= "everforest",
 		priority = 1000,
-		config = function()
-			vim.cmd.colorscheme("gruvbox-dark-hard")
-			vim.o.background = "dark"
-			vim.cmd("highlight Normal ctermbg=NONE")
-
-			vim.api.nvim_set_hl(0, "WinSeparator", { fg = 1250067 })
-
-			local popup_menu_highlight = vim.api.nvim_get_hl(0, { name = "PMenu" })
-			vim.api.nvim_set_hl(0, "LspSignatureActiveParameter", {
-				fg = popup_menu_highlight.fg,
-				bg = popup_menu_highlight.bg,
-				ctermfg = popup_menu_highlight.ctermfg,
-				ctermbg = popup_menu_highlight.ctermbg,
-				bold = true,
-			})
+		init = function()
+			vim.g.everforest_background = "hard"
+			vim.g.everforest_enable_italic = 0
+			vim.g.everforest_transparent_background = 1
 		end,
+		config = active_theme == "everforest" and function()
+			vim.cmd.colorscheme("everforest")
+		end or nil,
 	},
 	{
 		"ellisonleao/gruvbox.nvim",
-		enabled = false,
 		name = "gruvbox",
+		lazy = active_theme ~= "gruvbox",
 		priority = 1000,
-		lazy = false,
 		opts = {
 			bold = true,
 			contrast = "",
@@ -89,33 +88,17 @@ return {
 			undercurl = true,
 			underline = true,
 		},
-		config = function(_, opts)
-			vim.o.background = "dark"
+		config = active_theme == "gruvbox" and function(_, opts)
 			require("gruvbox").setup(opts)
-			vim.cmd("colorscheme gruvbox")
-		end,
-	},
-	{
-		"sainnhe/everforest",
-		enabled = true,
-		name = "everforest",
-		priority = 1000,
-		lazy = false,
-		config = function()
-			vim.o.background = "dark"
-			vim.g.everforest_background = "hard"
-			vim.g.everforest_enable_italic = 0
-			vim.g.everforest_transparent_background = 1
-			vim.cmd("colorscheme everforest")
-		end,
+			vim.cmd.colorscheme("gruvbox")
+		end or nil,
 	},
 	{
 		"sainnhe/gruvbox-material",
-		enabled = false,
 		name = "gruvbox-material",
+		lazy = active_theme ~= "gruvbox-material",
 		priority = 1000,
-		lazy = false,
-		config = function()
+		init = function()
 			vim.g.gruvbox_material_background = "hard"
 			vim.g.gruvbox_material_cursor = "auto"
 			vim.g.gruvbox_material_dim_inactive_windows = 1
@@ -126,26 +109,33 @@ return {
 			vim.g.gruvbox_material_foreground = "material"
 			vim.g.gruvbox_material_transparent_background = 0
 			vim.g.gruvbox_material_ui_contrast = "low"
-			-- vim.g.gruvbox_material_visual = "reverse"
-			vim.cmd("colorscheme gruvbox-material")
 		end,
+		config = active_theme == "gruvbox-material" and function()
+			vim.cmd.colorscheme("gruvbox-material")
+		end or nil,
 	},
 	{
 		"rebelot/kanagawa.nvim",
-		enabled = false,
 		name = "kanagawa",
+		lazy = active_theme ~= "kanagawa",
+		priority = 1000,
 		opts = {
 			theme = "dragon",
 			background = {
 				dark = "dragon",
 			},
 		},
+		config = active_theme == "kanagawa" and function(_, opts)
+			require("kanagawa").setup(opts)
+			vim.cmd.colorscheme("kanagawa")
+		end or nil,
 	},
 	{
 		"shaunsingh/nord.nvim",
-		enabled = false,
 		name = "nord",
-		config = function(_, opts)
+		lazy = active_theme ~= "nord",
+		priority = 1000,
+		init = function()
 			vim.g.nord_bold = true
 			vim.g.nord_borders = true
 			vim.g.nord_contrast = true
@@ -154,44 +144,19 @@ return {
 			vim.g.nord_enable_sidebar_background = true
 			vim.g.nord_italic = false
 			vim.g.nord_uniform_diff_backgrounds = false
-
+		end,
+		config = function()
 			require("nord").set()
-			vim.cmd.colorscheme("nord")
+			if active_theme == "nord" then
+				vim.cmd.colorscheme("nord")
+			end
 		end,
-		opts = {
-			borders = true,
-			transparent = false,
-		},
-	},
-	{
-		"datsfilipe/vesper.nvim",
-		enabled = false,
-		name = "vesper",
-		priority = 1000,
-		lazy = false,
-		config = function(_, opts)
-			require("vesper").setup(opts)
-			vim.cmd("colorscheme vesper")
-		end,
-		opts = {
-			transparent = false,
-			italics = {
-				comments = false,
-				keywords = false,
-				functions = false,
-				strings = false,
-				variables = false,
-			},
-		},
 	},
 	{
 		"rose-pine/neovim",
-		enabled = false,
 		name = "rose-pine",
-		config = function(_, opts)
-			require("rose-pine").setup(opts)
-			vim.cmd("colorscheme rose-pine")
-		end,
+		lazy = active_theme ~= "rose-pine",
+		priority = 1000,
 		opts = {
 			variant = "main",
 			dark_variant = "main",
@@ -204,14 +169,42 @@ return {
 				transparency = false,
 			},
 		},
+		config = active_theme == "rose-pine" and function(_, opts)
+			require("rose-pine").setup(opts)
+			vim.cmd.colorscheme("rose-pine")
+		end or nil,
 	},
 	{
 		"folke/tokyonight.nvim",
-		enabled = false,
 		name = "tokyonight",
-		lazy = false,
+		lazy = active_theme ~= "tokyonight",
+		priority = 1000,
 		opts = {
 			style = "night",
 		},
+		config = active_theme == "tokyonight" and function(_, opts)
+			require("tokyonight").setup(opts)
+			vim.cmd.colorscheme("tokyonight")
+		end or nil,
+	},
+	{
+		"datsfilipe/vesper.nvim",
+		name = "vesper",
+		lazy = active_theme ~= "vesper",
+		priority = 1000,
+		opts = {
+			transparent = false,
+			italics = {
+				comments = false,
+				keywords = false,
+				functions = false,
+				strings = false,
+				variables = false,
+			},
+		},
+		config = active_theme == "vesper" and function(_, opts)
+			require("vesper").setup(opts)
+			vim.cmd.colorscheme("vesper")
+		end or nil,
 	},
 }

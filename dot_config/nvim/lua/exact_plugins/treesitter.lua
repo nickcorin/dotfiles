@@ -10,6 +10,13 @@ return {
 		})
 
 		local available_parsers = treesitter.get_available()
+		local function highlighting_is_ready(language)
+			if not vim.treesitter.language.add(language) then
+				return false
+			end
+
+			return #vim.treesitter.query.get_files(language, "highlights") > 0
+		end
 
 		vim.api.nvim_create_autocmd("FileType", {
 			callback = function(ev)
@@ -19,7 +26,7 @@ return {
 					return
 				end
 
-				if vim.treesitter.language.add(language) then
+				if highlighting_is_ready(language) then
 					vim.treesitter.start(ev.buf, language)
 					return
 				end
@@ -34,7 +41,11 @@ return {
 					end
 
 					vim.schedule(function()
-						if vim.api.nvim_buf_is_valid(ev.buf) and vim.bo[ev.buf].filetype == filetype then
+						if
+							vim.api.nvim_buf_is_valid(ev.buf)
+							and vim.bo[ev.buf].filetype == filetype
+							and highlighting_is_ready(language)
+						then
 							vim.treesitter.start(ev.buf, language)
 						end
 					end)
