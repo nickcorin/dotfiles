@@ -3,7 +3,7 @@ windows = ["code"]
 
 [[session]]
 name = "arena"
-path = "$DEV_DIR/arenasports/arena"
+path = "$PROJECTS_DIR/arenasports/arena"
 windows = ["opencode", "code"]
 
 [[window]]

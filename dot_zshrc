@@ -28,20 +28,10 @@ if is_available eza; then
     alias ll="eza -a -l --git-repos  --no-permissions --no-user -o"
 fi
 
-# Non-interactive shell config.
-#
-# Only include config that's needed in both interactive AND non-interactive shells here.
-# If config is only needed in interactive shells, place it in the interactive-shell config block below.
 if is_available brew; then
-    # Workaround for Apple Silicon — might not be necessary anymore.
-    if [ "$(uname -m)" = "arm64" ]; then
-        alias brew="arch -arm64 brew"
-    fi
-
-    brew_prefix=$(brew --prefix 2>/dev/null)
-
     # Set up brew environment, and add to PATH.
-    eval "$($brew_prefix/bin/brew shellenv)"
+    eval "$(brew shellenv)"
+    brew_prefix="$HOMEBREW_PREFIX"
 
     # Source zsh plugins if available.
     if [ -f "$brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
@@ -61,14 +51,8 @@ if is_available zoxide; then
     eval "$(zoxide init zsh)"
 fi
 
-# Interactive shell config.
-#
-# Only include config that's needed in interactive shells AND NOT in non-interactive shells here.
-# If config is needed for non-interactive shells too, place it outside of this block above.
-if is_interactive_shell; then
-    # Autostart tmux.
-    # . "$XDG_CONFIG_HOME/tmux/tmux_autostart.sh"
+# Autostart tmux.
+# . "$XDG_CONFIG_HOME/tmux/tmux_autostart.sh"
 
-    # Enable starship.
-    # . "$XDG_CONFIG_HOME/starship/init.sh"
-fi
+# Enable starship.
+# . "$XDG_CONFIG_HOME/starship/init.sh"

@@ -1,6 +1,6 @@
 color = "true"
 mode = "file"
-sourceDir = "~/code/nickcorin/dotfiles"
+sourceDir = "~/projects/nickcorin/dotfiles"
 
 [diff]
     pager = "bat"
