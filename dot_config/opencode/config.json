@@ -77,7 +77,7 @@
             "type": "local",
             "command": [
                 "node",
-                "/Users/nick/code/nickcorin/obsidian-mcp/packages/obsidian-mcp-server/dist/index.js",
+                "/Users/nick/projects/nickcorin/obsidian-mcp/packages/obsidian-mcp-server/dist/index.js",
                 "--bridge-url",
                 "http://127.0.0.1:27124",
                 "--token",
@@ -130,7 +130,7 @@
         }
     },
     "share": "manual",
-    "theme": "vesper",
+    "theme": "gruvbox-dark",
     "tui": {
         "scroll_acceleration": {
             "enabled": true
