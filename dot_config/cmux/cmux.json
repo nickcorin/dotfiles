@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+  "schemaVersion": 1,
+  "app": {
+    "appearance": "dark"
+  },
+  "sidebarAppearance": {
+    "matchTerminalBackground": true
+  },
+  "workspaceColors": {
+    "indicatorStyle": "leftRail",
+    "selectionColor": "#333333",
+    "notificationBadgeColor": "#f4bf75",
+    "colors": {
+      "Red": "#ac4242",
+      "Bright Red": "#c55555",
+      "Green": "#90a959",
+      "Bright Green": "#aac474",
+      "Yellow": "#f4bf75",
+      "Bright Yellow": "#feca88",
+      "Blue": "#6a9fb5",
+      "Bright Blue": "#82b8c8",
+      "Magenta": "#aa759f",
+      "Bright Magenta": "#c28cb8",
+      "Cyan": "#75b5aa",
+      "Bright Cyan": "#93d3c3"
+    }
+  }
+}

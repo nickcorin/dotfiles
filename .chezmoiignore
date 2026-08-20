@@ -11,6 +11,7 @@ LICENSE
 # Development
 *.swp
 *.swo
+*.log
 *~
 .DS_Store
 
@@ -28,6 +29,9 @@ config/private/
 
 # Ignore tmux plugins (managed by tpm).
 **/tmux/plugins/
+
+# lazy.nvim writes its lockfile directly to the source repository.
+.config/nvim/lazy-lock.json
 
 # Ignore Claude data files.
 **/.claude.json*

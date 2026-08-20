@@ -8,6 +8,7 @@ font-size                   = 14
 link-url                    = true
 mouse-hide-while-typing     = true
 shell-integration-features  = true
+split-divider-color         = #333333
 theme                       = alacritty
 window-padding-balance      = true
 window-save-state           = always
