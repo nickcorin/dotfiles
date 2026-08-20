@@ -21,6 +21,7 @@ declare -A THEME_MAP=(
     ["gruvbox-light-soft.conf"]="catppuccin_gruvbox_light_soft_tmux.conf"
     ["gruvbox-light-hard.conf"]="catppuccin_gruvbox_light_hard_tmux.conf"
     ["gruvbox-dark-hard.conf"]="catppuccin_gruvbox_dark_hard_tmux.conf"
+    ["everforest-dark-hard.conf"]="catppuccin_everforest_dark_hard_tmux.conf"
     ["rose-pine.conf"]="catppuccin_rose_pine_tmux.conf"
     ["rose-pine-moon.conf"]="catppuccin_rose_pine_moon_tmux.conf"
     ["rose-pine-dawn.conf"]="catppuccin_rose_pine_dawn_tmux.conf"
