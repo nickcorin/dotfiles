@@ -4,7 +4,7 @@
 
 - Avoid assuming acronym knowledge. When an acronym is natural, use the more common form and add the less-used form in
   parentheses once: `SQL`, `API`, `RTT (round-trip time)`, or `round-trip time (RTT)`.
-- When writing commit messages, never co-author them.
+- Always sign commits, and never co-author them.
 - Never manually edit files that have been marked as auto-generated.
 - When making technical decisions, do not give much weight to development cost. Instead, prefer quality, simplicity,
   robustness, scalability, and long term maintainability.
