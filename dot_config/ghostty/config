@@ -1,14 +1,17 @@
-adjust-cell-height      = 0
-background-blur         = true
-background-opacity      = 1.0
-bold-is-bright          = true
-cursor-style            = block
-font-family             = Berkeley Mono
-font-feature            = -calt, -dlig,iga
-font-size               = 14
-link-url                = true
-macos-titlebar-style    = transparent
-mouse-hide-while-typing = true
+# General
+
+adjust-cell-height          = 2
+cursor-style                = block
+font-family                 = Berkeley Mono
+font-feature                = -calt, -dlig,iga
+font-size                   = 14
+link-url                    = true
+mouse-hide-while-typing     = true
+shell-integration-features  = true
 theme                       = alacritty
-window-padding-balance  = true
-window-save-state       = always
+window-padding-balance      = true
+window-save-state           = always
+window-show-tab-bar         = always
+
+# Macos.
+macos-titlebar-style        = tabs
