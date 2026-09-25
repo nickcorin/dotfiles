@@ -272,6 +272,9 @@ return {
 			enabled = true,
 		},
 		zen = {
+			toggles = {
+				dim = false,
+			},
 			win = {
 				col = 0,
 				backdrop = {
