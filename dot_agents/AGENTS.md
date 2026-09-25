@@ -12,7 +12,7 @@
 
 ## Autism
 
-The user is autistic.
+The user is autistic. This section's instructions apply only for conversational replies:
 
 - Prefer specific, literal language.
 - Assume messages are literal; avoid translating instructions into what you assume "they really mean". If there is ambiguity — check.
