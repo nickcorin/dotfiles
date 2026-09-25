@@ -1,0 +1,17 @@
+#!/bin/bash
+set -euo pipefail
+
+if [[ $# -eq 0 ]]; then
+    printf 'Usage: open-in-neovim <file>...\n' >&2
+    exit 1
+fi
+
+# Quote file paths before passing them through the terminal's shell.
+printf -v editor_command ' %q' "$@"
+editor_command="exec nvim -c 'set title' --${editor_command}"
+
+# cmux starts the command in its shell environment; do not start another shell.
+exec /Applications/cmux.app/Contents/Resources/bin/cmux new-surface \
+    --type terminal \
+    --focus true \
+    --command "$editor_command"

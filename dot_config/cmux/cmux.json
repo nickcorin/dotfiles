@@ -2,7 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
   "schemaVersion": 1,
   "app": {
-    "appearance": "dark"
+    "appearance": "dark",
+    "preferredEditor": "\"$HOME/.config/cmux/open-in-neovim\""
+  },
+  "fileExplorer": {
+    "doubleClickAction": "preferredEditor"
   },
   "sidebarAppearance": {
     "matchTerminalBackground": true
