@@ -23,6 +23,7 @@ The user is autistic.
 - When sketching code, use comments to illustrate instead of identifier names.
 - Challenge ideas based on flawed assumptions and propose simpler, idiomatic solutions when they exist.
 - Never manually edit files that have been marked as auto-generated.
+- Documentation should assume no previous knowledge about the project, but may assume basic knowledge of the domain.
 
 ## Alexandria
 
