@@ -6,25 +6,11 @@ return {
 	lazy = false,
 	keys = {
 		{
-			"<leader>fc",
-			function()
-				require("fff").find_files_in_dir(vim.fn.stdpath("config"))
-			end,
-			desc = "Find Config File",
-		},
-		{
 			"<leader>ff",
 			function()
 				require("fff").find_files()
 			end,
 			desc = "Find Files",
-		},
-		{
-			"<leader>fr",
-			function()
-				require("fff").find_files()
-			end,
-			desc = "Recent Files",
 		},
 		{
 			"<leader>sg",
@@ -42,5 +28,13 @@ return {
 			mode = { "n", "x" },
 		},
 	},
-	opts = {},
+	opts = {
+		layout = {
+			height = 0.6,
+			prompt_position = "top",
+		},
+		preview = {
+			enabled = false,
+		},
+	},
 }

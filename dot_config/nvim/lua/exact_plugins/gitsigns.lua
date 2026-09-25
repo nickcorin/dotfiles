@@ -4,5 +4,8 @@ return {
 	opts = {
 		attach_to_untracked = true,
 		numhl = true,
+		signs = {
+			untracked = { text = "│" },
+		},
 	},
 }

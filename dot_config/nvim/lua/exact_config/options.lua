@@ -12,6 +12,7 @@ g.netrw_winsize = 20 -- Sets the initial size of new netrw windows.
 local opt = vim.opt
 
 opt.background = "dark" -- Use the dark variant of colorschemes.
+opt.breakindent = true
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard.
 opt.colorcolumn = "120"
 opt.completeopt = { "menuone", "noselect", "popup" }
@@ -22,6 +23,7 @@ opt.hlsearch = false -- Disable keeping search results highlighted.
 opt.inccommand = "nosplit" -- Incrementally show the effects of commands.
 opt.incsearch = true -- Find search results as the search query is typed.
 opt.laststatus = 3 -- Show one core status line shared by all splits.
+opt.linebreak = true
 opt.number = true
 opt.pummaxwidth = 40
 opt.shiftwidth = 4

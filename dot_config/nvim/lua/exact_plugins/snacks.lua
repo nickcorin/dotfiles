@@ -13,14 +13,15 @@ return {
 			end,
 			desc = "File Explorer.",
 		},
-		-- Find.
+		-- View.
 		{
-			"<leader><leader>",
+			"<leader>z",
 			function()
-				Snacks.picker.buffers()
+				Snacks.zen()
 			end,
-			desc = "Buffers (Alias)",
+			desc = "Toggle Narrow View",
 		},
+		-- Find.
 		{
 			"<leader>fb",
 			function()
@@ -103,20 +104,6 @@ return {
 		},
 		-- Search.
 		{
-			"<leader>sb",
-			function()
-				Snacks.picker.lines()
-			end,
-			desc = "Buffer Lines",
-		},
-		{
-			"<leader>sB",
-			function()
-				Snacks.picker.grep_buffers()
-			end,
-			desc = "Grep Open Buffers",
-		},
-		{
 			"<leader>sC",
 			function()
 				Snacks.picker.commands()
@@ -190,12 +177,12 @@ return {
 			},
 			indent = {
 				enabled = true,
-				char = "┆",
+				char = "│",
 			},
 			scope = {
 				enabled = true,
-				char = "┆",
-				underline = true,
+				char = "│",
+				underline = false,
 			},
 		},
 		notifier = {
@@ -205,22 +192,97 @@ return {
 			top_down = true,
 		},
 		picker = {
+			layout = {
+				layout = {
+					height = 0.6,
+				},
+				reverse = false,
+			},
 			sources = {
+				buffers = {
+					layout = { preset = "select" },
+				},
+				commands = {
+					layout = {
+						layout = {
+							[2] = { border = true, win = "list" },
+						},
+						preset = "vscode",
+					},
+				},
+				diagnostics = {
+					layout = { preset = "default" },
+				},
+				diagnostics_buffer = {
+					layout = { preset = "default" },
+				},
 				explorer = {
 					diagnostics_open = true,
 					git_status_open = true,
 					hidden = true,
 					ignored = true,
 					layout = {
-						layout = { position = "right" },
+						layout = {
+							height = 0,
+							position = "right",
+						},
 						preset = "sidebar",
 						preview = false,
 					},
+				},
+				gh_issue = {
+					layout = { preset = "default" },
+				},
+				help = {
+					layout = { preset = "select" },
+				},
+				lsp_declarations = {
+					layout = { preset = "default" },
+				},
+				lsp_definitions = {
+					layout = { preset = "default" },
+				},
+				lsp_implementations = {
+					layout = { preset = "default" },
+				},
+				lsp_references = {
+					layout = { preset = "default" },
+				},
+				lsp_symbols = {
+					layout = { preset = "default" },
+				},
+				lsp_type_definitions = {
+					layout = { preset = "default" },
+				},
+				lsp_workspace_symbols = {
+					layout = { preset = "default" },
+				},
+				qflist = {
+					layout = { preset = "default" },
+				},
+				undo = {
+					layout = { preset = "default" },
+				},
+				zoxide = {
+					layout = { preset = "select" },
 				},
 			},
 		},
 		statuscolumn = {
 			enabled = true,
+		},
+		zen = {
+			win = {
+				col = 0,
+				backdrop = {
+					transparent = false,
+					win = {
+						wo = {
+							winhighlight = "Normal:Normal",
+						},
+					},
+				},
+			},
 		},
 		styles = {
 			dashboard = {

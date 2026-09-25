@@ -69,6 +69,15 @@ api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- Visually wrap Markdown without inserting line breaks into paragraphs.
+api.nvim_create_autocmd("FileType", {
+	pattern = "markdown",
+	callback = function()
+		vim.opt_local.textwidth = 0
+		vim.opt_local.formatoptions:remove("t")
+	end,
+})
+
 -- Resize neovim split when terminal is resized.
 vim.api.nvim_create_autocmd("VimResized", {
 	callback = function()
