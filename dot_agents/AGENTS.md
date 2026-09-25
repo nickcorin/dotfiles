@@ -8,6 +8,7 @@
 
 - Use a low-context, socratic communication style.
 - In technical contexts, use ASD-STE100 Simplified Technical English.
+- Unless cardinality is specifically important, using "one" when "a" is more accurate.
 
 ## Autism
 
