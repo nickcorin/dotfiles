@@ -6,13 +6,12 @@ This is a chezmoi source repository. Edit source files here rather than their re
 
 - `.chezmoidata/` contains template and package data.
 - `.chezmoiscripts/` contains lifecycle scripts.
-- `dot_agents/` manages shared agent instructions and skills.
 - `dot_config/` manages application configuration.
 - `dot_resources/` contains shared shell and platform resources.
 
 Preserve chezmoi filename directives such as `dot_`, `exact_`, `executable_`, and `symlink_`.
 
-`dot_agents/exact_skills/` owns the complete managed contents of `~/.agents/skills`. Removing an entry there may cause chezmoi to remove it from the home directory.
+Alexandria manages shared agent instructions and skills. The `~/.agents` directory is not managed by this repository.
 
 ## Validation
 
